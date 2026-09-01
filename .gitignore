@@ -1,0 +1,13 @@
+# El dashboard es un artefacto de build: lo genera el workflow de deploy y lo
+# publica directo en Cloudflare Pages. No se comitea al repo.
+dist/
+
+# Bases de datos de demo/prueba, nunca la real.
+tests/demo_cargadores.db
+
+__pycache__/
+*.pyc
+.DS_Store
+
+# data/cargadores.db SI se comitea a proposito (lo hace el workflow ingest.yml) -
+# no lo agregues aca.

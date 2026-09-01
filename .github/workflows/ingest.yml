@@ -1,0 +1,45 @@
+name: Sondear API de cargadores
+
+on:
+  schedule:
+    # Cada 15 minutos. GitHub puede atrasar el disparo en horas de carga alta
+    # (sobre todo en punto de la hora) - no es un cron de precision al segundo.
+    # 96 corridas/dia x ~1 min c/u ~= 96 min/dia, comodo dentro del free tier
+    # de Actions en repo privado (~2.000 min/mes).
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}  # permite disparar manualmente desde la pestaña Actions
+
+# Evita que dos corridas se pisen si una se demora mas de 15 minutos.
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Sondear API y actualizar SQLite
+        run: python scripts/poller.py
+
+      - name: Comitear datos si cambiaron
+        run: |
+          git config user.name "cargadores-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/cargadores.db
+          if git diff --cached --quiet; then
+            echo "Sin cambios, no se comitea nada."
+          else
+            git commit -m "data: sondeo $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi

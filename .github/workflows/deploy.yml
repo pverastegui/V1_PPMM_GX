@@ -1,0 +1,38 @@
+name: Reconstruir y publicar dashboard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/cargadores.db"
+      - "scripts/build_dashboard.py"
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generar dist/index.html
+        run: python scripts/build_dashboard.py
+
+      - name: Publicar en Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=cargadores-voltex-monitor
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+# Requisitos previos (una sola vez, ver README.md):
+#   1. Crear el proyecto en Cloudflare Pages (nombre debe calzar con --project-name arriba).
+#   2. Agregar los secrets del repo: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID.
+#   3. En Cloudflare Zero Trust > Access > Applications, proteger el dominio *.pages.dev
+#      del proyecto con una politica "Allow" por dominio de correo (@copec.cl), para
+#      que el dashboard no quede abierto a cualquiera con el link.
