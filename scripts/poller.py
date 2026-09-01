@@ -46,7 +46,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-import requests
+# `requests` es opcional a proposito: build_dashboard.py importa este modulo solo
+# para reusar get_db()/DEFAULT_DB_PATH y nunca hace red, asi que no tiene por que
+# exigir la libreria instalada. Solo fetch_api() la necesita de verdad.
+try:
+    import requests
+except ImportError:  # pragma: no cover
+    requests = None
 
 API_URL = "https://cargadorespublicos.cl/api/data"
 REQUEST_TIMEOUT_S = 25
@@ -184,6 +190,13 @@ def fetch_api() -> FetchResult:
     """Descarga y parsea la API. Nunca lanza excepcion hacia afuera:
     cualquier falla de red, timeout o JSON invalido vuelve como FetchResult(ok=False, ...).
     Reintenta con backoff exponencial ante fallas transitorias."""
+    if requests is None:
+        return FetchResult(
+            ok=False,
+            error_type="ImportError",
+            error_message="Falta la libreria 'requests'. Corre: pip install -r requirements.txt",
+        )
+
     last_exc: Optional[Exception] = None
     last_status: Optional[int] = None
 

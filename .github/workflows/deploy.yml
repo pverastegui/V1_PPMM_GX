@@ -12,6 +12,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # Se mapean los secrets a env para poder preguntar si existen en el `if` de
+    # abajo: mientras Cloudflare no este configurado, el paso de publicar se
+    # SALTA en vez de fallar, y el workflow queda verde igual.
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -19,10 +24,22 @@ jobs:
         with:
           python-version: "3.12"
 
+      # build_dashboard.py solo usa la libreria estandar (sqlite3), no necesita
+      # pip install. El poller si necesita `requests`, pero eso corre en ingest.yml.
       - name: Generar dist/index.html
         run: python scripts/build_dashboard.py
 
+      # Asi pueden bajar el dashboard desde la pestaña Actions incluso antes de
+      # tener Cloudflare configurado (queda como archivo descargable en el run).
+      - name: Guardar el dashboard como artifact descargable
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard
+          path: dist/index.html
+          retention-days: 30
+
       - name: Publicar en Cloudflare Pages
+        if: env.CF_TOKEN != ''
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -30,9 +47,9 @@ jobs:
           command: pages deploy dist --project-name=cargadores-voltex-monitor
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
-# Requisitos previos (una sola vez, ver README.md):
-#   1. Crear el proyecto en Cloudflare Pages (nombre debe calzar con --project-name arriba).
-#   2. Agregar los secrets del repo: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID.
-#   3. En Cloudflare Zero Trust > Access > Applications, proteger el dominio *.pages.dev
-#      del proyecto con una politica "Allow" por dominio de correo (@copec.cl), para
-#      que el dashboard no quede abierto a cualquiera con el link.
+      - name: Aviso si Cloudflare no esta configurado
+        if: env.CF_TOKEN == ''
+        run: |
+          echo "::notice::Dashboard generado OK, pero no se publico: falta configurar"
+          echo "::notice::los secrets CLOUDFLARE_API_TOKEN y CLOUDFLARE_ACCOUNT_ID."
+          echo "::notice::Puedes bajarlo desde la seccion Artifacts de este run."

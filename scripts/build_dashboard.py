@@ -265,7 +265,16 @@ def render(conn: sqlite3.Connection) -> str:
     market_by_kw = sorted(market, key=lambda r: -r["kw"])
     sessions_sorted = sorted(sessions_24h, key=lambda r: -r["kwh"])
 
-    health_badge = "ok" if (health["pct_ok_24h"] or 0) >= 90 else ("warn" if (health["pct_ok_24h"] or 0) >= 50 else "bad")
+    # Cuando todavia no hay corridas en las ultimas 24h (base recien creada, o
+    # pipeline detenido) pct_ok_24h viene None: se muestra "sin datos" en vez de
+    # reventar al formatear.
+    pct_ok = health["pct_ok_24h"]
+    if pct_ok is None:
+        health_badge = "warn"
+        health_badge_txt = "sin sondeos en 24h"
+    else:
+        health_badge = "ok" if pct_ok >= 90 else ("warn" if pct_ok >= 50 else "bad")
+        health_badge_txt = f"{pct_ok:.0f}% OK (24h)"
     last_run_txt = health["last_run_ts"] or "sin datos"
     error_html = ""
     if health["last_error"]:
@@ -435,7 +444,7 @@ def render(conn: sqlite3.Connection) -> str:
   </section>
 
   <section>
-    <h2>Salud del pipeline <span class="badge {health_badge}">{health["pct_ok_24h"]:.0f}% OK (24h)</span></h2>
+    <h2>Salud del pipeline <span class="badge {health_badge}">{esc(health_badge_txt)}</span></h2>
     <p class="desc">Ultimo sondeo: {esc(last_run_txt)} ({health["n_runs_24h"]} corridas en las ultimas 24h)</p>
     {error_html}
   </section>
