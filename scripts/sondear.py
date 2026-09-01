@@ -53,6 +53,17 @@ mapeo_operadores.csv
     operador (el equivalente a la hoja MapeoOperadores). Si un operador no esta
     en la tabla, se usa su nombre tal cual (no rompe nada).
 
+--- LAS TRES FORMAS DE ATRIBUIR UN CONECTOR ---
+La API identifica tres actores distintos por cada location, y dan numeros
+distintos. Se guardan los tres para poder mirar el mercado de las tres formas:
+
+  owner  -> de quien es la instalacion. Es el campo MAS COMPLETO: casi no tiene
+            vacios (0,8% sin informar contra 12% del OPC).
+  OPC    -> quien opera el punto de carga (la "red"). Es la definicion habitual
+            de participacion de mercado, pero deja ~12% en "Sin Operador Informado".
+  PSE    -> quien le vende la carga al usuario final. Es una LISTA (hoy ninguna
+            location trae mas de uno; si llegaran varios se juntan con " + ").
+
 --- NOTA SOBRE institucion_privada ---
 El script viejo descartaba las locations con institucion_privada = true. Ese campo
 indica si el SITIO pertenece a una institucion privada (un mall, una gasolinera),
@@ -108,10 +119,14 @@ COLUMNAS_EVENTOS = [
     "max_electric_power",    # H
     "standard",              # I
     "location_name",         # J
-    "operador_agrupado",     # K
+    "operador_agrupado",     # K  (= la vista OPC, la de siempre)
     "tramo_potencia",        # L
     "commune",               # M
     "region",                # N
+    # De la O en adelante: las otras dos formas de atribuir el conector.
+    # Van DESPUES de la N para no correr de lugar nada de la planilla.
+    "owner_agrupado",        # O
+    "pse_agrupado",          # P
 ]
 
 COLUMNAS_CATALOGO = [
@@ -120,6 +135,9 @@ COLUMNAS_CATALOGO = [
     "max_electric_power", "tramo_potencia", "parking_type", "institucion_privada",
     "uso_exclusivo", "estado_actual", "estado_desde", "api_last_updated",
     "primera_vez_visto", "ultima_vez_visto_api", "activo",
+    # Las tres formas de atribuir un conector a una empresa (ver docstring):
+    "owner_name", "owner_rut", "owner_agrupado",
+    "pse_name", "pse_rut", "pse_agrupado",
 ]
 
 COLUMNAS_CORRIDAS = [
@@ -254,14 +272,33 @@ def aplanar(datos: list, mapeo: dict) -> dict:
         try:
             owner = loc.get("owner") or {}
             opc = loc.get("OPC") or {}
+            pses = loc.get("PSEs") or []
 
-            # El nombre oficial normalizado de la plataforma SEC. Si no viene
+            # --- VISTA 1: OPC, el operador del punto de carga (la de siempre) ---
+            # Es el nombre oficial normalizado de la plataforma SEC. Si no viene
             # informado, se cae al nombre del dueño.
             operador = opc.get("normalized_name")
             if not operador or operador == "Sin Operador Informado":
                 operador = owner.get("name") or "Sin Operador Informado"
-
             agrupado = mapeo.get(operador.upper(), operador)
+
+            # --- VISTA 2: owner, de quien es la instalacion ---
+            # Es el campo mas completo de los tres: casi no tiene vacios.
+            owner_name = (owner.get("name") or "").strip() or "Sin dueño informado"
+            owner_agrupado = mapeo.get(owner_name.upper(), owner_name)
+
+            # --- VISTA 3: PSE, quien le vende la carga al usuario final ---
+            # Es una LISTA. Hoy ninguna location trae mas de uno, pero si algun
+            # dia llegan varios se juntan con " + " para no perder informacion
+            # ni contar el mismo conector dos veces.
+            nombres_pse = [(p.get("name") or "").strip() for p in pses if (p.get("name") or "").strip()]
+            if nombres_pse:
+                pse_name = " + ".join(sorted(set(nombres_pse)))
+                pse_agrupado = (mapeo.get(nombres_pse[0].upper(), nombres_pse[0])
+                                if len(set(nombres_pse)) == 1 else pse_name)
+            else:
+                pse_name = pse_agrupado = "Sin PSE informado"
+            pse_rut = pses[0].get("RUT") if len(pses) == 1 else ""
 
             for evse in (loc.get("evses") or []):
                 for con in (evse.get("connectors") or []):
@@ -288,6 +325,12 @@ def aplanar(datos: list, mapeo: dict) -> dict:
                         "uso_exclusivo": 1 if evse.get("uso_exclusivo") else 0,
                         "estado": (con.get("status") or "DESCONOCIDO").upper(),
                         "api_last_updated": evse.get("last_updated") or "",
+                        "owner_name": owner_name,
+                        "owner_rut": owner.get("RUT") or "",
+                        "owner_agrupado": owner_agrupado,
+                        "pse_name": pse_name,
+                        "pse_rut": pse_rut,
+                        "pse_agrupado": pse_agrupado,
                     }
         except (AttributeError, TypeError):
             # Una location con forma rara no debe tumbar el resto.
@@ -332,6 +375,8 @@ def procesar(datos: list, momento_iso: str) -> tuple[list[dict], list[dict]]:
                     "tramo_potencia": actual["tramo_potencia"],
                     "commune": actual["commune"],
                     "region": actual["region"],
+                    "owner_agrupado": actual["owner_agrupado"],
+                    "pse_agrupado": actual["pse_agrupado"],
                 })
 
             fila = {k: actual.get(k) for k in COLUMNAS_CATALOGO if k in actual}
@@ -368,6 +413,8 @@ def procesar(datos: list, momento_iso: str) -> tuple[list[dict], list[dict]]:
                         "tramo_potencia": previo.get("tramo_potencia"),
                         "commune": previo.get("commune"),
                         "region": previo.get("region"),
+                        "owner_agrupado": previo.get("owner_agrupado"),
+                        "pse_agrupado": previo.get("pse_agrupado"),
                     })
                     fila["estado_actual"] = "RETIRADO_DE_API"
                     fila["estado_desde"] = momento_iso
