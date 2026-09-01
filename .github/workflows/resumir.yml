@@ -1,0 +1,36 @@
+name: Resumir datos para el visor
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: resumen
+  cancel-in-progress: false
+
+jobs:
+  resumir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generar los resumenes
+        run: python scripts/resumir.py
+      - name: Guardar los cambios
+        run: |
+          git config user.name "cargadores-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/resumen_diario.csv data/resumen_parque.csv
+          if git diff --cached --quiet; then
+            echo "Sin cambios en los resumenes."
+          else
+            git commit -m "resumen $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash origin main || true
+            git push
+          fi

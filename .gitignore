@@ -1,13 +1,18 @@
-# El dashboard es un artefacto de build: lo genera el workflow de deploy y lo
-# publica directo en Cloudflare Pages. No se comitea al repo.
-dist/
-
-# Bases de datos de demo/prueba, nunca la real.
-tests/demo_cargadores.db
-
 __pycache__/
 *.pyc
 .DS_Store
 
-# data/cargadores.db SI se comitea a proposito (lo hace el workflow ingest.yml) -
-# no lo agregues aca.
+# El visor es TU herramienta de analisis y se queda fuera del repo a proposito:
+# asi nadie mas lo encuentra, y los parametros de carga promedio que ingreses
+# viven solo en tu navegador. Vive en la carpeta del repo por comodidad (para
+# tenerlo junto a los datos), pero git lo ignora.
+visor.html
+
+# Archivos de prueba temporales
+prueba_cors.html
+
+# El dashboard generado localmente (dist/) es un artefacto, no se comitea.
+dist/
+
+# OJO: data/ y snapshots/ SI se comitean a proposito (los escribe el workflow).
+# No los agregues aca.
