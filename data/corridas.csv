@@ -16,3 +16,4 @@ timestamp,ok,http_status,n_locations,n_conectores,n_eventos_nuevos,archivo_crudo
 2026-09-01T22:34:37+00:00,1,200,652,2265,54,snapshots/2026-09-01/2234.json.gz,,
 2026-09-01T22:39:39+00:00,1,200,652,2265,32,snapshots/2026-09-01/2239.json.gz,,
 2026-09-01T22:44:43+00:00,1,200,652,2265,25,snapshots/2026-09-01/2244.json.gz,,
+2026-09-01T22:49:45+00:00,1,200,652,2265,20,snapshots/2026-09-01/2249.json.gz,,
