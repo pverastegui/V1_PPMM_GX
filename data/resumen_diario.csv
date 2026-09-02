@@ -1,43 +1,43 @@
 vista,fecha,empresa,tramo_potencia,transacciones
-opc,2026-09-01,Copec Voltex,150,137
-opc,2026-09-01,Enel,(50-150],92
-opc,2026-09-01,Enerlink,(50-150],46
+opc,2026-09-01,Copec Voltex,150,146
+opc,2026-09-01,Enel,(50-150],97
+opc,2026-09-01,Enerlink,(50-150],49
 opc,2026-09-01,Copec Voltex,(22-50],37
-opc,2026-09-01,Enel,(22-50],28
+opc,2026-09-01,Enel,(22-50],30
 opc,2026-09-01,Enerlink,(22-50],26
 opc,2026-09-01,Copec Voltex,(50-150],12
 opc,2026-09-01,Copec Voltex,(7-22],10
-opc,2026-09-01,Enel,(7-22],7
+opc,2026-09-01,Enel,(7-22],8
 opc,2026-09-01,Enel,7,6
 opc,2026-09-01,Enerlink,7,5
 opc,2026-09-01,Copec Voltex,7,4
 opc,2026-09-01,Enerlink,150,3
 opc,2026-09-01,Enerlink,(7-22],3
 opc,2026-09-01,Enel,150,1
-owner,2026-09-01,Copec Voltex,150,137
-owner,2026-09-01,Enel,(50-150],92
-owner,2026-09-01,Enerlink,(50-150],46
+owner,2026-09-01,Copec Voltex,150,146
+owner,2026-09-01,Enel,(50-150],97
+owner,2026-09-01,Enerlink,(50-150],49
 owner,2026-09-01,Copec Voltex,(22-50],37
-owner,2026-09-01,Enel,(22-50],28
+owner,2026-09-01,Enel,(22-50],30
 owner,2026-09-01,Enerlink,(22-50],26
 owner,2026-09-01,Copec Voltex,(50-150],12
 owner,2026-09-01,Copec Voltex,(7-22],10
-owner,2026-09-01,Enel,(7-22],7
+owner,2026-09-01,Enel,(7-22],8
 owner,2026-09-01,Enel,7,6
 owner,2026-09-01,Enerlink,7,5
 owner,2026-09-01,Copec Voltex,7,4
 owner,2026-09-01,Enerlink,150,3
 owner,2026-09-01,Enerlink,(7-22],3
 owner,2026-09-01,Enel,150,1
-pse,2026-09-01,Copec Voltex,150,137
-pse,2026-09-01,Enel,(50-150],92
-pse,2026-09-01,Enerlink,(50-150],46
+pse,2026-09-01,Copec Voltex,150,146
+pse,2026-09-01,Enel,(50-150],97
+pse,2026-09-01,Enerlink,(50-150],49
 pse,2026-09-01,Copec Voltex,(22-50],37
-pse,2026-09-01,Enel,(22-50],28
+pse,2026-09-01,Enel,(22-50],30
 pse,2026-09-01,Enerlink,(22-50],26
 pse,2026-09-01,Copec Voltex,(50-150],12
 pse,2026-09-01,Copec Voltex,(7-22],10
-pse,2026-09-01,Enel,(7-22],7
+pse,2026-09-01,Enel,(7-22],8
 pse,2026-09-01,Enel,7,6
 pse,2026-09-01,Enerlink,7,5
 pse,2026-09-01,Copec Voltex,7,4
