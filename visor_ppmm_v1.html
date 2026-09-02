@@ -47,8 +47,9 @@
   th:first-child, td:first-child { text-align:left; }
   th { color:var(--tinta-2); font-weight:600; }
   tr.foco td { font-weight:600; color:var(--serie-2); }
-  input[type=number] { width:82px; padding:4px 7px; border-radius:6px; border:1px solid var(--borde);
-    background:var(--campo); color:var(--tinta); font:inherit; text-align:right; }
+  input, select { padding:4px 7px; border-radius:6px; border:1px solid var(--borde);
+    background:var(--campo); color:var(--tinta); font:inherit; }
+  input[type=number] { width:82px; text-align:right; }
   .params { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-end; }
   .param label { display:block; font-size:.75rem; color:var(--tinta-2); margin-bottom:4px; }
   .aviso { font-size:.8rem; padding:10px 13px; border-radius:8px; margin:0 0 14px;
@@ -110,6 +111,46 @@
 </section>
 
 <section>
+  <h2>Detalle por ubicación</h2>
+  <p class="desc">Cada fila es <strong>una ubicación</strong> (no un conector), con las tres formas de
+     atribuirla lado a lado: a quién pertenece (owner), quién opera el punto de carga (OPC) y quién le
+     vende la carga al usuario (PSE) — el nombre tal cual viene de la API, y el grupo final que quedó
+     asignado. Sirve para auditar de dónde sale cada número de las tablas de arriba.</p>
+
+  <div class="params" style="margin-bottom:12px">
+    <div class="param"><label>Buscar</label>
+      <input type="text" id="ub-txt" placeholder="ubicación, comuna o dueño" style="width:220px;text-align:left"></div>
+    <div class="param"><label>Sitio</label>
+      <select id="ub-priv">
+        <option value="">Todos</option><option value="si">Solo privados</option><option value="no">Solo públicos</option>
+      </select></div>
+  </div>
+
+  <div id="ubicaciones-tabla"></div>
+
+  <h3 style="font-size:.9rem;margin:22px 0 4px">Reglas de agrupación</h3>
+  <p class="desc">Si un grupo quedó mal separado (por ejemplo, "ENEL X" debería llamarse simplemente
+     "Enel"), corrígelo acá. Se guarda solo en <strong>este navegador</strong> — no toca el repo ni
+     <code>mapeo_operadores.csv</code> — y se aplica de inmediato a todas las tablas y gráficos de la
+     página, incluida la tabla de arriba (los grupos corregidos quedan marcados con ✏️).</p>
+
+  <div class="params" style="margin-bottom:14px">
+    <div class="param"><label>Vista</label>
+      <select id="regla-vista">
+        <option value="opc">OPC</option><option value="owner">Owner</option><option value="pse">PSE</option>
+      </select></div>
+    <div class="param"><label>Nombre actual</label>
+      <input list="regla-nombres" id="regla-desde" placeholder="ej: ENEL X" style="width:190px;text-align:left">
+      <datalist id="regla-nombres"></datalist></div>
+    <div class="param"><label>Renombrar a</label>
+      <input type="text" id="regla-hasta" placeholder="ej: Enel" style="width:190px;text-align:left"></div>
+    <div class="param"><button class="primario" id="regla-agregar">Agregar regla</button></div>
+  </div>
+
+  <div id="reglas-tabla"></div>
+</section>
+
+<section>
   <h2>Sesiones diarias</h2>
   <p class="desc">Transacciones detectadas por día, en <strong>hora de Chile</strong>
      (no UTC), para que puedas compararlas contra los datos internos de Voltex.</p>
@@ -165,6 +206,10 @@
     <div class="params" style="margin-bottom:12px">
       <div class="param"><label>Operador</label><select id="ev-op"></select></div>
       <div class="param"><label>Estado nuevo</label><select id="ev-est"></select></div>
+      <div class="param"><label>Potencia</label><select id="ev-tramo"></select></div>
+      <div class="param"><label>Sitio</label><select id="ev-priv"></select></div>
+      <div class="param"><label>Desde (hora Chile)</label><input type="datetime-local" id="ev-desde"></div>
+      <div class="param"><label>Hasta (hora Chile)</label><input type="datetime-local" id="ev-hasta"></div>
       <div class="param"><label>Buscar en la estación</label>
         <input type="text" id="ev-txt" placeholder="ej: Chimbarongo" style="width:190px;text-align:left"></div>
     </div>
@@ -212,6 +257,47 @@ const NOTAS_VISTA = {
 
 let parque = [], diario = [], corridas = [], cargaPromedio = {};
 let vista = "opc";
+// connector_id -> true (privado) / false (publico), segun el catalogo actual.
+// Se arma una sola vez al cargar; institucion_privada casi no cambia en el tiempo.
+let catalogoPrivado = {};
+// Una fila por ubicacion (no por conector), con las tres formas de atribuirla.
+// Se arma desde catalogo.csv, que trae la ubicacion repetida por cada conector.
+let ubicaciones = [];
+
+// ------------------------------------------------- reglas de agrupacion (tuyas)
+// Renombra o fusiona un grupo YA calculado por el backend (operador_agrupado,
+// owner_agrupado o pse_agrupado). No reemplaza el mapeo_operadores.csv del
+// repo -- es una segunda pasada que corres tu, solo en este navegador, para
+// los casos que el mapeo del repo todavia no cubre.
+const CLAVE_OVERRIDES = "overridesAgrupado";
+let overrides = { opc: {}, owner: {}, pse: {} };
+
+function leerOverrides() {
+  try {
+    const g = JSON.parse(localStorage.getItem(CLAVE_OVERRIDES) || "{}");
+    return { opc: g.opc || {}, owner: g.owner || {}, pse: g.pse || {} };
+  } catch (e) { return { opc: {}, owner: {}, pse: {} }; }
+}
+function guardarOverrides() {
+  try { localStorage.setItem(CLAVE_OVERRIDES, JSON.stringify(overrides)); } catch (e) {}
+}
+// Si hay una regla para ese nombre (comparando sin mayusculas/minusculas),
+// devuelve el nuevo nombre; si no, devuelve el nombre tal cual vino del backend.
+function agrupadoFinal(vistaKey, nombre) {
+  const regla = overrides[vistaKey] && overrides[vistaKey][String(nombre ?? "").toUpperCase()];
+  return regla || nombre;
+}
+// Junta filas que, despues de aplicar una regla, terminaron con el mismo "op"
+// (pasa cuando una regla fusiona dos grupos en uno): suma los campos numericos
+// en vez de dejar dos filas separadas con el mismo nombre.
+function fusionarPorOp(filas, campos) {
+  const acc = {};
+  for (const f of filas) {
+    if (!acc[f.op]) acc[f.op] = { ...f };
+    else for (const c of campos) acc[f.op][c] += f[c];
+  }
+  return Object.values(acc);
+}
 
 // ------------------------------------------------------- parámetros (localStorage)
 function leerParams() {
@@ -295,12 +381,40 @@ async function cargar() {
       bajar("resumen_parque.csv"),
       bajar("resumen_diario.csv"),
     ]);
-    // corridas.csv es opcional: si falla, el resto del visor funciona igual
+    // corridas.csv y catalogo.csv son opcionales: si fallan, el resto del visor
+    // funciona igual (solo se pierden el detalle de corridas y el detalle por ubicación).
     try { corridas = await bajar("corridas.csv"); } catch (e) { corridas = []; }
+    try {
+      const cat = await bajar("catalogo.csv");
+      catalogoPrivado = {};
+      const porUbicacion = {};
+      cat.forEach(c => {
+        catalogoPrivado[c.connector_id] = c.institucion_privada === "1";
+        // catalogo.csv trae una fila POR CONECTOR: la ubicacion viene repetida.
+        // Con quedarse con la primera vez que se ve cada location_id alcanza,
+        // porque esos campos son de la ubicacion, no del conector.
+        if (!porUbicacion[c.location_id]) {
+          porUbicacion[c.location_id] = {
+            location_id: c.location_id, location_name: c.location_name,
+            commune: c.commune, region: c.region,
+            institucion_privada: c.institucion_privada === "1",
+            owner_name: c.owner_name, owner_agrupado: c.owner_agrupado,
+            operator_name: c.operator_name, operador_agrupado: c.operador_agrupado,
+            pse_name: c.pse_name, pse_agrupado: c.pse_agrupado,
+            conectores: 0, kw: 0,
+          };
+        }
+        porUbicacion[c.location_id].conectores += 1;
+        porUbicacion[c.location_id].kw += Number(c.max_electric_power) || 0;
+      });
+      ubicaciones = Object.values(porUbicacion);
+    } catch (e) { catalogoPrivado = {}; ubicaciones = []; }
     const dias = new Set(diario.map(d => d.fecha));
     estado.innerHTML = `<span class="ok-chip">datos al día</span> ` +
       `${fmt(parque.length)} operadores · ${dias.size} día(s) con sesiones · ` +
       `actualizado ${new Date().toLocaleString("es-CL")}`;
+    actualizarNombresConocidos();
+    pintarUbicaciones();
     pintarTodo();
   } catch (e) {
     estado.textContent = "";
@@ -375,10 +489,14 @@ function pintarTodo() {
   document.getElementById("nota-vista").innerHTML = NOTAS_VISTA[vista] || "";
 
   // --- parque instalado (solo la vista elegida) ---
-  const filasParque = parque
+  let filasParque = parque
     .filter(p => (p.vista || "opc") === vista)
-    .map(p => ({ op: p.empresa || p.operador_agrupado,
+    .map(p => ({ op: agrupadoFinal(vista, p.empresa || p.operador_agrupado),
                  sitios: +p.sitios, conectores: +p.conectores, kw: +p.kw }));
+  // Si una regla fusiono dos grupos en uno, sus filas quedan con el mismo "op":
+  // hay que sumarlas, si no aparecerian dos filas repetidas con el mismo nombre.
+  filasParque = fusionarPorOp(filasParque, ["sitios", "conectores", "kw"])
+    .sort((a, b) => b.conectores - a.conectores);
   const totCon = filasParque.reduce((a, f) => a + f.conectores, 0) || 1;
   const totKw = filasParque.reduce((a, f) => a + f.kw, 0) || 1;
   const foco = filasParque.find(f => esFoco(f.op));
@@ -400,7 +518,7 @@ function pintarTodo() {
   const fechas = [...new Set(diarioVista.map(d => d.fecha))].sort();
   const porOpDia = {}, totalOp = {};
   diarioVista.forEach(d => {
-    const op = d.empresa || d.operador_agrupado, n = +d.transacciones || 0;
+    const op = agrupadoFinal(vista, d.empresa || d.operador_agrupado), n = +d.transacciones || 0;
     (porOpDia[op] = porOpDia[op] || {})[d.fecha] = (porOpDia[op][d.fecha] || 0) + n;
     totalOp[op] = (totalOp[op] || 0) + n;
   });
@@ -432,7 +550,7 @@ function pintarTodo() {
   // --- volumen ---
   const kwhOp = {}, transOp = {};
   diarioVista.forEach(d => {
-    const op = d.empresa || d.operador_agrupado, n = +d.transacciones || 0;
+    const op = agrupadoFinal(vista, d.empresa || d.operador_agrupado), n = +d.transacciones || 0;
     kwhOp[op] = (kwhOp[op] || 0) + n * (cargaPromedio[d.tramo_potencia] || 0);
     transOp[op] = (transOp[op] || 0) + n;
   });
@@ -462,10 +580,10 @@ function pintarTodo() {
 
   const ultimas = corridas.slice(-10).reverse();
   document.getElementById("corridas").innerHTML = ultimas.length
-    ? `<table><thead><tr><th>Cuándo (UTC)</th><th>ok</th><th>Conectores</th>
+    ? `<table><thead><tr><th>Cuándo (Chile)</th><th>ok</th><th>Conectores</th>
          <th>Cambios detectados</th><th style="text-align:left">Error</th></tr></thead><tbody>` +
       ultimas.map(c => `<tr>
-        <td>${esc(c.timestamp)}</td>
+        <td>${esc(fechaHoraChile(c.timestamp))}</td>
         <td style="color:${c.ok === "1" ? "var(--ok)" : "var(--critico)"};font-weight:600">${esc(c.ok)}</td>
         <td>${esc(c.n_conectores || "—")}</td>
         <td>${esc(c.n_eventos_nuevos || "—")}</td>
@@ -492,10 +610,34 @@ function pintarTodo() {
 const MAX_FILAS_TABLA = 200;   // se muestran las mas recientes; el filtro busca en todas
 let eventos = [];
 
-// "2026-09-05T01:17:01+00:00" -> "2026-09-05 01:17" (mas corto, no se corta en dos lineas)
-function fechaCorta(ts) {
-  if (!ts) return "";
-  return String(ts).replace("T", " ").replace(/(\+00:00|Z)$/, "").slice(0, 16);
+// Convierte un timestamp UTC (el que guarda sondear.py) a hora de Chile de
+// verdad -- via Intl con timeZone "America/Santiago", no restando un offset
+// fijo a mano, para que quede bien sin importar si rige horario de verano.
+function partesChile(ts) {
+  if (!ts) return null;
+  const d = new Date(ts);
+  if (isNaN(d)) return null;
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hour12: false,
+  }).formatToParts(d).reduce((o, p) => (o[p.type] = p.value, o), {});
+}
+// "2026-09-05T01:17:01+00:00" -> "2026-09-04 22:17" (hora de Chile, no UTC)
+function fechaHoraChile(ts) {
+  const p = partesChile(ts);
+  return p ? `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}` : "";
+}
+// "YYYY-MM-DDTHH:mm" en hora de Chile -- el mismo formato que entrega un
+// <input type="datetime-local">, para poder comparar directo como texto
+// (funciona porque ambos quedan con ceros a la izquierda, orden ISO).
+function fechaChileFiltro(ts) {
+  const p = partesChile(ts);
+  return p ? `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}` : null;
+}
+// true = privado, false = publico, undefined = el conector no esta en el
+// catalogo actual (p.ej. un evento muy viejo de un conector ya retirado).
+function esPrivado(connectorId) {
+  return catalogoPrivado[connectorId];
 }
 
 function mesesDisponibles(n = 6) {
@@ -545,7 +687,8 @@ async function cargarEventos() {
 // si el evento es viejo y no trae las columnas nuevas.
 function empresaDe(e) {
   const col = { opc: "operador_agrupado", owner: "owner_agrupado", pse: "pse_agrupado" }[vista];
-  return e[col] || e.operador_agrupado || e.operator_name || "Sin informar";
+  const base = e[col] || e.operador_agrupado || e.operator_name || "Sin informar";
+  return agrupadoFinal(vista, base);
 }
 
 // ------------------------------------------- cortes de monitoreo (huecos de sondeo)
@@ -642,12 +785,22 @@ function armarSesiones(evs) {
 function pintarSesiones() {
   const op = document.getElementById("ev-op").value;
   const txt = document.getElementById("ev-txt").value.trim().toLowerCase();
+  const tramo = document.getElementById("ev-tramo").value;
+  const priv = document.getElementById("ev-priv").value;
+  const desde = document.getElementById("ev-desde").value;
+  const hasta = document.getElementById("ev-hasta").value;
 
   const { sesiones, yaEstabanCargando } = armarSesiones(eventos);
-  const filtradas = sesiones.filter(s =>
-    (!op || s.operador === op) &&
-    (!txt || (s.estacion || "").toLowerCase().includes(txt))
-  );
+  const filtradas = sesiones.filter(s => {
+    const fch = fechaChileFiltro(s.inicio);
+    const privS = esPrivado(s.connector_id);
+    return (!op || s.operador === op) &&
+      (!txt || (s.estacion || "").toLowerCase().includes(txt)) &&
+      (!tramo || (s.tramo || "desconocido") === tramo) &&
+      (!priv || (priv === "si" ? privS === true : privS === false)) &&
+      (!desde || (fch && fch >= desde)) &&
+      (!hasta || (fch && fch <= hasta));
+  });
 
   const enCurso = filtradas.filter(s => s.enCurso);
   const terminadas = filtradas.filter(s => !s.enCurso);
@@ -685,42 +838,55 @@ function pintarSesiones() {
     `</p>
     <div class="caja-scroll"><table><thead><tr>
       <th style="text-align:left">Operador</th><th style="text-align:left">Estación</th>
-      <th>Conector</th><th style="text-align:left">Empezó</th>
-      <th style="text-align:left">Terminó</th><th>Duró</th><th>kW</th>
+      <th style="text-align:left">Sitio</th>
+      <th>Conector</th><th style="text-align:left">Empezó (Chile)</th>
+      <th style="text-align:left">Terminó (Chile)</th><th>Duró</th><th>kW</th>
     </tr></thead><tbody>` +
-    filas.map(s => `<tr${s.corteMonitoreo ? ' style="opacity:.65"' : ''}>
+    filas.map(s => { const privS = esPrivado(s.connector_id); return `<tr${s.corteMonitoreo ? ' style="opacity:.65"' : ''}>
       <td style="text-align:left">${esc(s.operador)}</td>
       <td style="text-align:left">${esc(s.estacion)}</td>
+      <td style="text-align:left">${privS === true ? "Privado" : privS === false ? "Público" : "—"}</td>
       <td>${esc(s.connector_id)}</td>
-      <td style="text-align:left;white-space:nowrap">${esc(fechaCorta(s.inicio))}</td>
+      <td style="text-align:left;white-space:nowrap">${esc(fechaHoraChile(s.inicio))}</td>
       <td style="text-align:left;white-space:nowrap">${s.enCurso
         ? '<span style="color:var(--ok);font-weight:600">cargando ahora</span>'
-        : esc(fechaCorta(s.fin))}</td>
+        : esc(fechaHoraChile(s.fin))}</td>
       <td style="white-space:nowrap">${s.corteMonitoreo
         ? `<span title="Hubo un corte de monitoreo de ~${fmt(s.corteMin)} min durante esta carga: esta duración no es confiable." style="color:var(--alerta);cursor:help">⚠ ${fmt(s.minutos)} min*</span>`
         : `${fmt(s.minutos)} min`}</td>
       <td>${esc(s.kw)}</td>
-    </tr>`).join("") + `</tbody></table></div>`;
+    </tr>`; }).join("") + `</tbody></table></div>`;
 }
 
 function pintarEventos() {
   const op = document.getElementById("ev-op").value;
   const est = document.getElementById("ev-est").value;
   const txt = document.getElementById("ev-txt").value.trim().toLowerCase();
+  const tramo = document.getElementById("ev-tramo").value;
+  const priv = document.getElementById("ev-priv").value;
+  const desde = document.getElementById("ev-desde").value;
+  const hasta = document.getElementById("ev-hasta").value;
 
-  const filtrados = eventos.filter(e =>
-    (!op || empresaDe(e) === op) &&
-    (!est || e.estado_nuevo === est) &&
-    (!txt || (e.location_name || "").toLowerCase().includes(txt))
-  );
+  const filtrados = eventos.filter(e => {
+    const fch = fechaChileFiltro(e.timestamp_deteccion);
+    const privE = esPrivado(e.connector_id);
+    return (!op || empresaDe(e) === op) &&
+      (!est || e.estado_nuevo === est) &&
+      (!tramo || (e.tramo_potencia || "desconocido") === tramo) &&
+      (!priv || (priv === "si" ? privE === true : privE === false)) &&
+      (!txt || (e.location_name || "").toLowerCase().includes(txt)) &&
+      (!desde || (fch && fch >= desde)) &&
+      (!hasta || (fch && fch <= hasta));
+  });
 
   const mostrar = filtrados.slice(-MAX_FILAS_TABLA).reverse();
   // Columnas de la tabla: [campo, titulo, alinear a la izquierda]
   const cols = [
-    ["timestamp_deteccion", "Cuándo (UTC)", true], ["__empresa", "Empresa", true],
+    ["timestamp_deteccion", "Cuándo (Chile)", true], ["__empresa", "Empresa", true],
     ["estado_anterior", "Estado anterior", true], ["estado_nuevo", "Estado nuevo", true],
     ["tramo_potencia", "Tramo", false], ["max_electric_power", "kW", false],
-    ["location_name", "Estación", true], ["connector_id", "Conector", false],
+    ["location_name", "Estación", true], ["__privado", "Sitio", true],
+    ["connector_id", "Conector", false],
   ];
 
   const aviso = filtrados.length > MAX_FILAS_TABLA
@@ -737,30 +903,153 @@ function pintarEventos() {
       `</tr></thead><tbody>` +
       mostrar.map(e => `<tr>` +
         cols.map(c => {
-          const v = c[0] === "timestamp_deteccion" ? fechaCorta(e[c[0]])
-                  : c[0] === "__empresa" ? empresaDe(e) : (e[c[0]] ?? "");
+          const v = c[0] === "timestamp_deteccion" ? fechaHoraChile(e[c[0]])
+                  : c[0] === "__empresa" ? empresaDe(e)
+                  : c[0] === "__privado" ? (esPrivado(e.connector_id) === true ? "Privado"
+                      : esPrivado(e.connector_id) === false ? "Público" : "—")
+                  : (e[c[0]] ?? "");
           const nowrap = c[0] === "timestamp_deteccion" ? "white-space:nowrap;" : "";
           return `<td style="${nowrap}${c[2] ? "text-align:left" : ""}">${esc(v)}</td>`;
         }).join("") + `</tr>`).join("") + `</tbody></table></div>`
     : `<p class="desc">Ningún evento calza con ese filtro.</p>`;
 }
 
+// --------------------------------------- detalle por ubicacion + reglas de agrupacion
+function pintarUbicaciones() {
+  const txt = document.getElementById("ub-txt").value.trim().toLowerCase();
+  const priv = document.getElementById("ub-priv").value;
+
+  const filtradas = ubicaciones.filter(u => {
+    if (priv === "si" && !u.institucion_privada) return false;
+    if (priv === "no" && u.institucion_privada) return false;
+    if (!txt) return true;
+    const hay = `${u.location_name} ${u.commune} ${u.owner_name} ${u.operator_name} ${u.pse_name}`.toLowerCase();
+    return hay.includes(txt);
+  }).sort((a, b) => (a.location_name || "").localeCompare(b.location_name || ""));
+
+  const filas = filtradas.slice(0, MAX_FILAS_TABLA);
+  document.getElementById("ubicaciones-tabla").innerHTML = !ubicaciones.length
+    ? `<p class="desc">Todavía no se pudo leer <code>catalogo.csv</code>.</p>`
+    : filtradas.length
+    ? `<p class="nota">${fmt(filtradas.length)} ubicaciones calzan con el filtro${
+        filtradas.length > MAX_FILAS_TABLA ? ` (mostrando las primeras ${MAX_FILAS_TABLA}, en orden alfabético)` : ""}.</p>
+      <div class="caja-scroll"><table><thead><tr>
+        <th style="text-align:left">Ubicación</th><th style="text-align:left">Comuna</th>
+        <th style="text-align:left">Sitio</th>
+        <th style="text-align:left">Owner (crudo)</th><th style="text-align:left">Owner → grupo</th>
+        <th style="text-align:left">OPC (crudo)</th><th style="text-align:left">OPC → grupo</th>
+        <th style="text-align:left">PSE (crudo)</th><th style="text-align:left">PSE → grupo</th>
+        <th>Conectores</th><th>kW</th>
+      </tr></thead><tbody>` +
+      filas.map(u => {
+        const ownerG = agrupadoFinal("owner", u.owner_agrupado);
+        const opcG = agrupadoFinal("opc", u.operador_agrupado);
+        const pseG = agrupadoFinal("pse", u.pse_agrupado);
+        return `<tr>
+          <td style="text-align:left">${esc(u.location_name)}</td>
+          <td style="text-align:left">${esc(u.commune)}</td>
+          <td style="text-align:left">${u.institucion_privada ? "Privado" : "Público"}</td>
+          <td style="text-align:left">${esc(u.owner_name)}</td>
+          <td style="text-align:left">${esc(ownerG)}${ownerG !== u.owner_agrupado ? " ✏️" : ""}</td>
+          <td style="text-align:left">${esc(u.operator_name)}</td>
+          <td style="text-align:left">${esc(opcG)}${opcG !== u.operador_agrupado ? " ✏️" : ""}</td>
+          <td style="text-align:left">${esc(u.pse_name)}</td>
+          <td style="text-align:left">${esc(pseG)}${pseG !== u.pse_agrupado ? " ✏️" : ""}</td>
+          <td>${fmt(u.conectores)}</td>
+          <td>${fmt(u.kw)}</td>
+        </tr>`;
+      }).join("") + `</tbody></table></div>`
+    : `<p class="desc">Ninguna ubicación calza con ese filtro.</p>`;
+}
+
+// El datalist de "Nombre actual" se llena con los grupos que existen HOY para
+// la vista elegida (ya con las reglas que hayas puesto antes aplicadas), asi
+// no hay que adivinar como esta escrito el nombre.
+function actualizarNombresConocidos() {
+  const v = document.getElementById("regla-vista").value;
+  const nombres = [...new Set(parque.filter(p => (p.vista || "opc") === v)
+    .map(p => agrupadoFinal(v, p.empresa || p.operador_agrupado)))].sort();
+  document.getElementById("regla-nombres").innerHTML =
+    nombres.map(n => `<option value="${esc(n)}">`).join("");
+}
+
+function pintarReglas() {
+  const NOMBRE_VISTA = { opc: "OPC", owner: "Owner", pse: "PSE" };
+  const filas = [];
+  for (const v of ["opc", "owner", "pse"])
+    for (const [desde, hasta] of Object.entries(overrides[v])) filas.push({ v, desde, hasta });
+
+  document.getElementById("reglas-tabla").innerHTML = filas.length
+    ? `<table><thead><tr><th style="text-align:left">Vista</th><th style="text-align:left">Nombre actual</th>
+         <th style="text-align:left">Renombrado a</th><th></th></tr></thead><tbody>` +
+      filas.map(f => `<tr>
+        <td style="text-align:left">${esc(NOMBRE_VISTA[f.v])}</td>
+        <td style="text-align:left">${esc(f.desde)}</td>
+        <td style="text-align:left">${esc(f.hasta)}</td>
+        <td><button data-v="${esc(f.v)}" data-d="${esc(f.desde)}" class="regla-quitar">Quitar</button></td>
+      </tr>`).join("") + `</tbody></table>`
+    : `<p class="desc">Todavía no agregaste ninguna regla propia.</p>`;
+
+  document.querySelectorAll(".regla-quitar").forEach(btn => {
+    btn.addEventListener("click", () => {
+      delete overrides[btn.dataset.v][btn.dataset.d];
+      guardarOverrides();
+      recalcularTodoPorRegla();
+    });
+  });
+}
+
+// Despues de agregar o quitar una regla hay que refrescar TODO lo que depende
+// del agrupado: el parque/diario/volumen (pintarTodo), el detalle por
+// ubicacion, la lista de nombres conocidos, y -si hay eventos cargados- las
+// tablas de eventos y cargas (que tambien usan empresaDe()).
+function recalcularTodoPorRegla() {
+  pintarReglas();
+  actualizarNombresConocidos();
+  pintarUbicaciones();
+  pintarTodo();
+  if (eventos.length) { pintarEventos(); pintarSesiones(); }
+}
+
+document.getElementById("ub-txt").addEventListener("input", pintarUbicaciones);
+document.getElementById("ub-priv").addEventListener("change", pintarUbicaciones);
+document.getElementById("regla-vista").addEventListener("change", actualizarNombresConocidos);
+document.getElementById("regla-agregar").addEventListener("click", () => {
+  const v = document.getElementById("regla-vista").value;
+  const desde = document.getElementById("regla-desde").value.trim();
+  const hasta = document.getElementById("regla-hasta").value.trim();
+  if (!desde || !hasta) return;
+  overrides[v][desde.toUpperCase()] = hasta;
+  guardarOverrides();
+  document.getElementById("regla-desde").value = "";
+  document.getElementById("regla-hasta").value = "";
+  recalcularTodoPorRegla();
+});
+
 document.getElementById("ev-mes").innerHTML =
   mesesDisponibles().map(m => `<option>${m}</option>`).join("");
+// Estas dos no dependen del mes cargado: se llenan una sola vez al abrir la pagina.
+document.getElementById("ev-tramo").innerHTML =
+  `<option value="">Todas</option>` + TRAMOS.map(t => `<option>${esc(t)}</option>`).join("") +
+  `<option>desconocido</option>`;
+document.getElementById("ev-priv").innerHTML =
+  `<option value="">Todos</option><option value="si">Solo privados</option><option value="no">Solo públicos</option>`;
 document.getElementById("ev-cargar").addEventListener("click", cargarEventos);
-["ev-op", "ev-est"].forEach(id =>
+["ev-op", "ev-est", "ev-tramo", "ev-priv", "ev-desde", "ev-hasta"].forEach(id =>
   document.getElementById(id).addEventListener("change", () => { pintarEventos(); pintarSesiones(); }));
 document.getElementById("ev-txt").addEventListener("input", () => { pintarEventos(); pintarSesiones(); });
 
 // ------------------------------------------------------------------------ inicio
 cargaPromedio = leerParams();
 pintarParams();
+overrides = leerOverrides();
+pintarReglas();
 document.getElementById("btn-recargar").addEventListener("click", cargar);
 document.getElementById("vista").addEventListener("change", e => {
   vista = e.target.value;
   try { localStorage.setItem("vista", vista); } catch (err) {}
   pintarTodo();
-  if (eventos.length) pintarSesiones();
+  if (eventos.length) { pintarEventos(); pintarSesiones(); }
 });
 try {
   const guardada = localStorage.getItem("vista");

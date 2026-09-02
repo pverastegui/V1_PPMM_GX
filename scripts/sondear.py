@@ -70,6 +70,24 @@ indica si el SITIO pertenece a una institucion privada (un mall, una gasolinera)
 no si el operador es publico o privado. Filtrar por el descartaba ~22% de las
 locations, incluido 11% de las de Copec Voltex. Aca NO se filtra: la columna se
 guarda en el catalogo por si algun dia la quieren usar, pero no descarta filas.
+
+--- NOTA SOBRE EL RESCATE POR PALABRA CLAVE (palabras_clave_marca.csv) ---
+El operador agrupado usa OPC si esta informado, si no cae al owner (ver arriba).
+Pero hay casos reales donde ni OPC ni owner reflejan la marca real (un cargador
+Copec en un sitio cuyo owner es una municipalidad o un mall). Para esos casos,
+ANTES de caer al owner, se busca una palabra clave conocida (COPEC, ENEL, etc.)
+en el NOMBRE de la ubicacion -- ver palabras_clave_marca.csv. Esto NUNCA se
+aplica si el OPC SI esta informado: el OPC es el dato oficial (registro SEC) y
+no se pisa con un texto. Si el archivo no existe, el rescate queda apagado
+(cae al owner como antes) y se avisa fuerte en los logs.
+
+--- NOTA SOBRE LOS CAMPOS NUEVOS DE POTENCIA Y CARGA SIMULTANEA ---
+Ademas de la potencia MAXIMA que ya se guardaba, el catalogo ahora tambien
+guarda, por conector: el formato (CABLE/SOCKET), el voltaje/amperaje maximos
+que soporta, y los valores EN VIVO de este sondeo (voltaje, amperaje, potencia
+actual y % de bateria -- la senal mas directa de que hay un auto cargando
+ahi mismo). Y por cargador (evse): si permite_carga_simultanea (sus conectores
+se pueden usar al mismo tiempo o no).
 """
 
 from __future__ import annotations
@@ -105,6 +123,7 @@ ARCHIVO_CATALOGO = DIR_DATA / "catalogo.csv"
 DIR_EVENTOS = DIR_DATA / "eventos"          # un CSV por mes: eventos/2026-09.csv
 ARCHIVO_CORRIDAS = DIR_DATA / "corridas.csv"
 ARCHIVO_MAPEO = RAIZ / "mapeo_operadores.csv"
+ARCHIVO_PALABRAS_CLAVE = RAIZ / "palabras_clave_marca.csv"
 
 # Las 12 primeras columnas son las que usa la planilla (A-L). Lo que se agregue
 # despues de la L no rompe nada; lo que se agregue ANTES si.
@@ -138,6 +157,11 @@ COLUMNAS_CATALOGO = [
     # Las tres formas de atribuir un conector a una empresa (ver docstring):
     "owner_name", "owner_rut", "owner_agrupado",
     "pse_name", "pse_rut", "pse_agrupado",
+    # Nuevo: carga simultanea (del cargador) y datos de potencia del conector,
+    # tanto los MAXIMOS que soporta como los valores EN VIVO de este sondeo.
+    "permite_carga_simultanea", "formato", "voltaje_maximo", "amperaje_maximo",
+    "voltaje_actual", "amperaje_actual", "potencia_actual_kw", "porcentaje_bateria",
+    "integrado",
 ]
 
 COLUMNAS_CORRIDAS = [
@@ -173,8 +197,13 @@ def tramo_potencia(kw) -> str:
 
 def cargar_mapeo_operadores() -> dict:
     """Lee mapeo_operadores.csv -> {nombre_original: nombre_agrupado}.
-    Si el archivo no existe, devuelve vacio (y cada operador queda con su nombre)."""
+    Si el archivo no existe, devuelve vacio (y cada operador queda con su
+    nombre) -- pero avisa fuerte, con la ruta absoluta: que este archivo
+    falle en silencio ya nos paso una vez y costo caro detectarlo."""
+    ruta_absoluta = ARCHIVO_MAPEO.resolve()
     if not ARCHIVO_MAPEO.exists():
+        print(f"*** ALERTA: no encontre {ruta_absoluta} -- sigo SIN agrupar "
+              f"nombres de operador. ***", file=sys.stderr)
         return {}
     mapeo = {}
     with ARCHIVO_MAPEO.open(encoding="utf-8-sig", newline="") as f:
@@ -183,7 +212,36 @@ def cargar_mapeo_operadores() -> dict:
             agrupado = (fila.get("nombre_agrupado") or "").strip()
             if original and agrupado:
                 mapeo[original.upper()] = agrupado
+    print(f"mapeo_operadores: {len(mapeo)} empresas cargadas desde {ruta_absoluta}")
     return mapeo
+
+
+def cargar_palabras_clave_marca() -> dict:
+    """Lee palabras_clave_marca.csv -> {PALABRA_CLAVE: nombre_agrupado}.
+
+    Se usa SOLO cuando el OPC no esta informado (ver aplanar()), para
+    rescatar la marca real a partir del nombre de la ubicacion antes de
+    caer al owner. Ojo: a proposito se deja afuera de ese CSV cualquier
+    palabra que tambien sea nombre de una comuna real de Chile (por
+    ejemplo "Casablanca") -- una palabra clave asi podria marcar como "de
+    esa empresa" un cargador que solo esta UBICADO ahi.
+
+    Si el archivo no existe, devuelve vacio (el rescate queda apagado y
+    todo cae al owner, como antes de este cambio) -- avisa fuerte."""
+    ruta_absoluta = ARCHIVO_PALABRAS_CLAVE.resolve()
+    if not ARCHIVO_PALABRAS_CLAVE.exists():
+        print(f"*** ALERTA: no encontre {ruta_absoluta} -- sigo SIN rescatar "
+              f"por nombre de ubicacion. ***", file=sys.stderr)
+        return {}
+    palabras = {}
+    with ARCHIVO_PALABRAS_CLAVE.open(encoding="utf-8-sig", newline="") as f:
+        for fila in csv.DictReader(f):
+            palabra = (fila.get("palabra_clave") or "").strip().upper()
+            agrupado = (fila.get("nombre_agrupado") or "").strip()
+            if palabra and agrupado:
+                palabras[palabra] = agrupado
+    print(f"palabras_clave_marca: {len(palabras)} palabras cargadas desde {ruta_absoluta}")
+    return palabras
 
 
 def archivo_eventos_del_mes(momento: datetime) -> Path:
@@ -265,8 +323,9 @@ def guardar_crudo(datos: list, momento: datetime) -> Path:
 
 # ------------------------------------------------- paso 3: detectar los cambios
 
-def aplanar(datos: list, mapeo: dict) -> dict:
+def aplanar(datos: list, mapeo: dict, palabras_clave: dict | None = None) -> dict:
     """De la respuesta de la API saca un dict {connector_id: atributos planos}."""
+    palabras_clave = palabras_clave or {}
     salida = {}
     for loc in datos:
         try:
@@ -276,11 +335,29 @@ def aplanar(datos: list, mapeo: dict) -> dict:
 
             # --- VISTA 1: OPC, el operador del punto de carga (la de siempre) ---
             # Es el nombre oficial normalizado de la plataforma SEC. Si no viene
-            # informado, se cae al nombre del dueño.
-            operador = opc.get("normalized_name")
-            if not operador or operador == "Sin Operador Informado":
-                operador = owner.get("name") or "Sin Operador Informado"
-            agrupado = mapeo.get(operador.upper(), operador)
+            # informado, se cae al nombre del dueño. "operador" (= operator_name,
+            # el dato CRUDO) queda igual que siempre; lo unico que cambia es como
+            # se calcula "agrupado" cuando el OPC no esta informado (ver abajo).
+            opc_normalizado = opc.get("normalized_name")
+            opc_informado = bool(opc_normalizado) and opc_normalizado != "Sin Operador Informado"
+            operador = opc_normalizado if opc_informado else (owner.get("name") or "Sin Operador Informado")
+
+            if opc_informado:
+                # El OPC es el dato oficial (registro SEC): nunca se pisa.
+                agrupado = mapeo.get(operador.upper(), operador)
+            else:
+                # Antes de caer al owner, probamos si el NOMBRE de la ubicacion
+                # revela una marca conocida -- rescata los casos donde el owner
+                # es un tercero sin nada que ver (una municipalidad, un mall)
+                # pero el cargador es claramente de una red conocida.
+                agrupado = None
+                nombre_ubicacion = (loc.get("name") or "").upper()
+                for palabra, grupo in palabras_clave.items():
+                    if palabra in nombre_ubicacion:
+                        agrupado = grupo
+                        break
+                if agrupado is None:
+                    agrupado = mapeo.get(operador.upper(), operador)
 
             # --- VISTA 2: owner, de quien es la instalacion ---
             # Es el campo mas completo de los tres: casi no tiene vacios.
@@ -331,6 +408,16 @@ def aplanar(datos: list, mapeo: dict) -> dict:
                         "pse_name": pse_name,
                         "pse_rut": pse_rut,
                         "pse_agrupado": pse_agrupado,
+                        # --- nuevo: carga simultanea y potencia (maxima y en vivo) ---
+                        "permite_carga_simultanea": 1 if evse.get("permite_carga_simultanea") else 0,
+                        "formato": con.get("format"),
+                        "voltaje_maximo": con.get("max_voltage"),
+                        "amperaje_maximo": con.get("max_amperage"),
+                        "voltaje_actual": con.get("voltage"),
+                        "amperaje_actual": con.get("amperage"),
+                        "potencia_actual_kw": con.get("electric_power"),
+                        "porcentaje_bateria": con.get("soc"),
+                        "integrado": 1 if con.get("integrated") else 0,
                     }
         except (AttributeError, TypeError):
             continue
@@ -341,7 +428,8 @@ def procesar(datos: list, momento_iso: str) -> tuple[list[dict], list[dict]]:
     """Compara la lectura nueva contra el catalogo guardado.
     Devuelve (catalogo_nuevo, eventos_nuevos)."""
     mapeo = cargar_mapeo_operadores()
-    nuevo = aplanar(datos, mapeo)
+    palabras_clave = cargar_palabras_clave_marca()
+    nuevo = aplanar(datos, mapeo, palabras_clave)
     anterior = {f["connector_id"]: f for f in leer_csv(ARCHIVO_CATALOGO)}
 
     catalogo = []
