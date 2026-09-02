@@ -2,7 +2,7 @@ name: Sondear cargadores
 
 on:
   schedule:
-    - cron: "13 */3 * * *"
+    - cron: "7 * * * *"
   workflow_dispatch: {}
 
 concurrency:
@@ -12,37 +12,30 @@ concurrency:
 jobs:
   sondear:
     runs-on: ubuntu-latest
-    timeout-minutes: 200
+    timeout-minutes: 10
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - run: pip install -r requirements.txt
-      - name: Sondear cada 5 minutos y guardar al instante
+
+      - name: Sondear una vez y guardar
         run: |
           git config user.name "cargadores-bot"
           git config user.email "actions@users.noreply.github.com"
 
-          AHORA=$(date +%s)
-          FIN=$(( (AHORA / 10800 + 1) * 10800 - 120 ))
-          if [ $(( FIN - AHORA )) -lt 600 ]; then FIN=$(( FIN + 10800 )); fi
-          echo "Turno hasta $(date -u -d @$FIN '+%H:%M UTC')"
+          python scripts/sondear.py || true
 
-          while [ "$(date +%s)" -lt "$FIN" ]; do
-            python scripts/sondear.py || true
-
-            git add snapshots data
-            if git diff --cached --quiet; then
-              echo "Sin cambios que guardar."
-            else
-              git commit -m "sondeo $(date -u +%Y-%m-%dT%H:%MZ)"
-              git pull --rebase --autostash origin main || true
-              git push || true
-            fi
-
-            [ "$(date +%s)" -ge "$FIN" ] && break
-            sleep 300
-          done
+          git add snapshots data
+          if git diff --cached --quiet; then
+            echo "Sin cambios que guardar."
+          else
+            git commit -m "sondeo $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash origin main || true
+            git push || true
+          fi

@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visor — carga pública Chile</title>
+<style>
+  :root {
+    color-scheme: light;
+    --fondo:#f9f9f7; --tarjeta:#fcfcfb;
+    --tinta:#0b0b0b; --tinta-2:#52514e; --tinta-3:#898781;
+    --grilla:#e1e0d9; --borde:rgba(11,11,11,.10); --campo:#fff;
+    --serie-1:#2a78d6; --serie-2:#eb6834; --serie-3:#1baf7a; --serie-4:#eda100;
+    --ok:#0ca30c; --alerta:#fab219; --critico:#d03b3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --fondo:#0d0d0d; --tarjeta:#1a1a19;
+      --tinta:#fff; --tinta-2:#c3c2b7; --tinta-3:#898781;
+      --grilla:#2c2c2a; --borde:rgba(255,255,255,.10); --campo:#242423;
+      --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70; --serie-4:#c98500;
+    }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--fondo); color:var(--tinta);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .wrap { max-width:1040px; margin:0 auto; padding:26px 20px 60px; }
+  h1 { font-size:1.35rem; margin:0 0 4px; }
+  .sub { color:var(--tinta-2); font-size:.86rem; margin:0 0 8px; }
+  .barra-sup { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:22px; }
+  button { font:inherit; padding:6px 14px; border-radius:7px; border:1px solid var(--borde);
+    background:var(--campo); color:var(--tinta); cursor:pointer; }
+  button:hover { border-color:var(--tinta-3); }
+  button.primario { background:var(--serie-1); border-color:var(--serie-1); color:#fff; }
+  section { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px;
+    padding:18px 20px; margin-bottom:18px; overflow-x:auto; }
+  h2 { font-size:1rem; margin:0 0 4px; }
+  .desc { font-size:.82rem; color:var(--tinta-2); margin:0 0 14px; }
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin-bottom:20px; }
+  .kpi { background:var(--tarjeta); border:1px solid var(--borde); border-radius:10px; padding:13px 15px; }
+  .kpi .t { font-size:.75rem; color:var(--tinta-2); margin-bottom:5px; }
+  .kpi .v { font-size:1.5rem; font-weight:600; }
+  .kpi.foco .v { color:var(--serie-2); }
+  table { width:100%; border-collapse:collapse; font-size:.82rem; }
+  th,td { padding:5px 8px; border-bottom:1px solid var(--grilla); font-variant-numeric:tabular-nums; text-align:right; }
+  th:first-child, td:first-child { text-align:left; }
+  th { color:var(--tinta-2); font-weight:600; }
+  tr.foco td { font-weight:600; color:var(--serie-2); }
+  input[type=number] { width:82px; padding:4px 7px; border-radius:6px; border:1px solid var(--borde);
+    background:var(--campo); color:var(--tinta); font:inherit; text-align:right; }
+  .params { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-end; }
+  .param label { display:block; font-size:.75rem; color:var(--tinta-2); margin-bottom:4px; }
+  .aviso { font-size:.8rem; padding:10px 13px; border-radius:8px; margin:0 0 14px;
+    background:color-mix(in srgb,var(--alerta) 14%,transparent); color:var(--tinta); }
+  .error { background:color-mix(in srgb,var(--critico) 14%,transparent); }
+  .ok-chip { display:inline-block; padding:2px 9px; border-radius:999px; font-size:.74rem;
+    font-weight:600; background:color-mix(in srgb,var(--ok) 18%,transparent); color:var(--ok); }
+  .et { font-size:12px; fill:var(--tinta-2); }
+  .val { font-size:12px; fill:var(--tinta); }
+  .grilla-l { stroke:var(--grilla); stroke-width:1; }
+  .eje { font-size:10px; fill:var(--tinta-3); }
+  .leyenda { display:flex; gap:15px; flex-wrap:wrap; margin-top:10px; font-size:.8rem; color:var(--tinta-2); }
+  .sw { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:5px; vertical-align:middle; }
+  .nota { font-size:.78rem; color:var(--tinta-3); margin-top:10px; }
+  /* Caja con scroll propio para tablas largas, y encabezado que se queda fijo
+     arriba mientras uno baja por las filas. */
+  .caja-scroll { max-height:460px; overflow:auto; border:1px solid var(--borde); border-radius:8px; }
+  .caja-scroll thead th { position:sticky; top:0; background:var(--tarjeta);
+    box-shadow:0 1px 0 var(--grilla); }
+  code { background:var(--campo); padding:1px 5px; border-radius:4px; font-size:.9em; }
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>Visor — red de carga pública de Chile</h1>
+<p class="sub">Lee los datos directo del repo. Este archivo no contiene datos ni supuestos:
+   los parámetros que ingreses quedan solo en este navegador.</p>
+
+<div class="barra-sup">
+  <button class="primario" id="btn-recargar">Recargar datos</button>
+  <label style="font-size:.82rem;color:var(--tinta-2)">Atribuir a:
+    <select id="vista" style="margin-left:4px">
+      <option value="opc">OPC — quien opera el punto de carga</option>
+      <option value="owner">Owner — de quien es la instalación</option>
+      <option value="pse">PSE — quien le vende al usuario</option>
+    </select>
+  </label>
+  <span id="estado" class="sub" style="margin:0"></span>
+</div>
+
+<p id="nota-vista" class="sub" style="margin:-14px 0 18px"></p>
+
+<div id="aviso-error"></div>
+
+<section>
+  <h2>Carga promedio por tramo de potencia</h2>
+  <p class="desc">Tu supuesto de negocio: cuántos kWh entrega una sesión típica en cada tramo.
+     Se guarda solo en este navegador — nunca se sube al repo.</p>
+  <div class="params" id="params"></div>
+  <p class="nota">Cambia un valor y el volumen se recalcula solo.</p>
+</section>
+
+<div class="kpis" id="kpis"></div>
+
+<section>
+  <h2>Parque instalado por operador</h2>
+  <p class="desc">Foto del mercado hoy: sitios, conectores y potencia instalada.</p>
+  <div id="parque"></div>
+</section>
+
+<section>
+  <h2>Sesiones diarias</h2>
+  <p class="desc">Transacciones detectadas por día, en <strong>hora de Chile</strong>
+     (no UTC), para que puedas compararlas contra los datos internos de Voltex.</p>
+  <div id="diario"></div>
+  <p class="nota">Una sesión = un conector que pasó a OCUPADO. Si un auto carga
+     menos de 5 minutos entre dos sondeos, es posible que no se detecte.</p>
+</section>
+
+<section>
+  <h2>Volumen estimado y participación de mercado</h2>
+  <p class="desc">Sesiones × kWh promedio del tramo, según los parámetros de arriba.</p>
+  <div id="volumen"></div>
+</section>
+
+<section>
+  <h2>Qué se está guardando</h2>
+  <p class="desc">Los archivos que el robot escribe en el repo, y qué hay dentro de cada uno.
+     Puedes hacer click en cualquiera para verlo en GitHub tal cual está.</p>
+  <div id="archivos"></div>
+
+  <h3 style="font-size:.9rem;margin:22px 0 4px">Últimos sondeos registrados</h3>
+  <p class="desc">Cada fila es una vez que el robot miró la API. <code>ok=1</code> significa
+     que funcionó; <code>ok=0</code> que falló, y ahí queda anotado el error.</p>
+  <div id="corridas"></div>
+</section>
+
+<section>
+  <h2>Las cargas, una por una</h2>
+  <p class="desc">Cada fila es <strong>una carga</strong>: el momento en que alguien enchufó,
+     cuándo desenchufó y cuánto duró. Se arma juntando los dos eventos correspondientes.
+     Aparece al apretar "Cargar eventos" más abajo.</p>
+  <div id="sesiones-kpis" class="kpis" style="margin-bottom:14px"></div>
+  <div id="sesiones"></div>
+</section>
+
+<section>
+  <h2>Eventos en detalle</h2>
+  <p class="desc">La tabla cruda de cambios de estado, la misma que está en GitHub pero
+     con filtros. No se carga sola porque el archivo crece mucho: apriétalo cuando la necesites.</p>
+
+  <div class="params" style="margin-bottom:14px">
+    <div class="param">
+      <label>Mes</label>
+      <select id="ev-mes"></select>
+    </div>
+    <div class="param">
+      <button class="primario" id="ev-cargar">Cargar eventos</button>
+    </div>
+    <span id="ev-estado" class="nota" style="margin:0 0 6px"></span>
+  </div>
+
+  <div id="ev-filtros" hidden>
+    <div class="params" style="margin-bottom:12px">
+      <div class="param"><label>Operador</label><select id="ev-op"></select></div>
+      <div class="param"><label>Estado nuevo</label><select id="ev-est"></select></div>
+      <div class="param"><label>Buscar en la estación</label>
+        <input type="text" id="ev-txt" placeholder="ej: Chimbarongo" style="width:190px;text-align:left"></div>
+    </div>
+  </div>
+
+  <div id="ev-tabla"></div>
+</section>
+
+<script>
+// ---------------------------------------------------------------- configuración
+const REPO = "pverastegui/cargadores-monitor";
+const RAMA = "main";
+const BASE = `https://raw.githubusercontent.com/${REPO}/${RAMA}/data/`;
+const FOCO = "Copec Voltex";
+const TRAMOS = ["7", "(7-22]", "(22-50]", "(50-150]", "150"];
+const POR_DEFECTO = { "7": 8, "(7-22]": 12, "(22-50]": 20, "(50-150]": 30, "150": 40 };
+
+const VER_EN_GITHUB = `https://github.com/${REPO}/blob/${RAMA}/`;
+
+// Que hay en cada archivo, en castellano. Se muestra en el panel de abajo.
+const ARCHIVOS = [
+  { ruta: "snapshots/", que: "La respuesta completa de la API, comprimida, tal como llegó. Un archivo por sondeo.",
+    detalle: "Es el respaldo. No se usa en el día a día: sirve por si hay que recalcular todo de nuevo. Se borra a los 60 días." },
+  { ruta: "data/catalogo.csv", que: "Una fila por conector conocido, con su estado actual.",
+    detalle: "Es la memoria del robot: para saber qué cambió, necesita recordar cómo estaba antes. Se reescribe entero en cada sondeo." },
+  { ruta: "data/eventos/", que: "Cada cambio de estado detectado. Un archivo por mes.",
+    detalle: "Es la historia. Solo se le agregan filas, nunca se borra. De acá salen las sesiones." },
+  { ruta: "data/corridas.csv", que: "Una fila por cada vez que el robot corrió, funcione o falle.",
+    detalle: "Sirve para saber si hubo períodos sin datos. Si algo falla, el error queda escrito acá." },
+  { ruta: "data/resumen_diario.csv", que: "Sesiones por día, operador y tramo. Ya sumado.",
+    detalle: "Es lo que este visor descarga (pesa unos pocos KB, en vez de los eventos completos)." },
+  { ruta: "data/resumen_parque.csv", que: "Conectores y kW instalados por operador.",
+    detalle: "El otro archivo que descarga este visor." },
+];
+
+const NOTAS_VISTA = {
+  opc: "Agrupando por <strong>OPC</strong>: quién opera el punto de carga. Es la definición " +
+       "habitual de “red de carga”, pero es la que más deja sin atribuir (los que la SEC " +
+       "reporta como “Sin Operador Informado”).",
+  owner: "Agrupando por <strong>owner</strong>: de quién es la instalación. Es el campo más " +
+       "completo de los tres — casi no tiene vacíos — así que da los totales más limpios.",
+  pse: "Agrupando por <strong>PSE</strong>: quién le vende la carga al usuario final. Es el " +
+       "más cercano a “quién factura”, pero hay sitios sin PSE informado.",
+};
+
+let parque = [], diario = [], corridas = [], cargaPromedio = {};
+let vista = "opc";
+
+// ------------------------------------------------------- parámetros (localStorage)
+function leerParams() {
+  let guardado = {};
+  try { guardado = JSON.parse(localStorage.getItem("cargaPromedio") || "{}"); }
+  catch (e) { guardado = {}; }   // modo privado, file:// restringido, etc.
+  const out = {};
+  for (const t of TRAMOS) out[t] = Number(guardado[t] ?? POR_DEFECTO[t]);
+  return out;
+}
+function guardarParams(p) {
+  try { localStorage.setItem("cargaPromedio", JSON.stringify(p)); } catch (e) {}
+}
+
+function pintarParams() {
+  document.getElementById("params").innerHTML = TRAMOS.map(t => `
+    <div class="param">
+      <label>${t} kW</label>
+      <input type="number" min="0" step="0.5" data-tramo="${t}" value="${cargaPromedio[t]}">
+    </div>`).join("");
+  document.querySelectorAll("#params input").forEach(inp => {
+    inp.addEventListener("input", () => {
+      cargaPromedio[inp.dataset.tramo] = Number(inp.value) || 0;
+      guardarParams(cargaPromedio);
+      pintarTodo();
+    });
+  });
+}
+
+// -------------------------------------------------------------------- utilidades
+const fmt = (n, d = 0) => n.toLocaleString("es-CL", { minimumFractionDigits: d, maximumFractionDigits: d });
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const esFoco = op => String(op).toUpperCase().includes(FOCO.toUpperCase());
+
+// Parte una linea de CSV respetando las comillas: un nombre como
+// "COPEC VOLTEX, SUCURSAL NORTE" es UN campo, no dos.
+function partirLinea(linea) {
+  const campos = [];
+  let actual = "", dentroDeComillas = false;
+  for (let i = 0; i < linea.length; i++) {
+    const c = linea[i];
+    if (c === '"') {
+      if (dentroDeComillas && linea[i + 1] === '"') { actual += '"'; i++; }  // "" = comilla literal
+      else dentroDeComillas = !dentroDeComillas;
+    } else if (c === "," && !dentroDeComillas) {
+      campos.push(actual); actual = "";
+    } else {
+      actual += c;
+    }
+  }
+  campos.push(actual);
+  return campos;
+}
+
+function parseCSV(texto) {
+  const lineas = texto.trim().split(/\r?\n/);
+  if (lineas.length < 2) return [];
+  const cols = partirLinea(lineas[0]);
+  return lineas.slice(1).map(l => {
+    const partes = partirLinea(l);
+    const o = {};
+    cols.forEach((c, i) => o[c] = partes[i]);
+    return o;
+  });
+}
+
+async function bajar(nombre) {
+  const r = await fetch(BASE + nombre + "?t=" + Date.now(), { cache: "no-store" });
+  if (!r.ok) throw new Error(`${nombre}: HTTP ${r.status}`);
+  return parseCSV(await r.text());
+}
+
+// ------------------------------------------------------------------------ carga
+async function cargar() {
+  const estado = document.getElementById("estado");
+  const cajaError = document.getElementById("aviso-error");
+  estado.textContent = "cargando…";
+  cajaError.innerHTML = "";
+  try {
+    [parque, diario] = await Promise.all([
+      bajar("resumen_parque.csv"),
+      bajar("resumen_diario.csv"),
+    ]);
+    // corridas.csv es opcional: si falla, el resto del visor funciona igual
+    try { corridas = await bajar("corridas.csv"); } catch (e) { corridas = []; }
+    const dias = new Set(diario.map(d => d.fecha));
+    estado.innerHTML = `<span class="ok-chip">datos al día</span> ` +
+      `${fmt(parque.length)} operadores · ${dias.size} día(s) con sesiones · ` +
+      `actualizado ${new Date().toLocaleString("es-CL")}`;
+    pintarTodo();
+  } catch (e) {
+    estado.textContent = "";
+    cajaError.innerHTML = `<div class="aviso error">
+      <strong>No se pudieron bajar los datos.</strong> ${esc(e.message)}<br>
+      Puede ser que el pipeline todavía no haya generado los resúmenes (corre
+      <code>python scripts/resumir.py</code> y súbelo), que no haya conexión, o que
+      la red esté bloqueando raw.githubusercontent.com.</div>`;
+  }
+}
+
+// ----------------------------------------------------------------------- gráficos
+function barras(filas, clave, unidad, top = 10) {
+  filas = filas.filter(f => f[clave] > 0).slice(0, top);
+  if (!filas.length) return `<p class="desc">Todavía no hay datos.</p>`;
+  const max = Math.max(...filas.map(f => f[clave]));
+  const ancho = 720, etW = 175, alto = 32 * filas.length + 8, area = ancho - etW - 95;
+  const g = filas.map((f, i) => {
+    const y = i * 32 + 5, w = Math.max(2, f[clave] / max * area);
+    const color = esFoco(f.op) ? "var(--serie-2)" : "var(--serie-1)";
+    return `<g><title>${esc(f.op)}: ${fmt(f[clave])} ${unidad}</title>
+      <text x="${etW - 8}" y="${y + 16}" text-anchor="end" class="et">${esc(f.op)}</text>
+      <rect x="${etW}" y="${y}" width="${w.toFixed(1)}" height="21" rx="4" fill="${color}"/>
+      <text x="${etW + w + 8}" y="${y + 16}" class="val">${fmt(f[clave])} ${unidad}</text></g>`;
+  }).join("");
+  return `<svg viewBox="0 0 ${ancho} ${alto}" width="100%" height="${alto}">${g}</svg>`;
+}
+
+function lineasDiarias(fechas, series) {
+  if (fechas.length < 2) return `<p class="desc">Se necesitan al menos 2 días para ver la tendencia.</p>`;
+  const ancho = 800, alto = 240, izq = 44, der = 110, arr = 14, aba = 26;
+  const pw = ancho - izq - der, ph = alto - arr - aba;
+  const max = Math.max(1, ...series.flatMap(s => s.valores));
+  const X = i => izq + (i / Math.max(1, fechas.length - 1)) * pw;
+  const Y = v => arr + ph - (v / max) * ph;
+
+  let svg = "";
+  for (let g = 0; g <= 4; g++) {
+    const y = arr + ph * g / 4;
+    svg += `<line x1="${izq}" y1="${y}" x2="${ancho - der}" y2="${y}" class="grilla-l"/>
+      <text x="${izq - 6}" y="${y + 3}" text-anchor="end" class="eje">${Math.round(max * (4 - g) / 4)}</text>`;
+  }
+  const etiquetas = [];
+  series.forEach((s, si) => {
+    const color = `var(--serie-${si + 1})`;
+    const pts = s.valores.map((v, i) => [X(i), Y(v)]);
+    svg += `<path d="${pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ")}"
+      fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round"/>`;
+    pts.forEach((p, i) => {
+      svg += `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3" fill="${color}">
+        <title>${esc(s.nombre)} · ${fechas[i]}: ${s.valores[i]}</title></circle>`;
+    });
+    etiquetas.push({ y: pts[pts.length - 1][1], x: pts[pts.length - 1][0], color, nombre: s.nombre });
+  });
+  etiquetas.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < etiquetas.length; i++)
+    if (etiquetas[i].y - etiquetas[i - 1].y < 13) etiquetas[i].y = etiquetas[i - 1].y + 13;
+  etiquetas.forEach(e => {
+    svg += `<text x="${(e.x + 6).toFixed(1)}" y="${(e.y + 4).toFixed(1)}"
+      style="font-size:11px;font-weight:600" fill="${e.color}">${esc(e.nombre)}</text>`;
+  });
+  const paso = Math.max(1, Math.floor(fechas.length / 7));
+  fechas.forEach((f, i) => {
+    if (i % paso === 0 || i === fechas.length - 1)
+      svg += `<text x="${X(i).toFixed(1)}" y="${alto - 6}" text-anchor="middle" class="eje">${f.slice(5)}</text>`;
+  });
+  return `<svg viewBox="0 0 ${ancho} ${alto}" width="100%" height="${alto}">${svg}</svg>`;
+}
+
+// -------------------------------------------------------------------- render
+function pintarTodo() {
+  document.getElementById("nota-vista").innerHTML = NOTAS_VISTA[vista] || "";
+
+  // --- parque instalado (solo la vista elegida) ---
+  const filasParque = parque
+    .filter(p => (p.vista || "opc") === vista)
+    .map(p => ({ op: p.empresa || p.operador_agrupado,
+                 sitios: +p.sitios, conectores: +p.conectores, kw: +p.kw }));
+  const totCon = filasParque.reduce((a, f) => a + f.conectores, 0) || 1;
+  const totKw = filasParque.reduce((a, f) => a + f.kw, 0) || 1;
+  const foco = filasParque.find(f => esFoco(f.op));
+
+  document.getElementById("parque").innerHTML = barras(filasParque, "conectores", "conectores") +
+    `<div class="leyenda">
+       <span><span class="sw" style="background:var(--serie-1)"></span>Otros operadores</span>
+       <span><span class="sw" style="background:var(--serie-2)"></span>${esc(FOCO)}</span>
+     </div>
+     <table style="margin-top:14px"><thead><tr><th>Operador</th><th>Sitios</th><th>Conectores</th>
+       <th>% conectores</th><th>kW</th><th>% kW</th></tr></thead><tbody>` +
+    filasParque.slice(0, 15).map(f => `<tr class="${esFoco(f.op) ? "foco" : ""}">
+      <td>${esc(f.op)}</td><td>${fmt(f.sitios)}</td><td>${fmt(f.conectores)}</td>
+      <td>${fmt(100 * f.conectores / totCon, 1)}%</td><td>${fmt(f.kw)}</td>
+      <td>${fmt(100 * f.kw / totKw, 1)}%</td></tr>`).join("") + `</tbody></table>`;
+
+  // --- sesiones diarias ---
+  const diarioVista = diario.filter(d => (d.vista || "opc") === vista);
+  const fechas = [...new Set(diarioVista.map(d => d.fecha))].sort();
+  const porOpDia = {}, totalOp = {};
+  diarioVista.forEach(d => {
+    const op = d.empresa || d.operador_agrupado, n = +d.transacciones || 0;
+    (porOpDia[op] = porOpDia[op] || {})[d.fecha] = (porOpDia[op][d.fecha] || 0) + n;
+    totalOp[op] = (totalOp[op] || 0) + n;
+  });
+  const opsOrden = Object.keys(totalOp).sort((a, b) => totalOp[b] - totalOp[a]);
+  const topOps = opsOrden.slice(0, 4);
+
+  let htmlDiario = "";
+  if (!fechas.length) {
+    htmlDiario = `<p class="desc">Todavía no hay sesiones registradas. La primera lectura
+      solo construye el catálogo; las transacciones aparecen a partir del segundo sondeo.</p>`;
+  } else {
+    htmlDiario = lineasDiarias(fechas, topOps.map(op => ({
+      nombre: op, valores: fechas.map(f => porOpDia[op][f] || 0),
+    }))) +
+    `<div class="leyenda">` + topOps.map((op, i) =>
+      `<span><span class="sw" style="background:var(--serie-${i + 1})"></span>${esc(op)}</span>`).join("") + `</div>
+     <table style="margin-top:16px"><thead><tr><th>Fecha (Chile)</th>` +
+      opsOrden.slice(0, 6).map(o => `<th>${esc(o)}</th>`).join("") +
+      `<th>Total</th></tr></thead><tbody>` +
+      fechas.slice().reverse().map(f => {
+        const total = opsOrden.reduce((a, o) => a + (porOpDia[o][f] || 0), 0);
+        return `<tr><td>${f}</td>` + opsOrden.slice(0, 6).map(o =>
+          `<td${esFoco(o) ? ' style="color:var(--serie-2);font-weight:600"' : ""}>${fmt(porOpDia[o][f] || 0)}</td>`
+        ).join("") + `<td>${fmt(total)}</td></tr>`;
+      }).join("") + `</tbody></table>`;
+  }
+  document.getElementById("diario").innerHTML = htmlDiario;
+
+  // --- volumen ---
+  const kwhOp = {}, transOp = {};
+  diarioVista.forEach(d => {
+    const op = d.empresa || d.operador_agrupado, n = +d.transacciones || 0;
+    kwhOp[op] = (kwhOp[op] || 0) + n * (cargaPromedio[d.tramo_potencia] || 0);
+    transOp[op] = (transOp[op] || 0) + n;
+  });
+  const filasVol = Object.keys(kwhOp).map(op => ({
+    op, transacciones: transOp[op], kwh: kwhOp[op],
+  })).sort((a, b) => b.kwh - a.kwh);
+  const totKwh = filasVol.reduce((a, f) => a + f.kwh, 0) || 1;
+
+  document.getElementById("volumen").innerHTML = filasVol.length
+    ? barras(filasVol, "kwh", "kWh") +
+      `<table style="margin-top:14px"><thead><tr><th>Operador</th><th>Sesiones</th>
+        <th>kWh estimados</th><th>% del mercado</th></tr></thead><tbody>` +
+      filasVol.map(f => `<tr class="${esFoco(f.op) ? "foco" : ""}"><td>${esc(f.op)}</td>
+        <td>${fmt(f.transacciones)}</td><td>${fmt(f.kwh)}</td>
+        <td>${fmt(100 * f.kwh / totKwh, 1)}%</td></tr>`).join("") + `</tbody></table>`
+    : `<p class="desc">Aparece cuando haya sesiones registradas.</p>`;
+
+  // --- panel "que se esta guardando" ---
+  document.getElementById("archivos").innerHTML =
+    `<table><thead><tr><th>Archivo</th><th style="text-align:left">Qué contiene</th></tr></thead><tbody>` +
+    ARCHIVOS.map(a => `<tr>
+      <td><a href="${VER_EN_GITHUB}${a.ruta}" target="_blank" rel="noopener">
+        <code>${esc(a.ruta)}</code></a></td>
+      <td style="text-align:left">${esc(a.que)}<br>
+        <span style="color:var(--tinta-3)">${esc(a.detalle)}</span></td>
+    </tr>`).join("") + `</tbody></table>`;
+
+  const ultimas = corridas.slice(-10).reverse();
+  document.getElementById("corridas").innerHTML = ultimas.length
+    ? `<table><thead><tr><th>Cuándo (UTC)</th><th>ok</th><th>Conectores</th>
+         <th>Cambios detectados</th><th style="text-align:left">Error</th></tr></thead><tbody>` +
+      ultimas.map(c => `<tr>
+        <td>${esc(c.timestamp)}</td>
+        <td style="color:${c.ok === "1" ? "var(--ok)" : "var(--critico)"};font-weight:600">${esc(c.ok)}</td>
+        <td>${esc(c.n_conectores || "—")}</td>
+        <td>${esc(c.n_eventos_nuevos || "—")}</td>
+        <td style="text-align:left;color:var(--tinta-3)">${esc(c.error_tipo || "")}</td>
+      </tr>`).join("") + `</tbody></table>
+      <p class="nota">Total de sondeos registrados hasta ahora: ${fmt(corridas.length)}.</p>`
+    : `<p class="desc">Todavía no se pudo leer <code>corridas.csv</code>.</p>`;
+
+  // --- KPIs ---
+  const totalSesiones = Object.values(totalOp).reduce((a, b) => a + b, 0);
+  const focoVol = filasVol.find(f => esFoco(f.op));
+  document.getElementById("kpis").innerHTML = `
+    <div class="kpi"><div class="t">Conectores activos</div><div class="v">${fmt(totCon)}</div></div>
+    <div class="kpi foco"><div class="t">${esc(FOCO)} · % conectores</div>
+      <div class="v">${fmt(foco ? 100 * foco.conectores / totCon : 0, 1)}%</div></div>
+    <div class="kpi foco"><div class="t">${esc(FOCO)} · % kW</div>
+      <div class="v">${fmt(foco ? 100 * foco.kw / totKw : 0, 1)}%</div></div>
+    <div class="kpi"><div class="t">Sesiones acumuladas</div><div class="v">${fmt(totalSesiones)}</div></div>
+    <div class="kpi foco"><div class="t">${esc(FOCO)} · % volumen</div>
+      <div class="v">${fmt(focoVol ? 100 * focoVol.kwh / totKwh : 0, 1)}%</div></div>`;
+}
+
+// ------------------------------------------------- eventos crudos (bajo demanda)
+const MAX_FILAS_TABLA = 200;   // se muestran las mas recientes; el filtro busca en todas
+let eventos = [];
+
+// "2026-09-05T01:17:01+00:00" -> "2026-09-05 01:17" (mas corto, no se corta en dos lineas)
+function fechaCorta(ts) {
+  if (!ts) return "";
+  return String(ts).replace("T", " ").replace(/(\+00:00|Z)$/, "").slice(0, 16);
+}
+
+function mesesDisponibles(n = 6) {
+  const out = [], hoy = new Date();
+  for (let i = 0; i < n; i++) {
+    const d = new Date(Date.UTC(hoy.getUTCFullYear(), hoy.getUTCMonth() - i, 1));
+    out.push(`${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`);
+  }
+  return out;
+}
+
+async function cargarEventos() {
+  const mes = document.getElementById("ev-mes").value;
+  const estado = document.getElementById("ev-estado");
+  estado.textContent = "bajando…";
+  try {
+    const r = await fetch(`${BASE}eventos/${mes}.csv?t=` + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status === 404 ? `todavía no hay eventos de ${mes}` : `HTTP ${r.status}`);
+    const texto = await r.text();
+    eventos = parseCSV(texto);
+    estado.textContent = `${fmt(eventos.length)} eventos · ${fmt(texto.length / 1024)} KB`;
+
+    // Se llenan los filtros con lo que realmente aparece en el archivo
+    const ops = [...new Set(eventos.map(empresaDe).filter(Boolean))].sort();
+    const ests = [...new Set(eventos.map(e => e.estado_nuevo).filter(Boolean))].sort();
+    document.getElementById("ev-op").innerHTML =
+      `<option value="">Todos</option>` + ops.map(o => `<option>${esc(o)}</option>`).join("");
+    document.getElementById("ev-est").innerHTML =
+      `<option value="">Todos</option>` + ests.map(o => `<option>${esc(o)}</option>`).join("");
+    document.getElementById("ev-filtros").hidden = false;
+    pintarEventos();
+    pintarSesiones();
+  } catch (e) {
+    estado.textContent = "";
+    eventos = [];
+    document.getElementById("ev-filtros").hidden = true;
+    document.getElementById("ev-tabla").innerHTML =
+      `<div class="aviso error">No se pudo cargar: ${esc(e.message)}</div>`;
+  }
+}
+
+// ------------------------------------------------------ armar las cargas (sesiones)
+// Una carga NO es una fila: son dos. La fila donde el conector entra a OCUPADO
+// y la fila donde sale. Aca se recorren los eventos de cada conector en orden
+// cronologico y se van emparejando.
+// Devuelve la empresa del evento segun la vista elegida, cayendo a la de OPC
+// si el evento es viejo y no trae las columnas nuevas.
+function empresaDe(e) {
+  const col = { opc: "operador_agrupado", owner: "owner_agrupado", pse: "pse_agrupado" }[vista];
+  return e[col] || e.operador_agrupado || e.operator_name || "Sin informar";
+}
+
+// ------------------------------------------- cortes de monitoreo (huecos de sondeo)
+// corridas.csv tiene una fila por CADA VEZ que el robot intento sondear, exitosa o
+// no. Si el robot corre normal, entre dos filas seguidas pasan ~5 minutos. Cuando
+// el workflow se cae, se queda pegado, o el cron no dispara (nos paso el 1 de
+// septiembre 2026: el cron cayo justo en la hora en punto y GitHub no lo disparo),
+// pasan HORAS entre una fila y la siguiente. Ese hueco es un "corte de monitoreo":
+// durante ese rato no sabemos que paso de verdad con los conectores.
+//
+// Por que esto importa para las cargas individuales: armarSesiones() mide la
+// duracion de una carga como (cuando vimos que salio) - (cuando vimos que entro).
+// Si una carga de verdad duro 5 minutos pero paso justo durante un corte de 2
+// horas, lo unico que el robot alcanza a ver es "estaba libre" antes del corte y
+// "esta libre otra vez" despues... o peor: si seguia OCUPADO cuando el sondeo se
+// reanudo, la vamos a "ver" recien ahi, y si termina poco despues va a parecer
+// una carga larguisima (todo el corte) en vez de los 5 minutos reales. Por eso
+// estas cargas se marcan aparte en vez de mostrar una duracion inventada.
+const UMBRAL_CORTE_MIN = 15;   // mas de esto entre dos sondeos seguidos = corte
+
+function calcularCortes() {
+  const ordenadas = corridas.slice()
+    .map(c => ({ t: new Date(c.timestamp) }))
+    .filter(c => !isNaN(c.t))
+    .sort((a, b) => a.t - b.t);
+
+  const cortes = [];
+  for (let i = 1; i < ordenadas.length; i++) {
+    const minutos = (ordenadas[i].t - ordenadas[i - 1].t) / 60000;
+    if (minutos > UMBRAL_CORTE_MIN) {
+      cortes.push({ desde: ordenadas[i - 1].t, hasta: ordenadas[i].t, minutos: Math.round(minutos) });
+    }
+  }
+  return cortes;
+}
+
+// Una sesion "cruza" un corte si su ventana [inicio, fin-o-ahora] se solapa con
+// el hueco [desde, hasta] del corte.
+function corteQueCruza(inicio, fin, cortes) {
+  const ini = new Date(inicio), term = fin ? new Date(fin) : new Date();
+  return cortes.find(c => ini < c.hasta && term > c.desde) || null;
+}
+
+function armarSesiones(evs) {
+  const porConector = {};
+  for (const e of evs) {
+    (porConector[e.connector_id] = porConector[e.connector_id] || []).push(e);
+  }
+
+  const sesiones = [];
+  let yaEstabanCargando = 0;
+
+  for (const cid of Object.keys(porConector)) {
+    const lista = porConector[cid].slice()
+      .sort((a, b) => (a.timestamp_deteccion || "").localeCompare(b.timestamp_deteccion || ""));
+    let abierta = null;
+
+    for (const e of lista) {
+      const entra = e.estado_nuevo === "OCUPADO";
+      const sale = e.estado_anterior === "OCUPADO" && e.estado_nuevo !== "OCUPADO";
+
+      if (entra && !abierta) {
+        // Si venia de PRIMERA_LECTURA, el auto YA estaba enchufado antes de que
+        // empezaramos a mirar: no sabemos cuando partio, asi que no cuenta como carga.
+        if (e.estado_anterior === "PRIMERA_LECTURA") { yaEstabanCargando++; continue; }
+        abierta = {
+          connector_id: cid, operador: empresaDe(e), estacion: e.location_name,
+          tramo: e.tramo_potencia, kw: e.max_electric_power,
+          comuna: e.commune, inicio: e.timestamp_deteccion, fin: null,
+        };
+      } else if (sale && abierta) {
+        abierta.fin = e.timestamp_deteccion;
+        sesiones.push(abierta);
+        abierta = null;
+      }
+    }
+    if (abierta) sesiones.push(abierta);   // sigue cargando ahora mismo
+  }
+
+  const cortes = calcularCortes();
+  for (const s of sesiones) {
+    s.minutos = s.fin
+      ? Math.round((new Date(s.fin) - new Date(s.inicio)) / 60000)
+      : Math.round((Date.now() - new Date(s.inicio)) / 60000);
+    s.enCurso = !s.fin;
+    const corte = corteQueCruza(s.inicio, s.fin, cortes);
+    s.corteMonitoreo = !!corte;
+    s.corteMin = corte ? corte.minutos : 0;
+  }
+  sesiones.sort((a, b) => (b.inicio || "").localeCompare(a.inicio || ""));
+  return { sesiones, yaEstabanCargando };
+}
+
+function pintarSesiones() {
+  const op = document.getElementById("ev-op").value;
+  const txt = document.getElementById("ev-txt").value.trim().toLowerCase();
+
+  const { sesiones, yaEstabanCargando } = armarSesiones(eventos);
+  const filtradas = sesiones.filter(s =>
+    (!op || s.operador === op) &&
+    (!txt || (s.estacion || "").toLowerCase().includes(txt))
+  );
+
+  const enCurso = filtradas.filter(s => s.enCurso);
+  const terminadas = filtradas.filter(s => !s.enCurso);
+  // Las que cruzan un corte de monitoreo NO entran al promedio: su duracion no es
+  // real, es "todo el hueco sin datos" y meterla adentro inflaria el numero.
+  const terminadasConfiables = terminadas.filter(s => !s.corteMonitoreo);
+  const terminadasConCorte = terminadas.filter(s => s.corteMonitoreo);
+  const durProm = terminadasConfiables.length
+    ? Math.round(terminadasConfiables.reduce((a, s) => a + s.minutos, 0) / terminadasConfiables.length) : 0;
+  const foco = terminadas.filter(s => esFoco(s.operador)).length;
+
+  document.getElementById("sesiones-kpis").innerHTML = `
+    <div class="kpi"><div class="t">Cargas terminadas</div><div class="v">${fmt(terminadas.length)}</div></div>
+    <div class="kpi"><div class="t">Cargando ahora</div><div class="v">${fmt(enCurso.length)}</div></div>
+    <div class="kpi"><div class="t">Duración promedio</div><div class="v">${fmt(durProm)} min</div></div>
+    <div class="kpi foco"><div class="t">${esc(FOCO)}</div><div class="v">${fmt(foco)}</div></div>`;
+
+  if (!filtradas.length) {
+    document.getElementById("sesiones").innerHTML =
+      `<p class="desc">Todavía no hay cargas completas en este archivo. Aparecen cuando un
+       conector pasa a OCUPADO y después vuelve a estar libre — o sea, hay que esperar a
+       que alguien cargue y termine.</p>`;
+    return;
+  }
+
+  const filas = filtradas.slice(0, MAX_FILAS_TABLA);
+  document.getElementById("sesiones").innerHTML =
+    `<p class="nota">${fmt(filtradas.length)} cargas${filtradas.length > MAX_FILAS_TABLA
+      ? ` (mostrando las ${MAX_FILAS_TABLA} más recientes)` : ""}.` +
+    (yaEstabanCargando ? ` Además hay ${fmt(yaEstabanCargando)} conectores que ya estaban
+      ocupados cuando el robot empezó a mirar: no se cuentan, porque no sabemos cuándo partieron.` : "") +
+    (terminadasConCorte.length ? ` <span style="color:var(--alerta);font-weight:600">⚠ ${fmt(terminadasConCorte.length)}
+      carga(s) marcadas con ⚠ abajo</span> coinciden con un corte de monitoreo (el robot dejó de sondear
+      un rato): su duración no es real, así que no entran en el promedio.` : "") +
+    `</p>
+    <div class="caja-scroll"><table><thead><tr>
+      <th style="text-align:left">Operador</th><th style="text-align:left">Estación</th>
+      <th>Conector</th><th style="text-align:left">Empezó</th>
+      <th style="text-align:left">Terminó</th><th>Duró</th><th>kW</th>
+    </tr></thead><tbody>` +
+    filas.map(s => `<tr${s.corteMonitoreo ? ' style="opacity:.65"' : ''}>
+      <td style="text-align:left">${esc(s.operador)}</td>
+      <td style="text-align:left">${esc(s.estacion)}</td>
+      <td>${esc(s.connector_id)}</td>
+      <td style="text-align:left;white-space:nowrap">${esc(fechaCorta(s.inicio))}</td>
+      <td style="text-align:left;white-space:nowrap">${s.enCurso
+        ? '<span style="color:var(--ok);font-weight:600">cargando ahora</span>'
+        : esc(fechaCorta(s.fin))}</td>
+      <td style="white-space:nowrap">${s.corteMonitoreo
+        ? `<span title="Hubo un corte de monitoreo de ~${fmt(s.corteMin)} min durante esta carga: esta duración no es confiable." style="color:var(--alerta);cursor:help">⚠ ${fmt(s.minutos)} min*</span>`
+        : `${fmt(s.minutos)} min`}</td>
+      <td>${esc(s.kw)}</td>
+    </tr>`).join("") + `</tbody></table></div>`;
+}
+
+function pintarEventos() {
+  const op = document.getElementById("ev-op").value;
+  const est = document.getElementById("ev-est").value;
+  const txt = document.getElementById("ev-txt").value.trim().toLowerCase();
+
+  const filtrados = eventos.filter(e =>
+    (!op || empresaDe(e) === op) &&
+    (!est || e.estado_nuevo === est) &&
+    (!txt || (e.location_name || "").toLowerCase().includes(txt))
+  );
+
+  const mostrar = filtrados.slice(-MAX_FILAS_TABLA).reverse();
+  // Columnas de la tabla: [campo, titulo, alinear a la izquierda]
+  const cols = [
+    ["timestamp_deteccion", "Cuándo (UTC)", true], ["__empresa", "Empresa", true],
+    ["estado_anterior", "Estado anterior", true], ["estado_nuevo", "Estado nuevo", true],
+    ["tramo_potencia", "Tramo", false], ["max_electric_power", "kW", false],
+    ["location_name", "Estación", true], ["connector_id", "Conector", false],
+  ];
+
+  const aviso = filtrados.length > MAX_FILAS_TABLA
+    ? `<p class="nota">Mostrando los ${MAX_FILAS_TABLA} más recientes de ${fmt(filtrados.length)} que calzan con el filtro.</p>`
+    : `<p class="nota">${fmt(filtrados.length)} eventos calzan con el filtro.</p>`;
+
+  // La tabla va dentro de una caja con scroll propio: 200 filas sueltas hacen
+  // una pared de miles de pixeles que entierra el resto de la pagina.
+  // Y sin resaltado naranja por fila: al filtrar por Copec quedaba todo naranja
+  // y parecia una alerta. La columna "Operador" ya dice de quien es cada fila.
+  document.getElementById("ev-tabla").innerHTML = mostrar.length
+    ? aviso + `<div class="caja-scroll"><table><thead><tr>` +
+      cols.map(c => `<th${c[2] ? ' style="text-align:left"' : ""}>${esc(c[1])}</th>`).join("") +
+      `</tr></thead><tbody>` +
+      mostrar.map(e => `<tr>` +
+        cols.map(c => {
+          const v = c[0] === "timestamp_deteccion" ? fechaCorta(e[c[0]])
+                  : c[0] === "__empresa" ? empresaDe(e) : (e[c[0]] ?? "");
+          const nowrap = c[0] === "timestamp_deteccion" ? "white-space:nowrap;" : "";
+          return `<td style="${nowrap}${c[2] ? "text-align:left" : ""}">${esc(v)}</td>`;
+        }).join("") + `</tr>`).join("") + `</tbody></table></div>`
+    : `<p class="desc">Ningún evento calza con ese filtro.</p>`;
+}
+
+document.getElementById("ev-mes").innerHTML =
+  mesesDisponibles().map(m => `<option>${m}</option>`).join("");
+document.getElementById("ev-cargar").addEventListener("click", cargarEventos);
+["ev-op", "ev-est"].forEach(id =>
+  document.getElementById(id).addEventListener("change", () => { pintarEventos(); pintarSesiones(); }));
+document.getElementById("ev-txt").addEventListener("input", () => { pintarEventos(); pintarSesiones(); });
+
+// ------------------------------------------------------------------------ inicio
+cargaPromedio = leerParams();
+pintarParams();
+document.getElementById("btn-recargar").addEventListener("click", cargar);
+document.getElementById("vista").addEventListener("change", e => {
+  vista = e.target.value;
+  try { localStorage.setItem("vista", vista); } catch (err) {}
+  pintarTodo();
+  if (eventos.length) pintarSesiones();
+});
+try {
+  const guardada = localStorage.getItem("vista");
+  if (guardada && NOTAS_VISTA[guardada]) {
+    vista = guardada;
+    document.getElementById("vista").value = guardada;
+  }
+} catch (e) {}
+cargar();
+</script>
+</div></body>
+</html>

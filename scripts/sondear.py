@@ -333,7 +333,6 @@ def aplanar(datos: list, mapeo: dict) -> dict:
                         "pse_agrupado": pse_agrupado,
                     }
         except (AttributeError, TypeError):
-            # Una location con forma rara no debe tumbar el resto.
             continue
     return salida
 
