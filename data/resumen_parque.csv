@@ -1,7 +1,7 @@
 vista,empresa,sitios,conectores,kw
 opc,Copec Voltex,258,954,53741
 opc,Enel,214,836,26662
-opc,Enerlink,63,179,10513
+opc,Enerlink,64,184,11735
 opc,Chass,4,42,1048
 opc,Saesa,11,22,484
 opc,CHILQUINTA,7,14,352
@@ -14,7 +14,6 @@ opc,METLIFE CHILE SEGUROS DE VIDA ,1,6,42
 opc,Soc. Con. Nuevo Pudahuel S.A.,1,6,132
 opc,CHILECTRA S.A.,3,5,110
 opc,EMPRESA NACIONAL DE ENERGIA EN,2,5,253
-opc,Nexe,1,5,1222
 opc,Inmobiliaria viña del mar SA,2,4,28
 opc,Bodegas San Francisco Ltda.,2,4,88
 opc,TE MOBILITY,3,4,58
@@ -167,8 +166,8 @@ owner,Admin. de Turism Rosa Agustina,1,1,22
 owner,Rentas Inmobiliarias Limitada,1,1,22
 pse,Copec Voltex,250,927,48694
 pse,Enel,193,790,24955
-pse,Sin PSE informado,133,318,18527
-pse,Enerlink,65,184,10766
+pse,Sin PSE informado,132,313,17305
+pse,Enerlink,66,189,11988
 pse,Chass,2,36,568
 pse,Chilquinta Energia S.A.,6,10,264
 pse,TE MOBILITY SPA,3,4,58
