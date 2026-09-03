@@ -14331,3 +14331,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T23:21:54+00:00,8858,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T19:15:41.621120+00:00,DC,60,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-03T23:21:54+00:00,6828,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T23:20:30.119356+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Abadía,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
 2026-09-03T23:21:54+00:00,19,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T22:34:59.944327+00:00,DC,50,CCS 2,COPEC San Javier,Copec Voltex,(22-50],San Javier,Maule,Copec Voltex,Copec Voltex
+2026-09-03T23:22:58+00:00,8157,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T23:22:08.816018+00:00,DC,60,CCS 2,IRVE Tottus Catedral,Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-03T23:22:58+00:00,8191,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-03T23:21:51.879267+00:00,DC,60,CCS 2,Enel X Way - CARGADOR ESPACIO URBANO SAN MIGUEL ,Enel,(50-150],San Miguel,Metropolitana,Enel,Enel
