@@ -8952,3 +8952,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T04:26:44+00:00,1036,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T04:24:09.523656+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Carrascal ,Enel,(22-50],Cerro Navia,Metropolitana,Enel,Enel
 2026-09-03T04:26:44+00:00,8851,ENEL X,OCUPADO,DISPONIBLE,2026-04-07T14:15:27.474984+00:00,DC,50,CCS 2,Enel X - EDS Aramco Gladys Marin ,Enel,(22-50],Estación Central,Metropolitana,Enel,Enel
 2026-09-03T04:26:44+00:00,8155,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T04:21:20.837664+00:00,DC,60,CCS 2,IRVE Strip Center Padre Hurtado,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-03T04:31:45+00:00,1036,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T04:26:59.282996+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Carrascal ,Enel,(22-50],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-03T04:31:45+00:00,639,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T04:27:20.447361+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-03T04:31:45+00:00,638,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T04:27:20.447361+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-03T04:31:45+00:00,8182,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T04:28:27.047936+00:00,DC,60,CCS 2,IRVE Petrobras Príncipe de Gales,Enel,(50-150],La Reina,Metropolitana,Enel,Enel
+2026-09-03T04:31:45+00:00,7473,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T04:27:31.411815+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60711 - MACUL,Copec Voltex,150,Macul,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T04:31:45+00:00,6824,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T04:28:29.059837+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(22-50],San Joaquín,Metropolitana,Enel,Enel
