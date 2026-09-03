@@ -257,3 +257,4 @@ timestamp,ok,http_status,n_locations,n_conectores,n_eventos_nuevos,archivo_crudo
 2026-09-03T05:26:45+00:00,1,200,655,2273,9,snapshots/2026-09-03/0526.json.gz,,
 2026-09-03T05:31:45+00:00,1,200,655,2273,17,snapshots/2026-09-03/0531.json.gz,,
 2026-09-03T05:36:49+00:00,0,403,,,,,RuntimeError,HTTP 403
+2026-09-03T05:41:48+00:00,1,200,655,2273,21,snapshots/2026-09-03/0541.json.gz,,
