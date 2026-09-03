@@ -14150,3 +14150,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T22:56:55+00:00,1036,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T22:55:39.783197+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Carrascal ,Enel,(22-50],Cerro Navia,Metropolitana,Enel,Enel
 2026-09-03T22:56:55+00:00,49,COPEC VOLTEX,FUERA DE LINEA,OCUPADO,2026-09-03T22:55:57.576412+00:00,DC,50,CCS 2,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-03T22:56:55+00:00,1037,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T22:55:39.783197+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-03T22:57:59+00:00,273,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-03T22:57:21.344589+00:00,DC,50,CHAdeMO,COPEC Parcela 20 Las Vegas de La Serena,Copec Voltex,(22-50],La Serena,Coquimbo,Copec Voltex,Copec Voltex
