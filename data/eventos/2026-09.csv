@@ -9424,3 +9424,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T07:46:48+00:00,9376,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T07:45:25.831335+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
 2026-09-03T07:51:44+00:00,517,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T07:46:40.967678+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-03T07:51:44+00:00,709,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T07:50:53.291951+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
+2026-09-03T07:56:44+00:00,9127,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-02T22:17:22.497022+00:00,DC,50,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(22-50],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-03T07:56:44+00:00,319,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T07:56:24.773166+00:00,AC,7,Tipo 2,Mc Donalds Kennedy,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-03T07:56:44+00:00,8734,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-03T07:53:00.680009+00:00,DC,70,GB/T DC,Cargador publico Enex File 130,Enerlink,(50-150],Recoleta,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-03T07:56:44+00:00,709,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-03T07:51:57.255809+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
+2026-09-03T07:56:44+00:00,8858,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-03T07:51:43.864492+00:00,DC,60,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
