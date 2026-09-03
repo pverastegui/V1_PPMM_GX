@@ -13232,3 +13232,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T20:41:53+00:00,3217,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T20:40:29.048285+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-03T20:41:53+00:00,1024,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T20:41:06.396232+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-03T20:41:53+00:00,8859,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-03T19:15:41.621120+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-03T20:43:00+00:00,1149,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T20:41:57.935698+00:00,DC,60,CCS 2,Enel X Way-Arauco Buenaventura.,Enel,(50-150],Quilicura,Metropolitana,Enel,Enel
+2026-09-03T20:43:00+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T20:41:49.327528+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T20:43:00+00:00,1157,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-03T20:41:58.683493+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
+2026-09-03T20:43:00+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T20:41:39.244744+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T20:43:00+00:00,347,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T20:41:51.392329+00:00,AC,22,Tipo 2,Williams Rebolledo,Copec Voltex,(7-22],Curacaví,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T20:43:00+00:00,1036,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T20:41:46.635735+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Carrascal ,Enel,(22-50],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-03T20:43:00+00:00,346,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T20:41:51.392329+00:00,AC,22,Tipo 2,Williams Rebolledo,Copec Voltex,(7-22],Curacaví,Metropolitana,Copec Voltex,Copec Voltex
