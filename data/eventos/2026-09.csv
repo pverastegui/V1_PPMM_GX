@@ -14115,3 +14115,12 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T22:51:54+00:00,7315,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T22:50:46.451333+00:00,DC,30,CCS 2,Enel X - Movicenter Huechuraba,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
 2026-09-03T22:51:54+00:00,409,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T22:51:15.540496+00:00,AC,22,Tipo 2,Cargador Eléctrico Plaza Juan Renz,Copec Voltex,(7-22],Macul,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-03T22:51:54+00:00,408,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T22:51:15.540496+00:00,AC,22,Tipo 2,Cargador Eléctrico Plaza Juan Renz,Copec Voltex,(7-22],Macul,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T22:52:56+00:00,48,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-03T22:52:06.067574+00:00,DC,50,CHAdeMO,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-03T22:52:56+00:00,1005,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T22:51:38.115580+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-03T22:52:56+00:00,4780,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T22:52:20.663978+00:00,DC,60,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T22:52:56+00:00,319,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T22:51:25.330947+00:00,AC,7,Tipo 2,Mc Donalds Kennedy,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-03T22:52:56+00:00,8857,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T22:51:34.184051+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T22:52:56+00:00,512,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T22:52:20.499325+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T22:52:56+00:00,110,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T22:52:02.355704+00:00,AC,3.5,Tipo 2,Estacionamientos EME,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-03T22:52:56+00:00,49,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T22:52:06.067574+00:00,DC,50,CCS 2,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-03T22:52:56+00:00,3219,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T22:51:46.616470+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
