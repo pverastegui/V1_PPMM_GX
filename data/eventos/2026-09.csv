@@ -14261,3 +14261,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T23:11:51+00:00,8861,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T23:10:51.155944+00:00,DC,120,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-03T23:11:51+00:00,1073,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T23:11:10.984028+00:00,DC,50,CHAdeMO,SAVE VOLTEX 20606 FREIRE,Copec Voltex,(22-50],Freire,La Araucanía,Copec Voltex,Copec Voltex
 2026-09-03T23:11:51+00:00,584,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T23:10:49.861856+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano Viña del Mar,Enel,(50-150],Vina del Mar,Valparaíso,Enel,Enel
+2026-09-03T23:13:01+00:00,360,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T23:11:59.380721+00:00,AC,22,Tipo 2,Cargador Urbano Santelices,Copec Voltex,(7-22],Isla de Maipo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T23:13:01+00:00,3220,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T23:11:33.355510+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T23:13:01+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T23:12:19.007898+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-03T23:13:01+00:00,361,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T23:11:59.380721+00:00,AC,22,Tipo 2,Cargador Urbano Santelices,Copec Voltex,(7-22],Isla de Maipo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T23:13:01+00:00,4748,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T23:11:45.660079+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
