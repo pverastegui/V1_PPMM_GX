@@ -111,6 +111,28 @@
 </section>
 
 <section>
+  <h2>Participación de mercado por segmento</h2>
+  <p class="desc">Conectores por tipo de sitio y por operador, según la vista "Atribuir a" de arriba.
+     La base es <code>parking_type</code>, el campo que la <strong>SEC ya reporta</strong> (centro
+     comercial, hotel, calle, electrolinera, edificio, etc.) — no hace falta ninguna API externa.
+     Cuando la SEC no lo informó (hoy ~60% de las ubicaciones), puedes clasificar esos casos tú mismo
+     por palabra clave más abajo (oficina, mall, clínica, universidad, lo que necesites).</p>
+  <div id="segmentos"></div>
+
+  <h3 style="font-size:.9rem;margin:22px 0 4px">Clasificar por palabra clave</h3>
+  <p class="desc">Se aplica solo cuando la SEC no informó el tipo de sitio o lo dejó como "OTRO" — nunca
+     pisa un tipo que la SEC sí informó. Se guarda solo en este navegador.</p>
+  <div class="params" style="margin-bottom:14px">
+    <div class="param"><label>Si el nombre de la ubicación contiene</label>
+      <input type="text" id="seg-palabra" placeholder="ej: OFICINA" style="width:180px;text-align:left"></div>
+    <div class="param"><label>Clasificarlo como</label>
+      <input type="text" id="seg-nombre" placeholder="ej: Oficina" style="width:180px;text-align:left"></div>
+    <div class="param"><button class="primario" id="seg-agregar">Agregar regla</button></div>
+  </div>
+  <div id="seg-reglas-tabla"></div>
+</section>
+
+<section>
   <h2>Detalle por ubicación</h2>
   <p class="desc">Cada fila es <strong>una ubicación</strong> (no un conector), con las tres formas de
      atribuirla lado a lado: a quién pertenece (owner), quién opera el punto de carga (OPC) y quién le
@@ -299,6 +321,107 @@ function fusionarPorOp(filas, campos) {
   return Object.values(acc);
 }
 
+// --------------------------------------------- segmento (tipo de sitio) por ubicacion
+// La SEC ya reporta un tipo de sitio real en "parking_type" (CENTRO COMERCIAL,
+// HOTEL, CALLE, ELECTROLINERA, ELECTROESTACIÓN, PLAZA, EDIFICIO, RESTAURANT,
+// AEROPUERTO). El problema es que ~60% de las ubicaciones lo tienen vacio (o
+// "OTRO"). Para esos casos se puede clasificar por palabra clave en el nombre
+// -- igual mecanismo que las reglas de agrupacion: se guarda solo en este
+// navegador y NUNCA pisa un tipo que la SEC si informo.
+const CLAVE_SEGMENTOS = "reglasSegmento";
+let reglasSegmento = [];   // [{ palabra: "MALL", segmento: "Centro comercial" }, ...]
+
+function leerReglasSegmento() {
+  try {
+    const g = JSON.parse(localStorage.getItem(CLAVE_SEGMENTOS) || "[]");
+    return Array.isArray(g) ? g : [];
+  } catch (e) { return []; }
+}
+function guardarReglasSegmento() {
+  try { localStorage.setItem(CLAVE_SEGMENTOS, JSON.stringify(reglasSegmento)); } catch (e) {}
+}
+function segmentoDe(u) {
+  const pt = (u.parking_type || "").trim();
+  if (pt && pt !== "OTRO") return pt;   // dato real de la SEC: nunca se pisa
+  const nombre = (u.location_name || "").toUpperCase();
+  for (const r of reglasSegmento) {
+    if (r.palabra && nombre.includes(r.palabra.toUpperCase())) return r.segmento;
+  }
+  return pt === "OTRO" ? "Otro (SEC)" : "Sin clasificar";
+}
+
+function pintarReglasSegmento() {
+  document.getElementById("seg-reglas-tabla").innerHTML = reglasSegmento.length
+    ? `<table><thead><tr><th style="text-align:left">Si el nombre contiene</th>
+         <th style="text-align:left">Se clasifica como</th><th></th></tr></thead><tbody>` +
+      reglasSegmento.map((r, i) => `<tr>
+        <td style="text-align:left">${esc(r.palabra)}</td>
+        <td style="text-align:left">${esc(r.segmento)}</td>
+        <td><button data-i="${i}" class="seg-quitar">Quitar</button></td>
+      </tr>`).join("") + `</tbody></table>`
+    : `<p class="desc">Todavía no agregaste ninguna regla de clasificación.</p>`;
+  document.querySelectorAll(".seg-quitar").forEach(btn => {
+    btn.addEventListener("click", () => {
+      reglasSegmento.splice(Number(btn.dataset.i), 1);
+      guardarReglasSegmento();
+      pintarReglasSegmento();
+      pintarSegmentos();
+      pintarUbicaciones();
+    });
+  });
+}
+
+function pintarSegmentos() {
+  const cont = document.getElementById("segmentos");
+  if (!ubicaciones.length) {
+    cont.innerHTML = `<p class="desc">Todavía no se pudo leer <code>catalogo.csv</code>.</p>`;
+    return;
+  }
+  const col = { opc: "operador_agrupado", owner: "owner_agrupado", pse: "pse_agrupado" }[vista];
+
+  // Los operadores "top" para armar columnas: los con mas conectores en total
+  // (ya con tus reglas de agrupacion aplicadas), no por segmento.
+  const totalPorOp = {};
+  ubicaciones.forEach(u => {
+    const op = agrupadoFinal(vista, u[col]);
+    totalPorOp[op] = (totalPorOp[op] || 0) + u.conectores;
+  });
+  const topOps = Object.keys(totalPorOp).sort((a, b) => totalPorOp[b] - totalPorOp[a]).slice(0, 5);
+
+  const porSegmento = {};
+  ubicaciones.forEach(u => {
+    const seg = segmentoDe(u), op = agrupadoFinal(vista, u[col]);
+    const s = (porSegmento[seg] = porSegmento[seg] || { total: 0 });
+    s.total += u.conectores;
+    s[op] = (s[op] || 0) + u.conectores;
+  });
+  const segmentosOrden = Object.keys(porSegmento).sort((a, b) => porSegmento[b].total - porSegmento[a].total);
+  const totalGeneral = segmentosOrden.reduce((a, s) => a + porSegmento[s].total, 0) || 1;
+
+  const celda = (n, base) => n
+    ? `${fmt(n)} <span style="color:var(--tinta-3)">(${fmt(100 * n / base, 0)}%)</span>` : "—";
+
+  cont.innerHTML = `<div class="caja-scroll"><table><thead><tr>
+      <th style="text-align:left">Segmento</th><th>Conectores</th><th>% del total</th>` +
+      topOps.map(o => `<th${esFoco(o) ? ' style="color:var(--serie-2)"' : ""}>${esc(o)}</th>`).join("") +
+      `<th>Otros</th></tr></thead><tbody>` +
+    segmentosOrden.map(seg => {
+      const s = porSegmento[seg];
+      const otros = s.total - topOps.reduce((a, o) => a + (s[o] || 0), 0);
+      return `<tr><td style="text-align:left">${esc(seg)}</td><td>${fmt(s.total)}</td>
+        <td>${fmt(100 * s.total / totalGeneral, 1)}%</td>` +
+        topOps.map(o => `<td${esFoco(o) ? ' style="color:var(--serie-2);font-weight:600"' : ""}>${celda(s[o] || 0, s.total)}</td>`).join("") +
+        `<td>${celda(otros, s.total)}</td></tr>`;
+    }).join("") +
+    `<tr style="font-weight:600"><td style="text-align:left">Total</td><td>${fmt(totalGeneral)}</td><td>100%</td>` +
+    topOps.map(o => `<td>${celda(totalPorOp[o] || 0, totalGeneral)}</td>`).join("") +
+    `<td>${celda(totalGeneral - topOps.reduce((a, o) => a + (totalPorOp[o] || 0), 0), totalGeneral)}</td></tr>` +
+    `</tbody></table></div>
+    <p class="nota">Conectores del parque instalado (no sesiones). "Sin clasificar" son ubicaciones sin
+      <code>parking_type</code> informado por la SEC y sin ninguna regla de palabra clave que las agarre;
+      "Otro (SEC)" es lo que la SEC clasificó explícitamente como "OTRO".</p>`;
+}
+
 // ------------------------------------------------------- parámetros (localStorage)
 function leerParams() {
   let guardado = {};
@@ -398,6 +521,7 @@ async function cargar() {
             location_id: c.location_id, location_name: c.location_name,
             commune: c.commune, region: c.region,
             institucion_privada: c.institucion_privada === "1",
+            parking_type: c.parking_type,
             owner_name: c.owner_name, owner_agrupado: c.owner_agrupado,
             operator_name: c.operator_name, operador_agrupado: c.operador_agrupado,
             pse_name: c.pse_name, pse_agrupado: c.pse_agrupado,
@@ -415,6 +539,7 @@ async function cargar() {
       `actualizado ${new Date().toLocaleString("es-CL")}`;
     actualizarNombresConocidos();
     pintarUbicaciones();
+    pintarSegmentos();
     pintarTodo();
   } catch (e) {
     estado.textContent = "";
@@ -935,7 +1060,7 @@ function pintarUbicaciones() {
         filtradas.length > MAX_FILAS_TABLA ? ` (mostrando las primeras ${MAX_FILAS_TABLA}, en orden alfabético)` : ""}.</p>
       <div class="caja-scroll"><table><thead><tr>
         <th style="text-align:left">Ubicación</th><th style="text-align:left">Comuna</th>
-        <th style="text-align:left">Sitio</th>
+        <th style="text-align:left">Sitio</th><th style="text-align:left">Segmento</th>
         <th style="text-align:left">Owner (crudo)</th><th style="text-align:left">Owner → grupo</th>
         <th style="text-align:left">OPC (crudo)</th><th style="text-align:left">OPC → grupo</th>
         <th style="text-align:left">PSE (crudo)</th><th style="text-align:left">PSE → grupo</th>
@@ -949,6 +1074,7 @@ function pintarUbicaciones() {
           <td style="text-align:left">${esc(u.location_name)}</td>
           <td style="text-align:left">${esc(u.commune)}</td>
           <td style="text-align:left">${u.institucion_privada ? "Privado" : "Público"}</td>
+          <td style="text-align:left">${esc(segmentoDe(u))}</td>
           <td style="text-align:left">${esc(u.owner_name)}</td>
           <td style="text-align:left">${esc(ownerG)}${ownerG !== u.owner_agrupado ? " ✏️" : ""}</td>
           <td style="text-align:left">${esc(u.operator_name)}</td>
@@ -1007,6 +1133,7 @@ function recalcularTodoPorRegla() {
   pintarReglas();
   actualizarNombresConocidos();
   pintarUbicaciones();
+  pintarSegmentos();
   pintarTodo();
   if (eventos.length) { pintarEventos(); pintarSesiones(); }
 }
@@ -1024,6 +1151,19 @@ document.getElementById("regla-agregar").addEventListener("click", () => {
   document.getElementById("regla-desde").value = "";
   document.getElementById("regla-hasta").value = "";
   recalcularTodoPorRegla();
+});
+
+document.getElementById("seg-agregar").addEventListener("click", () => {
+  const palabra = document.getElementById("seg-palabra").value.trim();
+  const segmento = document.getElementById("seg-nombre").value.trim();
+  if (!palabra || !segmento) return;
+  reglasSegmento.push({ palabra, segmento });
+  guardarReglasSegmento();
+  document.getElementById("seg-palabra").value = "";
+  document.getElementById("seg-nombre").value = "";
+  pintarReglasSegmento();
+  pintarSegmentos();
+  pintarUbicaciones();
 });
 
 document.getElementById("ev-mes").innerHTML =
@@ -1044,10 +1184,13 @@ cargaPromedio = leerParams();
 pintarParams();
 overrides = leerOverrides();
 pintarReglas();
+reglasSegmento = leerReglasSegmento();
+pintarReglasSegmento();
 document.getElementById("btn-recargar").addEventListener("click", cargar);
 document.getElementById("vista").addEventListener("change", e => {
   vista = e.target.value;
   try { localStorage.setItem("vista", vista); } catch (err) {}
+  pintarSegmentos();
   pintarTodo();
   if (eventos.length) { pintarEventos(); pintarSesiones(); }
 });
