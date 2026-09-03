@@ -14356,3 +14356,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T23:26:53+00:00,690,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T23:25:27.199531+00:00,DC,60,CCS 2,IRVE Tottus Vicuña Mackena,Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-03T23:26:53+00:00,8859,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T23:25:47.260154+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-03T23:26:53+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T23:25:27.223959+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-03T23:27:53+00:00,505,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T23:27:19.071883+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T23:27:53+00:00,1037,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T23:26:33.415587+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-03T23:27:53+00:00,8610,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T23:26:57.224037+00:00,DC,240,CCS 2,SAVE VOLTEX BILBAO EDS 60419,Copec Voltex,150,Providencia,Metropolitana,Copec Voltex,Copec Voltex
