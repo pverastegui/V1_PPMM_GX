@@ -14186,3 +14186,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T23:02:56+00:00,1028,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T23:02:10.862949+00:00,DC,70,CHAdeMO,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-03T23:02:56+00:00,690,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T23:02:02.735202+00:00,DC,60,CCS 2,IRVE Tottus Vicuña Mackena,Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-03T23:02:56+00:00,1155,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T23:01:33.763217+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
+2026-09-03T23:03:58+00:00,472,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T23:02:53.863786+00:00,AC,7,Tipo 2,Saba Paseo Bulnes,Enel,7,Santiago,Metropolitana,Enel,Enel
+2026-09-03T23:03:58+00:00,9380,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T23:03:02.636474+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60079 - COSTANERA NORTE KM 2,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
