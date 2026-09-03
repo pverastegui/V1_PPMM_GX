@@ -13330,3 +13330,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T20:56:54+00:00,516,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T20:55:35.445967+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
 2026-09-03T20:56:54+00:00,1022,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T20:55:35.942632+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
 2026-09-03T20:56:54+00:00,9379,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T20:56:13.484080+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60079 - COSTANERA NORTE KM 2,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T20:57:54+00:00,48,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-03T20:25:48.008057+00:00,DC,50,CHAdeMO,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-03T20:57:54+00:00,7273,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T20:56:25.299988+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-03T20:57:54+00:00,9191,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T20:56:44.620053+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
