@@ -13333,3 +13333,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T20:57:54+00:00,48,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-03T20:25:48.008057+00:00,DC,50,CHAdeMO,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-03T20:57:54+00:00,7273,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T20:56:25.299988+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
 2026-09-03T20:57:54+00:00,9191,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T20:56:44.620053+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T20:58:54+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T20:58:15.408837+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-03T20:58:54+00:00,505,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-03T20:58:13.491200+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T20:58:54+00:00,729,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-03T20:57:46.727529+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-03T20:58:54+00:00,7470,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T20:57:23.656037+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T20:58:54+00:00,49,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T20:56:59.695908+00:00,DC,50,CCS 2,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-03T20:58:54+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T20:58:15.408837+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-03T20:58:54+00:00,4746,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T20:58:13.247923+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
