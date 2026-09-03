@@ -29,16 +29,21 @@ opc,2026-09-02,Enerlink,(7-22],31
 opc,2026-09-02,Enerlink,150,16
 opc,2026-09-02,Enerlink,7,12
 opc,2026-09-02,Enel,150,4
-opc,2026-09-03,Enel,(50-150],84
-opc,2026-09-03,Enerlink,(50-150],72
-opc,2026-09-03,Copec Voltex,150,65
-opc,2026-09-03,Enel,(22-50],28
-opc,2026-09-03,Enerlink,(22-50],21
-opc,2026-09-03,Copec Voltex,(22-50],14
-opc,2026-09-03,Enel,(7-22],7
-opc,2026-09-03,Enerlink,150,4
-opc,2026-09-03,Copec Voltex,(50-150],3
-opc,2026-09-03,Enerlink,(7-22],3
+opc,2026-09-03,Enel,(50-150],219
+opc,2026-09-03,Copec Voltex,150,216
+opc,2026-09-03,Enerlink,(50-150],131
+opc,2026-09-03,Enel,(22-50],72
+opc,2026-09-03,Enerlink,(22-50],46
+opc,2026-09-03,Copec Voltex,(22-50],39
+opc,2026-09-03,Copec Voltex,(50-150],22
+opc,2026-09-03,Enel,(7-22],19
+opc,2026-09-03,Copec Voltex,7,15
+opc,2026-09-03,Copec Voltex,(7-22],15
+opc,2026-09-03,Enel,7,12
+opc,2026-09-03,Enerlink,(7-22],7
+opc,2026-09-03,Enerlink,150,6
+opc,2026-09-03,Enel,150,2
+opc,2026-09-03,Enerlink,7,1
 owner,2026-09-01,Copec Voltex,150,146
 owner,2026-09-01,Enel,(50-150],97
 owner,2026-09-01,Enerlink,(50-150],49
@@ -69,16 +74,21 @@ owner,2026-09-02,Enerlink,(7-22],31
 owner,2026-09-02,Enerlink,150,16
 owner,2026-09-02,Enerlink,7,12
 owner,2026-09-02,Enel,150,4
-owner,2026-09-03,Enel,(50-150],84
-owner,2026-09-03,Enerlink,(50-150],72
-owner,2026-09-03,Copec Voltex,150,65
-owner,2026-09-03,Enel,(22-50],28
-owner,2026-09-03,Enerlink,(22-50],21
-owner,2026-09-03,Copec Voltex,(22-50],14
-owner,2026-09-03,Enel,(7-22],7
-owner,2026-09-03,Enerlink,150,4
-owner,2026-09-03,Copec Voltex,(50-150],3
-owner,2026-09-03,Enerlink,(7-22],3
+owner,2026-09-03,Enel,(50-150],219
+owner,2026-09-03,Copec Voltex,150,216
+owner,2026-09-03,Enerlink,(50-150],131
+owner,2026-09-03,Enel,(22-50],72
+owner,2026-09-03,Enerlink,(22-50],46
+owner,2026-09-03,Copec Voltex,(22-50],39
+owner,2026-09-03,Copec Voltex,(50-150],22
+owner,2026-09-03,Enel,(7-22],19
+owner,2026-09-03,Copec Voltex,7,15
+owner,2026-09-03,Copec Voltex,(7-22],15
+owner,2026-09-03,Enel,7,12
+owner,2026-09-03,Enerlink,(7-22],7
+owner,2026-09-03,Enerlink,150,6
+owner,2026-09-03,Enel,150,2
+owner,2026-09-03,Enerlink,7,1
 pse,2026-09-01,Copec Voltex,150,146
 pse,2026-09-01,Enel,(50-150],97
 pse,2026-09-01,Enerlink,(50-150],49
@@ -109,13 +119,18 @@ pse,2026-09-02,Enerlink,(7-22],31
 pse,2026-09-02,Enerlink,150,16
 pse,2026-09-02,Enerlink,7,12
 pse,2026-09-02,Enel,150,4
-pse,2026-09-03,Enel,(50-150],84
-pse,2026-09-03,Enerlink,(50-150],72
-pse,2026-09-03,Copec Voltex,150,65
-pse,2026-09-03,Enel,(22-50],28
-pse,2026-09-03,Enerlink,(22-50],21
-pse,2026-09-03,Copec Voltex,(22-50],14
-pse,2026-09-03,Enel,(7-22],7
-pse,2026-09-03,Enerlink,150,4
-pse,2026-09-03,Copec Voltex,(50-150],3
-pse,2026-09-03,Enerlink,(7-22],3
+pse,2026-09-03,Enel,(50-150],219
+pse,2026-09-03,Copec Voltex,150,216
+pse,2026-09-03,Enerlink,(50-150],131
+pse,2026-09-03,Enel,(22-50],72
+pse,2026-09-03,Enerlink,(22-50],46
+pse,2026-09-03,Copec Voltex,(22-50],39
+pse,2026-09-03,Copec Voltex,(50-150],22
+pse,2026-09-03,Enel,(7-22],19
+pse,2026-09-03,Copec Voltex,7,15
+pse,2026-09-03,Copec Voltex,(7-22],15
+pse,2026-09-03,Enel,7,12
+pse,2026-09-03,Enerlink,(7-22],7
+pse,2026-09-03,Enerlink,150,6
+pse,2026-09-03,Enel,150,2
+pse,2026-09-03,Enerlink,7,1
