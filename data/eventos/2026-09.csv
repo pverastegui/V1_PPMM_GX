@@ -13596,3 +13596,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T21:35:54+00:00,9378,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T18:15:03.071434+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
 2026-09-03T21:35:54+00:00,411,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:35:14.148168+00:00,AC,22,Tipo 2,Cargador Av. Calera de tango,Copec Voltex,(7-22],Calera de Tango,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-03T21:35:54+00:00,1037,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T21:34:39.683929+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-03T21:36:53+00:00,410,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:36:24.725736+00:00,AC,22,Tipo 2,Cargador Av. Calera de tango,Copec Voltex,(7-22],Calera de Tango,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:36:53+00:00,1155,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T21:36:07.323684+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
+2026-09-03T21:36:53+00:00,3220,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:36:16.127063+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:36:53+00:00,411,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:36:24.725736+00:00,AC,22,Tipo 2,Cargador Av. Calera de tango,Copec Voltex,(7-22],Calera de Tango,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:36:53+00:00,7271,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T21:35:29.323733+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Los Presidentes,Enel,(22-50],Penalolén,Metropolitana,Enel,Enel
+2026-09-03T21:36:53+00:00,7469,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:35:31.111860+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:36:53+00:00,9192,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:35:48.919901+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
