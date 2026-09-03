@@ -9422,3 +9422,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T07:46:48+00:00,6829,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T07:25:21.575790+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
 2026-09-03T07:46:48+00:00,512,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-03T07:44:35.607515+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
 2026-09-03T07:46:48+00:00,9376,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T07:45:25.831335+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
+2026-09-03T07:51:44+00:00,517,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T07:46:40.967678+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T07:51:44+00:00,709,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T07:50:53.291951+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
