@@ -7,9 +7,16 @@ permanentes y son lo que realmente se analiza. El crudo es la red de seguridad
 para poder reprocesar si se descubre un bug, y con 60 dias alcanza de sobra.
 
 Lo corre GitHub Actions una vez al dia.
+
+Igual que en sondear.py, DIR_SNAPSHOTS se puede pisar con la variable de
+entorno SONDEAR_DIR_SNAPSHOTS -- hoy ningun workflow la usa (el crudo sigue
+viviendo en snapshots/ de este mismo repo, ver docstring de sondear.py,
+"SOBRE EL INTERVALO DE SONDEO"), pero queda lista para cuando el crudo se
+mude a un almacenamiento aparte.
 """
 from __future__ import annotations
 
+import os
 import shutil
 import sys
 from datetime import datetime, timedelta, timezone
@@ -18,7 +25,8 @@ from pathlib import Path
 DIAS_RETENCION = 60
 
 RAIZ = Path(__file__).resolve().parent.parent
-DIR_SNAPSHOTS = RAIZ / "snapshots"
+_dir_snapshots_env = os.environ.get("SONDEAR_DIR_SNAPSHOTS")
+DIR_SNAPSHOTS = Path(_dir_snapshots_env) if _dir_snapshots_env else (RAIZ / "snapshots")
 
 
 def main() -> int:

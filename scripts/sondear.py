@@ -4,15 +4,18 @@ SONDEO DE LA RED DE CARGADORES PUBLICOS DE CHILE
 Fuente: https://cargadorespublicos.cl/api/data
 (Plataforma de interoperabilidad SEC, Decreto Supremo N12 - Ministerio de Energia)
 
-Este script corre UNA VEZ por ejecucion (lo dispara GitHub Actions cada 5 min).
-Hace exactamente cuatro cosas, en este orden:
+Este script corre UNA VEZ por ejecucion (lo dispara GitHub Actions cada 1
+minuto -- ver "SOBRE EL INTERVALO DE SONDEO" mas abajo). Hace, en este
+orden:
 
   1. Baja la API.
-  2. GUARDA EL CRUDO tal cual vino, comprimido, en snapshots/<fecha>/<hora>.json.gz
-     Esto pasa ANTES de procesar nada. Si el procesamiento tuviera un bug, el dato
-     crudo ya esta a salvo y se puede reprocesar despues.
-  3. Compara contra el estado anterior (data/catalogo.csv) y anota los cambios de
+  2. Compara contra el estado anterior (data/catalogo.csv) y anota los cambios de
      estado en data/eventos/AAAA-MM.csv.
+  3. GUARDA EL CRUDO tal cual vino, comprimido, en snapshots/<fecha>/<hora>.json.gz
+     -- pero no en cada corrida: solo si hubo un cambio de estado real, o cada
+     5 minutos como respaldo minimo (ver "SOBRE EL INTERVALO DE SONDEO"). Si el
+     procesamiento fallara antes de llegar aca, el crudo se guarda igual, sin
+     excepcion, para poder reprocesar despues.
   4. Registra la corrida (exitosa o fallida) en data/corridas.csv.
 
 Todo en CSV a proposito: se abren directo en Google Sheets o Excel, sin
@@ -81,6 +84,42 @@ aplica si el OPC SI esta informado: el OPC es el dato oficial (registro SEC) y
 no se pisa con un texto. Si el archivo no existe, el rescate queda apagado
 (cae al owner como antes) y se avisa fuerte en los logs.
 
+--- SOBRE EL INTERVALO DE SONDEO ---
+Antes se sondeaba cada 5 minutos. Eso dejaba un "hueco ciego" de hasta 5
+minutos entre una foto y la siguiente: si un auto entraba y otro salia del
+mismo conector dentro de ese hueco, la sesion quedaba invisible -- se
+verifico comparando contra las transacciones reales que varias cargas
+cortas se pierden asi.
+
+La solucion de fondo es: sondear mas seguido (achica el hueco), pero
+guardar el snapshot crudo completo de CADA sondeo solo en un almacenamiento
+PRIVADO aparte (Drive, o un repositorio privado) -- porque guardarlo
+siempre en este repo, que es publico, multiplicaria varias veces lo que
+pesa snapshots/ para siempre en el historial de git (limpiar_crudos.py
+borra del arbol pero NO reescribe el historial). Eso todavia se esta
+configurando.
+
+MIENTRAS TANTO: el disparador de Apps Script solo ofrece intervalos fijos
+(1, 5, 10, 15 o 30 minutos -- no hay "cada 2" ni "cada 3"), asi que el
+sondeo pasa derecho a CADA 1 MINUTO. Para no inflar este repositorio
+publico mientras el almacenamiento aparte no esta listo, el crudo NO se
+guarda en cada corrida: solo cuando esta corrida detecto al menos un
+cambio de estado real (eventos no vacio) -- asi el contexto completo de
+ESE instante queda archivado -- o si no, igual cada 5 minutos, como
+respaldo periodico minimo, aunque no haya pasado nada.
+
+Los archivos importantes (catalogo.csv, eventos/*.csv) se escriben en
+TODAS las corridas sin excepcion -- lo que se ahorra es solo el respaldo
+crudo de las corridas "sin novedad" que caen fuera de esos dos casos. Si
+el procesamiento de una corrida FALLA (excepcion), el crudo se guarda
+igual pase lo que pase: ahi es cuando mas se necesita, porque es la unica
+forma de reprocesar ese instante despues.
+
+La ruta de snapshots/ tambien se puede pisar con la variable de entorno
+SONDEAR_DIR_SNAPSHOTS -- hoy no la usa ningun workflow (el crudo sigue
+yendo a snapshots/ de este mismo repo), pero queda lista para cuando se
+conecte el almacenamiento aparte, sin tener que tocar este script de nuevo.
+
 --- NOTA SOBRE LOS CAMPOS NUEVOS DE POTENCIA Y CARGA SIMULTANEA ---
 Ademas de la potencia MAXIMA que ya se guardaba, el catalogo ahora tambien
 guarda, por conector: el formato (CABLE/SOCKET), el voltaje/amperaje maximos
@@ -95,6 +134,7 @@ from __future__ import annotations
 import csv
 import gzip
 import json
+import os
 import sys
 import time
 import traceback
@@ -117,7 +157,13 @@ ESPERA_ENTRE_REINTENTOS_S = 5  # se duplica: 5s, 10s
 HORAS_GRACIA_RETIRO = 24
 
 RAIZ = Path(__file__).resolve().parent.parent
-DIR_SNAPSHOTS = RAIZ / "snapshots"
+
+# El crudo vive en un repo privado aparte (ver docstring, "SOBRE DONDE VIVE
+# EL CRUDO"). SONDEAR_DIR_SNAPSHOTS la apunta ahi; si no esta seteada, se usa
+# snapshots/ dentro de este mismo repo (comportamiento de siempre).
+_dir_snapshots_env = os.environ.get("SONDEAR_DIR_SNAPSHOTS")
+DIR_SNAPSHOTS = Path(_dir_snapshots_env) if _dir_snapshots_env else (RAIZ / "snapshots")
+
 DIR_DATA = RAIZ / "data"
 ARCHIVO_CATALOGO = DIR_DATA / "catalogo.csv"
 DIR_EVENTOS = DIR_DATA / "eventos"          # un CSV por mes: eventos/2026-09.csv
@@ -311,14 +357,23 @@ def bajar_api() -> tuple[list | None, int | None, str | None, str | None]:
 # --------------------------------------------------------- paso 2: guardar crudo
 
 def guardar_crudo(datos: list, momento: datetime) -> Path:
-    """Guarda el JSON tal cual, comprimido. Un archivo por sondeo.
-    Esto se hace ANTES de procesar, para que el crudo este a salvo pase lo que pase."""
+    """Guarda el JSON tal cual, comprimido, en DIR_SNAPSHOTS. Un archivo por
+    sondeo. Se llama solo cuando vale la pena (ver main()) o, si el
+    procesamiento fallo, siempre -- ahi es la unica forma de poder
+    reprocesar ese instante despues."""
     carpeta = DIR_SNAPSHOTS / momento.strftime("%Y-%m-%d")
     carpeta.mkdir(parents=True, exist_ok=True)
     ruta = carpeta / f"{momento.strftime('%H%M')}.json.gz"
     with gzip.open(ruta, "wt", encoding="utf-8", compresslevel=9) as f:
         json.dump(datos, f, ensure_ascii=False)
     return ruta
+
+
+def _ruta_crudo_para_registrar(ruta: Path) -> str:
+    """Como registrar la ruta del crudo en corridas.csv. Se guarda relativa
+    a DIR_SNAPSHOTS (no a RAIZ): si el crudo vive en el repo privado, RAIZ
+    (este repo) ni siquiera es un ancestro de esa ruta."""
+    return str(ruta.relative_to(DIR_SNAPSHOTS)).replace("\\", "/")
 
 
 # ------------------------------------------------- paso 3: detectar los cambios
@@ -528,28 +583,43 @@ def main() -> int:
         print(f"[{momento_iso}] FALLO: {err_tipo}: {err_msg}", file=sys.stderr)
         return 1
 
-    # Paso 2 antes que nada: el crudo a salvo.
-    ruta_crudo = guardar_crudo(datos, momento)
-    print(f"Crudo guardado: {ruta_crudo.relative_to(RAIZ)} ({ruta_crudo.stat().st_size/1024:.0f} KB)")
-
     try:
         catalogo, eventos = procesar(datos, momento_iso)
         escribir_csv(ARCHIVO_CATALOGO, COLUMNAS_CATALOGO, catalogo)
         agregar_csv(archivo_eventos_del_mes(momento), COLUMNAS_EVENTOS, eventos)
+
+        # El crudo NO se guarda en cada corrida (ver docstring, "SOBRE EL
+        # INTERVALO DE SONDEO"): solo cuando de verdad hubo un cambio de
+        # estado, o cada 5 minutos como respaldo minimo aunque no haya
+        # pasado nada. Asi el sondeo cada 1 minuto no multiplica por 5 lo
+        # que pesa snapshots/ (y, mas importante, el historial de git, que
+        # limpiar_crudos.py nunca reescribe) mientras el almacenamiento
+        # aparte del crudo no este listo.
+        vale_la_pena_guardar_crudo = bool(eventos) or momento.minute % 5 == 0
+        ruta_crudo = None
+        if vale_la_pena_guardar_crudo:
+            ruta_crudo = guardar_crudo(datos, momento)
+            print(f"Crudo guardado: {ruta_crudo} ({ruta_crudo.stat().st_size/1024:.0f} KB)")
+        else:
+            print("Sin cambios de estado y no toca respaldo periodico: no se guarda crudo esta corrida.")
+
         agregar_csv(ARCHIVO_CORRIDAS, COLUMNAS_CORRIDAS, [{
             "timestamp": momento_iso, "ok": 1, "http_status": status,
             "n_locations": len(datos), "n_conectores": len(catalogo),
             "n_eventos_nuevos": len(eventos),
-            "archivo_crudo": str(ruta_crudo.relative_to(RAIZ)).replace("\\", "/"),
+            "archivo_crudo": _ruta_crudo_para_registrar(ruta_crudo) if ruta_crudo else "",
         }])
         print(f"OK: {len(datos)} locations, {len(catalogo)} conectores, {len(eventos)} eventos nuevos")
         return 0
 
     except Exception as exc:
-        # El crudo ya esta guardado, asi que esto se puede reprocesar despues.
+        # Aca SI se guarda el crudo pase lo que pase, sin importar si hubo
+        # eventos o en que minuto estamos: si el procesamiento fallo, el
+        # crudo es la UNICA forma de reprocesar este instante despues.
+        ruta_crudo = guardar_crudo(datos, momento)
         agregar_csv(ARCHIVO_CORRIDAS, COLUMNAS_CORRIDAS, [{
             "timestamp": momento_iso, "ok": 0, "http_status": status,
-            "archivo_crudo": str(ruta_crudo.relative_to(RAIZ)).replace("\\", "/"),
+            "archivo_crudo": _ruta_crudo_para_registrar(ruta_crudo),
             "error_tipo": type(exc).__name__,
             "error_mensaje": f"{exc} | {traceback.format_exc()[-300:]}",
         }])

@@ -17,31 +17,26 @@ import sondear  # noqa: E402
 
 def loc(location_id, nombre, operador, connector_id, estado, kw=60,
         institucion_privada=False, last_updated="2026-09-01T12:00:00+00:00",
-        opc_nombre=None, owner_nombre=None,
-        permite_carga_simultanea=False, formato=None, voltaje_maximo=None,
-        amperaje_maximo=None, voltaje_actual=None, amperaje_actual=None,
-        integrado=False):
-    if opc_nombre is None:
-        opc_nombre = operador
-    if owner_nombre is None:
-        owner_nombre = operador
+        opc_informado=True, permite_carga_simultanea=True):
+    opc = ({"normalized_name": operador, "RUT": "995200007"} if opc_informado
+           else {"normalized_name": None, "RUT": None})
     return {
         "location_id": location_id, "name": nombre, "commune": "Santiago",
         "region": "Metropolitana", "institucion_privada": institucion_privada,
         "parking_type": "PUBLICO",
-        "owner": {"RUT": "995200007", "name": owner_nombre},
-        "OPC": {"normalized_name": opc_nombre, "RUT": "995200007"},
+        "owner": {"RUT": "995200007", "name": operador},
+        "OPC": opc,
         "evses": [{
             "evse_uid": location_id * 10, "last_updated": last_updated,
-            "uso_exclusivo": False,
-            "permite_carga_simultanea": permite_carga_simultanea,
+            "uso_exclusivo": False, "permite_carga_simultanea": permite_carga_simultanea,
             "connectors": [{
                 "connector_id": connector_id, "status": estado, "standard": "CCS 2",
                 "power_type": "DC", "max_electric_power": kw,
+                "format": "CABLE", "max_voltage": 1000, "max_amperage": 200,
+                "voltage": 400 if estado == "OCUPADO" else 0,
+                "amperage": 125 if estado == "OCUPADO" else 0,
                 "electric_power": 50 if estado == "OCUPADO" else 0, "soc": 40,
-                "format": formato, "max_voltage": voltaje_maximo,
-                "max_amperage": amperaje_maximo, "voltage": voltaje_actual,
-                "amperage": amperaje_actual, "integrated": integrado,
+                "integrated": False,
             }],
         }],
     }
@@ -59,10 +54,11 @@ def entorno_limpio(tmp: Path):
     sondear.DIR_EVENTOS = tmp / "data" / "eventos"
     sondear.ARCHIVO_CORRIDAS = tmp / "data" / "corridas.csv"
     sondear.ARCHIVO_MAPEO = tmp / "mapeo_operadores.csv"
-    (tmp / "mapeo_operadores.csv").write_text(
-        "nombre_original,nombre_agrupado\nCOPEC VOLTEX,Copec Voltex\nCOPEC S.A.,Copec Voltex\n",
-        encoding="utf-8")
     sondear.ARCHIVO_PALABRAS_CLAVE = tmp / "palabras_clave_marca.csv"
+    (tmp / "mapeo_operadores.csv").write_text(
+        "nombre_original,nombre_agrupado\nCOPEC VOLTEX,Copec Voltex\nCOPEC S.A.,Copec Voltex\n"
+        "ENERLINK CHILE SPA,Enerlink\n",
+        encoding="utf-8")
     (tmp / "palabras_clave_marca.csv").write_text(
         "palabra_clave,nombre_agrupado\nCOPEC,Copec Voltex\nENEL,Enel\n",
         encoding="utf-8")
@@ -190,76 +186,139 @@ def test_location_malformada_no_rompe():
     print("OK: una location con forma rara no tumba el resto")
 
 
-def test_carga_simultanea_y_potencia_en_vivo():
+def test_permite_carga_simultanea_y_potencia_en_vivo():
+    """Campos nuevos: si el cargador permite carga simultanea, y del
+    conector la potencia/voltaje/amperaje EN VIVO ademas de los maximos."""
     tmp = Path("/tmp/pruebas_sondeo_4")
     entorno_limpio(tmp)
     t0 = datetime(2026, 9, 1, 10, 0, tzinfo=timezone.utc)
 
-    datos = [loc(1, "Sitio", "COPEC VOLTEX", 101, "OCUPADO", kw=60,
-                 permite_carga_simultanea=True, formato="SOCKET",
-                 voltaje_maximo=500, amperaje_maximo=125,
-                 voltaje_actual=480, amperaje_actual=100, integrado=True)]
+    datos = [loc(1, "Sitio", "COPEC VOLTEX", 1, "OCUPADO", permite_carga_simultanea=False)]
     cat, _ = sondear.procesar(datos, t0.isoformat(timespec="seconds"))
     fila = cat[0]
 
-    assert str(fila["permite_carga_simultanea"]) == "1"
-    assert fila["formato"] == "SOCKET"
-    assert str(fila["voltaje_maximo"]) == "500"
-    assert str(fila["amperaje_maximo"]) == "125"
-    assert str(fila["voltaje_actual"]) == "480"
-    assert str(fila["amperaje_actual"]) == "100"
-    assert str(fila["potencia_actual_kw"]) == "50"  # electric_power en vivo, seteado por loc() cuando OCUPADO
-    assert str(fila["porcentaje_bateria"]) == "40"
-    assert str(fila["integrado"]) == "1"
-    print("OK: carga simultanea y potencia en vivo quedan registradas en el catalogo")
+    assert str(fila["permite_carga_simultanea"]) == "0"
+    assert float(fila["potencia_actual_kw"]) == 50
+    assert float(fila["voltaje_actual"]) == 400
+    assert float(fila["amperaje_actual"]) == 125
+    assert float(fila["porcentaje_bateria"]) == 40
+    assert fila["formato"] == "CABLE"
+    assert float(fila["voltaje_maximo"]) == 1000
+    print("OK: se capturan carga simultanea y los valores en vivo del conector")
 
 
-def test_rescate_por_palabra_clave_cuando_opc_no_informado():
+def test_rescate_por_palabra_clave_no_pisa_opc_informado():
+    """Si el OPC esta informado se usa tal cual (mapeado), aunque el NOMBRE
+    de la ubicacion contenga la palabra clave de OTRA marca -- el OPC nunca
+    se pisa. Si el OPC NO esta informado, se busca la palabra clave en el
+    nombre de la ubicacion ANTES de caer al owner."""
     tmp = Path("/tmp/pruebas_sondeo_5")
     entorno_limpio(tmp)
     t0 = datetime(2026, 9, 1, 10, 0, tzinfo=timezone.utc)
 
-    # OPC no informado y owner sin relacion (una municipalidad), pero el nombre
-    # de la ubicacion delata la marca real.
-    datos = [loc(1, "Estacionamiento COPEC Ruta 5", "Municipalidad de Rancagua", 201,
-                 "DISPONIBLE", opc_nombre="Sin Operador Informado")]
-    cat, _ = sondear.procesar(datos, t0.isoformat(timespec="seconds"))
+    # Caso real que motivo el orden de las reglas: OPC = Enerlink (informado)
+    # pero el nombre del sitio dice "Enel X" -> gana el OPC, siempre.
+    sitio_con_opc = loc(1, "Enel X - Shell Laguna Caren", "ENERLINK CHILE SPA", 1, "DISPONIBLE")
+    cat, _ = sondear.procesar([sitio_con_opc], t0.isoformat(timespec="seconds"))
+    assert cat[0]["operador_agrupado"] == "Enerlink"
 
-    assert cat[0]["operador_agrupado"] == "Copec Voltex", \
-        "sin OPC informado, debe rescatar la marca por el nombre de la ubicacion"
-    print("OK: sin OPC informado, el nombre de la ubicacion rescata la marca real")
+    # OPC NO informado, el owner es un tercero sin nada que ver (una
+    # municipalidad), pero el nombre del sitio dice COPEC -> se rescata.
+    sitio_sin_opc = loc(2, "COPEC Ruta 5", "Ilustre Municipalidad de Las Condes",
+                         2, "DISPONIBLE", opc_informado=False)
+    cat, _ = sondear.procesar([sitio_sin_opc], (t0 + timedelta(minutes=1)).isoformat(timespec="seconds"))
+    assert cat[0]["operador_agrupado"] == "Copec Voltex"
+    print("OK: el rescate por palabra clave no pisa un OPC informado, y rescata cuando no hay OPC")
 
 
-def test_rescate_nunca_pisa_opc_informado():
+class _RelojFalso(datetime):
+    """Subclase de datetime que fija lo que devuelve .now() -- para probar
+    main() (que sondea "el instante actual") sin depender del reloj real."""
+    _ahora = None
+
+    @classmethod
+    def now(cls, tz=None):
+        return cls._ahora
+
+
+def test_crudo_se_guarda_solo_si_hay_eventos_o_toca_el_respaldo_cada_5_min():
+    """El disparador de Apps Script solo ofrece intervalos fijos (1, 5, 10,
+    15, 30 -- no hay "cada 2" ni "cada 3"), asi que el sondeo pasa a cada 1
+    minuto. Guardar el snapshot crudo en TODAS esas corridas multiplicaria
+    por 5 lo que pesa snapshots/ -- y como limpiar_crudos.py borra del
+    arbol pero nunca reescribe el historial de git, ese peso de mas
+    quedaria para siempre adentro del repositorio. Por eso main() solo
+    guarda el crudo si esta corrida detecto un cambio de estado real, o si
+    igual toca el respaldo periodico (cada 5 minutos) aunque no haya
+    pasado nada."""
     tmp = Path("/tmp/pruebas_sondeo_6")
     entorno_limpio(tmp)
-    t0 = datetime(2026, 9, 1, 10, 0, tzinfo=timezone.utc)
 
-    # El nombre de la ubicacion menciona COPEC, pero el OPC SI esta informado
-    # y dice otra cosa: el OPC es el dato oficial (SEC) y nunca debe pisarse.
-    datos = [loc(1, "Estacionamiento COPEC Ruta 5", "ENEL X", 202, "DISPONIBLE",
-                 opc_nombre="ENEL X", owner_nombre="Municipalidad de Rancagua")]
-    cat, _ = sondear.procesar(datos, t0.isoformat(timespec="seconds"))
+    datos_bajados = {"valor": None}
+    sondear.bajar_api = lambda: (datos_bajados["valor"], 200, None, None)
+    sondear.datetime = _RelojFalso
 
-    assert cat[0]["operador_agrupado"] == "ENEL X", \
-        "el rescate por palabra clave no debe pisar un OPC que si esta informado"
-    print("OK: el rescate por palabra clave nunca pisa un OPC informado")
+    def snapshots_guardados():
+        return list(sondear.DIR_SNAPSHOTS.rglob("*.json.gz"))
+
+    try:
+        # Minuto 0 (multiplo de 5): ademas la primera lectura de un conector
+        # siempre genera un evento (no tiene estado_anterior), asi que este
+        # crudo se guarda por las dos razones a la vez.
+        _RelojFalso._ahora = _RelojFalso(2026, 9, 1, 10, 0, tzinfo=timezone.utc)
+        datos_bajados["valor"] = [loc(1, "Sitio", "COPEC VOLTEX", 1, "DISPONIBLE")]
+        sondear.main()
+        assert len(snapshots_guardados()) == 1
+
+        # Minuto 1 (no multiplo de 5), mismo estado que antes -> sin eventos
+        # nuevos -> no toca guardar crudo esta vez.
+        _RelojFalso._ahora = _RelojFalso(2026, 9, 1, 10, 1, tzinfo=timezone.utc)
+        sondear.main()
+        assert len(snapshots_guardados()) == 1, \
+            "sin cambios de estado y fuera del respaldo cada 5 min: no debe guardar un segundo crudo"
+
+        # Minuto 2 (tampoco multiplo de 5), pero AHORA si cambia el estado
+        # -> se guarda igual, porque lo que manda es que hubo un evento real.
+        _RelojFalso._ahora = _RelojFalso(2026, 9, 1, 10, 2, tzinfo=timezone.utc)
+        datos_bajados["valor"] = [loc(1, "Sitio", "COPEC VOLTEX", 1, "OCUPADO")]
+        sondear.main()
+        assert len(snapshots_guardados()) == 2
+
+        corridas = leer(sondear.ARCHIVO_CORRIDAS)
+        assert corridas[1]["archivo_crudo"] == "", "la corrida sin novedad no debe registrar archivo_crudo"
+        assert corridas[2]["archivo_crudo"] != "", "la corrida con cambio de estado si debe registrar su archivo_crudo"
+        print("OK: el crudo se guarda solo si hubo un evento real o toca el respaldo cada 5 minutos")
+    finally:
+        # Deshace los parches de este test (bajar_api y datetime) para no
+        # afectar a las pruebas que corran despues.
+        import importlib
+        importlib.reload(sondear)
 
 
-def test_rescate_cae_a_owner_si_no_hay_palabra_clave_conocida():
-    tmp = Path("/tmp/pruebas_sondeo_7")
-    entorno_limpio(tmp)
-    t0 = datetime(2026, 9, 1, 10, 0, tzinfo=timezone.utc)
+def test_variable_de_entorno_puede_apuntar_el_crudo_a_otra_carpeta():
+    """Hoy ningun workflow usa esto todavia (el crudo sigue yendo a
+    snapshots/ de este mismo repo, ver docstring "SOBRE EL INTERVALO DE
+    SONDEO") -- pero la variable queda lista para cuando se conecte el
+    almacenamiento aparte del crudo, sin tener que tocar este script de
+    nuevo. Esta prueba solo confirma que el mecanismo funciona."""
+    import importlib
+    import os
 
-    # OPC no informado, pero el nombre de la ubicacion no contiene ninguna
-    # palabra clave conocida: debe seguir cayendo al owner, como antes.
-    datos = [loc(1, "Estacionamiento Central", "Municipalidad de Rancagua", 203,
-                 "DISPONIBLE", opc_nombre="Sin Operador Informado")]
-    cat, _ = sondear.procesar(datos, t0.isoformat(timespec="seconds"))
+    otra_carpeta = Path("/tmp/pruebas_sondeo_7_otra_carpeta")
+    shutil.rmtree(otra_carpeta, ignore_errors=True)
 
-    assert cat[0]["operador_agrupado"] == "Municipalidad de Rancagua", \
-        "sin palabra clave conocida en el nombre, debe caer al owner igual que antes"
-    print("OK: sin palabra clave conocida en el nombre, cae al owner como antes")
+    os.environ["SONDEAR_DIR_SNAPSHOTS"] = str(otra_carpeta)
+    try:
+        importlib.reload(sondear)
+        assert sondear.DIR_SNAPSHOTS == otra_carpeta, \
+            "con la variable de entorno seteada, DIR_SNAPSHOTS debe apuntar ahi"
+    finally:
+        del os.environ["SONDEAR_DIR_SNAPSHOTS"]
+        importlib.reload(sondear)  # vuelve a snapshots/ del repo, para las pruebas que siguen
+        assert sondear.DIR_SNAPSHOTS == sondear.RAIZ / "snapshots", \
+            "sin la variable de entorno, debe volver al comportamiento de siempre"
+
+    print("OK: SONDEAR_DIR_SNAPSHOTS pisa donde se guarda el crudo (y sin ella, no cambia nada)")
 
 
 if __name__ == "__main__":
@@ -269,8 +328,8 @@ if __name__ == "__main__":
     test_retiro_despues_de_la_gracia()
     test_el_crudo_se_guarda_y_se_puede_releer()
     test_location_malformada_no_rompe()
-    test_carga_simultanea_y_potencia_en_vivo()
-    test_rescate_por_palabra_clave_cuando_opc_no_informado()
-    test_rescate_nunca_pisa_opc_informado()
-    test_rescate_cae_a_owner_si_no_hay_palabra_clave_conocida()
+    test_permite_carga_simultanea_y_potencia_en_vivo()
+    test_rescate_por_palabra_clave_no_pisa_opc_informado()
+    test_crudo_se_guarda_solo_si_hay_eventos_o_toca_el_respaldo_cada_5_min()
+    test_variable_de_entorno_puede_apuntar_el_crudo_a_otra_carpeta()
     print("\nTodas las pruebas pasaron.")

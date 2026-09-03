@@ -6,13 +6,7 @@ __pycache__/
 # asi nadie mas lo encuentra, y los parametros de carga promedio que ingreses
 # viven solo en tu navegador. Vive en la carpeta del repo por comodidad (para
 # tenerlo junto a los datos), pero git lo ignora.
-visor.html
-
-# Archivos de prueba temporales
+visor_ppmm_v1.html
 prueba_cors.html
-
-# El dashboard generado localmente (dist/) es un artefacto, no se comitea.
 dist/
-
-# OJO: data/ y snapshots/ SI se comitean a proposito (los escribe el workflow).
-# No los agregues aca.
+Claude outputs/
