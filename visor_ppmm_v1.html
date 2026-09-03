@@ -70,6 +70,9 @@
   .caja-scroll thead th { position:sticky; top:0; background:var(--tarjeta);
     box-shadow:0 1px 0 var(--grilla); }
   code { background:var(--campo); padding:1px 5px; border-radius:4px; font-size:.9em; }
+  .enlace-celda { background:none; border:none; padding:0; margin:0; font:inherit; color:inherit;
+    text-decoration:underline; text-decoration-style:dotted; cursor:pointer; text-align:inherit; }
+  .enlace-celda:hover { color:var(--serie-1); }
 </style>
 </head>
 <body><div class="wrap">
@@ -146,6 +149,8 @@
       <select id="ub-priv">
         <option value="">Todos</option><option value="si">Solo privados</option><option value="no">Solo públicos</option>
       </select></div>
+    <div class="param"><label>Segmento</label><select id="ub-seg"></select></div>
+    <div class="param"><label>Grupo (vista actual)</label><select id="ub-grupo"></select></div>
   </div>
 
   <div id="ubicaciones-tabla"></div>
@@ -366,6 +371,7 @@ function pintarReglasSegmento() {
       guardarReglasSegmento();
       pintarReglasSegmento();
       pintarSegmentos();
+      actualizarFiltrosUbicacion();
       pintarUbicaciones();
     });
   });
@@ -401,6 +407,11 @@ function pintarSegmentos() {
   const celda = (n, base) => n
     ? `${fmt(n)} <span style="color:var(--tinta-3)">(${fmt(100 * n / base, 0)}%)</span>` : "—";
 
+  // "ir" arma un boton que, al hacer click, filtra el detalle por ubicacion
+  // por ese segmento (y ese operador, si se paso uno) y salta a esa tabla.
+  const ir = (texto, seg, op) =>
+    `<button class="enlace-celda" data-seg="${esc(seg)}"${op ? ` data-op="${esc(op)}"` : ""}>${texto}</button>`;
+
   cont.innerHTML = `<div class="caja-scroll"><table><thead><tr>
       <th style="text-align:left">Segmento</th><th>Conectores</th><th>% del total</th>` +
       topOps.map(o => `<th${esFoco(o) ? ' style="color:var(--serie-2)"' : ""}>${esc(o)}</th>`).join("") +
@@ -408,18 +419,29 @@ function pintarSegmentos() {
     segmentosOrden.map(seg => {
       const s = porSegmento[seg];
       const otros = s.total - topOps.reduce((a, o) => a + (s[o] || 0), 0);
-      return `<tr><td style="text-align:left">${esc(seg)}</td><td>${fmt(s.total)}</td>
+      return `<tr><td style="text-align:left">${ir(esc(seg), seg)}</td><td>${fmt(s.total)}</td>
         <td>${fmt(100 * s.total / totalGeneral, 1)}%</td>` +
-        topOps.map(o => `<td${esFoco(o) ? ' style="color:var(--serie-2);font-weight:600"' : ""}>${celda(s[o] || 0, s.total)}</td>`).join("") +
-        `<td>${celda(otros, s.total)}</td></tr>`;
+        topOps.map(o => `<td${esFoco(o) ? ' style="color:var(--serie-2);font-weight:600"' : ""}>${
+          s[o] ? ir(celda(s[o], s.total), seg, o) : "—"}</td>`).join("") +
+        `<td>${otros ? ir(celda(otros, s.total), seg) : "—"}</td></tr>`;
     }).join("") +
     `<tr style="font-weight:600"><td style="text-align:left">Total</td><td>${fmt(totalGeneral)}</td><td>100%</td>` +
-    topOps.map(o => `<td>${celda(totalPorOp[o] || 0, totalGeneral)}</td>`).join("") +
+    topOps.map(o => `<td>${totalPorOp[o] ? ir(celda(totalPorOp[o], totalGeneral), "", o) : "—"}</td>`).join("") +
     `<td>${celda(totalGeneral - topOps.reduce((a, o) => a + (totalPorOp[o] || 0), 0), totalGeneral)}</td></tr>` +
     `</tbody></table></div>
     <p class="nota">Conectores del parque instalado (no sesiones). "Sin clasificar" son ubicaciones sin
       <code>parking_type</code> informado por la SEC y sin ninguna regla de palabra clave que las agarre;
-      "Otro (SEC)" es lo que la SEC clasificó explícitamente como "OTRO".</p>`;
+      "Otro (SEC)" es lo que la SEC clasificó explícitamente como "OTRO". Haz click en cualquier número
+      para ver esas ubicaciones una por una, más abajo.</p>`;
+
+  document.querySelectorAll("#segmentos .enlace-celda").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.getElementById("ub-seg").value = btn.dataset.seg || "";
+      document.getElementById("ub-grupo").value = btn.dataset.op || "";
+      pintarUbicaciones();
+      document.getElementById("ubicaciones-tabla").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
 }
 
 // ------------------------------------------------------- parámetros (localStorage)
@@ -538,6 +560,7 @@ async function cargar() {
       `${fmt(parque.length)} operadores · ${dias.size} día(s) con sesiones · ` +
       `actualizado ${new Date().toLocaleString("es-CL")}`;
     actualizarNombresConocidos();
+    actualizarFiltrosUbicacion();
     pintarUbicaciones();
     pintarSegmentos();
     pintarTodo();
@@ -1040,13 +1063,33 @@ function pintarEventos() {
 }
 
 // --------------------------------------- detalle por ubicacion + reglas de agrupacion
+// Vuelve a llenar los selects de "Segmento" y "Grupo" con lo que realmente
+// existe hoy (ya con tus reglas de agrupacion/segmento aplicadas), tratando
+// de mantener lo que el usuario tenia elegido si sigue existiendo.
+function actualizarFiltrosUbicacion() {
+  const col = { opc: "operador_agrupado", owner: "owner_agrupado", pse: "pse_agrupado" }[vista];
+  const segs = [...new Set(ubicaciones.map(segmentoDe))].sort();
+  const grupos = [...new Set(ubicaciones.map(u => agrupadoFinal(vista, u[col])))].sort();
+  const selSeg = document.getElementById("ub-seg"), selGrupo = document.getElementById("ub-grupo");
+  const segActual = selSeg.value, grupoActual = selGrupo.value;
+  selSeg.innerHTML = `<option value="">Todos</option>` +
+    segs.map(s => `<option${s === segActual ? " selected" : ""}>${esc(s)}</option>`).join("");
+  selGrupo.innerHTML = `<option value="">Todos</option>` +
+    grupos.map(g => `<option${g === grupoActual ? " selected" : ""}>${esc(g)}</option>`).join("");
+}
+
 function pintarUbicaciones() {
   const txt = document.getElementById("ub-txt").value.trim().toLowerCase();
   const priv = document.getElementById("ub-priv").value;
+  const segSel = document.getElementById("ub-seg").value;
+  const grupoSel = document.getElementById("ub-grupo").value;
+  const col = { opc: "operador_agrupado", owner: "owner_agrupado", pse: "pse_agrupado" }[vista];
 
   const filtradas = ubicaciones.filter(u => {
     if (priv === "si" && !u.institucion_privada) return false;
     if (priv === "no" && u.institucion_privada) return false;
+    if (segSel && segmentoDe(u) !== segSel) return false;
+    if (grupoSel && agrupadoFinal(vista, u[col]) !== grupoSel) return false;
     if (!txt) return true;
     const hay = `${u.location_name} ${u.commune} ${u.owner_name} ${u.operator_name} ${u.pse_name}`.toLowerCase();
     return hay.includes(txt);
@@ -1132,6 +1175,7 @@ function pintarReglas() {
 function recalcularTodoPorRegla() {
   pintarReglas();
   actualizarNombresConocidos();
+  actualizarFiltrosUbicacion();
   pintarUbicaciones();
   pintarSegmentos();
   pintarTodo();
@@ -1139,7 +1183,8 @@ function recalcularTodoPorRegla() {
 }
 
 document.getElementById("ub-txt").addEventListener("input", pintarUbicaciones);
-document.getElementById("ub-priv").addEventListener("change", pintarUbicaciones);
+["ub-priv", "ub-seg", "ub-grupo"].forEach(id =>
+  document.getElementById(id).addEventListener("change", pintarUbicaciones));
 document.getElementById("regla-vista").addEventListener("change", actualizarNombresConocidos);
 document.getElementById("regla-agregar").addEventListener("click", () => {
   const v = document.getElementById("regla-vista").value;
@@ -1163,6 +1208,7 @@ document.getElementById("seg-agregar").addEventListener("click", () => {
   document.getElementById("seg-nombre").value = "";
   pintarReglasSegmento();
   pintarSegmentos();
+  actualizarFiltrosUbicacion();
   pintarUbicaciones();
 });
 
@@ -1190,6 +1236,8 @@ document.getElementById("btn-recargar").addEventListener("click", cargar);
 document.getElementById("vista").addEventListener("change", e => {
   vista = e.target.value;
   try { localStorage.setItem("vista", vista); } catch (err) {}
+  actualizarFiltrosUbicacion();
+  pintarUbicaciones();
   pintarSegmentos();
   pintarTodo();
   if (eventos.length) { pintarEventos(); pintarSesiones(); }
