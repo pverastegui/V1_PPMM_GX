@@ -13662,3 +13662,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T21:43:57+00:00,8191,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T21:42:30.919513+00:00,DC,60,CCS 2,Enel X Way - CARGADOR ESPACIO URBANO SAN MIGUEL ,Enel,(50-150],San Miguel,Metropolitana,Enel,Enel
 2026-09-03T21:43:57+00:00,870,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-03T21:43:12.431409+00:00,AC,7.4,Tipo 2,Enel X Way - Mall Parque Arauco,Enel,7,Las Condes,Metropolitana,Enel,Enel
 2026-09-03T21:43:57+00:00,274,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-03T21:43:25.112667+00:00,DC,50,CCS 2,COPEC Parcela 20 Las Vegas de La Serena,Copec Voltex,(22-50],La Serena,Coquimbo,Copec Voltex,Copec Voltex
+2026-09-03T21:45:01+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:44:06.300562+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:45:01+00:00,585,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T21:43:59.491369+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano Viña del Mar,Enel,(50-150],Vina del Mar,Valparaíso,Enel,Enel
+2026-09-03T21:45:01+00:00,583,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T21:43:23.762316+00:00,DC,60,CCS 2,Enel X - Espacio Urbano Los Andes ,Enel,(50-150],Los Andes,Valparaíso,Enel,Enel
+2026-09-03T21:45:01+00:00,273,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-03T21:43:31.749236+00:00,DC,50,CHAdeMO,COPEC Parcela 20 Las Vegas de La Serena,Copec Voltex,(22-50],La Serena,Coquimbo,Copec Voltex,Copec Voltex
