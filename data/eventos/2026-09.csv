@@ -13160,3 +13160,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T20:32:01+00:00,8861,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T19:15:32.679548+00:00,DC,120,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-03T20:32:01+00:00,7471,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T20:30:31.096315+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-03T20:32:01+00:00,1313,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T20:31:14.488932+00:00,DC,50,CCS 2,IRVE GENERAL VELASQUEZ 9301 SAN BERNARDO,Copec Voltex,(22-50],San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T20:32:51+00:00,517,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T20:32:10.931394+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T20:32:51+00:00,10,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T20:31:47.556696+00:00,DC,50,CCS 2,COPEC Llay Llay,Copec Voltex,(22-50],Llaillay,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-03T20:32:51+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T20:31:23.136130+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
