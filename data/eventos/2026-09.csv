@@ -14535,3 +14535,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T23:51:51+00:00,1388,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T23:50:44.392145+00:00,DC,120,CCS 2,SAVE VOLTEX 40099 VALLENAR,Copec Voltex,(50-150],Vallenar,Atacama,Copec Voltex,Copec Voltex
 2026-09-03T23:51:51+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T23:51:17.919498+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-03T23:53:00+00:00,8729,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T23:51:35.588079+00:00,DC,180,CCS 2,VOLTEX COPEC CONSISTORIAL,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T23:53:57+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T23:52:27.695300+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-03T23:53:57+00:00,12,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T23:53:01.915691+00:00,DC,50,CCS 2,COPEC Santo Domingo,Copec Voltex,(22-50],Santo Domingo,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-03T23:53:57+00:00,48,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-03T23:53:19.163971+00:00,DC,50,CHAdeMO,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
