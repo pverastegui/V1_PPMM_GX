@@ -13424,3 +13424,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T21:11:05+00:00,639,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-03T21:10:18.615548+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
 2026-09-03T21:11:05+00:00,7469,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:10:03.083962+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-03T21:11:05+00:00,8854,ENEL X,DISPONIBLE,OCUPADO,2026-09-02T22:34:33.699952+00:00,DC,50,CHAdeMO,Enel X - EDS Aramco Quilicura ,Enel,(22-50],Quilicura,Metropolitana,Enel,Enel
+2026-09-03T21:11:54+00:00,4746,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:11:13.998914+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:11:54+00:00,2299,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T21:10:40.932126+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
+2026-09-03T21:11:54+00:00,8684,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:10:32.828011+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
