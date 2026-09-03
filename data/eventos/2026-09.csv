@@ -14036,3 +14036,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T22:40:02+00:00,1370,Enerlink Chile SpA,FUERA DE LINEA,DISPONIBLE,2026-09-03T22:39:23.568213+00:00,DC,50,CHAdeMO,Enex E-Pro Shell Antofagasta,Enerlink,(22-50],Antofagasta,Antofagasta,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-03T22:40:02+00:00,10,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T22:38:47.560275+00:00,DC,50,CCS 2,COPEC Llay Llay,Copec Voltex,(22-50],Llaillay,Valparaíso,Copec Voltex,Copec Voltex
 2026-09-03T22:40:02+00:00,8016,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T22:38:49.479225+00:00,DC,180,CCS 2,SAVE VOLTEX LA SERENA ,Copec Voltex,150,La Serena,Coquimbo,Copec Voltex,Copec Voltex
+2026-09-03T22:40:56+00:00,4780,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T22:39:36.267788+00:00,DC,60,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
