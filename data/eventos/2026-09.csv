@@ -13874,3 +13874,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T22:17:01+00:00,516,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T22:15:58.503895+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
 2026-09-03T22:17:01+00:00,1982,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T22:15:55.834676+00:00,DC,60,CCS 2,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-03T22:17:01+00:00,8609,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T22:16:14.830039+00:00,DC,240,CCS 2,SAVE VOLTEX BILBAO EDS 60419,Copec Voltex,150,Providencia,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T22:17:56+00:00,516,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T22:16:28.499186+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T22:17:56+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T22:16:58.547537+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T22:17:56+00:00,1018,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T22:17:02.559806+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-03T22:17:56+00:00,7315,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T22:16:45.747583+00:00,DC,30,CCS 2,Enel X - Movicenter Huechuraba,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-03T22:17:56+00:00,729,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T22:16:51.110423+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
