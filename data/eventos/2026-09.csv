@@ -9691,3 +9691,12 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T10:11:52+00:00,15,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-03T10:09:25.474965+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-03T10:11:52+00:00,8793,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T10:10:55.732759+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
 2026-09-03T10:11:52+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T10:07:34.915624+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-03T10:16:46+00:00,516,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T10:14:46.192007+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T10:16:46+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T10:16:21.587875+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-03T10:16:46+00:00,9090,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T10:11:52.312402+00:00,DC,240,CCS 2,SAVE VOLTEX LAGUNA DE CHICUREO EDS 60288,Copec Voltex,150,Colina,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T10:16:46+00:00,25,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-03T10:13:39.858602+00:00,DC,50,CCS 2,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-03T10:16:46+00:00,1983,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T08:27:30.924070+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-03T10:16:46+00:00,8734,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-03T10:13:05.866663+00:00,DC,70,GB/T DC,Cargador publico Enex File 130,Enerlink,(50-150],Recoleta,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-03T10:16:46+00:00,24,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-03T10:13:39.858602+00:00,DC,50,CHAdeMO,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-03T10:16:46+00:00,15,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-03T10:14:25.620074+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-03T10:16:46+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-03T10:14:25.620074+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
