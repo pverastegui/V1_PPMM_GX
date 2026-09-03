@@ -14327,3 +14327,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T23:20:52+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T23:19:58.468159+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-03T23:20:52+00:00,9376,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T22:40:26.615383+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
 2026-09-03T23:20:52+00:00,559,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T21:55:21.739806+00:00,DC,60,CCS 2,Enel X  Way Privado- ESPACIO URBANO PTE ALTO,Enel,(50-150],Puente Alto,Metropolitana,Enel,Enel
+2026-09-03T23:21:54+00:00,8732,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T23:20:49.691655+00:00,DC,180,CCS 2,VOLTEX COPEC CONSISTORIAL,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T23:21:54+00:00,8858,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T19:15:41.621120+00:00,DC,60,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-03T23:21:54+00:00,6828,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T23:20:30.119356+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Abadía,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-03T23:21:54+00:00,19,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T22:34:59.944327+00:00,DC,50,CCS 2,COPEC San Javier,Copec Voltex,(22-50],San Javier,Maule,Copec Voltex,Copec Voltex
