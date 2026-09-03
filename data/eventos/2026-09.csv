@@ -13611,3 +13611,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T21:37:55+00:00,31,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:36:32.924085+00:00,DC,50,CCS 2,COPEC Colina,Copec Voltex,(22-50],Colina,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-03T21:37:55+00:00,411,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:36:39.081349+00:00,AC,22,Tipo 2,Cargador Av. Calera de tango,Copec Voltex,(7-22],Calera de Tango,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-03T21:37:55+00:00,410,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:36:39.081349+00:00,AC,22,Tipo 2,Cargador Av. Calera de tango,Copec Voltex,(7-22],Calera de Tango,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:38:55+00:00,585,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T21:38:19.193177+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano Viña del Mar,Enel,(50-150],Vina del Mar,Valparaíso,Enel,Enel
+2026-09-03T21:38:55+00:00,1144,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T21:37:37.198903+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano Puerto Montt,Enel,(50-150],Puerto Montt,Los Lagos,Enel,Enel
+2026-09-03T21:38:55+00:00,411,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:38:04.220596+00:00,AC,22,Tipo 2,Cargador Av. Calera de tango,Copec Voltex,(7-22],Calera de Tango,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:38:55+00:00,410,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:38:04.220596+00:00,AC,22,Tipo 2,Cargador Av. Calera de tango,Copec Voltex,(7-22],Calera de Tango,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:38:55+00:00,179,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:38:15.676251+00:00,AC,7.4,Tipo 2,PUNTO DE RECARGA DOBLE ABB,Copec Voltex,7,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:38:55+00:00,9196,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:16:33.056091+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:38:55+00:00,8101,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T21:38:12.428141+00:00,DC,30,CCS 2,ENEL X - PARQUE ARAUCO,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
