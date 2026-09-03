@@ -14111,3 +14111,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T22:50:54+00:00,1391,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T22:50:22.889957+00:00,DC,150,CCS 2,CARGADOR DE 300KW EN ELECTROLINERA ENEL X STATION,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-03T22:50:54+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T22:50:21.531619+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-03T22:50:54+00:00,1818,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T03:32:47.495821+00:00,DC,120,CCS 2,Enex E-Pro Shell Quilicura,Enerlink,(50-150],Quilicura,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-03T22:51:54+00:00,1657,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T22:50:48.528380+00:00,DC,120,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,(50-150],Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T22:51:54+00:00,7315,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T22:50:46.451333+00:00,DC,30,CCS 2,Enel X - Movicenter Huechuraba,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-03T22:51:54+00:00,409,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T22:51:15.540496+00:00,AC,22,Tipo 2,Cargador Eléctrico Plaza Juan Renz,Copec Voltex,(7-22],Macul,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T22:51:54+00:00,408,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T22:51:15.540496+00:00,AC,22,Tipo 2,Cargador Eléctrico Plaza Juan Renz,Copec Voltex,(7-22],Macul,Metropolitana,Copec Voltex,Copec Voltex
