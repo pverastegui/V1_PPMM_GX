@@ -13753,3 +13753,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T21:56:55+00:00,728,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T21:55:57.904638+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
 2026-09-03T21:56:55+00:00,516,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T21:55:53.271705+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
 2026-09-03T21:56:55+00:00,9056,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:56:15.135941+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:58:00+00:00,8103,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T21:56:56.659531+00:00,DC,30,CCS 2,ENEL X - PARQUE ARAUCO,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-03T21:58:00+00:00,733,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T21:56:34.479448+00:00,DC,60,CCS 2,Enel X Way - Petrobras Lo Prado,Enel,(50-150],Lo Prado,Metropolitana,Enel,Enel
+2026-09-03T21:58:00+00:00,570,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T21:56:32.365928+00:00,DC,60,CCS 2,Enel x - Tottus Gerónimo de Alderete (Vitacura),Enel,(50-150],Vitacura,Metropolitana,Enel,Enel
