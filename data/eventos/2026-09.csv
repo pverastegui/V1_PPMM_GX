@@ -13403,3 +13403,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T21:07:00+00:00,9196,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:06:01.988101+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-03T21:07:00+00:00,1659,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:06:12.996358+00:00,DC,120,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,(50-150],Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-03T21:07:00+00:00,9191,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:06:18.896110+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:07:51+00:00,8682,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-03T21:06:55.487595+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:07:51+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T21:06:55.487595+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-03T21:07:51+00:00,283,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-03T21:06:46.652084+00:00,DC,50,CHAdeMO,Copec ruta 5 Norte km 205. Palo Colorado Poniente,Copec Voltex,(22-50],Los Vilos,Coquimbo,Copec Voltex,Copec Voltex
