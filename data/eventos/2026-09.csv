@@ -9249,3 +9249,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T06:26:49+00:00,517,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T06:25:44.499539+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-03T06:26:49+00:00,507,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T06:25:13.163721+00:00,DC,150,GB/T DC,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-03T06:26:49+00:00,973,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-08-12T18:05:20.671330+00:00,AC,22,Tipo 2,Enex E-Pro Shell Pablo Neruda Temuco,Enerlink,(7-22],Temuco,La Araucanía,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-03T06:31:56+00:00,6826,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T06:30:16.288292+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Abadía,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-03T06:31:56+00:00,1982,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T06:26:35.488061+00:00,DC,60,CCS 2,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-03T06:31:56+00:00,6829,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T06:30:15.543834+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-03T06:31:56+00:00,506,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-03T06:31:00.495406+00:00,DC,150,GB/T DC,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
