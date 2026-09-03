@@ -9347,3 +9347,13 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T07:16:52+00:00,1090,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-03T07:11:29.028779+00:00,DC,50,CHAdeMO,SAVE VOLTEX 20605 SAN PABLO,Copec Voltex,(22-50],San Pablo,Los Lagos,Copec Voltex,Copec Voltex
 2026-09-03T07:16:52+00:00,516,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T07:16:18.022414+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
 2026-09-03T07:16:52+00:00,517,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T07:16:18.022414+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T07:21:45+00:00,729,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T07:20:27.339752+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-03T07:21:45+00:00,517,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T07:17:57.344264+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T07:21:45+00:00,512,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T07:21:21.543453+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T07:21:45+00:00,9377,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T07:20:26.903581+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
+2026-09-03T07:21:45+00:00,505,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T07:21:22.959426+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T07:21:45+00:00,1027,ENEL X,OCUPADO,DISPONIBLE,2026-09-03T07:20:48.059577+00:00,DC,70,CCS 2,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-03T07:21:45+00:00,734,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T07:20:23.178893+00:00,AC,7.4,Tipo 2,Cargadores Electricos Mas Center Santa Maria,Enel,7,Vitacura,Metropolitana,Enel,Enel
+2026-09-03T07:21:45+00:00,4817,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-03T03:12:42.323463+00:00,DC,180,CCS 2,Enex E-Pro Vitacura,Enerlink,150,Vitacura,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-03T07:21:45+00:00,516,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T07:17:57.344264+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-03T07:21:45+00:00,9192,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T07:19:22.268034+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
