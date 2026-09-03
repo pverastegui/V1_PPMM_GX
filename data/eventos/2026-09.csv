@@ -13971,3 +13971,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-03T22:31:22+00:00,8164,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T22:30:19.272520+00:00,DC,60,CCS 2,IRVE Tottus La Cisterna,Enel,(50-150],La Cisterna,Metropolitana,Enel,Enel
 2026-09-03T22:31:22+00:00,972,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-08-12T18:05:20.671330+00:00,DC,120,CCS 2,Enex E-Pro Shell Pablo Neruda Temuco,Enerlink,(50-150],Temuco,La Araucanía,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-03T22:31:22+00:00,541,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-03T22:30:21.184020+00:00,AC,7.4,Tipo 2,Enel x - Plus Parken,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-03T22:31:57+00:00,8916,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-03T22:31:10.261039+00:00,DC,500,CCS 2,COPEC VOLTEX EDS 40560 - LLAY LLAY,Copec Voltex,150,Llaillay,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-03T22:31:57+00:00,437,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-03T22:31:11.623726+00:00,AC,7,Tipo 2,Parking Saba Marchant Pereira,Enel,7,Providencia,Metropolitana,Enel,Enel
