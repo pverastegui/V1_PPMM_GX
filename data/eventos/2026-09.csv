@@ -17011,3 +17011,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T08:29:00+00:00,1007,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T08:28:23.143662+00:00,DC,60,CCS 2,Enel X Way - Petrobras Rotonda Atenas,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T08:29:00+00:00,21,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:28:04.980049+00:00,DC,50,CHAdeMO,COPEC Chillán,Copec Voltex,(22-50],Chillán Viejo,Ñuble,Copec Voltex,Copec Voltex
 2026-09-04T08:29:00+00:00,12,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:27:52.436424+00:00,DC,50,CCS 2,COPEC Santo Domingo,Copec Voltex,(22-50],Santo Domingo,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T08:30:04+00:00,1007,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:29:03.850584+00:00,DC,60,CCS 2,Enel X Way - Petrobras Rotonda Atenas,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T08:30:04+00:00,2435,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T08:28:45.278350+00:00,DC,180,CCS 2,ELECTROLINERA COPEC PUERTO MONTT PANAMERICANA 200,Copec Voltex,150,Puerto Montt,Los Lagos,Copec Voltex,Copec Voltex
+2026-09-04T08:30:04+00:00,8793,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T08:29:00.696313+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
