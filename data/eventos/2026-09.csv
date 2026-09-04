@@ -20789,3 +20789,13 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T19:17:18+00:00,4728,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T00:05:42.160448+00:00,DC,50,CCS 2,Enex E-Pro Los Dominicos,Enerlink,(22-50],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T19:17:18+00:00,8732,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T19:15:37.192373+00:00,DC,180,CCS 2,VOLTEX COPEC CONSISTORIAL,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T19:17:18+00:00,8727,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T19:15:47.305609+00:00,DC,70,CCS 2,Cargador publico Enex File 169,Enerlink,(50-150],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T19:18:08+00:00,617,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:42:46.090554+00:00,AC,22,Tipo 2,Enel X  - Petrobras Luis Pasteur,Enel,(7-22],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T19:18:08+00:00,7315,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-04T19:17:09.598461+00:00,DC,30,CCS 2,Enel X - Movicenter Huechuraba,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T19:18:08+00:00,9122,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T16:37:05.379165+00:00,DC,60,CCS 2,Enel X - Cerro Colorado,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T19:18:08+00:00,8738,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T18:42:22.803615+00:00,DC,50,CHAdeMO,Enel X Way - ISA Intervial Los Lagartos,Enel,(22-50],Mostazal,Libertador Bernardo OHiggins,Enel,Enel
+2026-09-04T19:18:08+00:00,444,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T19:17:10.685440+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
+2026-09-04T19:18:08+00:00,443,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T19:17:02.343806+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
+2026-09-04T19:18:08+00:00,518,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T19:12:38.059626+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T19:18:08+00:00,8845,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T18:37:23.515586+00:00,DC,50,CCS 2,Enel X - EDS Aramco Chicureo,Enel,(22-50],Colina,Metropolitana,Enel,Enel
+2026-09-04T19:18:08+00:00,8842,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T18:17:21.147141+00:00,DC,50,CHAdeMO,Enel X - EDS Aramco Domingo Santa Maria,Enel,(22-50],Renca,Metropolitana,Enel,Enel
+2026-09-04T19:18:08+00:00,442,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T19:17:18.202672+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
