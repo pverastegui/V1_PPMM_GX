@@ -16518,3 +16518,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:55:54+00:00,4733,Enerlink Chile SpA,NO DISPONIBLE,DISPONIBLE,2026-09-03T17:49:10.584970+00:00,AC,22,Tipo 2,Enex E-Pro Balmaceda Calama,Enerlink,(7-22],Calama,Antofagasta,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T05:55:54+00:00,8661,Enerlink Chile SpA,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:55:03.364262+00:00,DC,50,CCS 2,Shell Placilla,Enerlink,(22-50],Valparaíso,Valparaíso,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T05:55:54+00:00,8660,Enerlink Chile SpA,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:55:03.364262+00:00,DC,50,CHAdeMO,Shell Placilla,Enerlink,(22-50],Valparaíso,Valparaíso,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T05:57:00+00:00,1005,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:53:26.598219+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T05:57:00+00:00,1025,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T02:45:47.793455+00:00,DC,70,CCS 2,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T05:57:00+00:00,8859,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T04:41:14.820246+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T05:57:00+00:00,7276,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:56:05.867580+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(22-50],Maipú,Metropolitana,Enel,Enel
+2026-09-04T05:57:00+00:00,1006,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:53:10.888558+00:00,DC,60,CCS 2,Enel X Way - Petrobras Rotonda Atenas,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
