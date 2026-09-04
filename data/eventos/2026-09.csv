@@ -16053,3 +16053,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T03:51:58+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:50:52.771409+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T03:51:58+00:00,9121,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:50:53.147797+00:00,DC,60,CCS 2,Enel X - Cerro Colorado,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T03:51:58+00:00,618,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:45:47.055418+00:00,DC,60,CCS 2,Enel X  - Petrobras Luis Pasteur,Enel,(50-150],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T03:53:57+00:00,6837,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:52:51.127602+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Isabel La Católica,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T03:53:57+00:00,15,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:53:06.980224+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T03:53:57+00:00,16,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:53:06.980224+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T03:53:57+00:00,8609,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T03:52:30.808225+00:00,DC,240,CCS 2,SAVE VOLTEX BILBAO EDS 60419,Copec Voltex,150,Providencia,Metropolitana,Copec Voltex,Copec Voltex
