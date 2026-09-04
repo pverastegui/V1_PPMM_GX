@@ -20811,3 +20811,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T19:20:19+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T19:19:46.300255+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T19:20:19+00:00,709,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T19:19:14.279044+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
 2026-09-04T19:20:19+00:00,1088,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T19:19:04.267457+00:00,DC,50,CCS 2,SAVE VOLTEX 20089 PUERTO VARAS,Copec Voltex,(22-50],Puerto Varas,Los Lagos,Copec Voltex,Copec Voltex
+2026-09-04T19:21:11+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T19:20:01.435635+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T19:21:11+00:00,639,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T19:20:12.731628+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-04T19:21:11+00:00,442,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T19:19:52.355754+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
+2026-09-04T19:21:11+00:00,1313,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T19:20:14.896492+00:00,DC,50,CCS 2,IRVE GENERAL VELASQUEZ 9301 SAN BERNARDO,Copec Voltex,(22-50],San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
