@@ -20326,3 +20326,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T18:15:16+00:00,1361,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T18:13:54.420627+00:00,AC,7.4,Tipo 2,SAVE CLINICA INDISA MAIPU,Copec Voltex,7,Maipú,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T18:15:16+00:00,442,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T18:14:45.355395+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
 2026-09-04T18:15:16+00:00,21,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T18:13:46.725664+00:00,DC,50,CHAdeMO,COPEC Chillán,Copec Voltex,(22-50],Chillán Viejo,Ñuble,Copec Voltex,Copec Voltex
+2026-09-04T18:16:10+00:00,9057,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T18:15:12.376932+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T18:16:10+00:00,7318,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T18:15:10.519431+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T18:16:10+00:00,8859,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T17:55:12.771861+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T18:16:10+00:00,639,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T18:15:22.167602+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-04T18:16:10+00:00,512,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T18:15:23.543883+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
