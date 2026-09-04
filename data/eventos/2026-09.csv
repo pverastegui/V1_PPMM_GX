@@ -16369,3 +16369,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:16:56+00:00,619,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:15:59.738895+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
 2026-09-04T05:16:56+00:00,617,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:15:59.612391+00:00,AC,22,Tipo 2,Enel X  - Petrobras Luis Pasteur,Enel,(7-22],Vitacura,Metropolitana,Sin dueño informado,Enel
 2026-09-04T05:16:56+00:00,15,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:16:10.355403+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T05:17:57+00:00,619,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:17:05.536181+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T05:17:57+00:00,1024,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:16:35.027599+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T05:17:57+00:00,4746,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T05:16:47.115702+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T05:17:57+00:00,16,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:17:21.279374+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
