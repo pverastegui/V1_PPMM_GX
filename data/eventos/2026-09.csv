@@ -16729,3 +16729,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:55:58+00:00,16,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:55:20.536335+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-04T06:55:58+00:00,15,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:55:20.536335+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-04T06:55:58+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:55:01.487515+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T06:57:00+00:00,1006,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-04T06:56:12.823527+00:00,DC,60,CCS 2,Enel X Way - Petrobras Rotonda Atenas,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T06:57:00+00:00,8717,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:56:12.895453+00:00,DC,30,CCS 2,Enel X Way - Rojas Magallanes,Enel,(22-50],La Florida,Metropolitana,Enel,Enel
+2026-09-04T06:57:00+00:00,512,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:56:18.657717+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T06:57:00+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:56:09.163162+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T06:57:00+00:00,1005,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T06:56:15.827674+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
