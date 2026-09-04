@@ -18431,3 +18431,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T13:58:04+00:00,618,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:56:49.872514+00:00,DC,60,CCS 2,Enel X  - Petrobras Luis Pasteur,Enel,(50-150],Vitacura,Metropolitana,Sin dueño informado,Enel
 2026-09-04T13:58:04+00:00,699,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-04T13:57:19.243685+00:00,DC,60,CCS 2,Enel XWay ELECTROLINERA PETROBRAS CONCHA Y TORO,Enel,(50-150],Puente Alto,Metropolitana,Enel,Enel
 2026-09-04T13:58:04+00:00,8860,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T13:57:02.035876+00:00,DC,120,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T13:59:04+00:00,7244,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:57:49.055597+00:00,DC,150,CCS 2,Enel X - Centro comercial Marbella Maitencillo,Enel,(50-150],Puchuncaví,Valparaíso,Enel,Enel
+2026-09-04T13:59:04+00:00,514,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:58:10.904345+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T13:59:04+00:00,8182,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:57:30.359753+00:00,DC,60,CCS 2,IRVE Petrobras Príncipe de Gales,Enel,(50-150],La Reina,Metropolitana,Enel,Enel
+2026-09-04T13:59:04+00:00,4807,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T13:58:15.605101+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 20407 - SAN PEDRO DE LA PAZ,Copec Voltex,150,San Pedro de la Paz,Biobío,Copec Voltex,Copec Voltex
