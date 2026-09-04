@@ -14824,3 +14824,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T00:34:08+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T00:33:01.403610+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T00:34:08+00:00,1007,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T00:32:42.971335+00:00,DC,60,CCS 2,Enel X Way - Petrobras Rotonda Atenas,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T00:34:08+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T00:33:01.403610+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T00:34:57+00:00,690,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T00:34:19.187699+00:00,DC,60,CCS 2,IRVE Tottus Vicuña Mackena,Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T00:34:57+00:00,1817,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-02T23:03:47.519517+00:00,DC,120,CCS 2,Enex E-Pro Shell Colina,Enerlink,(50-150],Colina,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T00:34:57+00:00,9119,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-03T19:08:55.415984+00:00,DC,148.96,CCS 2,SAVE SHELL AV. VICUÑA MACKENNA,Enerlink,(50-150],La Florida,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T00:34:57+00:00,1018,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T00:33:44.303980+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
