@@ -21139,3 +21139,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T20:02:14+00:00,516,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T20:01:12.496517+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T20:02:14+00:00,8734,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T20:01:14.688837+00:00,DC,70,GB/T DC,Cargador publico Enex File 130,Enerlink,(50-150],Recoleta,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T20:02:14+00:00,4734,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-08-29T18:18:54.981890+00:00,DC,120,GB/T DC,Enex E-Pro Balmaceda Calama,Enerlink,(50-150],Calama,Antofagasta,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T20:03:13+00:00,512,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T20:02:23.296381+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T20:03:13+00:00,8164,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T19:02:32.690783+00:00,DC,60,CCS 2,IRVE Tottus La Cisterna,Enel,(50-150],La Cisterna,Metropolitana,Enel,Enel
+2026-09-04T20:03:13+00:00,1024,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T19:59:20.587012+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T20:03:13+00:00,8740,ENEL X,FUERA DE LINEA,NO DISPONIBLE,2026-09-04T19:57:36.379759+00:00,DC,30,CCS 2,Enel X Way - ISA Intervial Los Lagartos,Enel,(22-50],Mostazal,Libertador Bernardo OHiggins,Enel,Enel
