@@ -15409,3 +15409,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T01:57:57+00:00,6041,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T01:56:35.567784+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
 2026-09-04T01:57:57+00:00,7775,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T01:56:53.724851+00:00,DC,240,CCS 2,SAVE VOLTEX SAN PABLO EDS 60077,Copec Voltex,150,Quinta Normal,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T01:57:57+00:00,870,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T01:57:09.741272+00:00,AC,7.4,Tipo 2,Enel X Way - Mall Parque Arauco,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T01:58:57+00:00,1204,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T01:57:21.207553+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
