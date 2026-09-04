@@ -16531,3 +16531,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:00:56+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:59:56.700078+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T06:00:56+00:00,4737,Enerlink Chile SpA,NO DISPONIBLE,OCUPADO,2026-08-31T13:16:20.023523+00:00,DC,50,CCS 2,Enex E-Pro Peñalolén,Enerlink,(22-50],Penalolén,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T06:00:56+00:00,8734,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T05:49:50.228769+00:00,DC,70,GB/T DC,Cargador publico Enex File 130,Enerlink,(50-150],Recoleta,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T06:01:54+00:00,1237,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:00:36.847965+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
+2026-09-04T06:01:54+00:00,7317,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T06:00:48.852157+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T06:01:54+00:00,8856,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T06:00:37.699472+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T06:01:54+00:00,8857,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T06:00:37.699472+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T06:01:54+00:00,9055,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T06:00:48.851140+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
