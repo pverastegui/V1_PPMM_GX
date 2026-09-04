@@ -17998,3 +17998,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T12:53:04+00:00,9195,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T12:51:41.439893+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T12:53:04+00:00,274,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T12:51:44.828473+00:00,DC,50,CCS 2,COPEC Parcela 20 Las Vegas de La Serena,Copec Voltex,(22-50],La Serena,Coquimbo,Copec Voltex,Copec Voltex
 2026-09-04T12:53:04+00:00,273,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T12:51:44.828473+00:00,DC,50,CHAdeMO,COPEC Parcela 20 Las Vegas de La Serena,Copec Voltex,(22-50],La Serena,Coquimbo,Copec Voltex,Copec Voltex
+2026-09-04T12:54:07+00:00,507,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T12:52:29.155135+00:00,DC,150,GB/T DC,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
