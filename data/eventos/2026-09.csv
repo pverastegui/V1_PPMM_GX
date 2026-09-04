@@ -14715,3 +14715,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T00:19:00+00:00,505,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-04T00:17:53.167339+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T00:19:00+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T00:18:11.844354+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T00:19:00+00:00,9045,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T00:18:16.671703+00:00,DC,240,CCS 2,VOLTEX CARGADOR ELECTRICO BASCUÑAN,Copec Voltex,150,Santiago,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T00:19:58+00:00,1653,Enerlink Chile SpA,OCUPADO,NO DISPONIBLE,2026-09-03T23:15:01.960325+00:00,AC,22,Tipo 2,Enex E-Pro Cerrillos,Enerlink,(7-22],Cerrillos,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T00:19:58+00:00,1375,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-08-28T19:00:36.142854+00:00,DC,50,CCS 2,Enex E-Pro Shell Lo Blanco,Enerlink,(22-50],San Bernardo,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T00:19:58+00:00,1815,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-02T23:03:47.519517+00:00,DC,120,CCS 2,Enex E-Pro Shell Colina,Enerlink,(50-150],Colina,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T00:19:58+00:00,733,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T00:18:44.788428+00:00,DC,60,CCS 2,Enel X Way - Petrobras Lo Prado,Enel,(50-150],Lo Prado,Metropolitana,Enel,Enel
