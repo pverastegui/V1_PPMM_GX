@@ -22441,3 +22441,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T22:54:23+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T22:53:18.447611+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-04T22:54:23+00:00,8788,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T22:53:01.736369+00:00,DC,400,CCS 2,COPEC VOLTEX EDS 40390 - LOS VILOS ORIENTE,Copec Voltex,150,Los Vilos,Coquimbo,Copec Voltex,Copec Voltex
 2026-09-04T22:54:23+00:00,7273,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-04T22:53:15.475373+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-04T22:55:25+00:00,875,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T22:54:15.963302+00:00,AC,7.4,Tipo 2,Enel X Way - Mall Parque Arauco,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T22:55:25+00:00,1849,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:54:45.632227+00:00,AC,7.4,Tipo 2,Punto de carga MPD,Copec Voltex,7,Las Condes,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T22:55:25+00:00,7318,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:54:34.604059+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T22:55:25+00:00,1848,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:54:41.124329+00:00,AC,7.4,Tipo 2,Punto de carga MPD,Copec Voltex,7,Las Condes,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T22:55:25+00:00,6822,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T22:54:37.967541+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
