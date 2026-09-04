@@ -17920,3 +17920,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T12:35:58+00:00,49,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T12:34:56.683222+00:00,DC,50,CCS 2,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-04T12:35:58+00:00,7472,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T12:35:10.392453+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60711 - MACUL,Copec Voltex,150,Macul,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T12:35:58+00:00,458,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T12:34:29.239735+00:00,AC,7,Tipo 2,Saba Santa Lucia,Enel,7,Santiago,Metropolitana,Enel,Enel
+2026-09-04T12:36:59+00:00,49,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T12:36:01.668141+00:00,DC,50,CCS 2,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
