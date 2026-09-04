@@ -16046,3 +16046,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T03:51:03+00:00,9131,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-08-28T15:10:22.128521+00:00,DC,148.96,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(50-150],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T03:51:03+00:00,9120,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-03T19:08:55.415984+00:00,DC,148.96,CCS 2,SAVE SHELL AV. VICUÑA MACKENNA,Enerlink,(50-150],La Florida,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T03:51:03+00:00,1655,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T03:49:51.464028+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T03:51:58+00:00,8682,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T03:50:32.960008+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T03:51:58+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:50:52.771409+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T03:51:58+00:00,8860,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T03:51:10.831394+00:00,DC,120,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T03:51:58+00:00,1037,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:51:05.467708+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-04T03:51:58+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:50:52.771409+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T03:51:58+00:00,9121,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:50:53.147797+00:00,DC,60,CCS 2,Enel X - Cerro Colorado,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T03:51:58+00:00,618,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:45:47.055418+00:00,DC,60,CCS 2,Enel X  - Petrobras Luis Pasteur,Enel,(50-150],Vitacura,Metropolitana,Sin dueño informado,Enel
