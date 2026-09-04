@@ -17006,3 +17006,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T08:27:04+00:00,8716,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:26:19.970508+00:00,DC,60,CCS 2,Enel X Way - Rojas Magallanes,Enel,(50-150],La Florida,Metropolitana,Enel,Enel
 2026-09-04T08:28:03+00:00,1006,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:27:04.747917+00:00,DC,60,CCS 2,Enel X Way - Petrobras Rotonda Atenas,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T08:28:03+00:00,1023,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T08:26:32.099967+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T08:29:00+00:00,22,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:28:04.980049+00:00,DC,50,CCS 2,COPEC Chillán,Copec Voltex,(22-50],Chillán Viejo,Ñuble,Copec Voltex,Copec Voltex
+2026-09-04T08:29:00+00:00,13,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:27:52.436424+00:00,DC,50,CHAdeMO,COPEC Santo Domingo,Copec Voltex,(22-50],Santo Domingo,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T08:29:00+00:00,1007,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T08:28:23.143662+00:00,DC,60,CCS 2,Enel X Way - Petrobras Rotonda Atenas,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T08:29:00+00:00,21,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:28:04.980049+00:00,DC,50,CHAdeMO,COPEC Chillán,Copec Voltex,(22-50],Chillán Viejo,Ñuble,Copec Voltex,Copec Voltex
+2026-09-04T08:29:00+00:00,12,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:27:52.436424+00:00,DC,50,CCS 2,COPEC Santo Domingo,Copec Voltex,(22-50],Santo Domingo,Valparaíso,Copec Voltex,Copec Voltex
