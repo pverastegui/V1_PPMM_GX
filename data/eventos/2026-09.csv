@@ -22794,3 +22794,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T23:42:56+00:00,8795,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T23:41:54.003507+00:00,DC,240,CCS 2,Cargador Electrico Copec Talca,Copec Voltex,150,Talca,Maule,Copec Voltex,Copec Voltex
 2026-09-04T23:42:56+00:00,8610,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T23:42:14.684425+00:00,DC,240,CCS 2,SAVE VOLTEX BILBAO EDS 60419,Copec Voltex,150,Providencia,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T23:42:56+00:00,519,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-04T23:42:00.714167+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T23:43:55+00:00,10,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T23:43:07.463989+00:00,DC,50,CCS 2,COPEC Llay Llay,Copec Voltex,(22-50],Llaillay,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T23:43:55+00:00,6830,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T21:22:41.154862+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-04T23:43:55+00:00,3157,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T23:42:51.815633+00:00,DC,60,CCS 2,Enel X - EDS ARAMCO Vitacura ,Enel,(50-150],Vitacura,Metropolitana,Enel,Enel
