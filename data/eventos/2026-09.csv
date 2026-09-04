@@ -18298,3 +18298,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T13:38:05+00:00,728,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:36:47.827488+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
 2026-09-04T13:38:05+00:00,2304,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T13:37:18.288106+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
 2026-09-04T13:38:05+00:00,8113,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T13:37:05.880193+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 20019 - PAICAVI,Copec Voltex,150,Concepción,Biobío,Copec Voltex,Copec Voltex
+2026-09-04T13:39:01+00:00,8156,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:37:33.899280+00:00,DC,60,CCS 2,IRVE Tottus Catedral,Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T13:39:01+00:00,514,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:37:40.636773+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T13:39:01+00:00,516,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:38:20.759686+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T13:39:01+00:00,1147,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:37:54.583478+00:00,DC,60,CCS 2,Enel X Way-Arauco Buenaventura.,Enel,(50-150],Quilicura,Metropolitana,Enel,Enel
+2026-09-04T13:39:01+00:00,8018,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:37:58.415412+00:00,DC,180,CCS 2,SAVE VOLTEX LA SERENA ,Copec Voltex,150,La Serena,Coquimbo,Copec Voltex,Copec Voltex
+2026-09-04T13:39:01+00:00,517,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:38:20.759686+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
