@@ -16402,3 +16402,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:24:53+00:00,15,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:24:09.909708+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-04T05:24:53+00:00,1018,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:23:47.755439+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T05:24:53+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:24:09.909708+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T05:25:55+00:00,517,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:24:47.691556+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T05:25:55+00:00,8727,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T05:24:52.608013+00:00,DC,70,CCS 2,Cargador publico Enex File 169,Enerlink,(50-150],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T05:25:55+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:25:18.127262+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T05:25:55+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:25:18.127262+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T05:25:55+00:00,9127,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-02T22:17:22.497022+00:00,DC,50,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(22-50],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T05:25:55+00:00,4737,Enerlink Chile SpA,OCUPADO,NO DISPONIBLE,2026-08-31T13:16:20.023523+00:00,DC,50,CCS 2,Enex E-Pro Peñalolén,Enerlink,(22-50],Penalolén,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T05:25:55+00:00,1346,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T05:24:44.328255+00:00,AC,3.5,Tipo 2,SAVE Edif. Entrelomas AV. Costa de Montemar #264,Copec Voltex,7,Concón,Valparaíso,Copec Voltex,Copec Voltex
