@@ -17496,3 +17496,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T10:57:57+00:00,7317,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T10:57:15.991995+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T10:57:57+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T10:56:38.807309+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T10:57:57+00:00,8861,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T07:16:27.882923+00:00,DC,120,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T10:58:55+00:00,273,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T10:57:35.920147+00:00,DC,50,CHAdeMO,COPEC Parcela 20 Las Vegas de La Serena,Copec Voltex,(22-50],La Serena,Coquimbo,Copec Voltex,Copec Voltex
+2026-09-04T10:58:55+00:00,4746,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T10:58:05.071984+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T10:58:55+00:00,584,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T10:58:14.623714+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano Viña del Mar,Enel,(50-150],Vina del Mar,Valparaíso,Enel,Enel
+2026-09-04T10:58:55+00:00,274,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T10:57:35.920147+00:00,DC,50,CCS 2,COPEC Parcela 20 Las Vegas de La Serena,Copec Voltex,(22-50],La Serena,Coquimbo,Copec Voltex,Copec Voltex
