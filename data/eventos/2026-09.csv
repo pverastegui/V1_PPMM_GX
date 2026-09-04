@@ -16544,3 +16544,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:02:56+00:00,1237,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:01:14.699344+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
 2026-09-04T06:02:56+00:00,8732,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T06:02:18.931957+00:00,DC,180,CCS 2,VOLTEX COPEC CONSISTORIAL,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T06:02:56+00:00,619,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:01:28.504470+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T06:03:55+00:00,1037,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:03:00.492238+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
