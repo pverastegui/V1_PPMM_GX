@@ -17410,3 +17410,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T10:32:57+00:00,1018,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T10:31:54.119747+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T10:34:03+00:00,319,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T10:32:22.819572+00:00,AC,7,Tipo 2,Mc Donalds Kennedy,Enel,7,Las Condes,Metropolitana,Enel,Enel
 2026-09-04T10:34:03+00:00,591,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T10:32:35.815951+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Dehesa,Enel,(50-150],Lo Barnechea,Metropolitana,Enel,Enel
+2026-09-04T10:34:55+00:00,639,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T10:33:40.606382+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-04T10:34:55+00:00,7360,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T10:34:15.303662+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60220 - ALBERTO LLONA,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
