@@ -15165,3 +15165,11 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T01:20:56+00:00,241,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T01:20:09.653277+00:00,DC,50,CHAdeMO,"COPEC Los Angeles Ruta 5 km 518,5 - lado poniente",Copec Voltex,(22-50],Los Ángeles,Biobío,Copec Voltex,Copec Voltex
 2026-09-04T01:20:56+00:00,24,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T01:19:33.540041+00:00,DC,50,CHAdeMO,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-04T01:20:56+00:00,4816,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T01:19:33.160524+00:00,DC,180,CCS 2,Enex E-Pro Vitacura,Enerlink,150,Vitacura,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T01:22:02+00:00,8858,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T01:21:05.840244+00:00,DC,60,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T01:22:02+00:00,1005,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T01:20:48.775665+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T01:22:02+00:00,1017,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T01:20:39.517089+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T01:22:02+00:00,6829,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T01:00:33.939794+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-04T01:22:02+00:00,8717,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T01:20:39.896339+00:00,DC,30,CCS 2,Enel X Way - Rojas Magallanes,Enel,(22-50],La Florida,Metropolitana,Enel,Enel
+2026-09-04T01:22:02+00:00,674,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T01:20:53.568476+00:00,DC,60,CCS 2,IRVE Espacio Urbano Machalí,Enel,(50-150],Machalí,Libertador Bernardo OHiggins,Enel,Enel
+2026-09-04T01:22:02+00:00,8192,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-04T01:20:39.607111+00:00,DC,60,CCS 2,Enel X Way - CARGADOR ESPACIO URBANO SAN MIGUEL ,Enel,(50-150],San Miguel,Metropolitana,Enel,Enel
+2026-09-04T01:22:02+00:00,8861,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T01:20:57.476642+00:00,DC,120,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
