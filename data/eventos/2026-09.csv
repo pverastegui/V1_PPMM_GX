@@ -17391,3 +17391,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T10:27:58+00:00,7316,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T07:43:41.172447+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T10:27:58+00:00,505,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-04T10:26:56.825219+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T10:28:54+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T10:27:42.452195+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T10:30:10+00:00,319,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T10:29:17.963495+00:00,AC,7,Tipo 2,Mc Donalds Kennedy,Enel,7,Las Condes,Metropolitana,Enel,Enel
