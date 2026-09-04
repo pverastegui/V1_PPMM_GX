@@ -17534,3 +17534,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T11:11:57+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T11:10:29.527542+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T11:11:57+00:00,1656,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T11:10:44.312624+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T11:11:57+00:00,7365,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T11:11:08.317795+00:00,DC,240,CCS 2,SAVE VOLTEX LA FLORIDA,Copec Voltex,150,La Florida,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T11:12:58+00:00,7273,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T11:11:53.527975+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
