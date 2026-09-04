@@ -16413,3 +16413,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:26:56+00:00,1983,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T04:56:15.228284+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T05:27:55+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:26:28.051273+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T05:27:55+00:00,7318,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T05:26:43.940046+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T05:29:00+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:28:18.100101+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
