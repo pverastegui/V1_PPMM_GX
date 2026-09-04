@@ -19074,3 +19074,17 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T15:28:07+00:00,9057,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T15:27:16.136352+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T15:28:07+00:00,8163,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:22:03.571886+00:00,DC,60,CCS 2,IRVE Tottus La Cisterna,Enel,(50-150],La Cisterna,Metropolitana,Enel,Enel
 2026-09-04T15:28:07+00:00,729,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:25:24.450710+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T15:28:24.278922+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T15:29:12+00:00,728,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T15:28:53.971394+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,1185,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T15:27:45.627756+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,1180,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T15:27:31.611658+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,1006,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T15:28:22.879839+00:00,DC,60,CCS 2,Enel X Way - Petrobras Rotonda Atenas,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,7468,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T15:28:17.520195+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T15:29:12+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T15:28:46.935567+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,729,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T15:28:53.971394+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,3097,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-04T15:27:26.999758+00:00,AC,22,Tipo 2,Enel X - Mall Sport,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,1209,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:28:05.034394+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,442,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T15:28:43.783915+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T15:28:46.935567+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,3098,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-04T15:27:28.967587+00:00,AC,22,Tipo 2,Enel X - Mall Sport,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T15:29:12+00:00,4768,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T15:23:01.644462+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 40046 - CONCÓN,Copec Voltex,150,Vina del Mar,Valparaíso,Copec Voltex,Copec Voltex
