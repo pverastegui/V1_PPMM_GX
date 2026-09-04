@@ -17426,3 +17426,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T10:37:53+00:00,729,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T10:37:18.595464+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
 2026-09-04T10:38:56+00:00,8684,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T10:38:00.984325+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T10:39:53+00:00,7318,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T10:38:50.680066+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T10:41:00+00:00,1023,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T10:40:03.215481+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T10:41:00+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T10:40:23.200003+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T10:41:00+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T10:40:23.200003+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T10:41:00+00:00,519,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T10:39:59.923362+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
