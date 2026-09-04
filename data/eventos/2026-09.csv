@@ -19211,3 +19211,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T15:44:15+00:00,7470,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T15:43:38.064374+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T15:44:15+00:00,442,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T15:43:44.031993+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
 2026-09-04T15:44:15+00:00,619,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T15:42:57.675959+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T15:45:06+00:00,1145,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T15:44:15.022431+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano Puerto Montt,Enel,(50-150],Puerto Montt,Los Lagos,Enel,Enel
