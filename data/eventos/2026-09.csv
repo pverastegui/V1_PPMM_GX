@@ -16719,3 +16719,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:52:02+00:00,9377,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:51:06.739506+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
 2026-09-04T06:53:06+00:00,516,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:52:06.448393+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T06:53:06+00:00,519,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:51:43.367674+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T06:54:00+00:00,520,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T06:52:47.455738+00:00,DC,60,GB/T DC,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T06:54:00+00:00,1656,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T06:53:00.608242+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T06:54:00+00:00,3158,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:53:12.539993+00:00,DC,60,CCS 2,Enel X - EDS ARAMCO Vitacura ,Enel,(50-150],Vitacura,Metropolitana,Enel,Enel
