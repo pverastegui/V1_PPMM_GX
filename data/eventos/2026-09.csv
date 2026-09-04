@@ -16605,3 +16605,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:17:56+00:00,1382,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T06:16:46.711646+00:00,DC,75,CCS 2,Enel X Way CARGADOR ANGLO AMERICAN ENEA ETAPA 2,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T06:17:56+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:15:44.652059+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-04T06:17:56+00:00,514,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:17:11.251470+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T06:18:59+00:00,6840,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:17:23.687551+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Isabel La Católica,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
