@@ -18110,3 +18110,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T13:11:00+00:00,48,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T13:10:04.181331+00:00,DC,50,CHAdeMO,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-04T13:11:00+00:00,7468,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T13:10:03.872336+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T13:11:00+00:00,49,COPEC VOLTEX,FUERA DE LINEA,OCUPADO,2026-09-04T13:10:04.181331+00:00,DC,50,CCS 2,COPEC Chimbarongo,Copec Voltex,(22-50],Chimbarongo,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-04T13:12:00+00:00,3097,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:11:04.363811+00:00,AC,22,Tipo 2,Enel X - Mall Sport,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T13:12:00+00:00,9093,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:10:51.194757+00:00,DC,180,CCS 2,VOLTEX CARGADOR ELECTRICO EL COBRE,Copec Voltex,150,Rancagua,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-04T13:12:00+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T13:10:58.952029+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
