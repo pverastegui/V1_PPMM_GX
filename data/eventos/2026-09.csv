@@ -16101,3 +16101,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T04:07:59+00:00,1018,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T04:07:11.891951+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T04:07:59+00:00,7273,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T04:06:26.460949+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
 2026-09-04T04:07:59+00:00,6823,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T04:07:11.492308+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-04T04:09:01+00:00,6043,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T04:08:19.239401+00:00,DC,30,CCS 2,"Enel X, Aramco La Florida",Enel,(22-50],La Florida,Metropolitana,Enel,Enel
+2026-09-04T04:09:01+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T04:07:56.843880+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T04:09:01+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T04:07:56.843880+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
