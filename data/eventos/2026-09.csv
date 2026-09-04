@@ -15856,3 +15856,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T03:09:00+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:07:45.631411+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T03:09:00+00:00,6823,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T03:08:01.310738+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
 2026-09-04T03:09:00+00:00,6822,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:08:01.310738+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-04T03:09:58+00:00,6823,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T03:09:01.196524+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-04T03:09:58+00:00,1090,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T03:08:46.586710+00:00,DC,50,CHAdeMO,SAVE VOLTEX 20605 SAN PABLO,Copec Voltex,(22-50],San Pablo,Los Lagos,Copec Voltex,Copec Voltex
+2026-09-04T03:09:58+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:08:56.631760+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T03:09:58+00:00,4779,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:09:17.543452+00:00,DC,50,CHAdeMO,Enel X Way - Bodega San Francisco,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T03:09:58+00:00,6822,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T03:09:01.196524+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
