@@ -18754,3 +18754,11 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T14:44:17+00:00,619,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:43:05.899689+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
 2026-09-04T14:44:17+00:00,24,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T14:43:54.315972+00:00,DC,50,CHAdeMO,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-04T14:44:17+00:00,25,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T14:43:54.315972+00:00,DC,50,CCS 2,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-04T14:45:00+00:00,638,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T14:44:02.047705+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-04T14:45:00+00:00,4780,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:44:00.995469+00:00,DC,60,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T14:45:00+00:00,639,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T14:44:02.047705+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-04T14:45:00+00:00,9045,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T14:44:21.099628+00:00,DC,240,CCS 2,VOLTEX CARGADOR ELECTRICO BASCUÑAN,Copec Voltex,150,Santiago,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T14:45:00+00:00,7244,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:43:59.511431+00:00,DC,150,CCS 2,Enel X - Centro comercial Marbella Maitencillo,Enel,(50-150],Puchuncaví,Valparaíso,Enel,Enel
+2026-09-04T14:45:00+00:00,619,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:44:00.215510+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T14:45:00+00:00,1022,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:44:06.954533+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T14:45:00+00:00,8858,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T14:44:04.932038+00:00,DC,60,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
