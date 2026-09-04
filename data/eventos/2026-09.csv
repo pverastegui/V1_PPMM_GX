@@ -15403,3 +15403,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T01:57:03+00:00,618,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-04T01:55:41.795520+00:00,DC,60,CCS 2,Enel X  - Petrobras Luis Pasteur,Enel,(50-150],Vitacura,Metropolitana,Sin dueño informado,Enel
 2026-09-04T01:57:03+00:00,254,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T01:56:02.180133+00:00,DC,50,CHAdeMO,ESTACION DE SERVICIOS COPEC LAUTARO,Copec Voltex,(22-50],Lautaro,La Araucanía,Copec Voltex,Copec Voltex
 2026-09-04T01:57:03+00:00,617,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T01:55:42.269714+00:00,AC,22,Tipo 2,Enel X  - Petrobras Luis Pasteur,Enel,(7-22],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T01:57:57+00:00,1005,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T01:56:33.323538+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T01:57:57+00:00,7317,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T01:57:10.372287+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T01:57:57+00:00,1204,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T01:57:21.207553+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
+2026-09-04T01:57:57+00:00,6041,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T01:56:35.567784+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-04T01:57:57+00:00,7775,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T01:56:53.724851+00:00,DC,240,CCS 2,SAVE VOLTEX SAN PABLO EDS 60077,Copec Voltex,150,Quinta Normal,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T01:57:57+00:00,870,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T01:57:09.741272+00:00,AC,7.4,Tipo 2,Enel X Way - Mall Parque Arauco,Enel,7,Las Condes,Metropolitana,Enel,Enel
