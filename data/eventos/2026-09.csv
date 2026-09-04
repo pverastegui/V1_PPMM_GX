@@ -21663,3 +21663,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T21:11:11+00:00,1982,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T20:45:18.891990+00:00,DC,60,CCS 2,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T21:11:11+00:00,1983,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T20:45:18.891990+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T21:11:11+00:00,437,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T21:09:55.863126+00:00,AC,7,Tipo 2,Parking Saba Marchant Pereira,Enel,7,Providencia,Metropolitana,Enel,Enel
+2026-09-04T21:12:11+00:00,9044,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T21:04:16.939928+00:00,DC,240,CCS 2,VOLTEX CARGADOR ELECTRICO BASCUÑAN,Copec Voltex,150,Santiago,Metropolitana,Copec Voltex,Copec Voltex
