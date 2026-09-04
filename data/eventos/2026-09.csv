@@ -15105,3 +15105,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T01:12:00+00:00,1037,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T01:10:49.531837+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
 2026-09-04T01:12:57+00:00,7363,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T01:11:33.607292+00:00,DC,240,CCS 2,SAVE VOLTEX LA FLORIDA,Copec Voltex,150,La Florida,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T01:12:57+00:00,7775,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T01:11:58.575940+00:00,DC,240,CCS 2,SAVE VOLTEX SAN PABLO EDS 60077,Copec Voltex,150,Quinta Normal,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T01:13:55+00:00,674,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T01:12:52.755708+00:00,DC,60,CCS 2,IRVE Espacio Urbano Machalí,Enel,(50-150],Machalí,Libertador Bernardo OHiggins,Enel,Enel
