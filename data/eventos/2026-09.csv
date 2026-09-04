@@ -15809,3 +15809,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T03:01:10+00:00,9131,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-08-28T15:10:22.128521+00:00,DC,148.96,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(50-150],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T03:01:10+00:00,709,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:00:12.439626+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
 2026-09-04T03:01:10+00:00,1820,Enerlink Chile SpA,NO DISPONIBLE,DISPONIBLE,2026-09-03T23:55:06.644332+00:00,DC,120,CCS 2,Enex E-Pro Shell Quilicura,Enerlink,(50-150],Quilicura,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T03:01:58+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:01:29.619469+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T03:01:58+00:00,6830,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:00:53.759732+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-04T03:01:58+00:00,8859,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T03:01:05.750187+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T03:01:58+00:00,7361,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T03:01:10.213223+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60220 - ALBERTO LLONA,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T03:01:58+00:00,8732,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T03:00:31.594367+00:00,DC,180,CCS 2,VOLTEX COPEC CONSISTORIAL,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T03:01:58+00:00,1179,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T03:01:04.579257+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
+2026-09-04T03:01:58+00:00,710,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:00:50.727374+00:00,AC,22,Tipo 2,Enel X Way - Petrobras 14 de La Fama,Enel,(7-22],Independencia,Metropolitana,Enel,Enel
