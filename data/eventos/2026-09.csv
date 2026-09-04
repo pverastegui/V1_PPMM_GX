@@ -21975,3 +21975,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T21:54:13+00:00,7469,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T21:53:07.695984+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T21:54:13+00:00,7315,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T21:53:36.903471+00:00,DC,30,CCS 2,Enel X - Movicenter Huechuraba,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
 2026-09-04T21:54:13+00:00,536,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T21:52:52.051852+00:00,DC,60,CCS 2,Enel X - StripCenter Nogales,Enel,(50-150],Machalí,Libertador Bernardo OHiggins,Enel,Enel
+2026-09-04T21:55:18+00:00,8729,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T21:48:09.714302+00:00,DC,180,CCS 2,VOLTEX COPEC CONSISTORIAL,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
