@@ -20041,3 +20041,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T17:39:13+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T17:38:37.147376+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T17:39:13+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T17:38:37.147376+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T17:39:13+00:00,7774,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T17:38:10.713547+00:00,DC,240,CCS 2,SAVE VOLTEX SAN PABLO EDS 60077,Copec Voltex,150,Quinta Normal,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T17:40:10+00:00,8684,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T17:39:08.384796+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T17:40:10+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T17:39:08.384796+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
