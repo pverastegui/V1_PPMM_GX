@@ -4,14 +4,21 @@ Produce dos CSVs chicos y ya agregados, pensados para que el visor los descargue
 rapido desde el navegador (en vez de bajar los eventos completos, que crecen a
 decenas de MB):
 
-  data/resumen_diario.csv   vista, fecha, empresa, tramo_potencia, transacciones
-  data/resumen_parque.csv   vista, empresa, sitios, conectores, kw
+  data/resumen_diario.csv   vista, fecha, empresa, tramo_potencia, power_type, transacciones
+  data/resumen_parque.csv   vista, empresa, power_type, sitios, conectores, kw
 
 La columna "vista" dice COMO se atribuyo el conector, y hay una fila por cada
 una de las tres formas (ver el docstring de sondear.py):
   opc    -> quien opera el punto de carga (la definicion habitual de "red")
   owner  -> de quien es la instalacion (el campo mas completo de los tres)
   pse    -> quien le vende la carga al usuario final
+
+La columna "power_type" dice si el conector es AC o DC. Por cada combinacion
+de las demas columnas hay TRES filas: una con power_type="" (el total, AC+DC
+juntos) y una para cada tipo por separado. La fila en blanco no es la suma de
+las otras dos calculada por el visor -- se calcula aca porque "sitios" es un
+CONTEO DE UBICACIONES DISTINTAS, y una ubicacion con cargadores de ambos tipos
+se contaria dos veces si el total fuera simplemente AC + DC.
 
 Una transaccion = un evento con estado_nuevo = OCUPADO (el mismo criterio de la
 planilla).
@@ -92,36 +99,43 @@ def resumen_diario() -> list[dict]:
                 if not fecha:
                     continue
                 tramo = e.get("tramo_potencia") or "desconocido"
+                tipo = e.get("power_type") or "desconocido"
                 for vista, columna in VISTAS.items():
                     # Los eventos viejos (anteriores a las tres vistas) no traen
                     # owner ni pse: en ese caso se cae a la vista OPC.
                     empresa = (e.get(columna) or e.get("operador_agrupado")
                                or e.get("operator_name") or "Sin informar")
-                    conteo[(vista, fecha, empresa, tramo)] += 1
+                    # fila en blanco ("") = total AC+DC, ademas de la fila del tipo
+                    for power_type in ("", tipo):
+                        conteo[(vista, fecha, empresa, tramo, power_type)] += 1
 
-    filas = [{"vista": v, "fecha": f, "empresa": o, "tramo_potencia": t, "transacciones": n}
-             for (v, f, o, t), n in conteo.items()]
+    filas = [{"vista": v, "fecha": f, "empresa": o, "tramo_potencia": t,
+              "power_type": tp, "transacciones": n}
+             for (v, f, o, t, tp), n in conteo.items()]
     filas.sort(key=lambda r: (r["vista"], r["fecha"], -r["transacciones"]))
     return filas
 
 
 def resumen_parque() -> list[dict]:
-    por_vista = defaultdict(lambda: {"sitios": set(), "conectores": 0, "kw": 0.0})
+    por_grupo = defaultdict(lambda: {"sitios": set(), "conectores": 0, "kw": 0.0})
     for fila in leer_csv(ARCHIVO_CATALOGO):
         if str(fila.get("activo")) != "1":
             continue
+        tipo = fila.get("power_type") or "desconocido"
         for vista, columna in VISTAS.items():
             empresa = (fila.get(columna) or fila.get("operador_agrupado")
                        or fila.get("operator_name") or "Sin informar")
-            d = por_vista[(vista, empresa)]
-            d["sitios"].add(fila.get("location_id"))
-            d["conectores"] += 1
-            d["kw"] += num(fila.get("max_electric_power"))
+            # fila en blanco ("") = total AC+DC, ademas de la fila del tipo
+            for power_type in ("", tipo):
+                d = por_grupo[(vista, empresa, power_type)]
+                d["sitios"].add(fila.get("location_id"))
+                d["conectores"] += 1
+                d["kw"] += num(fila.get("max_electric_power"))
 
-    filas = [{"vista": v, "empresa": e, "sitios": len(d["sitios"]),
+    filas = [{"vista": v, "empresa": e, "power_type": tp, "sitios": len(d["sitios"]),
               "conectores": d["conectores"], "kw": round(d["kw"])}
-             for (v, e), d in por_vista.items()]
-    filas.sort(key=lambda r: (r["vista"], -r["conectores"]))
+             for (v, e, tp), d in por_grupo.items()]
+    filas.sort(key=lambda r: (r["vista"], r["power_type"], -r["conectores"]))
     return filas
 
 
@@ -142,15 +156,19 @@ def main() -> int:
     diario = resumen_diario()
     parque = resumen_parque()
 
-    escribir(SALIDA_DIARIO, ["vista", "fecha", "empresa", "tramo_potencia", "transacciones"], diario)
-    escribir(SALIDA_PARQUE, ["vista", "empresa", "sitios", "conectores", "kw"], parque)
+    escribir(SALIDA_DIARIO,
+             ["vista", "fecha", "empresa", "tramo_potencia", "power_type", "transacciones"], diario)
+    escribir(SALIDA_PARQUE,
+             ["vista", "empresa", "power_type", "sitios", "conectores", "kw"], parque)
 
+    # Los totales de abajo usan solo la fila power_type="" (el total AC+DC) para
+    # no contar cada transaccion/conector tres veces (total + AC + DC).
     dias = len({r["fecha"] for r in diario})
-    total_opc = sum(r["transacciones"] for r in diario if r["vista"] == "opc")
+    total_opc = sum(r["transacciones"] for r in diario if r["vista"] == "opc" and r["power_type"] == "")
     print(f"resumen_diario.csv: {len(diario)} filas ({dias} dias, {total_opc} transacciones por vista)")
     for v in VISTAS:
-        n = sum(r["conectores"] for r in parque if r["vista"] == v)
-        emp = len([r for r in parque if r["vista"] == v])
+        n = sum(r["conectores"] for r in parque if r["vista"] == v and r["power_type"] == "")
+        emp = len([r for r in parque if r["vista"] == v and r["power_type"] == ""])
         print(f"  vista {v:6}: {emp:3} empresas, {n} conectores activos")
     return 0
 

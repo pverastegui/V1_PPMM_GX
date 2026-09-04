@@ -1,166 +1,356 @@
-vista,empresa,sitios,conectores,kw
-opc,Copec Voltex,261,961,54348
-opc,Enel,220,854,27455
-opc,Enerlink,64,184,11735
-opc,Chass,4,42,1048
-opc,Saesa,11,22,484
-opc,CHILQUINTA,7,14,352
-opc,ILUSTRE MUNICIPALIDAD DE LAS CONDES,6,12,308
-opc,COMPAÑIA GENERAL DE ELECTRICIDAD S.A.,5,10,160
-opc,Cargar Mas SpA,1,10,3500
-opc,Inversiones Vida Parque SA,1,9,63
-opc,nmaes99 prueba prod patre99 matre99,1,9,667
-opc,METLIFE CHILE SEGUROS DE VIDA ,1,6,42
-opc,Soc. Con. Nuevo Pudahuel S.A.,1,6,132
-opc,CHILECTRA S.A.,3,5,110
-opc,EMPRESA NACIONAL DE ENERGIA EN,2,5,253
-opc,Inmobiliaria viña del mar SA,2,4,28
-opc,Bodegas San Francisco Ltda.,2,4,88
-opc,TE MOBILITY,3,4,58
-opc,Desarrollos e Inversiones Inte,2,4,30
-opc,Corporacion Desarrollo RM,2,4,87
-opc,INMOBILIARIA POWER CENTER LTDA,1,4,88
-opc,Com Edif Nue Las Condes Siete,1,4,30
-opc,Comer. Ditec Automoviles SA,1,4,30
-opc,TODO ARAUCO,1,4,400
-opc,Tesla Chile SpA,1,4,1000
-opc,Inmobiliaria Playa La Boca Spa,1,4,88
-opc,Estacionamientos Manuel Montt ,1,4,30
-opc,RUTA DEL MAIPO SOC. CONCESIONA,1,3,143
-opc,Pompeyo Carrasco SPA,2,3,22
-opc,Sin Operador Informado,1,3,150
-opc,Parque Arauco SA,1,2,14
-opc,Automovil Club de Chile,1,2,14
-opc,Inversiones Quildos Ltda,1,2,44
-opc,Universidad de Los andes,1,2,44
-opc,Pinochet y Pinochet SPA,1,2,44
-opc,Universidad Adolfo Ibañez ,1,2,44
-opc,Turismo Lago Grey SA,1,2,15
-opc,inmobiliaria y construtora Alo,1,2,14
-opc,Inmob. Administ. y Com. Mall S,1,2,13
-opc,Patio Foster SPA,1,2,14
-opc,inmobiliaria los militares apo,1,2,14
-opc,Hotel termas de Puyehue,1,2,15
-opc,Parque Solar Fotovoltaico Luz ,1,2,44
-opc,MALL PLAZA EL TREBOL S.A,1,2,15
-opc,CTEC,1,2,44
-opc,INMOBILIARIA IRARRAZAVAL DOS S,1,2,44
-opc,INMOBILIARIA INDUMOTORA SPA,2,2,15
-opc,Est. Sub. Valparaíso SA,1,2,44
-opc,COM. ED. WORD TRADE CENCER,1,2,44
-opc,Empresa Eléctrica de Casablanca S.A,1,2,44
-opc,CONSTRUCTORA SIENNA S.A,1,2,14
-opc,Edelaysen,1,2,44
-opc,inmobiliaria miguel claro s.a,1,2,44
-opc,EMPRESA ELÉCTRICA DE MAGALLANES S.A,2,2,45
-opc,Compañia de Leasing Tattersal ,1,1,7
-opc,INMOBILIARIA ITALIA S.A.,1,1,22
-opc,CENCOSUD SHOPPING S.A.,1,1,7
-opc,Casino de Juegos Punta Arenas ,1,1,7
-opc,Cominidad Complejo Boulebard K,1,1,22
-opc,Fundacion IP DuocUc ,1,1,22
-opc,WILLIAMSON BALFOUR MOTORS,1,1,7
-opc,CLINICA ALEMANA SANTIAGO S.A,1,1,44
-opc,COMERCIAL AUTOMOTRIZ SIGLO XXI,1,1,7
-opc,SINERGIA INMOBILIARIA S.A.,1,1,22
-opc,INVERSIONES OREGONIA S.A,1,1,7
-opc,Fundacion Duoc Uc,1,1,7
-opc,CURIFOR INMOBILIARIA S.A.,1,1,7
-opc,INMOBILIARIA COLOSO VICUÑA MAC,1,1,7
-opc,Club de Golf Valle Escondido,1,1,7
-opc,WALMART CHILE S.A,1,1,7
-opc,PLAZA CORDILLERA S.A.,1,1,7
-opc,Admin. de Turism Rosa Agustina,1,1,22
-opc,Rentas Inmobiliarias Limitada,1,1,22
-owner,Copec Voltex,258,954,53741
-owner,Enel,213,833,26530
-owner,EMPRESA NACIONAL DE ENERGIA EN,58,159,10017
-owner,Chass,4,42,1048
-owner,Saesa,11,22,484
-owner,Sin dueño informado,4,17,993
-owner,Chilquinta Energia S.A.,7,14,352
-owner,ILUSTRE MUNICIPALIDAD DE LAS CONDES,6,12,308
-owner,Enerlink,2,11,183
-owner,COMPAÑIA GENERAL DE ELECTRICIDAD S.A.,5,10,160
-owner,Cargar Mas SpA,1,10,3500
-owner,Inversiones Vida Parque SA,1,9,63
-owner,CENCOSUD SHOPPING S.A.,3,7,49
-owner,METLIFE CHILE SEGUROS DE VIDA,1,6,42
-owner,Soc. Con. Nuevo Pudahuel S.A.,1,6,132
-owner,Gasco GLP SA,2,6,480
-owner,CHILECTRA S.A.,3,5,110
-owner,Nexe,1,5,1222
-owner,Inmobiliaria viña del mar SA,2,4,28
-owner,Bodegas San Francisco Ltda.,2,4,88
-owner,TE MOBILITY SPA,3,4,58
-owner,Desarrollos e Inversiones Inte,2,4,30
-owner,Corporacion Desarrollo RM,2,4,87
-owner,INMOBILIARIA POWER CENTER LTDA,1,4,88
-owner,Inmobiliaria FG Oriente SpA,1,4,59
-owner,Com Edif Nue Las Condes Siete,1,4,30
-owner,Comer. Ditec Automoviles SA,1,4,30
-owner,TODO ARAUCO,1,4,400
-owner,Tesla Chile SpA,1,4,1000
-owner,Inmobiliaria Playa La Boca Spa,1,4,88
-owner,Estacionamientos Manuel Montt,1,4,30
-owner,Inmobiliaria Puente Ltda.,1,4,240
-owner,RUTA DEL MAIPO SOC. CONCESIONA,1,3,143
-owner,Soc. Concesionaria Autopista,1,3,143
-owner,ELSA DEL CARMEN LEIVA REYES,1,3,132
-owner,Pompeyo Carrasco SPA,2,3,22
-owner,SERVICIOS HERRMANN LIMITADA,1,3,222
-owner,Industria Recuperadora de Neum,1,3,222
-owner,Parque Arauco SA,1,2,14
-owner,Automovil Club de Chile,1,2,14
-owner,Inversiones Quildos Ltda,1,2,44
-owner,Universidad de Los andes,1,2,44
-owner,Pinochet y Pinochet SPA,1,2,44
-owner,Universidad Adolfo Ibañez,1,2,44
-owner,Turismo Lago Grey SA,1,2,15
-owner,inmobiliaria y construtora Alo,1,2,14
-owner,Inmob. Administ. y Com. Mall S,1,2,13
-owner,Patio Foster SPA,1,2,14
-owner,inmobiliaria los militares apo,1,2,14
-owner,Hotel termas de Puyehue,1,2,15
-owner,Parque Solar Fotovoltaico Luz,1,2,44
-owner,MALL PLAZA EL TREBOL S.A,1,2,15
-owner,Automotriz Poerillo sur Ltda,1,2,15
-owner,CTEC,1,2,44
-owner,INMOBILIARIA IRARRAZAVAL DOS S,1,2,44
-owner,INMOBILIARIA INDUMOTORA SPA,2,2,15
-owner,Est. Sub. Valparaíso SA,1,2,44
-owner,COM. ED. WORD TRADE CENCER,1,2,44
-owner,Empresa Eléctrica de Casablanca S.A,1,2,44
-owner,CONSTRUCTORA SIENNA S.A,1,2,14
-owner,Edelaysen,1,2,44
-owner,inmobiliaria miguel claro s.a,1,2,44
-owner,EMPRESA ELÉCTRICA DE MAGALLANES S.A,2,2,45
-owner,SOCIEDAD CONCESIONARIA NUEVO A,1,2,360
-owner,Compañia de Leasing Tattersal,1,1,7
-owner,INMOBILIARIA ITALIA S.A.,1,1,22
-owner,Casino de Juegos Punta Arenas,1,1,7
-owner,Cominidad Complejo Boulebard K,1,1,22
-owner,Fundacion IP DuocUc,1,1,22
-owner,WILLIAMSON BALFOUR MOTORS,1,1,7
-owner,CLINICA ALEMANA SANTIAGO S.A,1,1,44
-owner,COMERCIAL AUTOMOTRIZ SIGLO XXI,1,1,7
-owner,SINERGIA INMOBILIARIA S.A.,1,1,22
-owner,INVERSIONES OREGONIA S.A,1,1,7
-owner,Fundacion Duoc Uc,1,1,7
-owner,CURIFOR INMOBILIARIA S.A.,1,1,7
-owner,INMOBILIARIA COLOSO VICUÑA MAC,1,1,7
-owner,CHUBB SEGUROS CHILE S.A.,1,1,7
-owner,Club de Golf Valle Escondido,1,1,7
-owner,WALMART CHILE S.A,1,1,7
-owner,PLAZA CORDILLERA S.A.,1,1,7
-owner,Admin. de Turism Rosa Agustina,1,1,22
-owner,Rentas Inmobiliarias Limitada,1,1,22
-pse,Copec Voltex,250,927,48694
-pse,Enel,193,790,24955
-pse,Sin PSE informado,132,313,17305
-pse,Enerlink,66,189,11988
-pse,Chass,2,36,568
-pse,Chilquinta Energia S.A.,6,10,264
-pse,TE MOBILITY SPA,3,4,58
-pse,Empresa Eléctrica de Casablanca S.A,1,2,44
-pse,EMPRESA ELÉCTRICA DE MAGALLANES S.A,2,2,45
+vista,empresa,power_type,sitios,conectores,kw
+opc,Copec Voltex,,261,961,54348
+opc,Enel,,220,854,27455
+opc,Enerlink,,64,184,11735
+opc,Chass,,4,42,1048
+opc,Saesa,,11,22,484
+opc,CHILQUINTA,,7,14,352
+opc,ILUSTRE MUNICIPALIDAD DE LAS CONDES,,6,12,308
+opc,COMPAÑIA GENERAL DE ELECTRICIDAD S.A.,,5,10,160
+opc,Cargar Mas SpA,,1,10,3500
+opc,Inversiones Vida Parque SA,,1,9,63
+opc,nmaes99 prueba prod patre99 matre99,,1,9,667
+opc,METLIFE CHILE SEGUROS DE VIDA ,,1,6,42
+opc,Soc. Con. Nuevo Pudahuel S.A.,,1,6,132
+opc,CHILECTRA S.A.,,3,5,110
+opc,EMPRESA NACIONAL DE ENERGIA EN,,2,5,253
+opc,Inmobiliaria viña del mar SA,,2,4,28
+opc,Bodegas San Francisco Ltda.,,2,4,88
+opc,TE MOBILITY,,3,4,58
+opc,Desarrollos e Inversiones Inte,,2,4,30
+opc,Corporacion Desarrollo RM,,2,4,87
+opc,INMOBILIARIA POWER CENTER LTDA,,1,4,88
+opc,Com Edif Nue Las Condes Siete,,1,4,30
+opc,Comer. Ditec Automoviles SA,,1,4,30
+opc,TODO ARAUCO,,1,4,400
+opc,Tesla Chile SpA,,1,4,1000
+opc,Inmobiliaria Playa La Boca Spa,,1,4,88
+opc,Estacionamientos Manuel Montt ,,1,4,30
+opc,RUTA DEL MAIPO SOC. CONCESIONA,,1,3,143
+opc,Pompeyo Carrasco SPA,,2,3,22
+opc,Sin Operador Informado,,1,3,150
+opc,Parque Arauco SA,,1,2,14
+opc,Automovil Club de Chile,,1,2,14
+opc,Inversiones Quildos Ltda,,1,2,44
+opc,Universidad de Los andes,,1,2,44
+opc,Pinochet y Pinochet SPA,,1,2,44
+opc,Universidad Adolfo Ibañez ,,1,2,44
+opc,Turismo Lago Grey SA,,1,2,15
+opc,inmobiliaria y construtora Alo,,1,2,14
+opc,Inmob. Administ. y Com. Mall S,,1,2,13
+opc,Patio Foster SPA,,1,2,14
+opc,inmobiliaria los militares apo,,1,2,14
+opc,Hotel termas de Puyehue,,1,2,15
+opc,Parque Solar Fotovoltaico Luz ,,1,2,44
+opc,MALL PLAZA EL TREBOL S.A,,1,2,15
+opc,CTEC,,1,2,44
+opc,INMOBILIARIA IRARRAZAVAL DOS S,,1,2,44
+opc,INMOBILIARIA INDUMOTORA SPA,,2,2,15
+opc,Est. Sub. Valparaíso SA,,1,2,44
+opc,COM. ED. WORD TRADE CENCER,,1,2,44
+opc,Empresa Eléctrica de Casablanca S.A,,1,2,44
+opc,CONSTRUCTORA SIENNA S.A,,1,2,14
+opc,Edelaysen,,1,2,44
+opc,inmobiliaria miguel claro s.a,,1,2,44
+opc,EMPRESA ELÉCTRICA DE MAGALLANES S.A,,2,2,45
+opc,Compañia de Leasing Tattersal ,,1,1,7
+opc,INMOBILIARIA ITALIA S.A.,,1,1,22
+opc,CENCOSUD SHOPPING S.A.,,1,1,7
+opc,Casino de Juegos Punta Arenas ,,1,1,7
+opc,Cominidad Complejo Boulebard K,,1,1,22
+opc,Fundacion IP DuocUc ,,1,1,22
+opc,WILLIAMSON BALFOUR MOTORS,,1,1,7
+opc,CLINICA ALEMANA SANTIAGO S.A,,1,1,44
+opc,COMERCIAL AUTOMOTRIZ SIGLO XXI,,1,1,7
+opc,SINERGIA INMOBILIARIA S.A.,,1,1,22
+opc,INVERSIONES OREGONIA S.A,,1,1,7
+opc,Fundacion Duoc Uc,,1,1,7
+opc,CURIFOR INMOBILIARIA S.A.,,1,1,7
+opc,INMOBILIARIA COLOSO VICUÑA MAC,,1,1,7
+opc,Club de Golf Valle Escondido,,1,1,7
+opc,WALMART CHILE S.A,,1,1,7
+opc,PLAZA CORDILLERA S.A.,,1,1,7
+opc,Admin. de Turism Rosa Agustina,,1,1,22
+opc,Rentas Inmobiliarias Limitada,,1,1,22
+opc,Copec Voltex,AC,205,670,8550
+opc,Enel,AC,145,556,6303
+opc,Enerlink,AC,43,56,1300
+opc,Chass,AC,2,34,448
+opc,Saesa,AC,11,22,484
+opc,CHILQUINTA,AC,7,14,352
+opc,ILUSTRE MUNICIPALIDAD DE LAS CONDES,AC,6,12,308
+opc,COMPAÑIA GENERAL DE ELECTRICIDAD S.A.,AC,5,10,160
+opc,Inversiones Vida Parque SA,AC,1,9,63
+opc,METLIFE CHILE SEGUROS DE VIDA ,AC,1,6,42
+opc,Soc. Con. Nuevo Pudahuel S.A.,AC,1,6,132
+opc,CHILECTRA S.A.,AC,3,5,110
+opc,Inmobiliaria viña del mar SA,AC,2,4,28
+opc,Bodegas San Francisco Ltda.,AC,2,4,88
+opc,TE MOBILITY,AC,3,4,58
+opc,Desarrollos e Inversiones Inte,AC,2,4,30
+opc,Corporacion Desarrollo RM,AC,2,4,87
+opc,INMOBILIARIA POWER CENTER LTDA,AC,1,4,88
+opc,Com Edif Nue Las Condes Siete,AC,1,4,30
+opc,Comer. Ditec Automoviles SA,AC,1,4,30
+opc,Inmobiliaria Playa La Boca Spa,AC,1,4,88
+opc,Estacionamientos Manuel Montt ,AC,1,4,30
+opc,Pompeyo Carrasco SPA,AC,2,3,22
+opc,nmaes99 prueba prod patre99 matre99,AC,1,3,67
+opc,Parque Arauco SA,AC,1,2,14
+opc,Automovil Club de Chile,AC,1,2,14
+opc,Inversiones Quildos Ltda,AC,1,2,44
+opc,Universidad de Los andes,AC,1,2,44
+opc,Pinochet y Pinochet SPA,AC,1,2,44
+opc,Universidad Adolfo Ibañez ,AC,1,2,44
+opc,Turismo Lago Grey SA,AC,1,2,15
+opc,inmobiliaria y construtora Alo,AC,1,2,14
+opc,Inmob. Administ. y Com. Mall S,AC,1,2,13
+opc,Patio Foster SPA,AC,1,2,14
+opc,inmobiliaria los militares apo,AC,1,2,14
+opc,Hotel termas de Puyehue,AC,1,2,15
+opc,Parque Solar Fotovoltaico Luz ,AC,1,2,44
+opc,MALL PLAZA EL TREBOL S.A,AC,1,2,15
+opc,CTEC,AC,1,2,44
+opc,INMOBILIARIA IRARRAZAVAL DOS S,AC,1,2,44
+opc,INMOBILIARIA INDUMOTORA SPA,AC,2,2,15
+opc,Est. Sub. Valparaíso SA,AC,1,2,44
+opc,COM. ED. WORD TRADE CENCER,AC,1,2,44
+opc,Empresa Eléctrica de Casablanca S.A,AC,1,2,44
+opc,CONSTRUCTORA SIENNA S.A,AC,1,2,14
+opc,Edelaysen,AC,1,2,44
+opc,inmobiliaria miguel claro s.a,AC,1,2,44
+opc,Compañia de Leasing Tattersal ,AC,1,1,7
+opc,INMOBILIARIA ITALIA S.A.,AC,1,1,22
+opc,CENCOSUD SHOPPING S.A.,AC,1,1,7
+opc,Casino de Juegos Punta Arenas ,AC,1,1,7
+opc,Cominidad Complejo Boulebard K,AC,1,1,22
+opc,Fundacion IP DuocUc ,AC,1,1,22
+opc,RUTA DEL MAIPO SOC. CONCESIONA,AC,1,1,43
+opc,WILLIAMSON BALFOUR MOTORS,AC,1,1,7
+opc,CLINICA ALEMANA SANTIAGO S.A,AC,1,1,44
+opc,EMPRESA NACIONAL DE ENERGIA EN,AC,1,1,43
+opc,COMERCIAL AUTOMOTRIZ SIGLO XXI,AC,1,1,7
+opc,SINERGIA INMOBILIARIA S.A.,AC,1,1,22
+opc,INVERSIONES OREGONIA S.A,AC,1,1,7
+opc,Fundacion Duoc Uc,AC,1,1,7
+opc,CURIFOR INMOBILIARIA S.A.,AC,1,1,7
+opc,INMOBILIARIA COLOSO VICUÑA MAC,AC,1,1,7
+opc,Club de Golf Valle Escondido,AC,1,1,7
+opc,WALMART CHILE S.A,AC,1,1,7
+opc,PLAZA CORDILLERA S.A.,AC,1,1,7
+opc,Sin Operador Informado,AC,1,1,50
+opc,Admin. de Turism Rosa Agustina,AC,1,1,22
+opc,Enel,DC,104,298,21152
+opc,Copec Voltex,DC,117,291,45798
+opc,Enerlink,DC,60,128,10435
+opc,Cargar Mas SpA,DC,1,10,3500
+opc,Chass,DC,3,8,600
+opc,nmaes99 prueba prod patre99 matre99,DC,1,6,600
+opc,EMPRESA NACIONAL DE ENERGIA EN,DC,2,4,210
+opc,TODO ARAUCO,DC,1,4,400
+opc,Tesla Chile SpA,DC,1,4,1000
+opc,RUTA DEL MAIPO SOC. CONCESIONA,DC,1,2,100
+opc,Sin Operador Informado,DC,1,2,100
+opc,EMPRESA ELÉCTRICA DE MAGALLANES S.A,DC,2,2,45
+opc,Rentas Inmobiliarias Limitada,DC,1,1,22
+owner,Copec Voltex,,258,954,53741
+owner,Enel,,213,833,26530
+owner,EMPRESA NACIONAL DE ENERGIA EN,,58,159,10017
+owner,Chass,,4,42,1048
+owner,Saesa,,11,22,484
+owner,Sin dueño informado,,4,17,993
+owner,Chilquinta Energia S.A.,,7,14,352
+owner,ILUSTRE MUNICIPALIDAD DE LAS CONDES,,6,12,308
+owner,Enerlink,,2,11,183
+owner,COMPAÑIA GENERAL DE ELECTRICIDAD S.A.,,5,10,160
+owner,Cargar Mas SpA,,1,10,3500
+owner,Inversiones Vida Parque SA,,1,9,63
+owner,CENCOSUD SHOPPING S.A.,,3,7,49
+owner,METLIFE CHILE SEGUROS DE VIDA,,1,6,42
+owner,Soc. Con. Nuevo Pudahuel S.A.,,1,6,132
+owner,Gasco GLP SA,,2,6,480
+owner,CHILECTRA S.A.,,3,5,110
+owner,Nexe,,1,5,1222
+owner,Inmobiliaria viña del mar SA,,2,4,28
+owner,Bodegas San Francisco Ltda.,,2,4,88
+owner,TE MOBILITY SPA,,3,4,58
+owner,Desarrollos e Inversiones Inte,,2,4,30
+owner,Corporacion Desarrollo RM,,2,4,87
+owner,INMOBILIARIA POWER CENTER LTDA,,1,4,88
+owner,Inmobiliaria FG Oriente SpA,,1,4,59
+owner,Com Edif Nue Las Condes Siete,,1,4,30
+owner,Comer. Ditec Automoviles SA,,1,4,30
+owner,TODO ARAUCO,,1,4,400
+owner,Tesla Chile SpA,,1,4,1000
+owner,Inmobiliaria Playa La Boca Spa,,1,4,88
+owner,Estacionamientos Manuel Montt,,1,4,30
+owner,Inmobiliaria Puente Ltda.,,1,4,240
+owner,RUTA DEL MAIPO SOC. CONCESIONA,,1,3,143
+owner,Soc. Concesionaria Autopista,,1,3,143
+owner,ELSA DEL CARMEN LEIVA REYES,,1,3,132
+owner,Pompeyo Carrasco SPA,,2,3,22
+owner,SERVICIOS HERRMANN LIMITADA,,1,3,222
+owner,Industria Recuperadora de Neum,,1,3,222
+owner,Parque Arauco SA,,1,2,14
+owner,Automovil Club de Chile,,1,2,14
+owner,Inversiones Quildos Ltda,,1,2,44
+owner,Universidad de Los andes,,1,2,44
+owner,Pinochet y Pinochet SPA,,1,2,44
+owner,Universidad Adolfo Ibañez,,1,2,44
+owner,Turismo Lago Grey SA,,1,2,15
+owner,inmobiliaria y construtora Alo,,1,2,14
+owner,Inmob. Administ. y Com. Mall S,,1,2,13
+owner,Patio Foster SPA,,1,2,14
+owner,inmobiliaria los militares apo,,1,2,14
+owner,Hotel termas de Puyehue,,1,2,15
+owner,Parque Solar Fotovoltaico Luz,,1,2,44
+owner,MALL PLAZA EL TREBOL S.A,,1,2,15
+owner,Automotriz Poerillo sur Ltda,,1,2,15
+owner,CTEC,,1,2,44
+owner,INMOBILIARIA IRARRAZAVAL DOS S,,1,2,44
+owner,INMOBILIARIA INDUMOTORA SPA,,2,2,15
+owner,Est. Sub. Valparaíso SA,,1,2,44
+owner,COM. ED. WORD TRADE CENCER,,1,2,44
+owner,Empresa Eléctrica de Casablanca S.A,,1,2,44
+owner,CONSTRUCTORA SIENNA S.A,,1,2,14
+owner,Edelaysen,,1,2,44
+owner,inmobiliaria miguel claro s.a,,1,2,44
+owner,EMPRESA ELÉCTRICA DE MAGALLANES S.A,,2,2,45
+owner,SOCIEDAD CONCESIONARIA NUEVO A,,1,2,360
+owner,Compañia de Leasing Tattersal,,1,1,7
+owner,INMOBILIARIA ITALIA S.A.,,1,1,22
+owner,Casino de Juegos Punta Arenas,,1,1,7
+owner,Cominidad Complejo Boulebard K,,1,1,22
+owner,Fundacion IP DuocUc,,1,1,22
+owner,WILLIAMSON BALFOUR MOTORS,,1,1,7
+owner,CLINICA ALEMANA SANTIAGO S.A,,1,1,44
+owner,COMERCIAL AUTOMOTRIZ SIGLO XXI,,1,1,7
+owner,SINERGIA INMOBILIARIA S.A.,,1,1,22
+owner,INVERSIONES OREGONIA S.A,,1,1,7
+owner,Fundacion Duoc Uc,,1,1,7
+owner,CURIFOR INMOBILIARIA S.A.,,1,1,7
+owner,INMOBILIARIA COLOSO VICUÑA MAC,,1,1,7
+owner,CHUBB SEGUROS CHILE S.A.,,1,1,7
+owner,Club de Golf Valle Escondido,,1,1,7
+owner,WALMART CHILE S.A,,1,1,7
+owner,PLAZA CORDILLERA S.A.,,1,1,7
+owner,Admin. de Turism Rosa Agustina,,1,1,22
+owner,Rentas Inmobiliarias Limitada,,1,1,22
+owner,Copec Voltex,AC,204,669,8542
+owner,Enel,AC,138,545,6098
+owner,EMPRESA NACIONAL DE ENERGIA EN,AC,40,41,1216
+owner,Chass,AC,2,34,448
+owner,Saesa,AC,11,22,484
+owner,Chilquinta Energia S.A.,AC,7,14,352
+owner,ILUSTRE MUNICIPALIDAD DE LAS CONDES,AC,6,12,308
+owner,COMPAÑIA GENERAL DE ELECTRICIDAD S.A.,AC,5,10,160
+owner,Inversiones Vida Parque SA,AC,1,9,63
+owner,Enerlink,AC,1,9,63
+owner,CENCOSUD SHOPPING S.A.,AC,3,7,49
+owner,METLIFE CHILE SEGUROS DE VIDA,AC,1,6,42
+owner,Soc. Con. Nuevo Pudahuel S.A.,AC,1,6,132
+owner,CHILECTRA S.A.,AC,3,5,110
+owner,Sin dueño informado,AC,3,5,139
+owner,Inmobiliaria viña del mar SA,AC,2,4,28
+owner,Bodegas San Francisco Ltda.,AC,2,4,88
+owner,TE MOBILITY SPA,AC,3,4,58
+owner,Desarrollos e Inversiones Inte,AC,2,4,30
+owner,Corporacion Desarrollo RM,AC,2,4,87
+owner,INMOBILIARIA POWER CENTER LTDA,AC,1,4,88
+owner,Inmobiliaria FG Oriente SpA,AC,1,4,59
+owner,Com Edif Nue Las Condes Siete,AC,1,4,30
+owner,Comer. Ditec Automoviles SA,AC,1,4,30
+owner,Inmobiliaria Playa La Boca Spa,AC,1,4,88
+owner,Estacionamientos Manuel Montt,AC,1,4,30
+owner,Pompeyo Carrasco SPA,AC,2,3,22
+owner,Parque Arauco SA,AC,1,2,14
+owner,Automovil Club de Chile,AC,1,2,14
+owner,Inversiones Quildos Ltda,AC,1,2,44
+owner,Universidad de Los andes,AC,1,2,44
+owner,Pinochet y Pinochet SPA,AC,1,2,44
+owner,Universidad Adolfo Ibañez,AC,1,2,44
+owner,Turismo Lago Grey SA,AC,1,2,15
+owner,inmobiliaria y construtora Alo,AC,1,2,14
+owner,Inmob. Administ. y Com. Mall S,AC,1,2,13
+owner,Patio Foster SPA,AC,1,2,14
+owner,inmobiliaria los militares apo,AC,1,2,14
+owner,Hotel termas de Puyehue,AC,1,2,15
+owner,Parque Solar Fotovoltaico Luz,AC,1,2,44
+owner,MALL PLAZA EL TREBOL S.A,AC,1,2,15
+owner,Automotriz Poerillo sur Ltda,AC,1,2,15
+owner,CTEC,AC,1,2,44
+owner,INMOBILIARIA IRARRAZAVAL DOS S,AC,1,2,44
+owner,INMOBILIARIA INDUMOTORA SPA,AC,2,2,15
+owner,Est. Sub. Valparaíso SA,AC,1,2,44
+owner,COM. ED. WORD TRADE CENCER,AC,1,2,44
+owner,Empresa Eléctrica de Casablanca S.A,AC,1,2,44
+owner,CONSTRUCTORA SIENNA S.A,AC,1,2,14
+owner,Edelaysen,AC,1,2,44
+owner,inmobiliaria miguel claro s.a,AC,1,2,44
+owner,Compañia de Leasing Tattersal,AC,1,1,7
+owner,INMOBILIARIA ITALIA S.A.,AC,1,1,22
+owner,Casino de Juegos Punta Arenas,AC,1,1,7
+owner,Cominidad Complejo Boulebard K,AC,1,1,22
+owner,Fundacion IP DuocUc,AC,1,1,22
+owner,RUTA DEL MAIPO SOC. CONCESIONA,AC,1,1,43
+owner,Soc. Concesionaria Autopista,AC,1,1,43
+owner,WILLIAMSON BALFOUR MOTORS,AC,1,1,7
+owner,CLINICA ALEMANA SANTIAGO S.A,AC,1,1,44
+owner,ELSA DEL CARMEN LEIVA REYES,AC,1,1,22
+owner,COMERCIAL AUTOMOTRIZ SIGLO XXI,AC,1,1,7
+owner,SERVICIOS HERRMANN LIMITADA,AC,1,1,22
+owner,SINERGIA INMOBILIARIA S.A.,AC,1,1,22
+owner,Industria Recuperadora de Neum,AC,1,1,22
+owner,INVERSIONES OREGONIA S.A,AC,1,1,7
+owner,Fundacion Duoc Uc,AC,1,1,7
+owner,CURIFOR INMOBILIARIA S.A.,AC,1,1,7
+owner,INMOBILIARIA COLOSO VICUÑA MAC,AC,1,1,7
+owner,CHUBB SEGUROS CHILE S.A.,AC,1,1,7
+owner,Club de Golf Valle Escondido,AC,1,1,7
+owner,WALMART CHILE S.A,AC,1,1,7
+owner,PLAZA CORDILLERA S.A.,AC,1,1,7
+owner,Admin. de Turism Rosa Agustina,AC,1,1,22
+owner,Nexe,AC,1,1,22
+owner,Enel,DC,99,288,20432
+owner,Copec Voltex,DC,115,285,45198
+owner,EMPRESA NACIONAL DE ENERGIA EN,DC,57,118,8801
+owner,Sin dueño informado,DC,4,12,854
+owner,Cargar Mas SpA,DC,1,10,3500
+owner,Chass,DC,3,8,600
+owner,Gasco GLP SA,DC,2,6,480
+owner,TODO ARAUCO,DC,1,4,400
+owner,Tesla Chile SpA,DC,1,4,1000
+owner,Nexe,DC,1,4,1200
+owner,Inmobiliaria Puente Ltda.,DC,1,4,240
+owner,RUTA DEL MAIPO SOC. CONCESIONA,DC,1,2,100
+owner,Soc. Concesionaria Autopista,DC,1,2,100
+owner,ELSA DEL CARMEN LEIVA REYES,DC,1,2,110
+owner,SERVICIOS HERRMANN LIMITADA,DC,1,2,200
+owner,Industria Recuperadora de Neum,DC,1,2,200
+owner,Enerlink,DC,1,2,120
+owner,EMPRESA ELÉCTRICA DE MAGALLANES S.A,DC,2,2,45
+owner,SOCIEDAD CONCESIONARIA NUEVO A,DC,1,2,360
+owner,Rentas Inmobiliarias Limitada,DC,1,1,22
+pse,Copec Voltex,,250,927,48694
+pse,Enel,,193,790,24955
+pse,Sin PSE informado,,132,313,17305
+pse,Enerlink,,66,189,11988
+pse,Chass,,2,36,568
+pse,Chilquinta Energia S.A.,,6,10,264
+pse,TE MOBILITY SPA,,3,4,58
+pse,Empresa Eléctrica de Casablanca S.A,,1,2,44
+pse,EMPRESA ELÉCTRICA DE MAGALLANES S.A,,2,2,45
+pse,Copec Voltex,AC,202,661,8376
+pse,Enel,AC,125,526,5683
+pse,Sin PSE informado,AC,111,219,3743
+pse,Enerlink,AC,44,57,1343
+pse,Chass,AC,2,34,448
+pse,Chilquinta Energia S.A.,AC,6,10,264
+pse,TE MOBILITY SPA,AC,3,4,58
+pse,Empresa Eléctrica de Casablanca S.A,AC,1,2,44
+pse,Copec Voltex,DC,108,266,40318
+pse,Enel,DC,89,264,19272
+pse,Enerlink,DC,62,132,10645
+pse,Sin PSE informado,DC,33,94,13562
+pse,Chass,DC,1,2,120
+pse,EMPRESA ELÉCTRICA DE MAGALLANES S.A,DC,2,2,45
