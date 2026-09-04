@@ -21795,3 +21795,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T21:28:13+00:00,8844,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T21:27:41.499185+00:00,DC,60,CHAdeMO,Enel X - EDS Aramco Chicureo,Enel,(50-150],Colina,Metropolitana,Enel,Enel
 2026-09-04T21:28:13+00:00,47,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T21:27:50.524258+00:00,DC,50,CCS 2,COPEC Concepción Prat,Copec Voltex,(22-50],Concepción,Biobío,Copec Voltex,Copec Voltex
 2026-09-04T21:28:13+00:00,1005,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T21:27:10.615659+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T21:29:14+00:00,4748,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T21:28:35.728087+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T21:29:14+00:00,1848,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T21:28:33.459695+00:00,AC,7.4,Tipo 2,Punto de carga MPD,Copec Voltex,7,Las Condes,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T21:29:14+00:00,277,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T21:28:51.128047+00:00,DC,50,CHAdeMO,"COPEC Ruta 5 Norte  km 370 -Socos, Ovalle",Copec Voltex,(22-50],Ovalle,Coquimbo,Copec Voltex,Copec Voltex
+2026-09-04T21:29:14+00:00,276,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T21:28:51.128047+00:00,DC,50,CCS 2,"COPEC Ruta 5 Norte  km 370 -Socos, Ovalle",Copec Voltex,(22-50],Ovalle,Coquimbo,Copec Voltex,Copec Voltex
+2026-09-04T21:29:14+00:00,7318,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T21:28:22.747774+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T21:29:14+00:00,8682,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T21:28:36.380504+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
