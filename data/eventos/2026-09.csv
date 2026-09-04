@@ -16439,3 +16439,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:35:54+00:00,692,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T01:55:32.060666+00:00,DC,50,CCS 2,Enex E-Pro Shell Colón Vespucio ,Enerlink,(22-50],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T05:35:54+00:00,8728,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T05:30:15.632655+00:00,DC,70,GB/T DC,Cargador publico Enex File 169,Enerlink,(50-150],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T05:35:54+00:00,4816,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T05:34:49.291928+00:00,DC,180,CCS 2,Enex E-Pro Vitacura,Enerlink,150,Vitacura,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T05:36:53+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:36:18.780262+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T05:36:53+00:00,8813,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T04:15:52.235444+00:00,DC,70,CCS 2,Enel X - EDS Aramco Ciudad Satelite ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-04T05:36:53+00:00,15,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:36:18.564934+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T05:36:53+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:36:18.564934+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
