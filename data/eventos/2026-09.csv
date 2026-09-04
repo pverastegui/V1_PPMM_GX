@@ -17083,3 +17083,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T08:52:01+00:00,9191,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T08:51:04.939712+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T08:52:01+00:00,1391,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:51:21.935697+00:00,DC,150,CCS 2,CARGADOR DE 300KW EN ELECTROLINERA ENEL X STATION,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T08:52:01+00:00,8793,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T08:50:46.096019+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T08:53:03+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T08:51:37.443886+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T08:53:03+00:00,8793,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T08:51:46.739836+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T08:53:03+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T08:51:37.443886+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
