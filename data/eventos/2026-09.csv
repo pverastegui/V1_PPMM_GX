@@ -17069,3 +17069,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T08:47:13+00:00,3219,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:46:11.936700+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T08:49:01+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T08:48:23.387982+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T08:49:01+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T08:48:23.387982+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T08:50:11+00:00,1381,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T08:49:02.368881+00:00,DC,75,CCS 2,Enel X Way CARGADOR ANGLO AMERICAN ENEA ETAPA 2,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T08:50:11+00:00,708,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:49:19.234469+00:00,DC,150,CCS 2,Enel X Way - Petrobras 14 de La Fama,Enel,(50-150],Independencia,Metropolitana,Enel,Enel
+2026-09-04T08:50:11+00:00,709,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:49:19.234469+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
