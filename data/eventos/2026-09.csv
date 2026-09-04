@@ -16822,3 +16822,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T07:20:56+00:00,692,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T01:55:32.060666+00:00,DC,50,CCS 2,Enex E-Pro Shell Colón Vespucio ,Enerlink,(22-50],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T07:21:58+00:00,1657,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T07:20:32.192330+00:00,DC,120,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,(50-150],Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T07:21:58+00:00,8854,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T07:21:10.863673+00:00,DC,50,CHAdeMO,Enel X - EDS Aramco Quilicura ,Enel,(22-50],Quilicura,Metropolitana,Enel,Enel
+2026-09-04T07:24:59+00:00,512,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T07:24:23.799520+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
