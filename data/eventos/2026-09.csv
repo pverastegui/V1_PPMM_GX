@@ -16617,3 +16617,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:20:55+00:00,8727,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T06:19:51.896662+00:00,DC,70,CCS 2,Cargador publico Enex File 169,Enerlink,(50-150],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T06:20:55+00:00,8728,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T06:19:51.896662+00:00,DC,70,GB/T DC,Cargador publico Enex File 169,Enerlink,(50-150],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T06:20:55+00:00,9117,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T06:10:11.644442+00:00,DC,148.96,CCS 2,SAVE FILE 216 PUENTE ALTO,Enerlink,(50-150],Puente Alto,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T06:21:57+00:00,9376,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T06:21:10.114511+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
+2026-09-04T06:21:57+00:00,2299,Enerlink Chile SpA,OCUPADO,FUERA DE LINEA,2026-09-04T06:21:17.668121+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
+2026-09-04T06:21:57+00:00,8814,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:21:07.063674+00:00,DC,30,CCS 2,Enel X - EDS Aramco Ciudad Satelite ,Enel,(22-50],Maipú,Metropolitana,Enel,Enel
