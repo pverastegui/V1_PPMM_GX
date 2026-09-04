@@ -21394,3 +21394,13 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T20:33:14+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T20:32:37.612178+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T20:33:14+00:00,8108,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T20:32:38.031897+00:00,AC,150,Favor actualizar valor,ENEL X - PARQUE ARAUCO,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T20:33:14+00:00,6830,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:21:50.966126+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-04T20:34:23+00:00,44,COPEC VOLTEX,FUERA DE LINEA,OCUPADO,2026-09-04T20:33:03.268172+00:00,DC,50,CCS 2,COPEC San Rafael,Copec Voltex,(22-50],San Rafael,Maule,Copec Voltex,Copec Voltex
+2026-09-04T20:34:23+00:00,1156,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T20:33:52.555819+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
+2026-09-04T20:34:23+00:00,638,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T20:33:28.459685+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-04T20:34:23+00:00,514,ENEL X,NO DISPONIBLE,OCUPADO,2026-09-04T20:33:37.543946+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T20:34:23+00:00,619,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T20:33:40.490888+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T20:34:23+00:00,520,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T20:32:59.066906+00:00,DC,60,GB/T DC,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T20:34:23+00:00,7318,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T20:33:10.728379+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T20:34:23+00:00,2438,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T20:33:02.292346+00:00,DC,120,CCS 2,ELECTROLINERA COPEC OSORNO RENE SORIANO 2335 ,Copec Voltex,(50-150],Osorno,Los Lagos,Copec Voltex,Copec Voltex
+2026-09-04T20:34:23+00:00,1147,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T20:33:52.667590+00:00,DC,60,CCS 2,Enel X Way-Arauco Buenaventura.,Enel,(50-150],Quilicura,Metropolitana,Enel,Enel
+2026-09-04T20:34:23+00:00,243,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T20:33:29.196522+00:00,DC,50,CCS 2,"COPEC Los Angeles Ruta 5 km 518,5 - lado poniente",Copec Voltex,(22-50],Los Ángeles,Biobío,Copec Voltex,Copec Voltex
