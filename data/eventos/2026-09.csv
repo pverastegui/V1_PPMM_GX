@@ -17280,3 +17280,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T09:57:02+00:00,9196,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T09:55:56.756793+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T09:57:02+00:00,6829,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:26:20.087558+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
 2026-09-04T09:59:07+00:00,505,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:57:50.947551+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T10:02:04+00:00,6830,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:31:17.443921+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-04T10:02:04+00:00,6829,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:56:29.223689+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
