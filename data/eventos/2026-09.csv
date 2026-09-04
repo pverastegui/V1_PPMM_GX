@@ -15664,3 +15664,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T02:37:56+00:00,6822,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T02:37:11.731360+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
 2026-09-04T02:37:56+00:00,437,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T02:36:40.596070+00:00,AC,7,Tipo 2,Parking Saba Marchant Pereira,Enel,7,Providencia,Metropolitana,Enel,Enel
 2026-09-04T02:37:56+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T02:37:01.187608+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T02:38:59+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T02:37:41.606379+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T02:38:59+00:00,437,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T02:37:26.387406+00:00,AC,7,Tipo 2,Parking Saba Marchant Pereira,Enel,7,Providencia,Metropolitana,Enel,Enel
+2026-09-04T02:38:59+00:00,6043,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T02:38:10.131850+00:00,DC,30,CCS 2,"Enel X, Aramco La Florida",Enel,(22-50],La Florida,Metropolitana,Enel,Enel
+2026-09-04T02:38:59+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T02:37:41.606379+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T02:38:59+00:00,9382,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T02:38:03.207988+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60079 - COSTANERA NORTE KM 2,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
