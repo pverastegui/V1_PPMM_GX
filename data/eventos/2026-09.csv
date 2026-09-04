@@ -19396,3 +19396,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T16:13:16+00:00,9114,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-04T16:12:11.627101+00:00,DC,60,CCS 2,Enel X - Presidente Errazuriz ,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T16:13:16+00:00,431,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T16:12:20.788458+00:00,AC,7,Tipo 2,Parking Saba Guardia Vieja,Enel,7,Providencia,Metropolitana,Enel,Enel
 2026-09-04T16:13:16+00:00,1044,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T16:12:12.440949+00:00,AC,22,Tipo 2,Enel X Way - MUT,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T16:14:17+00:00,6826,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T16:13:41.946990+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Abadía,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T16:14:17+00:00,1209,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T16:13:43.663312+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
