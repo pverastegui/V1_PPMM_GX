@@ -17687,3 +17687,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T11:57:14+00:00,8842,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T11:56:36.158342+00:00,DC,50,CHAdeMO,Enel X - EDS Aramco Domingo Santa Maria,Enel,(22-50],Renca,Metropolitana,Enel,Enel
 2026-09-04T11:57:14+00:00,1381,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T11:56:34.235440+00:00,DC,75,CCS 2,Enel X Way CARGADOR ANGLO AMERICAN ENEA ETAPA 2,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T11:58:03+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T11:57:02.175746+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T11:59:00+00:00,6041,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T11:57:54.427958+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
