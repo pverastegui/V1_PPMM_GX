@@ -18410,3 +18410,12 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T13:54:05+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:53:20.616082+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T13:54:05+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:53:20.616082+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T13:54:05+00:00,2303,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T13:52:35.756378+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
+2026-09-04T13:55:14+00:00,9055,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:54:42.999699+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T13:55:14+00:00,728,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:54:43.519085+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T13:55:14+00:00,6043,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:54:24.214166+00:00,DC,30,CCS 2,"Enel X, Aramco La Florida",Enel,(22-50],La Florida,Metropolitana,Enel,Enel
+2026-09-04T13:55:14+00:00,585,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:53:49.223848+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano Viña del Mar,Enel,(50-150],Vina del Mar,Valparaíso,Enel,Enel
+2026-09-04T13:55:14+00:00,8684,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T13:53:50.280102+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T13:55:14+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T13:53:50.280102+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T13:55:14+00:00,619,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:54:12.431350+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T13:55:14+00:00,10,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:54:14.972125+00:00,DC,50,CCS 2,COPEC Llay Llay,Copec Voltex,(22-50],Llaillay,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T13:55:14+00:00,9193,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:53:45.752224+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
