@@ -22067,3 +22067,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T22:06:16+00:00,2300,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T22:05:28.280015+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
 2026-09-04T22:06:16+00:00,507,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T22:05:07.092065+00:00,DC,150,GB/T DC,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T22:06:16+00:00,4767,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:05:40.604474+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 40046 - CONCÓN,Copec Voltex,150,Vina del Mar,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T22:07:13+00:00,730,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T22:06:17.183739+00:00,AC,22,Tipo 2,Enel X Way - Petrobras Pedro Fontova,Enel,(7-22],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T22:07:13+00:00,4025,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:06:30.572411+00:00,DC,180,CCS 2,COPEC VOLTEX  - EDS 20830 - COYHAIQUE,Copec Voltex,150,Coyhaique,Aysén del General Carlos Ibáñez del Campo,Copec Voltex,Copec Voltex
+2026-09-04T22:07:13+00:00,8857,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:06:28.187849+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T22:07:13+00:00,9080,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T22:06:08.569018+00:00,DC,180,CCS 2,Voltex EDS40059 - Marbella,Copec Voltex,150,Puchuncaví,Valparaíso,Copec Voltex,Copec Voltex
