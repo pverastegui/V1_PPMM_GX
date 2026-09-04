@@ -20627,3 +20627,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T18:54:17+00:00,1230,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T18:53:00.880315+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
 2026-09-04T18:54:17+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T18:53:24.796554+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T18:54:17+00:00,607,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T18:53:27.254213+00:00,DC,60,CCS 2,Enel X WAY - Espacio Urbano Antofagasta,Enel,(50-150],Antofagasta,Antofagasta,Enel,Enel
+2026-09-04T18:55:11+00:00,8192,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-04T18:54:01.939530+00:00,DC,60,CCS 2,Enel X Way - CARGADOR ESPACIO URBANO SAN MIGUEL ,Enel,(50-150],San Miguel,Metropolitana,Enel,Enel
