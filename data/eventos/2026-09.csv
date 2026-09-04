@@ -18460,3 +18460,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T14:03:01+00:00,1157,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:01:46.447548+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
 2026-09-04T14:03:01+00:00,8860,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T14:02:02.534803+00:00,DC,120,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T14:03:01+00:00,8854,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:01:57.513062+00:00,DC,50,CHAdeMO,Enel X - EDS Aramco Quilicura ,Enel,(22-50],Quilicura,Metropolitana,Enel,Enel
+2026-09-04T14:04:06+00:00,7361,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T14:03:20.371922+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60220 - ALBERTO LLONA,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T14:04:06+00:00,24,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T14:02:57.191865+00:00,DC,50,CHAdeMO,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-04T14:04:06+00:00,22,COPEC VOLTEX,OCUPADO,FUERA DE LINEA,2026-09-04T14:02:31.895342+00:00,DC,50,CCS 2,COPEC Chillán,Copec Voltex,(22-50],Chillán Viejo,Ñuble,Copec Voltex,Copec Voltex
+2026-09-04T14:04:06+00:00,25,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T14:02:57.191865+00:00,DC,50,CCS 2,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-04T14:04:06+00:00,21,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T14:02:31.895342+00:00,DC,50,CHAdeMO,COPEC Chillán,Copec Voltex,(22-50],Chillán Viejo,Ñuble,Copec Voltex,Copec Voltex
