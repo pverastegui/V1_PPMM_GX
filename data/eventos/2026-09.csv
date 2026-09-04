@@ -15792,3 +15792,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T02:56:57+00:00,619,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T02:56:17.475325+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
 2026-09-04T02:56:57+00:00,8191,ENEL X,DISPONIBLE,NO DISPONIBLE,2026-09-04T02:55:44.185490+00:00,DC,60,CCS 2,Enel X Way - CARGADOR ESPACIO URBANO SAN MIGUEL ,Enel,(50-150],San Miguel,Metropolitana,Enel,Enel
 2026-09-04T02:56:57+00:00,9122,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T02:10:40.196454+00:00,DC,60,CCS 2,Enel X - Cerro Colorado,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T02:58:00+00:00,7367,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T02:57:03.859985+00:00,DC,240,CCS 2,COPEC VOLTEX TUNICHE,Copec Voltex,150,Rancagua,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
