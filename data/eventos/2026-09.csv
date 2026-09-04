@@ -17544,3 +17544,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T11:16:58+00:00,7318,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T11:16:15.732192+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T11:16:58+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T11:15:46.434929+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T11:16:58+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T11:15:46.434929+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T11:17:57+00:00,1313,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T11:16:48.588450+00:00,DC,50,CCS 2,IRVE GENERAL VELASQUEZ 9301 SAN BERNARDO,Copec Voltex,(22-50],San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T11:17:57+00:00,9092,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T11:17:04.504296+00:00,DC,180,CCS 2,VOLTEX CARGADOR ELECTRICO EL COBRE,Copec Voltex,150,Rancagua,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-04T11:17:57+00:00,8813,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T04:15:52.235444+00:00,DC,70,CCS 2,Enel X - EDS Aramco Ciudad Satelite ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
