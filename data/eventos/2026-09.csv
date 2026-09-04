@@ -17460,3 +17460,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T10:47:58+00:00,8842,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T10:46:33.535421+00:00,DC,50,CHAdeMO,Enel X - EDS Aramco Domingo Santa Maria,Enel,(22-50],Renca,Metropolitana,Enel,Enel
 2026-09-04T10:47:58+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T10:46:33.554747+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T10:48:55+00:00,1017,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T10:47:45.203531+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T10:49:59+00:00,4807,COPEC VOLTEX,OCUPADO,FUERA DE LINEA,2026-09-04T10:48:47.508298+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 20407 - SAN PEDRO DE LA PAZ,Copec Voltex,150,San Pedro de la Paz,Biobío,Copec Voltex,Copec Voltex
