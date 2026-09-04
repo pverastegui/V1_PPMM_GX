@@ -16876,3 +16876,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T07:42:56+00:00,1983,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T04:56:15.228284+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T07:42:56+00:00,7473,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T07:41:49.348215+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60711 - MACUL,Copec Voltex,150,Macul,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T07:45:07+00:00,7316,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T07:43:41.172447+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T07:46:05+00:00,505,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-04T07:44:47.219465+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T07:46:05+00:00,1018,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T07:45:19.199709+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
