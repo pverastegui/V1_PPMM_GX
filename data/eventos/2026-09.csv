@@ -16754,3 +16754,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T07:02:01+00:00,728,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T07:01:12.560079+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
 2026-09-04T07:02:01+00:00,1657,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T04:00:24.328445+00:00,DC,120,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,(50-150],Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T07:02:01+00:00,1036,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T07:00:51.391853+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Carrascal ,Enel,(22-50],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-04T07:02:58+00:00,1657,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T07:01:52.987261+00:00,DC,120,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,(50-150],Vitacura,Metropolitana,Copec Voltex,Copec Voltex
