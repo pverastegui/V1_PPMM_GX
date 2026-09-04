@@ -19007,3 +19007,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T15:19:16+00:00,241,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T15:18:55.539099+00:00,DC,50,CHAdeMO,"COPEC Los Angeles Ruta 5 km 518,5 - lado poniente",Copec Voltex,(22-50],Los Ángeles,Biobío,Copec Voltex,Copec Voltex
 2026-09-04T15:19:16+00:00,1313,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T15:06:10.659991+00:00,DC,50,CCS 2,IRVE GENERAL VELASQUEZ 9301 SAN BERNARDO,Copec Voltex,(22-50],San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T15:19:16+00:00,4799,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T15:17:57.471276+00:00,DC,60,CCS 2,ELECTROLINERA ARAMCO GRECIA,Enel,(50-150],Nunoa,Metropolitana,Enel,Enel
+2026-09-04T15:20:05+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T15:19:09.463034+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
