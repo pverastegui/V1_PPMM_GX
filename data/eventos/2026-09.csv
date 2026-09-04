@@ -17067,3 +17067,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T08:47:13+00:00,3220,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:46:11.936700+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T08:47:13+00:00,7256,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T08:46:19.071729+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras José Arrieta,Enel,(22-50],Penalolén,Metropolitana,Enel,Enel
 2026-09-04T08:47:13+00:00,3219,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:46:11.936700+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T08:49:01+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T08:48:23.387982+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T08:49:01+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T08:48:23.387982+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
