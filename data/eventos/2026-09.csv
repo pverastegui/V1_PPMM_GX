@@ -18837,3 +18837,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T14:57:05+00:00,562,Enerlink Chile SpA,FUERA DE LINEA,DISPONIBLE,2026-09-04T14:55:54.588226+00:00,DC,24,CHAdeMO,Express Lider Rojas Magallanes,Enerlink,(22-50],La Florida,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T14:57:05+00:00,1818,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T03:34:58.600173+00:00,DC,120,CCS 2,Enex E-Pro Shell Quilicura,Enerlink,(50-150],Quilicura,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T14:57:05+00:00,4775,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T14:56:23.455588+00:00,DC,150,GB/T DC,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T14:58:08+00:00,1043,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:41:57.074732+00:00,DC,50,CHAdeMO,Enel X Way - MUT,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T14:58:08+00:00,8854,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:56:59.551690+00:00,DC,50,CHAdeMO,Enel X - EDS Aramco Quilicura ,Enel,(22-50],Quilicura,Metropolitana,Enel,Enel
+2026-09-04T14:58:08+00:00,1151,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:57:07.069893+00:00,DC,50,CHAdeMO,Enel X Way-Arauco Buenaventura.,Enel,(22-50],Quilicura,Metropolitana,Enel,Enel
+2026-09-04T14:58:08+00:00,618,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:56:59.022816+00:00,DC,60,CCS 2,Enel X  - Petrobras Luis Pasteur,Enel,(50-150],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T14:58:08+00:00,7273,ENEL X,FUERA DE LINEA,NO DISPONIBLE,2026-09-04T14:56:59.911466+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-04T14:58:08+00:00,541,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T14:56:57.632446+00:00,AC,7.4,Tipo 2,Enel x - Plus Parken,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T14:58:08+00:00,4775,ENEL X,FUERA DE LINEA,NO DISPONIBLE,2026-09-04T14:56:59.083126+00:00,DC,150,GB/T DC,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
