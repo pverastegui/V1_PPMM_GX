@@ -19425,3 +19425,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T16:18:07+00:00,8813,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T16:17:03.501063+00:00,DC,70,CCS 2,Enel X - EDS Aramco Ciudad Satelite ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
 2026-09-04T16:18:07+00:00,9045,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T16:16:53.276369+00:00,DC,240,CCS 2,VOLTEX CARGADOR ELECTRICO BASCUÑAN,Copec Voltex,150,Santiago,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T16:18:07+00:00,1259,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T16:17:03.626811+00:00,AC,3.5,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
+2026-09-04T16:19:09+00:00,7361,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T16:17:50.935088+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60220 - ALBERTO LLONA,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
