@@ -22022,3 +22022,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T22:00:12+00:00,442,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T21:59:23.126920+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
 2026-09-04T22:00:12+00:00,9379,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T21:59:10.731217+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60079 - COSTANERA NORTE KM 2,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T22:00:12+00:00,6826,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T21:59:19.255622+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Abadía,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T22:01:32+00:00,517,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T22:00:18.335911+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T22:01:32+00:00,2303,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T22:00:54.386493+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
+2026-09-04T22:01:32+00:00,267,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T22:01:11.444715+00:00,DC,50,CHAdeMO,COPEC Ruta 5 Sur km 484. Los Alamos,Copec Voltex,(22-50],Los Alamos,Biobío,Copec Voltex,Copec Voltex
+2026-09-04T22:01:32+00:00,268,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T22:01:11.444715+00:00,DC,50,CCS 2,COPEC Ruta 5 Sur km 484. Los Alamos,Copec Voltex,(22-50],Los Alamos,Biobío,Copec Voltex,Copec Voltex
