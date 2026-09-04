@@ -17275,3 +17275,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T09:56:04+00:00,7272,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T09:55:14.031545+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
 2026-09-04T09:56:04+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:55:18.911976+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T09:56:04+00:00,729,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:54:31.603825+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T09:57:02+00:00,536,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:56:10.590718+00:00,DC,60,CCS 2,Enel X - StripCenter Nogales,Enel,(50-150],Machalí,Libertador Bernardo OHiggins,Enel,Enel
+2026-09-04T09:57:02+00:00,535,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:56:10.590718+00:00,DC,60,CCS 2,Enel X - StripCenter Nogales,Enel,(50-150],Machalí,Libertador Bernardo OHiggins,Enel,Enel
+2026-09-04T09:57:02+00:00,9196,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T09:55:56.756793+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T09:57:02+00:00,6829,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:26:20.087558+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
