@@ -19116,3 +19116,15 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T15:32:07+00:00,692,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T01:55:32.060666+00:00,DC,50,CCS 2,Enex E-Pro Shell Colón Vespucio ,Enerlink,(22-50],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T15:32:07+00:00,9131,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-08-28T15:10:22.128521+00:00,DC,148.96,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(50-150],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T15:32:07+00:00,3217,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T15:30:31.480561+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T15:33:07+00:00,519,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T15:32:20.079855+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T15:33:07+00:00,1259,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:32:04.151862+00:00,AC,3.5,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
+2026-09-04T15:33:07+00:00,6831,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:21:50.966126+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-04T15:33:07+00:00,1655,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T15:31:33.707065+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T15:33:07+00:00,518,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T15:32:20.079855+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T15:33:07+00:00,8792,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T15:31:57.421617+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T15:33:07+00:00,1151,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:32:02.991805+00:00,DC,50,CHAdeMO,Enel X Way-Arauco Buenaventura.,Enel,(22-50],Quilicura,Metropolitana,Enel,Enel
+2026-09-04T15:33:07+00:00,458,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T15:32:01.623791+00:00,AC,7,Tipo 2,Saba Santa Lucia,Enel,7,Santiago,Metropolitana,Enel,Enel
+2026-09-04T15:33:07+00:00,728,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:32:08.051589+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T15:33:07+00:00,617,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:42:46.090554+00:00,AC,22,Tipo 2,Enel X  - Petrobras Luis Pasteur,Enel,(7-22],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T15:33:07+00:00,8843,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:32:08.467025+00:00,DC,30,CCS 2,Enel X - EDS Aramco Domingo Santa Maria,Enel,(22-50],Renca,Metropolitana,Enel,Enel
+2026-09-04T15:33:07+00:00,1258,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T15:32:03.979676+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
