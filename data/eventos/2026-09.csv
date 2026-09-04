@@ -17348,3 +17348,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T10:11:00+00:00,9130,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-08-28T15:10:22.128521+00:00,DC,148.96,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(50-150],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T10:11:00+00:00,311,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-02T07:06:21.816389+00:00,AC,43,Tipo 2,Enex E-Pro Shell Concón,Enerlink,(22-50],Concón,Valparaíso,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T10:11:00+00:00,8728,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T09:30:09.329487+00:00,DC,70,GB/T DC,Cargador publico Enex File 169,Enerlink,(50-150],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T10:12:00+00:00,1037,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T10:10:58.419726+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
