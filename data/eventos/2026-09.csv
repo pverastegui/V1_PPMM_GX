@@ -18094,3 +18094,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T13:08:11+00:00,8792,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:06:41.048235+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
 2026-09-04T13:08:11+00:00,2300,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T13:07:06.303018+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
 2026-09-04T13:08:11+00:00,7273,ENEL X,FUERA DE LINEA,NO DISPONIBLE,2026-09-04T13:06:51.959801+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-04T13:08:58+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T13:07:53.737337+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T13:08:58+00:00,7470,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:08:16.232322+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T13:08:58+00:00,548,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T13:08:14.540263+00:00,AC,7.4,Tipo 2,VOLTEX PUC,Copec Voltex,7,Macul,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T13:08:58+00:00,1005,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:07:45.316924+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
