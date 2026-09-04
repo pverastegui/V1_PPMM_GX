@@ -17076,3 +17076,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T08:50:58+00:00,8733,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T08:49:59.244256+00:00,DC,70,CCS 2,Cargador publico Enex File 130,Enerlink,(50-150],Recoleta,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T08:50:58+00:00,7256,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T08:49:30.227862+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras José Arrieta,Enel,(22-50],Penalolén,Metropolitana,Enel,Enel
 2026-09-04T08:50:58+00:00,7255,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:49:30.227862+00:00,DC,60,CCS 2,Enel X Way - Petrobras José Arrieta,Enel,(50-150],Penalolén,Metropolitana,Enel,Enel
+2026-09-04T08:52:01+00:00,1024,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T08:50:52.523632+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T08:52:01+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T08:51:17.896299+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T08:52:01+00:00,8792,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T08:50:46.096019+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T08:52:01+00:00,8684,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T08:51:17.896299+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T08:52:01+00:00,9191,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T08:51:04.939712+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T08:52:01+00:00,1391,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:51:21.935697+00:00,DC,150,CCS 2,CARGADOR DE 300KW EN ELECTROLINERA ENEL X STATION,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T08:52:01+00:00,8793,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T08:50:46.096019+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
