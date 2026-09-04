@@ -17240,3 +17240,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T09:43:00+00:00,428,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T09:42:15.223600+00:00,AC,7,Tipo 2,Parking Saba Ricardo Lyon ,Enel,7,Providencia,Metropolitana,Enel,Enel
 2026-09-04T09:45:02+00:00,1018,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T09:44:05.027827+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T09:45:02+00:00,1037,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:43:07.255857+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-04T09:46:01+00:00,1018,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:44:55.922373+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T09:46:01+00:00,428,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:45:09.115243+00:00,AC,7,Tipo 2,Parking Saba Ricardo Lyon ,Enel,7,Providencia,Metropolitana,Enel,Enel
