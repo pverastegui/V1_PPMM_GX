@@ -15286,3 +15286,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T01:38:55+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T01:38:03.211731+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T01:38:55+00:00,7256,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T01:37:40.587831+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras José Arrieta,Enel,(22-50],Penalolén,Metropolitana,Enel,Enel
 2026-09-04T01:38:55+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T01:37:40.479996+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T01:39:59+00:00,7256,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T01:39:15.187615+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras José Arrieta,Enel,(22-50],Penalolén,Metropolitana,Enel,Enel
+2026-09-04T01:39:59+00:00,6823,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T01:39:19.055667+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-04T01:39:59+00:00,690,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T01:39:10.104269+00:00,DC,60,CCS 2,IRVE Tottus Vicuña Mackena,Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T01:39:59+00:00,7365,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T01:39:02.960093+00:00,DC,240,CCS 2,SAVE VOLTEX LA FLORIDA,Copec Voltex,150,La Florida,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T01:39:59+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T01:39:12.407934+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
