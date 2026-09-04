@@ -18493,3 +18493,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T14:09:02+00:00,1090,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T14:07:42.107918+00:00,DC,50,CHAdeMO,SAVE VOLTEX 20605 SAN PABLO,Copec Voltex,(22-50],San Pablo,Los Lagos,Copec Voltex,Copec Voltex
 2026-09-04T14:09:02+00:00,1156,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:08:04.763836+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
 2026-09-04T14:09:02+00:00,22,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T14:07:54.336317+00:00,DC,50,CCS 2,COPEC Chillán,Copec Voltex,(22-50],Chillán Viejo,Ñuble,Copec Voltex,Copec Voltex
+2026-09-04T14:10:09+00:00,7244,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:09:18.518455+00:00,DC,150,CCS 2,Enel X - Centro comercial Marbella Maitencillo,Enel,(50-150],Puchuncaví,Valparaíso,Enel,Enel
