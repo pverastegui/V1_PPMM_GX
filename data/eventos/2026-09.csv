@@ -17285,3 +17285,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T10:03:00+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T10:01:29.459915+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T10:03:00+00:00,10,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T10:01:37.228046+00:00,DC,50,CCS 2,COPEC Llay Llay,Copec Voltex,(22-50],Llaillay,Valparaíso,Copec Voltex,Copec Voltex
 2026-09-04T10:03:00+00:00,1023,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T10:02:07.787766+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T10:04:02+00:00,8792,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T10:02:59.932274+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T10:04:02+00:00,6826,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T10:03:18.587900+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Abadía,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T10:04:02+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T10:02:50.284256+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
