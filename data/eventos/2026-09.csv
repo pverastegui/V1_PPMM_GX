@@ -16657,3 +16657,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:35:56+00:00,8682,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T06:34:44.664015+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T06:35:56+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:35:10.867777+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T06:35:56+00:00,9045,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T06:35:19.856049+00:00,DC,240,CCS 2,VOLTEX CARGADOR ELECTRICO BASCUÑAN,Copec Voltex,150,Santiago,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T06:36:56+00:00,16,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:35:43.459956+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T06:36:56+00:00,15,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:35:43.459956+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T06:36:56+00:00,948,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:36:05.511353+00:00,DC,50,CCS 2,Enel X Way - Petrobras Enea,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
