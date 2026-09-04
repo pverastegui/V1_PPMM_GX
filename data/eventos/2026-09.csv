@@ -21404,3 +21404,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T20:34:23+00:00,2438,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T20:33:02.292346+00:00,DC,120,CCS 2,ELECTROLINERA COPEC OSORNO RENE SORIANO 2335 ,Copec Voltex,(50-150],Osorno,Los Lagos,Copec Voltex,Copec Voltex
 2026-09-04T20:34:23+00:00,1147,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T20:33:52.667590+00:00,DC,60,CCS 2,Enel X Way-Arauco Buenaventura.,Enel,(50-150],Quilicura,Metropolitana,Enel,Enel
 2026-09-04T20:34:23+00:00,243,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T20:33:29.196522+00:00,DC,50,CCS 2,"COPEC Los Angeles Ruta 5 km 518,5 - lado poniente",Copec Voltex,(22-50],Los Ángeles,Biobío,Copec Voltex,Copec Voltex
+2026-09-04T20:35:11+00:00,516,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T20:34:19.976002+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T20:35:11+00:00,1147,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-04T20:33:52.667590+00:00,DC,60,CCS 2,Enel X Way-Arauco Buenaventura.,Enel,(50-150],Quilicura,Metropolitana,Enel,Enel
+2026-09-04T20:35:11+00:00,1156,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-04T20:33:52.555819+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
