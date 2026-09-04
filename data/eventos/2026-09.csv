@@ -17365,3 +17365,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T10:17:09+00:00,591,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T10:16:15.487393+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Dehesa,Enel,(50-150],Lo Barnechea,Metropolitana,Enel,Enel
 2026-09-04T10:17:09+00:00,438,ENEL X,FUERA DE LINEA,NO DISPONIBLE,2026-09-04T10:15:15.467518+00:00,AC,7,Tipo 2,Parking Saba Marchant Pereira,Enel,7,Providencia,Metropolitana,Enel,Enel
 2026-09-04T10:18:02+00:00,515,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T10:16:58.554343+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T10:19:02+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T10:17:48.806327+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
