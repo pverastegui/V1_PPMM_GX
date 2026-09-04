@@ -22404,3 +22404,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T22:49:17+00:00,6823,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T22:48:28.955253+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
 2026-09-04T22:49:17+00:00,9196,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:47:50.540097+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T22:49:17+00:00,8864,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T22:47:49.134139+00:00,DC,60,CCS 2,Enel X - Municipalidad de Villarrica,Enel,(50-150],Villarrica,La Araucanía,Enel,Enel
+2026-09-04T22:50:22+00:00,8684,COPEC VOLTEX,FUERA DE LINEA,OCUPADO,2026-09-04T22:49:01.800038+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T22:50:22+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T22:49:01.800038+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T22:50:22+00:00,268,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:49:52.760201+00:00,DC,50,CCS 2,COPEC Ruta 5 Sur km 484. Los Alamos,Copec Voltex,(22-50],Los Alamos,Biobío,Copec Voltex,Copec Voltex
+2026-09-04T22:50:22+00:00,1037,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T22:49:47.028130+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-04T22:50:22+00:00,200,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T22:49:07.248824+00:00,AC,7.4,Tipo 2,PUNTO DE CARGA DOBLE ABB MPOE,Copec Voltex,7,Cerrillos,Metropolitana,Copec Voltex,Copec Voltex
