@@ -16647,3 +16647,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:31:56+00:00,8861,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T06:31:23.184080+00:00,DC,120,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T06:31:56+00:00,516,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T06:31:06.143584+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T06:31:56+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:30:57.041315+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T06:34:01+00:00,319,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:32:57.163335+00:00,AC,7,Tipo 2,Mc Donalds Kennedy,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T06:34:01+00:00,2438,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T06:32:44.064139+00:00,DC,120,CCS 2,ELECTROLINERA COPEC OSORNO RENE SORIANO 2335 ,Copec Voltex,(50-150],Osorno,Los Lagos,Copec Voltex,Copec Voltex
