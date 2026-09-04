@@ -21544,3 +21544,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T20:52:14+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T20:50:45.508222+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T20:52:14+00:00,623,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T20:50:34.266273+00:00,AC,22,Tipo 2,Enel X Way - UCSC,Enel,(7-22],Concepción,Biobío,Enel,Enel
 2026-09-04T20:52:14+00:00,8109,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T20:50:52.869514+00:00,AC,150,Favor actualizar valor,ENEL X - PARQUE ARAUCO,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T20:53:11+00:00,1850,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T20:52:20.951199+00:00,AC,7.4,Tipo 2,Punto de carga MPD,Copec Voltex,7,Las Condes,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T20:53:11+00:00,9045,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T20:42:03.972654+00:00,DC,240,CCS 2,VOLTEX CARGADOR ELECTRICO BASCUÑAN,Copec Voltex,150,Santiago,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T20:53:11+00:00,6827,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T20:47:31.843152+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
