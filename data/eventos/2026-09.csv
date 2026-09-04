@@ -15534,3 +15534,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T02:17:56+00:00,7317,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T02:16:48.140269+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T02:17:56+00:00,8728,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T02:16:40.205379+00:00,DC,70,GB/T DC,Cargador publico Enex File 169,Enerlink,(50-150],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T02:17:56+00:00,6837,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T02:17:05.847769+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Isabel La Católica,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T02:19:00+00:00,7273,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T02:18:15.563355+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-04T02:19:00+00:00,708,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T02:18:21.847649+00:00,DC,150,CCS 2,Enel X Way - Petrobras 14 de La Fama,Enel,(50-150],Independencia,Metropolitana,Enel,Enel
