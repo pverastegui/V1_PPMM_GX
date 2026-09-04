@@ -20657,3 +20657,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T18:58:17+00:00,639,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T18:56:59.290645+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
 2026-09-04T18:58:17+00:00,638,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T18:56:59.290645+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
 2026-09-04T18:58:17+00:00,1886,Enerlink Chile SpA,NO DISPONIBLE,OCUPADO,2026-09-04T18:56:41.120240+00:00,DC,120,CCS 2,Enex E-Pro Shell Huechuraba,Enerlink,(50-150],Huechuraba,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T18:59:14+00:00,7318,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T18:58:22.446733+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T18:59:14+00:00,648,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T18:58:48.045055+00:00,DC,30,CCS 2,Enel X Way - Espacio Urbano Punta Arenas,Enel,(22-50],Punta Arenas,Magallanes y de la Antartica Chilena,Enel,Enel
