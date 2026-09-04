@@ -22365,3 +22365,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T22:44:17+00:00,822,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T22:43:06.083426+00:00,AC,7.4,Tipo 2,Enel X Way Privados - Parque Arauco,Enel,7,Las Condes,Metropolitana,Enel,Enel
 2026-09-04T22:44:17+00:00,9080,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:43:52.280097+00:00,DC,180,CCS 2,Voltex EDS40059 - Marbella,Copec Voltex,150,Puchuncaví,Valparaíso,Copec Voltex,Copec Voltex
 2026-09-04T22:44:17+00:00,8610,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:43:45.140951+00:00,DC,240,CCS 2,SAVE VOLTEX BILBAO EDS 60419,Copec Voltex,150,Providencia,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T22:45:16+00:00,1847,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T22:44:31.408619+00:00,AC,7.4,Tipo 2,Punto de carga MPD,Copec Voltex,7,Las Condes,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T22:45:16+00:00,1024,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T22:43:57.539357+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T22:45:16+00:00,9058,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T22:44:15.255279+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
