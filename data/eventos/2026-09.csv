@@ -16391,3 +16391,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:21:56+00:00,8814,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:21:01.495544+00:00,DC,30,CCS 2,Enel X - EDS Aramco Ciudad Satelite ,Enel,(22-50],Maipú,Metropolitana,Enel,Enel
 2026-09-04T05:21:56+00:00,1983,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T04:56:15.228284+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T05:21:56+00:00,618,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:21:00.646998+00:00,DC,60,CCS 2,Enel X  - Petrobras Luis Pasteur,Enel,(50-150],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T05:22:56+00:00,15,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:22:10.080299+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T05:22:56+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:22:10.080299+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
