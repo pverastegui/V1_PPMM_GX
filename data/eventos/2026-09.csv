@@ -14672,3 +14672,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T00:10:54+00:00,636,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T00:09:29.979537+00:00,DC,60,CCS 2,IRVE Espacio Urbano Melipilla,Enel,(50-150],Melipilla,Metropolitana,Enel,Enel
 2026-09-04T00:10:54+00:00,1233,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T00:09:37.826859+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
 2026-09-04T00:10:54+00:00,7273,ENEL X,FUERA DE LINEA,NO DISPONIBLE,2026-09-04T00:09:19.563651+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-04T00:11:53+00:00,31,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T00:11:23.780141+00:00,DC,50,CCS 2,COPEC Colina,Copec Voltex,(22-50],Colina,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T00:11:53+00:00,8191,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T00:11:18.279562+00:00,DC,60,CCS 2,Enel X Way - CARGADOR ESPACIO URBANO SAN MIGUEL ,Enel,(50-150],San Miguel,Metropolitana,Enel,Enel
+2026-09-04T00:11:53+00:00,8860,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T00:10:51.449688+00:00,DC,120,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T00:11:53+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T00:10:38.465514+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
