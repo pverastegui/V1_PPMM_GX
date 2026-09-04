@@ -16808,3 +16808,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T07:17:04+00:00,8860,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T06:31:23.184080+00:00,DC,120,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T07:18:12+00:00,9195,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T07:16:38.049462+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T07:18:12+00:00,1005,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T07:17:36.487703+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T07:18:59+00:00,1657,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T07:18:06.696767+00:00,DC,120,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,(50-150],Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T07:18:59+00:00,1005,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T07:18:20.899704+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
