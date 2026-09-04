@@ -22238,3 +22238,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T22:28:20+00:00,9243,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T16:52:11.176114+00:00,DC,360,CCS 2,Enel X - Zona de descanso Itahue.,Enel,150,Molina,Maule,Enel,Enel
 2026-09-04T22:28:20+00:00,607,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T22:27:43.123778+00:00,DC,60,CCS 2,Enel X WAY - Espacio Urbano Antofagasta,Enel,(50-150],Antofagasta,Antofagasta,Enel,Enel
 2026-09-04T22:28:20+00:00,1025,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T15:17:03.775546+00:00,DC,70,CCS 2,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T22:29:20+00:00,9195,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:28:09.968321+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T22:29:20+00:00,1155,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T22:28:33.547500+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
+2026-09-04T22:29:20+00:00,6822,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T22:28:19.783583+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-04T22:29:20+00:00,6823,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T22:28:19.783583+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-04T22:29:20+00:00,7316,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T22:28:22.416005+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
