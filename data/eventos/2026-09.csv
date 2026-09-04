@@ -20331,3 +20331,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T18:16:10+00:00,8859,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T17:55:12.771861+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T18:16:10+00:00,639,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T18:15:22.167602+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
 2026-09-04T18:16:10+00:00,512,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T18:15:23.543883+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T18:17:08+00:00,708,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T18:15:44.383793+00:00,DC,150,CCS 2,Enel X Way - Petrobras 14 de La Fama,Enel,(50-150],Independencia,Metropolitana,Enel,Enel
+2026-09-04T18:17:08+00:00,8682,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T18:16:10.784993+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T18:17:08+00:00,639,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T18:16:30.119906+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-04T18:17:08+00:00,512,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T18:15:23.543883+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T18:17:08+00:00,709,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-04T18:15:44.383793+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
+2026-09-04T18:17:08+00:00,8794,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T18:15:42.227698+00:00,DC,240,CCS 2,Cargador Electrico Copec Talca,Copec Voltex,150,Talca,Maule,Copec Voltex,Copec Voltex
+2026-09-04T18:17:08+00:00,638,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T18:16:30.119906+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
