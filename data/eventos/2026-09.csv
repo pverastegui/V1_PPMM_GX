@@ -15923,3 +15923,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T03:22:00+00:00,1982,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T03:21:07.650351+00:00,DC,60,CCS 2,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T03:22:00+00:00,8182,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T03:20:50.908381+00:00,DC,60,CCS 2,IRVE Petrobras Príncipe de Gales,Enel,(50-150],La Reina,Metropolitana,Enel,Enel
 2026-09-04T03:22:58+00:00,9056,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T03:22:01.852055+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T03:23:58+00:00,360,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T03:22:47.908836+00:00,AC,22,Tipo 2,Cargador Urbano Santelices,Copec Voltex,(7-22],Isla de Maipo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T03:23:58+00:00,6826,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:22:49.835791+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Abadía,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T03:23:58+00:00,361,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T03:22:47.908836+00:00,AC,22,Tipo 2,Cargador Urbano Santelices,Copec Voltex,(7-22],Isla de Maipo,Metropolitana,Copec Voltex,Copec Voltex
