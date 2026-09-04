@@ -16972,3 +16972,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T08:17:15+00:00,31,COPEC VOLTEX,OCUPADO,FUERA DE LINEA,2026-09-04T08:12:50.423289+00:00,DC,50,CCS 2,COPEC Colina,Copec Voltex,(22-50],Colina,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T08:17:15+00:00,3158,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:16:32.799627+00:00,DC,60,CCS 2,Enel X - EDS ARAMCO Vitacura ,Enel,(50-150],Vitacura,Metropolitana,Enel,Enel
 2026-09-04T08:17:15+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T08:16:37.815011+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T08:18:03+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:17:22.694428+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T08:18:03+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:17:22.694428+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T08:18:03+00:00,30,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:17:02.004084+00:00,DC,50,CHAdeMO,COPEC Colina,Copec Voltex,(22-50],Colina,Metropolitana,Copec Voltex,Copec Voltex
