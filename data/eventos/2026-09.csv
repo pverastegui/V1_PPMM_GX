@@ -16114,3 +16114,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T04:11:59+00:00,7369,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T04:10:56.474576+00:00,DC,240,CCS 2,COPEC VOLTEX TUNICHE,Copec Voltex,150,Rancagua,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-04T04:11:59+00:00,1982,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T04:11:12.047273+00:00,DC,60,CCS 2,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T04:11:59+00:00,8181,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T04:10:35.507716+00:00,DC,60,CCS 2,IRVE Petrobras Príncipe de Gales,Enel,(50-150],La Reina,Metropolitana,Enel,Enel
+2026-09-04T04:13:04+00:00,505,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-04T04:11:45.587728+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
