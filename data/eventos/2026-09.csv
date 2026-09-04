@@ -17159,3 +17159,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T09:19:02+00:00,1023,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:17:48.734373+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T09:19:02+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T09:18:17.991790+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T09:19:02+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:16:57.763929+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T09:21:01+00:00,4728,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T00:05:42.160448+00:00,DC,50,CCS 2,Enex E-Pro Los Dominicos,Enerlink,(22-50],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T09:21:01+00:00,9194,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T09:19:49.780298+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T09:21:01+00:00,683,Enerlink Chile SpA,NO DISPONIBLE,DISPONIBLE,2026-09-01T12:42:55.834510+00:00,DC,50,CCS 2,Enex E-Pro Shell Chillán Viejo,Enerlink,(22-50],Chillán Viejo,Ñuble,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T09:21:01+00:00,505,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:19:33.972919+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
