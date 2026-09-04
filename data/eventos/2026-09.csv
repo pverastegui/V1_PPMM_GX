@@ -15971,3 +15971,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T03:32:58+00:00,6824,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T03:31:44.919604+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(22-50],San Joaquín,Metropolitana,Enel,Enel
 2026-09-04T03:32:58+00:00,319,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T03:32:06.003157+00:00,AC,7,Tipo 2,Mc Donalds Kennedy,Enel,7,Las Condes,Metropolitana,Enel,Enel
 2026-09-04T03:32:58+00:00,8682,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T03:32:13.644425+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T03:34:03+00:00,7273,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T03:33:20.722643+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-04T03:34:03+00:00,318,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T03:33:00.947646+00:00,AC,7,Tipo 2,Mc Donalds Kennedy,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T03:34:03+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T03:32:25.607414+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
