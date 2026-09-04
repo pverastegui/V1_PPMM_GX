@@ -16443,3 +16443,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:36:53+00:00,8813,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T04:15:52.235444+00:00,DC,70,CCS 2,Enel X - EDS Aramco Ciudad Satelite ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
 2026-09-04T05:36:53+00:00,15,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:36:18.564934+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-04T05:36:53+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:36:18.564934+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T05:38:52+00:00,728,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:38:05.183347+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T05:38:52+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:37:28.547581+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T05:38:52+00:00,9192,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T05:37:44.394941+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
