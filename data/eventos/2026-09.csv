@@ -16104,3 +16104,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T04:09:01+00:00,6043,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T04:08:19.239401+00:00,DC,30,CCS 2,"Enel X, Aramco La Florida",Enel,(22-50],La Florida,Metropolitana,Enel,Enel
 2026-09-04T04:09:01+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T04:07:56.843880+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T04:09:01+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T04:07:56.843880+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T04:10:00+00:00,6043,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T04:09:18.595815+00:00,DC,30,CCS 2,"Enel X, Aramco La Florida",Enel,(22-50],La Florida,Metropolitana,Enel,Enel
+2026-09-04T04:10:00+00:00,8793,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T04:08:50.328001+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Quillota,Copec Voltex,150,Quillota,Valparaíso,Copec Voltex,Copec Voltex
