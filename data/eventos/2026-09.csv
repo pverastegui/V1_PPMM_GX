@@ -16890,3 +16890,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T07:47:56+00:00,8859,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T07:36:35.131785+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T07:47:56+00:00,3219,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T07:46:42.816181+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T07:47:56+00:00,729,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T07:46:47.531760+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T07:49:02+00:00,708,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T07:47:49.155396+00:00,DC,150,CCS 2,Enel X Way - Petrobras 14 de La Fama,Enel,(50-150],Independencia,Metropolitana,Enel,Enel
+2026-09-04T07:49:02+00:00,1382,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T07:48:09.478451+00:00,DC,75,CCS 2,Enel X Way CARGADOR ANGLO AMERICAN ENEA ETAPA 2,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
