@@ -18304,3 +18304,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T13:39:01+00:00,1147,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:37:54.583478+00:00,DC,60,CCS 2,Enel X Way-Arauco Buenaventura.,Enel,(50-150],Quilicura,Metropolitana,Enel,Enel
 2026-09-04T13:39:01+00:00,8018,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:37:58.415412+00:00,DC,180,CCS 2,SAVE VOLTEX LA SERENA ,Copec Voltex,150,La Serena,Coquimbo,Copec Voltex,Copec Voltex
 2026-09-04T13:39:01+00:00,517,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:38:20.759686+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T13:40:00+00:00,4776,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:38:47.998052+00:00,DC,150,GB/T DC,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T13:40:00+00:00,8682,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:39:10.581440+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T13:40:00+00:00,517,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:38:45.755147+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T13:40:00+00:00,438,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-04T13:39:06.923531+00:00,AC,7,Tipo 2,Parking Saba Marchant Pereira,Enel,7,Providencia,Metropolitana,Enel,Enel
