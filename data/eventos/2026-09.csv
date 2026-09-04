@@ -17116,3 +17116,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T09:02:04+00:00,505,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:00:54.438905+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T09:02:04+00:00,8850,ENEL X,OCUPADO,DISPONIBLE,2026-04-07T14:15:27.474984+00:00,DC,60,CHAdeMO,Enel X - EDS Aramco Gladys Marin ,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
 2026-09-04T09:02:04+00:00,1026,ENEL X,OCUPADO,NO DISPONIBLE,2026-09-04T09:01:24.838957+00:00,DC,70,CHAdeMO,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T09:03:59+00:00,4748,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T09:02:51.356390+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
