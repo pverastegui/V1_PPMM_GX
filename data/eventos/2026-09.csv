@@ -18583,3 +18583,13 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T14:22:02+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T14:21:03.608206+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T14:22:02+00:00,1052,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T14:21:23.069599+00:00,DC,50,CCS 2,SAVE VOLTEX 20442 EDS COPEC,Copec Voltex,(22-50],Valdivia,De los Ríos,Copec Voltex,Copec Voltex
 2026-09-04T14:22:02+00:00,4816,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T14:20:45.720321+00:00,DC,180,CCS 2,Enex E-Pro Vitacura,Enerlink,150,Vitacura,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T14:23:02+00:00,4776,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:22:07.747530+00:00,DC,150,GB/T DC,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T14:23:02+00:00,7276,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:21:58.936549+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(22-50],Maipú,Metropolitana,Enel,Enel
+2026-09-04T14:23:02+00:00,619,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:22:16.631159+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T14:23:02+00:00,8113,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T14:22:04.191929+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 20019 - PAICAVI,Copec Voltex,150,Concepción,Biobío,Copec Voltex,Copec Voltex
+2026-09-04T14:23:02+00:00,2307,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T14:22:22.414128+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
+2026-09-04T14:23:02+00:00,7315,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:21:56.652518+00:00,DC,30,CCS 2,Enel X - Movicenter Huechuraba,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-04T14:23:02+00:00,9375,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:21:56.636233+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
+2026-09-04T14:23:02+00:00,6830,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:21:50.966126+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-04T14:23:02+00:00,5099,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:21:59.583708+00:00,DC,60,CCS 2,Enel X - Zona de descanso Santa Lucila,Enel,(50-150],Requínoa,Libertador Bernardo OHiggins,Enel,Enel
+2026-09-04T14:23:02+00:00,9376,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:21:56.636233+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
