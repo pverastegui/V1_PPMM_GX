@@ -20769,3 +20769,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T19:14:21+00:00,8109,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T19:13:52.274689+00:00,AC,150,Favor actualizar valor,ENEL X - PARQUE ARAUCO,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T19:14:21+00:00,641,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T19:13:01.491494+00:00,AC,22,Tipo 2,Cargador Urbano Cerro Navia Estados Unidos,Copec Voltex,(7-22],Cerro Navia,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T19:14:21+00:00,2506,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T19:13:16.414187+00:00,AC,22,Tipo 2,Enel X - Hotel W,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T19:15:10+00:00,7363,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T18:37:01.255445+00:00,DC,240,CCS 2,SAVE VOLTEX LA FLORIDA,Copec Voltex,150,La Florida,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T19:15:10+00:00,437,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T19:14:13.579287+00:00,AC,7,Tipo 2,Parking Saba Marchant Pereira,Enel,7,Providencia,Metropolitana,Enel,Enel
+2026-09-04T19:15:10+00:00,1005,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T19:14:13.495214+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T19:15:10+00:00,8108,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T19:14:07.223611+00:00,AC,150,Favor actualizar valor,ENEL X - PARQUE ARAUCO,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T19:15:10+00:00,7317,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T19:14:18.136401+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T19:15:10+00:00,8109,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T19:14:07.223611+00:00,AC,150,Favor actualizar valor,ENEL X - PARQUE ARAUCO,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T19:15:10+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T19:14:10.287054+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
