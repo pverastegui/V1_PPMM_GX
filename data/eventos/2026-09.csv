@@ -17695,3 +17695,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T12:00:58+00:00,4748,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T11:59:35.720212+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T12:00:58+00:00,9127,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-02T22:17:22.497022+00:00,DC,50,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(22-50],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T12:00:58+00:00,6837,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T11:59:36.215839+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Isabel La Católica,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T12:01:58+00:00,1364,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T12:00:50.060168+00:00,AC,7.4,Tipo 2,SAVE CLINICA INDISA MAIPU,Copec Voltex,7,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T12:01:58+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T12:01:11.760478+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T12:01:58+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T12:01:11.760478+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
