@@ -19348,3 +19348,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T16:04:13+00:00,6042,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T16:03:45.723983+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
 2026-09-04T16:04:13+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T16:03:09.964409+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T16:04:13+00:00,1024,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T16:02:59.699935+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T16:05:14+00:00,1313,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T16:04:08.714647+00:00,DC,50,CCS 2,IRVE GENERAL VELASQUEZ 9301 SAN BERNARDO,Copec Voltex,(22-50],San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T16:05:14+00:00,442,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T16:04:46.815539+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
