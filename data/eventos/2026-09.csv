@@ -18419,3 +18419,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T13:55:14+00:00,619,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:54:12.431350+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
 2026-09-04T13:55:14+00:00,10,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:54:14.972125+00:00,DC,50,CCS 2,COPEC Llay Llay,Copec Voltex,(22-50],Llaillay,Valparaíso,Copec Voltex,Copec Voltex
 2026-09-04T13:55:14+00:00,9193,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:53:45.752224+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T13:56:04+00:00,9131,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-08-28T15:10:22.128521+00:00,DC,148.96,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(50-150],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T13:56:04+00:00,971,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-08-12T00:23:30.209887+00:00,DC,120,CCS 2,Enex E-Pro Shell Caupolicán Temuco,Enerlink,(50-150],Temuco,La Araucanía,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
