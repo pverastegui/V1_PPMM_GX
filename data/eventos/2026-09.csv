@@ -20671,3 +20671,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T19:01:21+00:00,8682,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T19:00:28.163749+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T19:01:21+00:00,4780,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T19:00:48.295203+00:00,DC,60,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T19:01:21+00:00,4806,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T19:00:27.455588+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 40511 - COPIAPÓ,Copec Voltex,150,Copiapó,Atacama,Copec Voltex,Copec Voltex
+2026-09-04T19:02:11+00:00,4780,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T19:01:14.443417+00:00,DC,60,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T19:02:11+00:00,506,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T19:01:12.076895+00:00,DC,150,GB/T DC,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T19:02:11+00:00,8856,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T19:01:20.179683+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T19:02:11+00:00,8181,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T19:01:01.444530+00:00,DC,60,CCS 2,IRVE Petrobras Príncipe de Gales,Enel,(50-150],La Reina,Metropolitana,Enel,Enel
+2026-09-04T19:02:11+00:00,515,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T19:01:07.371148+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
