@@ -16475,3 +16475,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:46:53+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:46:04.240058+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T05:46:53+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:46:04.240058+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T05:46:53+00:00,893,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:45:58.847852+00:00,AC,7.4,Tipo 2,Enel X Way - Mall Parque Arauco,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T05:48:00+00:00,1023,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T05:46:40.475678+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T05:48:00+00:00,893,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:46:34.331697+00:00,AC,7.4,Tipo 2,Enel X Way - Mall Parque Arauco,Enel,7,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T05:48:00+00:00,9045,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T05:46:58.254806+00:00,DC,240,CCS 2,VOLTEX CARGADOR ELECTRICO BASCUÑAN,Copec Voltex,150,Santiago,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T05:48:00+00:00,8610,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T05:47:14.680234+00:00,DC,240,CCS 2,SAVE VOLTEX BILBAO EDS 60419,Copec Voltex,150,Providencia,Metropolitana,Copec Voltex,Copec Voltex
