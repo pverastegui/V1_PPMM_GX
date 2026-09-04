@@ -17629,3 +17629,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T11:43:06+00:00,4785,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-04T11:41:35.356203+00:00,DC,150,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T11:43:06+00:00,9089,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T11:42:24.736138+00:00,DC,240,CCS 2,SAVE VOLTEX LAGUNA DE CHICUREO EDS 60288,Copec Voltex,150,Colina,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T11:43:06+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T11:41:30.975791+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T11:44:01+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T11:42:32.811361+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
