@@ -14809,3 +14809,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T00:30:56+00:00,8841,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T22:10:21.147683+00:00,DC,60,CCS 2,Enel X - EDS Aramco Domingo Santa Maria,Enel,(50-150],Renca,Metropolitana,Enel,Enel
 2026-09-04T00:30:56+00:00,8857,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T00:30:24.357675+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T00:30:56+00:00,1037,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T00:29:40.419495+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-04T00:31:59+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T00:30:48.556275+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T00:31:59+00:00,12,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T00:31:02.632040+00:00,DC,50,CCS 2,COPEC Santo Domingo,Copec Voltex,(22-50],Santo Domingo,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T00:31:59+00:00,8859,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T00:30:52.295854+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T00:31:59+00:00,1005,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T00:30:43.179872+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T00:31:59+00:00,13,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T00:31:02.632040+00:00,DC,50,CHAdeMO,COPEC Santo Domingo,Copec Voltex,(22-50],Santo Domingo,Valparaíso,Copec Voltex,Copec Voltex
