@@ -16620,3 +16620,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:21:57+00:00,9376,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T06:21:10.114511+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
 2026-09-04T06:21:57+00:00,2299,Enerlink Chile SpA,OCUPADO,FUERA DE LINEA,2026-09-04T06:21:17.668121+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
 2026-09-04T06:21:57+00:00,8814,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:21:07.063674+00:00,DC,30,CCS 2,Enel X - EDS Aramco Ciudad Satelite ,Enel,(22-50],Maipú,Metropolitana,Enel,Enel
+2026-09-04T06:24:57+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:24:11.719779+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T06:24:57+00:00,15,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:23:54.064156+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T06:24:57+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:23:54.064156+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T06:24:57+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:24:11.719779+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T06:24:57+00:00,3219,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T06:23:36.184276+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
