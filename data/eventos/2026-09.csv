@@ -16423,3 +16423,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:30:55+00:00,1124,Enerlink Chile SpA,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:29:40.049055+00:00,DC,50,CHAdeMO,Enex E-Pro Shell Paicaví,Enerlink,(22-50],Concepción,Biobío,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T05:30:55+00:00,1123,Enerlink Chile SpA,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:29:40.049055+00:00,DC,50,CCS 2,Enex E-Pro Shell Paicaví,Enerlink,(22-50],Concepción,Biobío,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T05:30:55+00:00,8181,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T05:29:46.359577+00:00,DC,60,CCS 2,IRVE Petrobras Príncipe de Gales,Enel,(50-150],La Reina,Metropolitana,Enel,Enel
+2026-09-04T05:31:56+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:30:59.807777+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T05:31:56+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:30:59.807777+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T05:31:56+00:00,4817,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T03:39:45.420476+00:00,DC,180,CCS 2,Enex E-Pro Vitacura,Enerlink,150,Vitacura,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T05:31:56+00:00,8854,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:31:00.506526+00:00,DC,50,CHAdeMO,Enel X - EDS Aramco Quilicura ,Enel,(22-50],Quilicura,Metropolitana,Enel,Enel
