@@ -17523,3 +17523,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T11:06:59+00:00,7316,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T11:06:17.168228+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T11:07:54+00:00,8857,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T11:06:30.912015+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T11:07:54+00:00,1017,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T11:07:11.074081+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T11:08:57+00:00,516,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T11:08:03.915485+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
