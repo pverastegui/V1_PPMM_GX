@@ -15312,3 +15312,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T01:42:56+00:00,1090,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T01:41:50.184064+00:00,DC,50,CHAdeMO,SAVE VOLTEX 20605 SAN PABLO,Copec Voltex,(22-50],San Pablo,Los Lagos,Copec Voltex,Copec Voltex
 2026-09-04T01:42:56+00:00,7256,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T01:41:56.268603+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras José Arrieta,Enel,(22-50],Penalolén,Metropolitana,Enel,Enel
 2026-09-04T01:42:56+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T01:41:53.670142+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T01:44:00+00:00,1090,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T01:43:01.240281+00:00,DC,50,CHAdeMO,SAVE VOLTEX 20605 SAN PABLO,Copec Voltex,(22-50],San Pablo,Los Lagos,Copec Voltex,Copec Voltex
+2026-09-04T01:44:00+00:00,607,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T01:42:22.723391+00:00,DC,60,CCS 2,Enel X WAY - Espacio Urbano Antofagasta,Enel,(50-150],Antofagasta,Antofagasta,Enel,Enel
+2026-09-04T01:44:00+00:00,520,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T01:42:41.771525+00:00,DC,60,GB/T DC,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
