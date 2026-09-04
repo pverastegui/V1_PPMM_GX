@@ -17110,3 +17110,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T08:59:58+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:59:23.607812+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T08:59:58+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:59:13.471579+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T09:00:59+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:59:30.271529+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T09:02:04+00:00,948,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T06:36:05.511353+00:00,DC,50,CCS 2,Enel X Way - Petrobras Enea,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T09:02:04+00:00,1391,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T08:51:21.935697+00:00,DC,150,CCS 2,CARGADOR DE 300KW EN ELECTROLINERA ENEL X STATION,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T09:02:04+00:00,1025,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T09:01:24.838957+00:00,DC,70,CCS 2,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T09:02:04+00:00,505,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:00:54.438905+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T09:02:04+00:00,8850,ENEL X,OCUPADO,DISPONIBLE,2026-04-07T14:15:27.474984+00:00,DC,60,CHAdeMO,Enel X - EDS Aramco Gladys Marin ,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
+2026-09-04T09:02:04+00:00,1026,ENEL X,OCUPADO,NO DISPONIBLE,2026-09-04T09:01:24.838957+00:00,DC,70,CHAdeMO,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
