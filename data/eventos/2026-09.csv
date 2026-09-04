@@ -17341,3 +17341,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T10:08:04+00:00,1381,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T10:05:10.678419+00:00,DC,75,CCS 2,Enel X Way CARGADOR ANGLO AMERICAN ENEA ETAPA 2,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T10:08:04+00:00,7272,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T09:56:29.456081+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
 2026-09-04T10:08:04+00:00,6042,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:55:17.971519+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-04T10:09:05+00:00,6042,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T10:07:42.598307+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
