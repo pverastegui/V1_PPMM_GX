@@ -17175,3 +17175,11 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T09:23:00+00:00,8861,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T07:16:27.882923+00:00,DC,120,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T09:23:00+00:00,505,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:22:12.391317+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T09:23:00+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T09:22:19.995398+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T09:24:05+00:00,9196,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T09:22:46.574124+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T09:24:05+00:00,515,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:22:51.950613+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T09:24:05+00:00,8609,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T09:23:14.183954+00:00,DC,240,CCS 2,SAVE VOLTEX BILBAO EDS 60419,Copec Voltex,150,Providencia,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T09:24:05+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:22:54.434703+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T09:24:05+00:00,1021,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:23:03.842832+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T09:24:05+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T09:22:49.678861+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T09:24:05+00:00,1218,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:22:25.519646+00:00,AC,7.4,Tipo 2,Enel X Way - Espacio Urbano Las Rejas,Enel,7,Estación Central,Metropolitana,Enel,Enel
+2026-09-04T09:24:05+00:00,8857,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T09:23:25.308082+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
