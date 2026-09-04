@@ -18783,3 +18783,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T14:47:18+00:00,1022,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:46:47.078845+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
 2026-09-04T14:47:18+00:00,4783,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T14:46:21.743038+00:00,DC,150,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T14:47:18+00:00,618,ENEL X,OCUPADO,NO DISPONIBLE,2026-09-04T14:46:01.114505+00:00,DC,60,CCS 2,Enel X  - Petrobras Luis Pasteur,Enel,(50-150],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T14:48:02+00:00,515,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T14:46:55.678163+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T14:48:02+00:00,7468,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T14:47:04.604338+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T14:48:02+00:00,619,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T14:47:06.319910+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T14:48:02+00:00,7774,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T14:47:20.869513+00:00,DC,240,CCS 2,SAVE VOLTEX SAN PABLO EDS 60077,Copec Voltex,150,Quinta Normal,Metropolitana,Copec Voltex,Copec Voltex
