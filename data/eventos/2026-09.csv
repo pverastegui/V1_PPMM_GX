@@ -19866,3 +19866,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T17:15:14+00:00,7255,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T17:14:35.243990+00:00,DC,60,CCS 2,Enel X Way - Petrobras José Arrieta,Enel,(50-150],Penalolén,Metropolitana,Enel,Enel
 2026-09-04T17:15:14+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T17:14:40.809151+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T17:15:14+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T17:14:40.809151+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T17:16:07+00:00,8154,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T17:15:01.363085+00:00,DC,60,CCS 2,IRVE Strip Center Padre Hurtado,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T17:16:07+00:00,512,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T17:14:58.955641+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T17:16:07+00:00,709,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T17:15:07.391735+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
+2026-09-04T17:16:07+00:00,1983,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T13:37:01.568075+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T17:16:07+00:00,8859,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T14:44:04.932038+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T17:16:07+00:00,708,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T17:15:07.391735+00:00,DC,150,CCS 2,Enel X Way - Petrobras 14 de La Fama,Enel,(50-150],Independencia,Metropolitana,Enel,Enel
