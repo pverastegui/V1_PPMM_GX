@@ -18406,3 +18406,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T13:53:00+00:00,8852,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:51:51.810914+00:00,DC,30,CCS 2,Enel X - EDS Aramco Gladys Marin ,Enel,(22-50],Estación Central,Metropolitana,Enel,Enel
 2026-09-04T13:53:00+00:00,7471,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T13:29:22.831693+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T13:53:00+00:00,6042,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T13:52:20.163453+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-04T13:54:05+00:00,6042,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T13:53:05.251173+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-04T13:54:05+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:53:20.616082+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T13:54:05+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T13:53:20.616082+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T13:54:05+00:00,2303,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T13:52:35.756378+00:00,AC,7.04,Tipo 2,Proyecto EV Curicó,Enerlink,7,Curicó,Maule,Enerlink,Enerlink
