@@ -19668,3 +19668,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T16:47:09+00:00,1370,Enerlink Chile SpA,FUERA DE LINEA,DISPONIBLE,2026-09-04T16:46:07.808383+00:00,DC,50,CHAdeMO,Enex E-Pro Shell Antofagasta,Enerlink,(22-50],Antofagasta,Antofagasta,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T16:47:09+00:00,1653,Enerlink Chile SpA,NO DISPONIBLE,OCUPADO,2026-09-04T00:25:09.159533+00:00,AC,22,Tipo 2,Enex E-Pro Cerrillos,Enerlink,(7-22],Cerrillos,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T16:47:09+00:00,7367,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T16:46:05.128102+00:00,DC,240,CCS 2,COPEC VOLTEX TUNICHE,Copec Voltex,150,Rancagua,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-04T16:48:10+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T16:47:11.599874+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T16:48:10+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T16:47:11.599874+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T16:48:10+00:00,9078,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T16:46:50.195637+00:00,DC,180,CCS 2,Voltex EDS40059 - Marbella,Copec Voltex,150,Puchuncaví,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T16:48:10+00:00,9055,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T16:46:57.591590+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T16:48:10+00:00,8842,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T16:47:10.646415+00:00,DC,50,CHAdeMO,Enel X - EDS Aramco Domingo Santa Maria,Enel,(22-50],Renca,Metropolitana,Enel,Enel
+2026-09-04T16:48:10+00:00,8108,ENEL X,FUERA DE LINEA,NO DISPONIBLE,2026-09-04T16:47:21.926804+00:00,AC,150,Favor actualizar valor,ENEL X - PARQUE ARAUCO,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
