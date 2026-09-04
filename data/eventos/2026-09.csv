@@ -16409,3 +16409,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:25:55+00:00,9127,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-02T22:17:22.497022+00:00,DC,50,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(22-50],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T05:25:55+00:00,4737,Enerlink Chile SpA,OCUPADO,NO DISPONIBLE,2026-08-31T13:16:20.023523+00:00,DC,50,CCS 2,Enex E-Pro Peñalolén,Enerlink,(22-50],Penalolén,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T05:25:55+00:00,1346,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T05:24:44.328255+00:00,AC,3.5,Tipo 2,SAVE Edif. Entrelomas AV. Costa de Montemar #264,Copec Voltex,7,Concón,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T05:26:56+00:00,16,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:25:45.452203+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T05:26:56+00:00,1983,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T04:56:15.228284+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
