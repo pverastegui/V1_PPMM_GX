@@ -20154,3 +20154,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T17:54:14+00:00,1110,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T17:52:54.099902+00:00,DC,180,CCS 2,Cargador Elèctrico Copec Zapallar,Copec Voltex,150,Zapallar,Valparaíso,Copec Voltex,Copec Voltex
 2026-09-04T17:54:14+00:00,7318,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T17:53:15.585624+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T17:54:14+00:00,547,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T17:53:22.618589+00:00,AC,7.4,Tipo 2,VOLTEX PUC,Copec Voltex,7,Macul,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T17:55:32+00:00,6042,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T17:54:32.131529+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-04T17:55:32+00:00,3218,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T17:54:20.843950+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T17:55:32+00:00,2506,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T17:54:21.467961+00:00,AC,22,Tipo 2,Enel X - Hotel W,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
