@@ -16504,3 +16504,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:53:56+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:53:21.951013+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T05:53:56+00:00,15,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:52:46.584234+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-04T05:53:56+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:53:21.951013+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T05:54:53+00:00,7318,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T05:53:43.028228+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T05:54:53+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:53:21.951013+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T05:54:53+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:53:21.951013+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T05:54:53+00:00,9191,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T05:37:44.394941+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T05:54:53+00:00,7473,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T05:53:33.112689+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60711 - MACUL,Copec Voltex,150,Macul,Metropolitana,Copec Voltex,Copec Voltex
