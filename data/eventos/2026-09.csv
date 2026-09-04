@@ -17095,3 +17095,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T08:55:00+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:53:37.527470+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
 2026-09-04T08:55:00+00:00,1005,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T08:54:18.090802+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T08:56:04+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T08:54:21.774629+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T08:57:02+00:00,7472,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T08:56:16.724180+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60711 - MACUL,Copec Voltex,150,Macul,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T08:57:02+00:00,6830,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T08:31:17.443921+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-04T08:57:02+00:00,15,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:56:09.868301+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-04T08:57:02+00:00,16,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T08:56:09.868301+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
