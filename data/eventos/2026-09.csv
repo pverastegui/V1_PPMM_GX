@@ -17154,3 +17154,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T09:18:01+00:00,8682,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T09:16:40.736650+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T09:18:01+00:00,1983,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T04:56:15.228284+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T09:18:01+00:00,1021,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T09:16:28.913063+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T09:19:02+00:00,6822,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T09:17:02.825030+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-04T09:19:02+00:00,8181,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T09:17:28.011851+00:00,DC,60,CCS 2,IRVE Petrobras Príncipe de Gales,Enel,(50-150],La Reina,Metropolitana,Enel,Enel
+2026-09-04T09:19:02+00:00,1023,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:17:48.734373+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T09:19:02+00:00,505,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T09:18:17.991790+00:00,AC,22,Tipo 2,Estación de Servicio Enel X Station,Enel,(7-22],Pudahuel,Metropolitana,Enel,Enel
+2026-09-04T09:19:02+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T09:16:57.763929+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
