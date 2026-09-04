@@ -19352,3 +19352,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T16:05:14+00:00,442,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T16:04:46.815539+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
 2026-09-04T16:06:10+00:00,7245,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T16:05:05.563061+00:00,DC,150,CCS 2,Enel X - Centro comercial Marbella Maitencillo,Enel,(50-150],Puchuncaví,Valparaíso,Enel,Enel
 2026-09-04T16:06:10+00:00,7472,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T16:05:03.136169+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60711 - MACUL,Copec Voltex,150,Macul,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T16:07:07+00:00,6838,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T16:06:18.436017+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Isabel La Católica,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T16:07:07+00:00,8733,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T16:06:18.129744+00:00,DC,70,CCS 2,Cargador publico Enex File 130,Enerlink,(50-150],Recoleta,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T16:07:07+00:00,1815,Enerlink Chile SpA,OCUPADO,NO DISPONIBLE,2026-09-02T23:03:47.519517+00:00,DC,120,CCS 2,Enex E-Pro Shell Colina,Enerlink,(50-150],Colina,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T16:07:07+00:00,1330,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T15:20:46.143845+00:00,DC,60,CCS 2,Cargador estacionamiento Lo Castillo,Enerlink,(50-150],Vitacura,Metropolitana,Enerlink,Enerlink
+2026-09-04T16:07:07+00:00,8795,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T15:52:45.851892+00:00,DC,240,CCS 2,Cargador Electrico Copec Talca,Copec Voltex,150,Talca,Maule,Copec Voltex,Copec Voltex
+2026-09-04T16:07:07+00:00,4767,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T16:05:48.803572+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 40046 - CONCÓN,Copec Voltex,150,Vina del Mar,Valparaíso,Copec Voltex,Copec Voltex
