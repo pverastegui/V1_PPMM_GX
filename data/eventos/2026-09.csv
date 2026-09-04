@@ -14814,3 +14814,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T00:31:59+00:00,8859,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T00:30:52.295854+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-04T00:31:59+00:00,1005,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T00:30:43.179872+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T00:31:59+00:00,13,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T00:31:02.632040+00:00,DC,50,CHAdeMO,COPEC Santo Domingo,Copec Voltex,(22-50],Santo Domingo,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-04T00:32:54+00:00,9055,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T00:31:48.436015+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T00:32:54+00:00,848,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T00:32:14.767356+00:00,DC,50,CHAdeMO,COPEC VOLTEX EDS 10101 - CALAMA,Copec Voltex,(22-50],Calama,Antofagasta,Copec Voltex,Copec Voltex
+2026-09-04T00:32:54+00:00,1844,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T00:31:33.178473+00:00,AC,22,Tipo 2,CENTRO CIVICO LO PRADO,Copec Voltex,(7-22],Lo Prado,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T00:32:54+00:00,319,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T00:32:17.284253+00:00,AC,7,Tipo 2,Mc Donalds Kennedy,Enel,7,Las Condes,Metropolitana,Enel,Enel
