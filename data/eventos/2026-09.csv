@@ -18931,3 +18931,10 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T15:09:06+00:00,7244,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T15:08:24.418159+00:00,DC,150,CCS 2,Enel X - Centro comercial Marbella Maitencillo,Enel,(50-150],Puchuncaví,Valparaíso,Enel,Enel
 2026-09-04T15:09:06+00:00,7245,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T15:08:24.418159+00:00,DC,150,CCS 2,Enel X - Centro comercial Marbella Maitencillo,Enel,(50-150],Puchuncaví,Valparaíso,Enel,Enel
 2026-09-04T15:09:06+00:00,8112,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T15:08:15.295310+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 20019 - PAICAVI,Copec Voltex,150,Concepción,Biobío,Copec Voltex,Copec Voltex
+2026-09-04T15:10:03+00:00,7245,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T15:08:24.418159+00:00,DC,150,CCS 2,Enel X - Centro comercial Marbella Maitencillo,Enel,(50-150],Puchuncaví,Valparaíso,Enel,Enel
+2026-09-04T15:10:03+00:00,6042,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:08:29.994799+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-04T15:10:03+00:00,7363,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T15:09:16.052369+00:00,DC,240,CCS 2,SAVE VOLTEX LA FLORIDA,Copec Voltex,150,La Florida,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T15:10:03+00:00,7318,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T15:09:18.627913+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T15:10:03+00:00,7244,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T15:08:24.418159+00:00,DC,150,CCS 2,Enel X - Centro comercial Marbella Maitencillo,Enel,(50-150],Puchuncaví,Valparaíso,Enel,Enel
+2026-09-04T15:10:03+00:00,1156,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:08:50.207148+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
+2026-09-04T15:10:03+00:00,6822,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T15:08:31.095457+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
