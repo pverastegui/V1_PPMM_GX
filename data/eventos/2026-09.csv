@@ -17266,3 +17266,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T09:54:01+00:00,6041,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-04T09:50:48.111828+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
 2026-09-04T09:54:01+00:00,6826,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:50:57.971684+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Abadía,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T09:54:01+00:00,8182,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T09:51:12.960911+00:00,DC,60,CCS 2,IRVE Petrobras Príncipe de Gales,Enel,(50-150],La Reina,Metropolitana,Enel,Enel
+2026-09-04T09:55:01+00:00,6042,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T09:54:00.204070+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-04T09:55:01+00:00,6041,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T09:54:00.204070+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
