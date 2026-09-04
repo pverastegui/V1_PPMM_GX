@@ -16630,3 +16630,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T06:25:59+00:00,15,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-04T06:24:44.127897+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-04T06:25:59+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:24:44.075537+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-04T06:25:59+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T06:24:44.075537+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T06:26:56+00:00,1018,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T06:26:18.091527+00:00,AC,22,Tipo 2,Enel X Way-Parque Araucano.,Enel,(7-22],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T06:26:56+00:00,8861,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T05:01:16.464143+00:00,DC,120,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T06:26:56+00:00,1021,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T06:24:52.179595+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
+2026-09-04T06:26:56+00:00,8860,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T05:01:16.464143+00:00,DC,120,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
