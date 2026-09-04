@@ -21281,3 +21281,12 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T20:22:18+00:00,729,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T20:21:24.563471+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
 2026-09-04T20:22:18+00:00,1023,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T20:21:00.675652+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-04T20:22:18+00:00,8159,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T20:20:57.865497+00:00,DC,60,CCS 2,IRVE Tottus Catedral,Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-04T20:23:14+00:00,25,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T20:22:45.326741+00:00,DC,50,CCS 2,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-04T20:23:14+00:00,24,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-04T20:22:45.326741+00:00,DC,50,CHAdeMO,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-04T20:23:14+00:00,6840,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T20:22:12.279576+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Isabel La Católica,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T20:23:14+00:00,8879,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T10:31:29.671854+00:00,DC,30,CCS 2,McDonald's Macul,Enel,(22-50],Macul,Metropolitana,Enel,Enel
+2026-09-04T20:23:14+00:00,1155,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T20:19:54.194608+00:00,AC,7.4,Tipo 2,Enel X Way-Arauco Buenaventura.,Enel,7,Quilicura,Metropolitana,Enel,Enel
+2026-09-04T20:23:14+00:00,7273,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-04T20:22:21.643598+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-04T20:23:14+00:00,713,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T20:22:28.798986+00:00,DC,60,CCS 2,IRVE Espacio Urbano Maipú,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-04T20:23:14+00:00,8738,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T20:22:28.286695+00:00,DC,50,CHAdeMO,Enel X Way - ISA Intervial Los Lagartos,Enel,(22-50],Mostazal,Libertador Bernardo OHiggins,Enel,Enel
+2026-09-04T20:23:14+00:00,691,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-04T20:22:28.820327+00:00,AC,22,Tipo 2,IRVE Tottus Vicuña Mackena,Enel,(7-22],Santiago,Metropolitana,Enel,Enel
