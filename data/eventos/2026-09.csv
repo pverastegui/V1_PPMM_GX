@@ -17840,3 +17840,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T12:22:59+00:00,6827,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T12:21:43.071467+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
 2026-09-04T12:22:59+00:00,8913,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T12:21:40.123148+00:00,DC,240,CCS 2,Cargador Eléctrico Copec Ovalle,Copec Voltex,150,Ovalle,Coquimbo,Copec Voltex,Copec Voltex
 2026-09-04T12:24:08+00:00,592,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T12:22:27.247018+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Dehesa,Enel,(50-150],Lo Barnechea,Metropolitana,Enel,Enel
+2026-09-04T12:24:58+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T12:23:48.555935+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T12:24:58+00:00,1023,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T12:23:26.948222+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T12:24:58+00:00,8609,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T12:24:00.935315+00:00,DC,240,CCS 2,SAVE VOLTEX BILBAO EDS 60419,Copec Voltex,150,Providencia,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T12:24:58+00:00,8684,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T12:23:48.555935+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T12:24:58+00:00,7468,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T12:23:51.560474+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T12:24:58+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T12:23:28.983679+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
