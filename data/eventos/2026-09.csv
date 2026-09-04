@@ -21155,3 +21155,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T20:05:10+00:00,9094,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T20:03:59.955032+00:00,DC,180,CCS 2,VOLTEX CARGADOR ELECTRICO EL COBRE,Copec Voltex,150,Rancagua,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-04T20:05:10+00:00,1021,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T20:03:54.590402+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
 2026-09-04T20:05:10+00:00,8155,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T20:03:57.811550+00:00,DC,60,CCS 2,IRVE Strip Center Padre Hurtado,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-04T20:06:12+00:00,7360,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T20:05:17.720061+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60220 - ALBERTO LLONA,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T20:06:12+00:00,1983,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T20:05:15.212046+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-04T20:06:12+00:00,8859,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-04T17:55:12.771861+00:00,DC,60,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
