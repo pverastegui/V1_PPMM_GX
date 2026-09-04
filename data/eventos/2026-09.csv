@@ -17519,3 +17519,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T11:05:58+00:00,638,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T11:04:36.667342+00:00,DC,60,CCS 2,IRVE Espacio Urbano Las Rejas,Enel,(50-150],Estación Central,Metropolitana,Enel,Enel
 2026-09-04T11:05:58+00:00,9131,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-08-28T15:10:22.128521+00:00,DC,148.96,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(50-150],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-04T11:05:58+00:00,731,ENEL X,OCUPADO,DISPONIBLE,2026-09-04T11:04:24.550469+00:00,AC,22,Tipo 2,Enel X Way - Petrobras Lo Prado,Enel,(7-22],Lo Prado,Metropolitana,Enel,Enel
+2026-09-04T11:06:59+00:00,6823,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T11:05:28.447883+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-04T11:06:59+00:00,7316,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T11:06:17.168228+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
