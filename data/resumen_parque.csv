@@ -1,6 +1,6 @@
 vista,empresa,power_type,sitios,conectores,kw
 opc,Copec Voltex,,261,961,54348
-opc,Enel,,220,854,27455
+opc,Enel,,221,857,27605
 opc,Enerlink,,64,184,11735
 opc,Chass,,4,42,1048
 opc,Saesa,,11,22,484
@@ -28,7 +28,6 @@ opc,Inmobiliaria Playa La Boca Spa,,1,4,88
 opc,Estacionamientos Manuel Montt ,,1,4,30
 opc,RUTA DEL MAIPO SOC. CONCESIONA,,1,3,143
 opc,Pompeyo Carrasco SPA,,2,3,22
-opc,Sin Operador Informado,,1,3,150
 opc,Parque Arauco SA,,1,2,14
 opc,Automovil Club de Chile,,1,2,14
 opc,Inversiones Quildos Ltda,,1,2,44
@@ -73,7 +72,7 @@ opc,PLAZA CORDILLERA S.A.,,1,1,7
 opc,Admin. de Turism Rosa Agustina,,1,1,22
 opc,Rentas Inmobiliarias Limitada,,1,1,22
 opc,Copec Voltex,AC,205,670,8550
-opc,Enel,AC,145,556,6303
+opc,Enel,AC,146,557,6353
 opc,Enerlink,AC,43,56,1300
 opc,Chass,AC,2,34,448
 opc,Saesa,AC,11,22,484
@@ -138,9 +137,8 @@ opc,INMOBILIARIA COLOSO VICUÑA MAC,AC,1,1,7
 opc,Club de Golf Valle Escondido,AC,1,1,7
 opc,WALMART CHILE S.A,AC,1,1,7
 opc,PLAZA CORDILLERA S.A.,AC,1,1,7
-opc,Sin Operador Informado,AC,1,1,50
 opc,Admin. de Turism Rosa Agustina,AC,1,1,22
-opc,Enel,DC,104,298,21152
+opc,Enel,DC,105,300,21252
 opc,Copec Voltex,DC,117,291,45798
 opc,Enerlink,DC,60,128,10435
 opc,Cargar Mas SpA,DC,1,10,3500
@@ -150,7 +148,6 @@ opc,EMPRESA NACIONAL DE ENERGIA EN,DC,2,4,210
 opc,TODO ARAUCO,DC,1,4,400
 opc,Tesla Chile SpA,DC,1,4,1000
 opc,RUTA DEL MAIPO SOC. CONCESIONA,DC,1,2,100
-opc,Sin Operador Informado,DC,1,2,100
 opc,EMPRESA ELÉCTRICA DE MAGALLANES S.A,DC,2,2,45
 opc,Rentas Inmobiliarias Limitada,DC,1,1,22
 owner,Copec Voltex,,258,954,53741
