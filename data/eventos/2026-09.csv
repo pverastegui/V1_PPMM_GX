@@ -16379,3 +16379,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-04T05:19:56+00:00,617,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:19:15.671664+00:00,AC,22,Tipo 2,Enel X  - Petrobras Luis Pasteur,Enel,(7-22],Vitacura,Metropolitana,Sin dueño informado,Enel
 2026-09-04T05:19:56+00:00,7473,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-04T05:18:57.629298+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60711 - MACUL,Copec Voltex,150,Macul,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-04T05:19:56+00:00,619,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-04T05:19:16.423190+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T05:20:53+00:00,7316,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-04T05:19:32.063984+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-04T05:20:53+00:00,619,ENEL X,DISPONIBLE,OCUPADO,2026-09-04T05:20:02.559791+00:00,DC,50,CHAdeMO,Enel X  - Petrobras Luis Pasteur,Enel,(22-50],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T05:20:53+00:00,617,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-04T05:19:50.347154+00:00,AC,22,Tipo 2,Enel X  - Petrobras Luis Pasteur,Enel,(7-22],Vitacura,Metropolitana,Sin dueño informado,Enel
+2026-09-04T05:20:53+00:00,176,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-08-31T13:05:51.387127+00:00,DC,50,CCS 2,Enex E-Pro Shell Los Trapenses,Enerlink,(22-50],Lo Barnechea,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-04T05:20:53+00:00,4737,Enerlink Chile SpA,NO DISPONIBLE,OCUPADO,2026-08-31T13:16:20.023523+00:00,DC,50,CCS 2,Enex E-Pro Peñalolén,Enerlink,(22-50],Penalolén,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
