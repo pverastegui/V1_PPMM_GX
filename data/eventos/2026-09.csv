@@ -24149,3 +24149,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T03:14:07+00:00,708,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T03:13:06.351776+00:00,DC,150,CCS 2,Enel X Way - Petrobras 14 de La Fama,Enel,(50-150],Independencia,Metropolitana,Enel,Enel
 2026-09-05T03:14:07+00:00,559,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T03:13:13.263612+00:00,DC,60,CCS 2,Enel X  Way Privado- ESPACIO URBANO PTE ALTO,Enel,(50-150],Puente Alto,Metropolitana,Enel,Enel
 2026-09-05T03:15:06+00:00,9080,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T03:14:23.943901+00:00,DC,180,CCS 2,Voltex EDS40059 - Marbella,Copec Voltex,150,Puchuncaví,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-05T03:16:06+00:00,25,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-05T03:15:22.276096+00:00,DC,50,CCS 2,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-05T03:16:06+00:00,24,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T03:15:22.276096+00:00,DC,50,CHAdeMO,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
