@@ -23987,3 +23987,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T02:51:03+00:00,1021,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T02:50:15.724309+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
 2026-09-05T02:51:03+00:00,16,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-05T02:50:10.684585+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
 2026-09-05T02:51:03+00:00,709,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T02:50:21.051972+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
+2026-09-05T02:52:03+00:00,9130,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-08-28T15:10:22.128521+00:00,DC,148.96,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(50-150],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-05T02:52:03+00:00,7273,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-05T02:51:21.727875+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-05T02:52:03+00:00,1983,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-05T02:40:52.540741+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-05T02:52:03+00:00,241,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-05T02:51:12.104161+00:00,DC,50,CHAdeMO,"COPEC Los Angeles Ruta 5 km 518,5 - lado poniente",Copec Voltex,(22-50],Los Ángeles,Biobío,Copec Voltex,Copec Voltex
+2026-09-05T02:52:03+00:00,243,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T02:51:12.104161+00:00,DC,50,CCS 2,"COPEC Los Angeles Ruta 5 km 518,5 - lado poniente",Copec Voltex,(22-50],Los Ángeles,Biobío,Copec Voltex,Copec Voltex
+2026-09-05T02:52:03+00:00,4746,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T02:50:38.240282+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
