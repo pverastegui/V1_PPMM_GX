@@ -24481,3 +24481,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T04:11:07+00:00,6823,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:10:00.303215+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
 2026-09-05T04:11:07+00:00,4782,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T04:10:12.038356+00:00,DC,150,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-05T04:11:07+00:00,4783,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T04:10:12.038356+00:00,DC,150,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-05T04:12:06+00:00,7316,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T04:11:04.348021+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T04:12:06+00:00,6823,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:10:29.461376+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-05T04:12:06+00:00,8191,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T04:11:11.843246+00:00,DC,60,CCS 2,Enel X Way - CARGADOR ESPACIO URBANO SAN MIGUEL ,Enel,(50-150],San Miguel,Metropolitana,Enel,Enel
+2026-09-05T04:12:06+00:00,6838,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:11:08.123510+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Isabel La Católica,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
