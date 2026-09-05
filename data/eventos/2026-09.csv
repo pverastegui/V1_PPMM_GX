@@ -24691,3 +24691,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T05:00:06+00:00,6824,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:58:27.491731+00:00,DC,30,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(22-50],San Joaquín,Metropolitana,Enel,Enel
 2026-09-05T05:01:07+00:00,241,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-05T05:00:01.396567+00:00,DC,50,CHAdeMO,"COPEC Los Angeles Ruta 5 km 518,5 - lado poniente",Copec Voltex,(22-50],Los Ángeles,Biobío,Copec Voltex,Copec Voltex
 2026-09-05T05:01:07+00:00,9191,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T05:00:02.852560+00:00,DC,180,CCS 2,VOLTEX LOS TOROS,Copec Voltex,150,Puente Alto,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T05:02:10+00:00,8857,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T05:01:11.079563+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T05:02:10+00:00,7256,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-05T05:00:44.191891+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras José Arrieta,Enel,(22-50],Penalolén,Metropolitana,Enel,Enel
