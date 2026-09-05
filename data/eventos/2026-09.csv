@@ -24067,3 +24067,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T03:01:07+00:00,4783,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T03:00:17.151821+00:00,DC,150,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-05T03:01:07+00:00,4782,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T03:00:17.151821+00:00,DC,150,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-05T03:01:07+00:00,7470,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T02:59:47.576056+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T03:02:04+00:00,1983,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-05T03:00:54.401354+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-05T03:02:04+00:00,8860,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-05T03:01:03.816460+00:00,DC,120,CCS 2,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-05T03:02:04+00:00,16,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T03:00:49.139463+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-05T03:02:04+00:00,6041,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T03:00:43.883748+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-05T03:02:04+00:00,1371,Enerlink Chile SpA,FUERA DE LINEA,DISPONIBLE,2026-09-05T02:36:21.564030+00:00,DC,50,CCS 2,Enex E-Pro Shell Antofagasta,Enerlink,(22-50],Antofagasta,Antofagasta,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
