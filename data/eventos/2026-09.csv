@@ -24475,3 +24475,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T04:09:13+00:00,728,ENEL X,FUERA DE LINEA,OCUPADO,2026-09-05T04:08:51.051582+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
 2026-09-05T04:09:13+00:00,4025,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T04:07:42.296627+00:00,DC,180,CCS 2,COPEC VOLTEX  - EDS 20830 - COYHAIQUE,Copec Voltex,150,Coyhaique,Aysén del General Carlos Ibáñez del Campo,Copec Voltex,Copec Voltex
 2026-09-05T04:09:13+00:00,697,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:08:22.627872+00:00,DC,22,CCS 2,Enel XWay ELECTROLINERA PETROBRAS CONCHA Y TORO,Enel,(7-22],Puente Alto,Metropolitana,Enel,Enel
+2026-09-05T04:10:13+00:00,608,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:09:50.391710+00:00,DC,60,CCS 2,Enel X WAY - Espacio Urbano Antofagasta,Enel,(50-150],Antofagasta,Antofagasta,Enel,Enel
+2026-09-05T04:10:13+00:00,728,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:08:57.663319+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
+2026-09-05T04:10:13+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T04:09:35.137897+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
