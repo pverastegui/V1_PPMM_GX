@@ -23402,3 +23402,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T01:19:05+00:00,1037,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T01:17:57.369705+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
 2026-09-05T01:19:05+00:00,1019,ENEL X,FUERA DE LINEA,NO DISPONIBLE,2026-09-05T01:18:04.932250+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
 2026-09-05T01:19:05+00:00,9058,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T01:17:39.980188+00:00,DC,180,CCS 2,Voltex EDS60987 - Tobalaba,Copec Voltex,150,Penalolén,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T01:19:59+00:00,4804,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T01:18:49.043823+00:00,DC,180,CCS 2,SAVE VOLTEX  EDS COPEC SIERRA GORDA,Copec Voltex,150,Sierra Gorda,Antofagasta,Copec Voltex,Copec Voltex
+2026-09-05T01:19:59+00:00,8683,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-05T01:18:56.739830+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T01:19:59+00:00,8684,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-05T01:18:56.739830+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T01:19:59+00:00,3157,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T01:18:43.311576+00:00,DC,60,CCS 2,Enel X - EDS ARAMCO Vitacura ,Enel,(50-150],Vitacura,Metropolitana,Enel,Enel
