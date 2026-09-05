@@ -296,11 +296,10 @@ def test_crudo_se_guarda_solo_si_hay_eventos_o_toca_el_respaldo_cada_5_min():
 
 
 def test_variable_de_entorno_puede_apuntar_el_crudo_a_otra_carpeta():
-    """Hoy ningun workflow usa esto todavia (el crudo sigue yendo a
-    snapshots/ de este mismo repo, ver docstring "SOBRE EL INTERVALO DE
-    SONDEO") -- pero la variable queda lista para cuando se conecte el
-    almacenamiento aparte del crudo, sin tener que tocar este script de
-    nuevo. Esta prueba solo confirma que el mecanismo funciona."""
+    """sondear.yml usa esto para apuntar el crudo al checkout del repo
+    privado cuando esta configurado (ver docstring, "SOBRE DONDE VIVE EL
+    CRUDO Y LOS DATOS"). Sin la variable, vuelve al comportamiento de
+    siempre. Esta prueba solo confirma que el mecanismo en si funciona."""
     import importlib
     import os
 
@@ -321,6 +320,125 @@ def test_variable_de_entorno_puede_apuntar_el_crudo_a_otra_carpeta():
     print("OK: SONDEAR_DIR_SNAPSHOTS pisa donde se guarda el crudo (y sin ella, no cambia nada)")
 
 
+def test_variable_de_entorno_puede_apuntar_los_datos_a_otra_carpeta():
+    """Mismo mecanismo que SONDEAR_DIR_SNAPSHOTS, pero para data/ (catalogo,
+    eventos, corridas) -- sondear.yml apunta las dos al mismo checkout del
+    repo privado, para que NINGUN dato real quede en este repo publico."""
+    import importlib
+    import os
+
+    otra_carpeta = Path("/tmp/pruebas_sondeo_7b_otra_carpeta")
+    shutil.rmtree(otra_carpeta, ignore_errors=True)
+
+    os.environ["SONDEAR_DIR_DATA"] = str(otra_carpeta)
+    try:
+        importlib.reload(sondear)
+        assert sondear.DIR_DATA == otra_carpeta, \
+            "con la variable de entorno seteada, DIR_DATA debe apuntar ahi"
+        assert sondear.ARCHIVO_CATALOGO == otra_carpeta / "catalogo.csv"
+        assert sondear.DIR_EVENTOS == otra_carpeta / "eventos"
+        assert sondear.ARCHIVO_CORRIDAS == otra_carpeta / "corridas.csv"
+    finally:
+        del os.environ["SONDEAR_DIR_DATA"]
+        importlib.reload(sondear)  # vuelve a data/ del repo, para las pruebas que siguen
+        assert sondear.DIR_DATA == sondear.RAIZ / "data", \
+            "sin la variable de entorno, debe volver al comportamiento de siempre"
+
+    print("OK: SONDEAR_DIR_DATA pisa donde se guardan catalogo/eventos/corridas (y sin ella, no cambia nada)")
+
+
+def test_repo_privado_solo_cambia_el_destino_no_el_racionamiento():
+    """Con el repo privado configurado (DIR_SNAPSHOTS apunta afuera de este
+    repo), el crudo sigue racionandose exactamente igual que sin el (evento
+    real, o cada 5 minutos de respaldo) -- guardar TODO sin filtrar pesaria
+    demasiado incluso en un repo dedicado solo a esto. Lo unico que cambia
+    es DONDE queda el archivo cuando si toca guardarlo."""
+    tmp = Path("/tmp/pruebas_sondeo_8")
+    entorno_limpio(tmp)
+
+    # Simula el escenario real: el crudo apunta a otra carpeta (el
+    # equivalente al checkout del repo privado), no a snapshots/ de este
+    # mismo repo.
+    otra_carpeta = tmp / "crudo-privado" / "snapshots"
+    sondear.DIR_SNAPSHOTS = otra_carpeta
+
+    datos_bajados = {"valor": [loc(1, "Sitio", "COPEC VOLTEX", 1, "DISPONIBLE")]}
+    sondear.bajar_api = lambda: (datos_bajados["valor"], 200, None, None)
+    sondear.datetime = _RelojFalso
+
+    def snapshots_guardados():
+        return list(otra_carpeta.rglob("*.json.gz"))
+
+    try:
+        # Minuto 0: primera lectura, genera evento -> se guarda, y queda en
+        # la carpeta del repo privado (no en snapshots/ de este repo).
+        _RelojFalso._ahora = _RelojFalso(2026, 9, 1, 12, 0, tzinfo=timezone.utc)
+        sondear.main()
+        assert len(snapshots_guardados()) == 1
+        assert not (tmp / "snapshots").exists() or not list((tmp / "snapshots").rglob("*.json.gz")), \
+            "no debe quedar nada en snapshots/ de este repo cuando el privado esta configurado"
+
+        # Minuto 1 (no es multiplo de 5), mismo estado que antes -> sin
+        # eventos nuevos -> igual que sin repo privado, NO toca guardar.
+        _RelojFalso._ahora = _RelojFalso(2026, 9, 1, 12, 1, tzinfo=timezone.utc)
+        sondear.main()
+        assert len(snapshots_guardados()) == 1, \
+            "el repo privado no cambia el racionamiento: sin evento y fuera del respaldo, no debe guardar"
+
+        # Minuto 5 (multiplo de 5): toca el respaldo periodico, se guarda
+        # igual aunque no haya cambio de estado.
+        _RelojFalso._ahora = _RelojFalso(2026, 9, 1, 12, 5, tzinfo=timezone.utc)
+        sondear.main()
+        assert len(snapshots_guardados()) == 2
+
+        corridas = leer(sondear.ARCHIVO_CORRIDAS)
+        assert corridas[0]["archivo_crudo"] != "" and corridas[2]["archivo_crudo"] != ""
+        assert corridas[1]["archivo_crudo"] == "", "la corrida sin novedad (minuto 1) no debe registrar archivo_crudo"
+        print("OK: con el repo privado configurado, cambia el destino del crudo pero no el racionamiento")
+    finally:
+        import importlib
+        importlib.reload(sondear)
+
+
+def test_con_repo_privado_completo_no_queda_ningun_dato_en_este_repo():
+    """El escenario real: sondear.yml apunta DIR_SNAPSHOTS y DIR_DATA al
+    mismo checkout del repo privado. Esta prueba confirma que, en ese caso,
+    catalogo.csv, los eventos, corridas.csv Y el crudo terminan todos
+    afuera de este repo -- nada queda en las carpetas data/ ni snapshots/
+    de este repo publico."""
+    tmp = Path("/tmp/pruebas_sondeo_11")
+    entorno_limpio(tmp)
+
+    otra_raiz = tmp / "datos-privados"
+    sondear.DIR_SNAPSHOTS = otra_raiz / "snapshots"
+    sondear.DIR_DATA = otra_raiz / "data"
+    sondear.ARCHIVO_CATALOGO = sondear.DIR_DATA / "catalogo.csv"
+    sondear.DIR_EVENTOS = sondear.DIR_DATA / "eventos"
+    sondear.ARCHIVO_CORRIDAS = sondear.DIR_DATA / "corridas.csv"
+
+    datos_bajados = {"valor": [loc(1, "Sitio", "COPEC VOLTEX", 1, "DISPONIBLE")]}
+    sondear.bajar_api = lambda: (datos_bajados["valor"], 200, None, None)
+    sondear.datetime = _RelojFalso
+
+    try:
+        _RelojFalso._ahora = _RelojFalso(2026, 9, 1, 13, 0, tzinfo=timezone.utc)
+        sondear.main()
+
+        assert sondear.ARCHIVO_CATALOGO.exists(), "catalogo.csv debe existir, pero en el repo privado"
+        assert sondear.ARCHIVO_CORRIDAS.exists(), "corridas.csv debe existir, pero en el repo privado"
+        assert list((otra_raiz / "snapshots").rglob("*.json.gz")), "el crudo debe existir, pero en el repo privado"
+
+        # entorno_limpio() crea data/ y snapshots/ vacias como parte de su
+        # propio montaje (no por accion de main()) -- lo que importa es que
+        # sigan VACIAS: main() no debe haber escrito nada ahi.
+        assert not any((tmp / "data").iterdir()), "data/ de este repo publico debe quedar vacia"
+        assert not any((tmp / "snapshots").iterdir()), "snapshots/ de este repo publico debe quedar vacia"
+        print("OK: con el repo privado completo configurado, ningun dato (ni crudo ni catalogo/eventos/corridas) queda en este repo")
+    finally:
+        import importlib
+        importlib.reload(sondear)
+
+
 if __name__ == "__main__":
     test_ciclo_disponible_ocupado_disponible()
     test_columnas_calzan_con_la_planilla()
@@ -332,4 +450,7 @@ if __name__ == "__main__":
     test_rescate_por_palabra_clave_no_pisa_opc_informado()
     test_crudo_se_guarda_solo_si_hay_eventos_o_toca_el_respaldo_cada_5_min()
     test_variable_de_entorno_puede_apuntar_el_crudo_a_otra_carpeta()
+    test_variable_de_entorno_puede_apuntar_los_datos_a_otra_carpeta()
+    test_repo_privado_solo_cambia_el_destino_no_el_racionamiento()
+    test_con_repo_privado_completo_no_queda_ningun_dato_en_este_repo()
     print("\nTodas las pruebas pasaron.")

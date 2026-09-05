@@ -6,7 +6,18 @@ __pycache__/
 # asi nadie mas lo encuentra, y los parametros de carga promedio que ingreses
 # viven solo en tu navegador. Vive en la carpeta del repo por comodidad (para
 # tenerlo junto a los datos), pero git lo ignora.
-visor_ppmm_v1.html
+visor.html
+
+# Archivos de prueba temporales
 prueba_cors.html
+
+# El dashboard generado localmente (dist/) es un artefacto, no se comitea.
 dist/
-Claude outputs/
+
+# OJO: data/ y snapshots/ SI se comitean a proposito (los escribe el workflow).
+# No los agregues aca. snapshots/ deberia quedar casi siempre vacio si el
+# repo privado esta configurado (sondear.py guarda el crudo directo alla,
+# via SONDEAR_DIR_SNAPSHOTS, nunca pasa por el checkout de este repo
+# publico) -- ver el docstring de sondear.py, "SOBRE DONDE VIVE EL CRUDO",
+# y LEEME.md. Si algun dia aparece algo aca es porque el repo privado
+# todavia no esta configurado, o algo fallo antes de llegar a ese paso.

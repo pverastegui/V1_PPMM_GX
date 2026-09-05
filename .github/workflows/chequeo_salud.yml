@@ -1,0 +1,77 @@
+name: Chequeo de salud del sondeo
+
+# Corre cada 30 minutos, siempre en el repo PUBLICO (donde vive este
+# archivo), y hace dos cosas -- ver el docstring de scripts/chequeo_salud.py
+# para el detalle completo:
+#
+# 1. Revisa data/corridas.csv (viva donde viva -- publico o privado) y, si
+#    el sondeo dejo de correr o lleva rato fallando, marca este workflow
+#    como fallido. GitHub manda un correo automatico cuando un workflow
+#    programado falla -- pero SOLO si tienes las notificaciones de Actions
+#    activadas en https://github.com/settings/notifications (marca
+#    "Email" y, en la seccion de Actions, que avise de fallas). Sin eso
+#    activado, este chequeo sigue corriendo y dejando el aviso en
+#    ESTADO.md, pero no te llegaria ningun correo.
+#
+# 2. Comitea ESTADO.md al repo publico en cada corrida (cambia la hora de
+#    la revision, asi que siempre hay algo que comitear). Esto es a
+#    proposito: GitHub apaga solo, en silencio, los workflows programados
+#    de un repo PUBLICO que lleva 60 dias sin ningun commit -- y con todos
+#    los datos yendo ahora al repo privado, este repo publico (donde vive
+#    el propio disparador de sondear.py) podria dejar de recibir commits
+#    del todo. Este commit periodico evita ese apagado silencioso.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  chequear:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout del repo privado de datos (si esta configurado)
+        if: ${{ secrets.PRIVATE_REPO_TOKEN != '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.PRIVATE_REPO }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: datos-privados
+
+      - name: Apuntar a donde viven los datos (si se hizo el checkout de arriba)
+        if: ${{ secrets.PRIVATE_REPO_TOKEN != '' }}
+        run: echo "SONDEAR_DIR_DATA=$GITHUB_WORKSPACE/datos-privados/data" >> "$GITHUB_ENV"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Revisar corridas.csv y escribir ESTADO.md
+        id: chequeo
+        continue-on-error: true
+        run: python scripts/chequeo_salud.py
+
+      - name: Guardar ESTADO.md en el repo publico (y mantenerlo activo)
+        run: |
+          git config user.name "cargadores-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add ESTADO.md
+          if git diff --cached --quiet; then
+            echo "ESTADO.md sin cambios."
+          else
+            git commit -m "chequeo de salud: $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash origin main || true
+            git push || true
+          fi
+
+      - name: Marcar el workflow como fallido si el sondeo no esta sano
+        if: steps.chequeo.outcome == 'failure'
+        run: |
+          echo "El sondeo no esta sano -- ver ESTADO.md. Se marca este workflow como fallido para que llegue la notificacion de GitHub (si la activaste)."
+          exit 1

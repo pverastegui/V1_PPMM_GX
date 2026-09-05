@@ -16,17 +16,54 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Borrar snapshots crudos de mas de 60 dias
+
+      - name: Borrar snapshots crudos de mas de 60 dias (repo publico)
         run: python scripts/limpiar_crudos.py
-      - name: Guardar los cambios
+      - name: Guardar los cambios (repo publico)
         run: |
           git config user.name "cargadores-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add -A snapshots
+          # Si el repo privado esta configurado, el crudo ya no vive aca --
+          # esta carpeta puede ni existir en este checkout.
+          [ -d snapshots ] && git add -A snapshots
           if git diff --cached --quiet; then
-            echo "Nada que borrar."
+            echo "Nada que borrar en el repo publico."
           else
             git commit -m "limpieza: snapshots de mas de 60 dias"
+            git pull --rebase --autostash origin main || true
+            git push
+          fi
+
+      # Estos dos pasos solo hacen algo si configuraste PRIVATE_REPO_TOKEN
+      # y PRIVATE_REPO (ver LEEME.md) -- limpian el crudo alla tambien, con
+      # una retencion mas corta (30 dias) que el publico (60): en el repo
+      # privado se guarda TODO lo que pasa el racionamiento, asi que
+      # conviene una ventana mas chica para que no crezca de mas. Nunca se
+      # toca data/ (catalogo, eventos, corridas) -- eso es permanente,
+      # vaya donde vaya.
+      - name: Checkout del repo privado de datos (si esta configurado)
+        if: ${{ secrets.PRIVATE_REPO_TOKEN != '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.PRIVATE_REPO }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: datos-privados
+
+      - name: Borrar y guardar en el repo privado (si esta configurado)
+        if: ${{ secrets.PRIVATE_REPO_TOKEN != '' }}
+        env:
+          SONDEAR_DIR_SNAPSHOTS: ${{ github.workspace }}/datos-privados/snapshots
+          LIMPIAR_DIAS_RETENCION: "30"
+        run: |
+          python scripts/limpiar_crudos.py
+          cd datos-privados
+          git config user.name "cargadores-bot"
+          git config user.email "actions@users.noreply.github.com"
+          [ -d snapshots ] && git add -A snapshots
+          if git diff --cached --quiet; then
+            echo "Nada que borrar en el repo privado."
+          else
+            git commit -m "limpieza: snapshots de mas de 30 dias"
             git pull --rebase --autostash origin main || true
             git push
           fi

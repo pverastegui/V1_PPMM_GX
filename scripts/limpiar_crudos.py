@@ -9,10 +9,20 @@ para poder reprocesar si se descubre un bug, y con 60 dias alcanza de sobra.
 Lo corre GitHub Actions una vez al dia.
 
 Igual que en sondear.py, DIR_SNAPSHOTS se puede pisar con la variable de
-entorno SONDEAR_DIR_SNAPSHOTS -- hoy ningun workflow la usa (el crudo sigue
-viviendo en snapshots/ de este mismo repo, ver docstring de sondear.py,
-"SOBRE EL INTERVALO DE SONDEO"), pero queda lista para cuando el crudo se
-mude a un almacenamiento aparte.
+entorno SONDEAR_DIR_SNAPSHOTS -- limpiar.yml la usa para limpiar tambien
+el checkout del repo privado del crudo, si esta configurado (ver el
+docstring de sondear.py, "SOBRE DONDE VIVE EL CRUDO", y LEEME.md).
+
+Si el repo privado esta configurado, snapshots/ de ESTE repo publico
+deberia quedar practicamente vacio la mayoria de los dias -- sondear.py ya
+guarda el crudo directo alla. Este script sigue corriendo igual sobre este
+repo, por las dudas (por ejemplo si algo fallo antes de que el repo
+privado quedara configurado).
+
+DIAS_RETENCION tambien se puede pisar con la variable de entorno
+LIMPIAR_DIAS_RETENCION -- limpiar.yml usa esto para que el repo privado
+tenga una retencion mas corta (30 dias) que el publico (60), que es el
+valor por defecto si la variable no esta seteada.
 """
 from __future__ import annotations
 
@@ -22,7 +32,7 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-DIAS_RETENCION = 60
+DIAS_RETENCION = int(os.environ.get("LIMPIAR_DIAS_RETENCION", "60"))
 
 RAIZ = Path(__file__).resolve().parent.parent
 _dir_snapshots_env = os.environ.get("SONDEAR_DIR_SNAPSHOTS")

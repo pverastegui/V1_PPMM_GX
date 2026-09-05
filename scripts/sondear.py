@@ -93,20 +93,21 @@ cortas se pierden asi.
 
 La solucion de fondo es: sondear mas seguido (achica el hueco), pero
 guardar el snapshot crudo completo de CADA sondeo solo en un almacenamiento
-PRIVADO aparte (Drive, o un repositorio privado) -- porque guardarlo
-siempre en este repo, que es publico, multiplicaria varias veces lo que
-pesa snapshots/ para siempre en el historial de git (limpiar_crudos.py
-borra del arbol pero NO reescribe el historial). Eso todavia se esta
-configurando.
+PRIVADO aparte -- porque guardarlo siempre en este repo, que es publico,
+multiplicaria varias veces lo que pesa snapshots/ para siempre en el
+historial de git (limpiar_crudos.py borra del arbol pero NO reescribe el
+historial). Ver "SOBRE DONDE VIVE EL CRUDO" mas abajo para el mecanismo.
 
-MIENTRAS TANTO: el disparador de Apps Script solo ofrece intervalos fijos
-(1, 5, 10, 15 o 30 minutos -- no hay "cada 2" ni "cada 3"), asi que el
-sondeo pasa derecho a CADA 1 MINUTO. Para no inflar este repositorio
-publico mientras el almacenamiento aparte no esta listo, el crudo NO se
-guarda en cada corrida: solo cuando esta corrida detecto al menos un
-cambio de estado real (eventos no vacio) -- asi el contexto completo de
-ESE instante queda archivado -- o si no, igual cada 5 minutos, como
-respaldo periodico minimo, aunque no haya pasado nada.
+El disparador de Apps Script solo ofrece intervalos fijos (1, 5, 10, 15 o
+30 minutos -- no hay "cada 2" ni "cada 3"), asi que el sondeo pasa derecho
+a CADA 1 MINUTO. Guardar el crudo COMPLETO en cada una de esas corridas,
+sin filtrar, pesaria demasiado incluso en un repositorio privado dedicado
+solo a esto (a ese ritmo, unos 280 MB por dia) -- asi que el crudo NO se
+guarda en cada corrida, viva donde viva (ver "SOBRE DONDE VIVE EL CRUDO"
+mas abajo): solo cuando esta corrida detecto al menos un cambio de estado
+real (eventos no vacio) -- asi el contexto completo de ESE instante queda
+archivado -- o si no, igual cada 5 minutos, como respaldo periodico
+minimo, aunque no haya pasado nada.
 
 Los archivos importantes (catalogo.csv, eventos/*.csv) se escriben en
 TODAS las corridas sin excepcion -- lo que se ahorra es solo el respaldo
@@ -115,10 +116,43 @@ el procesamiento de una corrida FALLA (excepcion), el crudo se guarda
 igual pase lo que pase: ahi es cuando mas se necesita, porque es la unica
 forma de reprocesar ese instante despues.
 
-La ruta de snapshots/ tambien se puede pisar con la variable de entorno
-SONDEAR_DIR_SNAPSHOTS -- hoy no la usa ningun workflow (el crudo sigue
-yendo a snapshots/ de este mismo repo), pero queda lista para cuando se
-conecte el almacenamiento aparte, sin tener que tocar este script de nuevo.
+--- SOBRE DONDE VIVE EL CRUDO Y LOS DATOS (repo privado en GitHub) ---
+Este repositorio (donde vive este script) es PUBLICO -- lo puede ver
+cualquiera, incluida la competencia. Por eso NINGUN dato real (ni el
+crudo, ni catalogo.csv, ni los eventos, ni corridas.csv) deberia quedar
+guardado aca: este repo es solo el codigo (los scripts, los workflows, las
+pruebas). Todos los datos de verdad viven en un repositorio PRIVADO
+aparte, que solo pueden ver quienes tu invites.
+
+Esto se logra con dos variables de entorno, que el workflow configura
+solo (ver .github/workflows/sondear.yml y LEEME.md para la guia paso a
+paso de como crear y conectar ese repo privado):
+
+  SONDEAR_DIR_SNAPSHOTS   donde vive el crudo (por defecto: snapshots/ de
+                          este mismo repo).
+  SONDEAR_DIR_DATA        donde viven catalogo.csv, eventos/ y
+                          corridas.csv (por defecto: data/ de este mismo
+                          repo).
+
+Cuando el workflow tiene configurado el repo privado, apunta AMBAS
+variables al checkout de ese repositorio (una carpeta que no es parte de
+ESTE repo) antes de correr este script -- asi que TODO lo que este script
+escribe (racionado o no) termina fisicamente afuera, y el "git add" de
+este repo publico nunca encuentra nada que comitear por accidente. Si el
+repo privado todavia no esta configurado, ambas variables quedan sin
+setear y todo se guarda donde siempre (snapshots/ y data/ de este mismo
+repo publico) -- asi este script sigue funcionando igual mientras terminas
+de configurar el repo privado.
+
+Ojo: esto NO cambia el racionamiento del crudo (evento real o cada 5
+minutos, ver arriba) -- guardar TODO sin filtrar pesaria demasiado incluso
+en un repo privado dedicado solo a esto. Lo que cambia es solo el destino.
+catalogo.csv, eventos/*.csv y corridas.csv en cambio SIEMPRE se escriben
+en cada corrida (nunca se racionan), esten donde esten.
+
+El repo privado tambien se limpia (solo el crudo, nunca catalogo/eventos/
+corridas, que son permanentes) y se compacta una vez al mes -- ver
+limpiar_crudos.py, limpiar.yml y compactar_privado.yml.
 
 --- NOTA SOBRE LOS CAMPOS NUEVOS DE POTENCIA Y CARGA SIMULTANEA ---
 Ademas de la potencia MAXIMA que ya se guardaba, el catalogo ahora tambien
@@ -158,13 +192,21 @@ HORAS_GRACIA_RETIRO = 24
 
 RAIZ = Path(__file__).resolve().parent.parent
 
-# El crudo vive en un repo privado aparte (ver docstring, "SOBRE DONDE VIVE
-# EL CRUDO"). SONDEAR_DIR_SNAPSHOTS la apunta ahi; si no esta seteada, se usa
-# snapshots/ dentro de este mismo repo (comportamiento de siempre).
+# Por defecto el crudo vive en snapshots/ de este mismo repo (comportamiento
+# de siempre). SONDEAR_DIR_SNAPSHOTS permite apuntarlo a otro lado -- ver
+# docstring, "SOBRE DONDE VIVE EL CRUDO", para el caso de uso real: el
+# workflow la apunta al checkout de un repositorio privado antes de correr
+# este script.
 _dir_snapshots_env = os.environ.get("SONDEAR_DIR_SNAPSHOTS")
 DIR_SNAPSHOTS = Path(_dir_snapshots_env) if _dir_snapshots_env else (RAIZ / "snapshots")
 
-DIR_DATA = RAIZ / "data"
+# Igual que DIR_SNAPSHOTS, pero para data/ (catalogo, eventos, corridas).
+# Por defecto vive en data/ de este mismo repo; SONDEAR_DIR_DATA permite
+# apuntarlo al mismo repositorio privado que el crudo, para que NINGUN dato
+# real -- ni el crudo ni lo ya procesado -- quede en un repo publico.
+_dir_data_env = os.environ.get("SONDEAR_DIR_DATA")
+DIR_DATA = Path(_dir_data_env) if _dir_data_env else (RAIZ / "data")
+
 ARCHIVO_CATALOGO = DIR_DATA / "catalogo.csv"
 DIR_EVENTOS = DIR_DATA / "eventos"          # un CSV por mes: eventos/2026-09.csv
 ARCHIVO_CORRIDAS = DIR_DATA / "corridas.csv"
@@ -358,9 +400,10 @@ def bajar_api() -> tuple[list | None, int | None, str | None, str | None]:
 
 def guardar_crudo(datos: list, momento: datetime) -> Path:
     """Guarda el JSON tal cual, comprimido, en DIR_SNAPSHOTS. Un archivo por
-    sondeo. Se llama solo cuando vale la pena (ver main()) o, si el
-    procesamiento fallo, siempre -- ahi es la unica forma de poder
-    reprocesar ese instante despues."""
+    sondeo. Se llama siempre que el repo privado esta configurado, o si no,
+    solo cuando vale la pena (ver main()) -- o, si el procesamiento fallo,
+    siempre -- ahi es la unica forma de poder reprocesar ese instante
+    despues."""
     carpeta = DIR_SNAPSHOTS / momento.strftime("%Y-%m-%d")
     carpeta.mkdir(parents=True, exist_ok=True)
     ruta = carpeta / f"{momento.strftime('%H%M')}.json.gz"
@@ -588,18 +631,24 @@ def main() -> int:
         escribir_csv(ARCHIVO_CATALOGO, COLUMNAS_CATALOGO, catalogo)
         agregar_csv(archivo_eventos_del_mes(momento), COLUMNAS_EVENTOS, eventos)
 
-        # El crudo NO se guarda en cada corrida (ver docstring, "SOBRE EL
-        # INTERVALO DE SONDEO"): solo cuando de verdad hubo un cambio de
-        # estado, o cada 5 minutos como respaldo minimo aunque no haya
-        # pasado nada. Asi el sondeo cada 1 minuto no multiplica por 5 lo
-        # que pesa snapshots/ (y, mas importante, el historial de git, que
-        # limpiar_crudos.py nunca reescribe) mientras el almacenamiento
-        # aparte del crudo no este listo.
+        # El crudo NO se guarda en cada corrida, tenga o no tenga configurado
+        # el repo privado (ver docstring, "SOBRE DONDE VIVE EL CRUDO" y
+        # "SOBRE EL INTERVALO DE SONDEO"): solo cuando de verdad hubo un
+        # cambio de estado, o cada 5 minutos como respaldo minimo aunque no
+        # haya pasado nada. Guardar TODO, cada 1 minuto sin filtrar, pesa
+        # demasiado incluso para un repo privado (a ese ritmo, ~280 MB por
+        # dia) -- lo que cambia con el repo privado configurado es SOLO el
+        # destino (donde vive DIR_SNAPSHOTS), no cuanto se guarda.
         vale_la_pena_guardar_crudo = bool(eventos) or momento.minute % 5 == 0
+        crudo_a_repo_privado = DIR_SNAPSHOTS != (RAIZ / "snapshots")
+
         ruta_crudo = None
+        registro_crudo = ""
         if vale_la_pena_guardar_crudo:
             ruta_crudo = guardar_crudo(datos, momento)
-            print(f"Crudo guardado: {ruta_crudo} ({ruta_crudo.stat().st_size/1024:.0f} KB)")
+            registro_crudo = _ruta_crudo_para_registrar(ruta_crudo)
+            destino = "repo privado" if crudo_a_repo_privado else "repo publico"
+            print(f"Crudo guardado ({destino}): {ruta_crudo} ({ruta_crudo.stat().st_size/1024:.0f} KB)")
         else:
             print("Sin cambios de estado y no toca respaldo periodico: no se guarda crudo esta corrida.")
 
@@ -607,7 +656,7 @@ def main() -> int:
             "timestamp": momento_iso, "ok": 1, "http_status": status,
             "n_locations": len(datos), "n_conectores": len(catalogo),
             "n_eventos_nuevos": len(eventos),
-            "archivo_crudo": _ruta_crudo_para_registrar(ruta_crudo) if ruta_crudo else "",
+            "archivo_crudo": registro_crudo,
         }])
         print(f"OK: {len(datos)} locations, {len(catalogo)} conectores, {len(eventos)} eventos nuevos")
         return 0
@@ -616,6 +665,8 @@ def main() -> int:
         # Aca SI se guarda el crudo pase lo que pase, sin importar si hubo
         # eventos o en que minuto estamos: si el procesamiento fallo, el
         # crudo es la UNICA forma de reprocesar este instante despues.
+        # Se guarda donde apunte DIR_SNAPSHOTS en ese momento (repo privado
+        # si esta configurado, si no el publico).
         ruta_crudo = guardar_crudo(datos, momento)
         agregar_csv(ARCHIVO_CORRIDAS, COLUMNAS_CORRIDAS, [{
             "timestamp": momento_iso, "ok": 0, "http_status": status,

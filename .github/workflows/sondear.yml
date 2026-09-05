@@ -18,22 +18,70 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Este repo (donde vive este workflow) es PUBLICO -- por eso corre
+      # gratis sin limite en GitHub Actions, sin importar la frecuencia.
+      # Estos pasos, que solo hacen algo si configuraste el secreto
+      # PRIVATE_REPO_TOKEN y la variable PRIVATE_REPO (ver LEEME.md),
+      # apuntan TODOS los datos (el crudo Y catalogo/eventos/corridas) a un
+      # repositorio privado aparte -- asi este repo publico nunca guarda
+      # ningun dato real, solo el codigo. Si no configuraste el repo
+      # privado todavia, se saltan solos y todo sigue igual que antes
+      # (datos en este mismo repo).
+      - name: Checkout del repo privado de datos (si esta configurado)
+        if: ${{ secrets.PRIVATE_REPO_TOKEN != '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.PRIVATE_REPO }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: datos-privados
+
+      - name: Apuntar el crudo y los datos al repo privado (si se hizo el checkout de arriba)
+        if: ${{ secrets.PRIVATE_REPO_TOKEN != '' }}
+        run: |
+          echo "SONDEAR_DIR_SNAPSHOTS=$GITHUB_WORKSPACE/datos-privados/snapshots" >> "$GITHUB_ENV"
+          echo "SONDEAR_DIR_DATA=$GITHUB_WORKSPACE/datos-privados/data" >> "$GITHUB_ENV"
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
       - run: pip install -r requirements.txt
 
-      - name: Sondear una vez y guardar
+      - name: Sondear una vez
+        run: python scripts/sondear.py || true
+
+      - name: Guardar en este repo publico lo que haya quedado aca (solo si el repo privado NO esta configurado)
         run: |
           git config user.name "cargadores-bot"
           git config user.email "actions@users.noreply.github.com"
 
-          python scripts/sondear.py || true
-
-          git add snapshots data
+          # Si el repo privado esta configurado, sondear.py escribio todo
+          # alla (fuera de este checkout) y estas carpetas ni existen aca
+          # -- "git add" sobre una carpeta que no existe falla duro, asi
+          # que se agrega solo lo que de verdad este presente.
+          for carpeta in snapshots data; do
+            [ -d "$carpeta" ] && git add "$carpeta"
+          done
           if git diff --cached --quiet; then
-            echo "Sin cambios que guardar."
+            echo "Sin cambios que guardar en el repo publico."
+          else
+            git commit -m "sondeo $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash origin main || true
+            git push || true
+          fi
+
+      - name: Guardar el crudo y los datos en el repo privado (si esta configurado)
+        if: ${{ secrets.PRIVATE_REPO_TOKEN != '' }}
+        working-directory: datos-privados
+        run: |
+          git config user.name "cargadores-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          for carpeta in snapshots data; do
+            [ -d "$carpeta" ] && git add "$carpeta"
+          done
+          if git diff --cached --quiet; then
+            echo "Sin datos nuevos que guardar en el repo privado."
           else
             git commit -m "sondeo $(date -u +%Y-%m-%dT%H:%MZ)"
             git pull --rebase --autostash origin main || true
