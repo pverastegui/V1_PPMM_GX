@@ -24556,3 +24556,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T04:31:06+00:00,1024,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:30:16.768138+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
 2026-09-05T04:32:10+00:00,1983,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-05T04:26:12.382557+00:00,DC,60,GB/T DC,Cargador Gasco Carrascal,Enerlink,(50-150],Quinta Normal,Metropolitana,Gasco GLP SA,Enerlink
 2026-09-05T04:32:10+00:00,8682,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T04:30:50.432169+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T04:33:09+00:00,692,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T01:55:32.060666+00:00,DC,50,CCS 2,Enex E-Pro Shell Colón Vespucio ,Enerlink,(22-50],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-05T04:33:09+00:00,15,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-05T04:32:23.180106+00:00,DC,50,CHAdeMO,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-05T04:33:09+00:00,16,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-05T04:32:23.180106+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-05T04:33:09+00:00,1024,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:31:37.538078+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-05T04:33:09+00:00,9128,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-02T22:17:22.497022+00:00,DC,125,CHAdeMO,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(50-150],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
