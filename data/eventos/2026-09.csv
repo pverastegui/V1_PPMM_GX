@@ -23980,3 +23980,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T02:49:20+00:00,6830,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T02:08:12.123268+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
 2026-09-05T02:49:20+00:00,1036,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T02:47:43.023868+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Carrascal ,Enel,(22-50],Cerro Navia,Metropolitana,Enel,Enel
 2026-09-05T02:49:20+00:00,7273,ENEL X,FUERA DE LINEA,NO DISPONIBLE,2026-09-05T02:48:15.635774+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
+2026-09-05T02:50:07+00:00,1660,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T02:49:24.888157+00:00,DC,120,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,(50-150],Vitacura,Metropolitana,Copec Voltex,Copec Voltex
