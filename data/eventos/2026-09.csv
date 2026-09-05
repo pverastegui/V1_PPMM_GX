@@ -24014,3 +24014,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T02:54:02+00:00,709,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T02:53:17.415046+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
 2026-09-05T02:54:02+00:00,25,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-05T02:52:43.068177+00:00,DC,50,CCS 2,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-05T02:54:02+00:00,1005,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T02:53:00.956835+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-05T02:55:04+00:00,1007,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T02:53:37.126945+00:00,DC,60,CCS 2,Enel X Way - Petrobras Rotonda Atenas,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-05T02:55:04+00:00,517,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T02:54:04.027581+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-05T02:55:04+00:00,9089,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T02:54:14.480863+00:00,DC,240,CCS 2,SAVE VOLTEX LAGUNA DE CHICUREO EDS 60288,Copec Voltex,150,Colina,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T02:55:04+00:00,16,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T02:54:15.839974+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-05T02:55:04+00:00,1021,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T02:53:35.179553+00:00,DC,160,CCS 2,Enel X Way-Parque Araucano.,Enel,150,Las Condes,Metropolitana,Enel,Enel
+2026-09-05T02:55:04+00:00,6838,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T02:54:02.935783+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Isabel La Católica,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
