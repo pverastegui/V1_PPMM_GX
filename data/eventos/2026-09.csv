@@ -24086,3 +24086,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T03:04:02+00:00,4786,ENEL X,DISPONIBLE,NO DISPONIBLE,2026-09-05T03:03:13.072308+00:00,DC,150,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
 2026-09-05T03:04:02+00:00,9379,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T03:03:15.724189+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60079 - COSTANERA NORTE KM 2,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T03:04:02+00:00,6041,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T03:03:23.235498+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-05T03:05:12+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T03:04:21.874306+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-05T03:05:12+00:00,436,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T03:04:02.569502+00:00,AC,7,Tipo 2,Parking Saba Pedro de Valdivia ,Enel,7,Providencia,Metropolitana,Enel,Enel
+2026-09-05T03:05:12+00:00,8682,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T03:03:41.388949+00:00,AC,22,Tipo 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(7-22],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T03:05:12+00:00,6042,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T03:03:38.079249+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
