@@ -24515,3 +24515,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T04:19:07+00:00,8814,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:18:22.371627+00:00,DC,30,CCS 2,Enel X - EDS Aramco Ciudad Satelite ,Enel,(22-50],Maipú,Metropolitana,Enel,Enel
 2026-09-05T04:19:07+00:00,1105,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-05T04:18:06.603580+00:00,AC,22,Tipo 2,Cargador BNUP Fernández Albano San Ramón,Copec Voltex,(7-22],San Ramón,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T04:19:07+00:00,729,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:15:41.307856+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
+2026-09-05T04:20:07+00:00,6826,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:18:27.599645+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Abadía,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-05T04:20:07+00:00,6041,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:18:53.646955+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-05T04:20:07+00:00,729,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:18:57.675543+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
