@@ -24512,3 +24512,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T04:18:19+00:00,9194,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T04:16:59.284259+00:00,DC,180,CCS 2,CARGADOR VOLTEX E/S COPEC PAJARITOS,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T04:18:19+00:00,4728,Enerlink Chile SpA,DISPONIBLE,OCUPADO,2026-09-04T00:05:42.160448+00:00,DC,50,CCS 2,Enex E-Pro Los Dominicos,Enerlink,(22-50],Las Condes,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-05T04:18:19+00:00,6837,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:17:08.513208+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Isabel La Católica,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-05T04:19:07+00:00,8814,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:18:22.371627+00:00,DC,30,CCS 2,Enel X - EDS Aramco Ciudad Satelite ,Enel,(22-50],Maipú,Metropolitana,Enel,Enel
+2026-09-05T04:19:07+00:00,1105,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-05T04:18:06.603580+00:00,AC,22,Tipo 2,Cargador BNUP Fernández Albano San Ramón,Copec Voltex,(7-22],San Ramón,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T04:19:07+00:00,729,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:15:41.307856+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Pedro Fontova,Enel,(22-50],Huechuraba,Metropolitana,Enel,Enel
