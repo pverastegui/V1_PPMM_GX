@@ -24543,3 +24543,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T04:27:07+00:00,7472,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T04:25:38.564622+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60711 - MACUL,Copec Voltex,150,Macul,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T04:28:11+00:00,6042,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:26:59.545045+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
 2026-09-05T04:28:11+00:00,322,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-02T05:51:10.994123+00:00,DC,50,CCS 2,Enex E-Pro Shell Maipo Poniente,Enerlink,(22-50],San Bernardo,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
+2026-09-05T04:29:10+00:00,6042,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:28:14.590973+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-05T04:29:10+00:00,9377,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T01:08:04.659893+00:00,DC,60,CCS 2,Enel X Way - Espacio Urbano La Laguna,Enel,(50-150],Colina,Metropolitana,Enel,Enel
+2026-09-05T04:29:10+00:00,6041,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:28:14.590973+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
+2026-09-05T04:29:10+00:00,1037,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:27:43.185115+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-05T04:29:10+00:00,1024,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:27:39.567980+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-05T04:29:10+00:00,728,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:28:01.503902+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
