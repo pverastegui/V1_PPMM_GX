@@ -24454,3 +24454,4 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T04:06:25+00:00,6822,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T04:05:43.819665+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
 2026-09-05T04:06:25+00:00,1088,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T04:04:50.788789+00:00,DC,50,CCS 2,SAVE VOLTEX 20089 PUERTO VARAS,Copec Voltex,(22-50],Puerto Varas,Los Lagos,Copec Voltex,Copec Voltex
 2026-09-05T04:06:25+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T04:05:17.112455+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T04:07:06+00:00,7469,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T04:06:02.824068+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60001 - PEDRO FONTOVA,Copec Voltex,150,Huechuraba,Metropolitana,Copec Voltex,Copec Voltex
