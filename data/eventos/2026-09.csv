@@ -23305,3 +23305,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T01:03:58+00:00,7318,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T01:03:15.900362+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T01:03:58+00:00,7367,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T01:03:01.628182+00:00,DC,240,CCS 2,COPEC VOLTEX TUNICHE,Copec Voltex,150,Rancagua,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
 2026-09-05T01:03:58+00:00,442,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T01:02:59.659691+00:00,AC,7,Tipo 2,Saba Plaza Mekis,Enel,7,Santiago,Metropolitana,Enel,Enel
+2026-09-05T01:04:59+00:00,7318,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T01:03:37.849572+00:00,DC,180,CCS 2,Estacion de Servicio Copec NOS,Copec Voltex,150,San Bernardo,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T01:04:59+00:00,8683,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T01:04:18.244166+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T01:04:59+00:00,6042,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T01:03:47.899173+00:00,DC,60,CCS 2,"Enel X, Aramco La Florida",Enel,(50-150],La Florida,Metropolitana,Enel,Enel
