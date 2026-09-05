@@ -23370,3 +23370,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T01:15:00+00:00,1659,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T01:14:03.284085+00:00,DC,120,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,(50-150],Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T01:15:00+00:00,319,ENEL X,NO DISPONIBLE,FUERA DE LINEA,2026-09-05T01:14:18.219525+00:00,AC,7,Tipo 2,Mc Donalds Kennedy,Enel,7,Las Condes,Metropolitana,Enel,Enel
 2026-09-05T01:15:00+00:00,10,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T01:14:15.988125+00:00,DC,50,CCS 2,COPEC Llay Llay,Copec Voltex,(22-50],Llaillay,Valparaíso,Copec Voltex,Copec Voltex
+2026-09-05T01:16:00+00:00,1037,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T01:14:51.198709+00:00,DC,60,CCS 2,Enel X Way - Petrobras Carrascal ,Enel,(50-150],Cerro Navia,Metropolitana,Enel,Enel
+2026-09-05T01:16:00+00:00,8109,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-05T01:15:26.050412+00:00,AC,150,Favor actualizar valor,ENEL X - PARQUE ARAUCO,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-05T01:16:00+00:00,1849,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T01:15:17.704010+00:00,AC,7.4,Tipo 2,Punto de carga MPD,Copec Voltex,7,Las Condes,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T01:16:00+00:00,346,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T01:15:04.639917+00:00,AC,22,Tipo 2,Williams Rebolledo,Copec Voltex,(7-22],Curacaví,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T01:16:00+00:00,347,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T01:15:04.639917+00:00,AC,22,Tipo 2,Williams Rebolledo,Copec Voltex,(7-22],Curacaví,Metropolitana,Copec Voltex,Copec Voltex
