@@ -23744,3 +23744,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T02:12:07+00:00,9127,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-02T22:17:22.497022+00:00,DC,50,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(22-50],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
 2026-09-05T02:12:07+00:00,1655,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T02:10:31.813954+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T02:12:07+00:00,708,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T02:10:26.410751+00:00,DC,150,CCS 2,Enel X Way - Petrobras 14 de La Fama,Enel,(50-150],Independencia,Metropolitana,Enel,Enel
+2026-09-05T02:13:01+00:00,22,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-05T02:11:48.544174+00:00,DC,50,CCS 2,COPEC Chillán,Copec Voltex,(22-50],Chillán Viejo,Ñuble,Copec Voltex,Copec Voltex
+2026-09-05T02:13:01+00:00,21,COPEC VOLTEX,DISPONIBLE,FUERA DE LINEA,2026-09-05T02:11:48.544174+00:00,DC,50,CHAdeMO,COPEC Chillán,Copec Voltex,(22-50],Chillán Viejo,Ñuble,Copec Voltex,Copec Voltex
