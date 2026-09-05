@@ -23957,3 +23957,8 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T02:47:04+00:00,512,ENEL X,NO DISPONIBLE,DISPONIBLE,2026-09-05T02:46:13.275815+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
 2026-09-05T02:47:04+00:00,8857,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T02:45:41.104627+00:00,DC,180,CCS 2,VOLTEX LOS TRAPENSES,Copec Voltex,150,Lo Barnechea,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T02:47:04+00:00,1023,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T02:45:58.951354+00:00,DC,150,GB/T DC,Enel X Way-Parque Araucano.,Enel,(50-150],Las Condes,Metropolitana,Enel,Enel
+2026-09-05T02:48:04+00:00,1005,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-05T02:46:56.488203+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
+2026-09-05T02:48:04+00:00,611,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T02:47:15.763887+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-05T02:48:04+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T02:47:15.763887+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-05T02:48:04+00:00,7775,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T02:47:08.726455+00:00,DC,240,CCS 2,SAVE VOLTEX SAN PABLO EDS 60077,Copec Voltex,150,Quinta Normal,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T02:48:04+00:00,9130,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-08-28T15:10:22.128521+00:00,DC,148.96,CCS 2,Electrolinera ENEX Portugal 175 Santiago File 647,Enerlink,(50-150],Santiago,Metropolitana,EMPRESA NACIONAL DE ENERGIA EN,Enerlink
