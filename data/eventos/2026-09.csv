@@ -23491,3 +23491,7 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T01:33:02+00:00,708,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T01:31:50.691638+00:00,DC,150,CCS 2,Enel X Way - Petrobras 14 de La Fama,Enel,(50-150],Independencia,Metropolitana,Enel,Enel
 2026-09-05T01:33:02+00:00,7360,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T01:31:37.516311+00:00,DC,240,CCS 2,COPEC VOLTEX EDS 60220 - ALBERTO LLONA,Copec Voltex,150,Maipú,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T01:33:02+00:00,4748,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T01:31:39.513041+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60050 - VITACURA,Copec Voltex,150,Vitacura,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T01:34:01+00:00,514,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T01:33:10.736010+00:00,DC,50,CHAdeMO,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-05T01:34:01+00:00,8738,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T01:33:10.636086+00:00,DC,50,CHAdeMO,Enel X Way - ISA Intervial Los Lagartos,Enel,(22-50],Mostazal,Libertador Bernardo OHiggins,Enel,Enel
+2026-09-05T01:34:01+00:00,517,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T01:32:52.679584+00:00,DC,60,CCS 2,Estación de Servicio Enel X Station,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-05T01:34:01+00:00,6831,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T01:33:07.576920+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
