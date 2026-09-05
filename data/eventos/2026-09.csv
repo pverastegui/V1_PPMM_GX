@@ -22993,3 +22993,5 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T00:18:56+00:00,3157,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T00:18:12.191461+00:00,DC,60,CCS 2,Enel X - EDS ARAMCO Vitacura ,Enel,(50-150],Vitacura,Metropolitana,Enel,Enel
 2026-09-05T00:18:56+00:00,612,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T00:18:12.308378+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-05T00:18:56+00:00,8878,ENEL X,DISPONIBLE,OCUPADO,2026-09-03T18:40:06.787844+00:00,DC,30,CCS 2,McDonald's Macul,Enel,(22-50],Macul,Metropolitana,Enel,Enel
+2026-09-05T00:19:57+00:00,512,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T00:18:27.562576+00:00,DC,50,CCS 2,Estación de Servicio Enel X Station,Enel,(22-50],Pudahuel,Metropolitana,Enel,Enel
+2026-09-05T00:19:57+00:00,7272,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T00:18:44.487706+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
