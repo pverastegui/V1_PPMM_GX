@@ -24448,3 +24448,9 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T04:04:06+00:00,8844,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:03:25.192459+00:00,DC,60,CHAdeMO,Enel X - EDS Aramco Chicureo,Enel,(50-150],Colina,Metropolitana,Enel,Enel
 2026-09-05T04:05:08+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T04:03:53.688248+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
 2026-09-05T04:05:08+00:00,8181,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:03:31.423580+00:00,DC,60,CCS 2,IRVE Petrobras Príncipe de Gales,Enel,(50-150],La Reina,Metropolitana,Enel,Enel
+2026-09-05T04:06:25+00:00,8683,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T04:05:17.112455+00:00,DC,50,CHAdeMO,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T04:06:25+00:00,6823,ENEL X,OCUPADO,FUERA DE LINEA,2026-09-05T04:05:43.819665+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-05T04:06:25+00:00,3220,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T04:05:18.403742+00:00,DC,180,CCS 2,COPEC VOLTEX EDS 60312 - RUTA 68,Copec Voltex,150,Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
+2026-09-05T04:06:25+00:00,6822,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T04:05:43.819665+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-05T04:06:25+00:00,1088,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T04:04:50.788789+00:00,DC,50,CCS 2,SAVE VOLTEX 20089 PUERTO VARAS,Copec Voltex,(22-50],Puerto Varas,Los Lagos,Copec Voltex,Copec Voltex
+2026-09-05T04:06:25+00:00,8684,COPEC VOLTEX,OCUPADO,DISPONIBLE,2026-09-05T04:05:17.112455+00:00,DC,50,CCS 2,"Copec Costanera Norte, Pudahuel",Copec Voltex,(22-50],Pudahuel,Metropolitana,Copec Voltex,Copec Voltex
