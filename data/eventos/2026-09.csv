@@ -24004,3 +24004,13 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T02:53:07+00:00,1660,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T02:52:13.788120+00:00,DC,120,CCS 2,COPEC VOLTEX EDS 60741 - COSTANERA NORTE,Copec Voltex,(50-150],Vitacura,Metropolitana,Copec Voltex,Copec Voltex
 2026-09-05T02:53:07+00:00,7273,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T02:51:21.727875+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pajaritos ,Enel,(50-150],Maipú,Metropolitana,Enel,Enel
 2026-09-05T02:53:07+00:00,8861,Enerlink Chile SpA,OCUPADO,DISPONIBLE,2026-09-05T02:51:38.323314+00:00,DC,120,GB/T DC,Cargador Gasco Cueto,Enerlink,(50-150],Santiago,Metropolitana,Gasco GLP SA,Enerlink
+2026-09-05T02:54:02+00:00,4025,COPEC VOLTEX,FUERA DE LINEA,OCUPADO,2026-09-05T02:52:30.219990+00:00,DC,180,CCS 2,COPEC VOLTEX  - EDS 20830 - COYHAIQUE,Copec Voltex,150,Coyhaique,Aysén del General Carlos Ibáñez del Campo,Copec Voltex,Copec Voltex
+2026-09-05T02:54:02+00:00,24,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-05T02:52:43.068177+00:00,DC,50,CHAdeMO,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-05T02:54:02+00:00,7255,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T02:53:03.971071+00:00,DC,60,CCS 2,Enel X Way - Petrobras José Arrieta,Enel,(50-150],Penalolén,Metropolitana,Enel,Enel
+2026-09-05T02:54:02+00:00,6829,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T02:33:12.631635+00:00,DC,60,CCS 2,Enel X - EDS Aramco Eliodoro Yañez,Enel,(50-150],Providencia,Metropolitana,Enel,Enel
+2026-09-05T02:54:02+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T02:53:19.916009+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-05T02:54:02+00:00,16,COPEC VOLTEX,DISPONIBLE,OCUPADO,2026-09-05T02:53:11.553548+00:00,DC,50,CCS 2,COPEC Parral,Copec Voltex,(22-50],Parral,Maule,Copec Voltex,Copec Voltex
+2026-09-05T02:54:02+00:00,612,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T02:53:19.916009+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-05T02:54:02+00:00,709,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T02:53:17.415046+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras 14 de La Fama,Enel,(22-50],Independencia,Metropolitana,Enel,Enel
+2026-09-05T02:54:02+00:00,25,COPEC VOLTEX,FUERA DE LINEA,DISPONIBLE,2026-09-05T02:52:43.068177+00:00,DC,50,CCS 2,COPEC Mostazal Poniente,Copec Voltex,(22-50],Mostazal,Libertador Bernardo OHiggins,Copec Voltex,Copec Voltex
+2026-09-05T02:54:02+00:00,1005,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T02:53:00.956835+00:00,DC,50,CHAdeMO,Enel X Way - Petrobras Rotonda Atenas,Enel,(22-50],Las Condes,Metropolitana,Enel,Enel
