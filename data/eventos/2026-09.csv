@@ -24478,3 +24478,6 @@ timestamp_deteccion,connector_id,operator_name,estado_anterior,estado_nuevo,api_
 2026-09-05T04:10:13+00:00,608,ENEL X,DISPONIBLE,OCUPADO,2026-09-05T04:09:50.391710+00:00,DC,60,CCS 2,Enel X WAY - Espacio Urbano Antofagasta,Enel,(50-150],Antofagasta,Antofagasta,Enel,Enel
 2026-09-05T04:10:13+00:00,728,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:08:57.663319+00:00,DC,60,CCS 2,Enel X Way - Petrobras Pedro Fontova,Enel,(50-150],Huechuraba,Metropolitana,Enel,Enel
 2026-09-05T04:10:13+00:00,611,ENEL X,DISPONIBLE,FUERA DE LINEA,2026-09-05T04:09:35.137897+00:00,DC,60,CCS 2,Enel x way - Tottus Nataniel Cox (Santiago),Enel,(50-150],Santiago,Metropolitana,Enel,Enel
+2026-09-05T04:11:07+00:00,6823,ENEL X,OCUPADO,DISPONIBLE,2026-09-05T04:10:00.303215+00:00,DC,60,CCS 2,Enel X - EDS Petrobras Pintor Cicarelli,Enel,(50-150],San Joaquín,Metropolitana,Enel,Enel
+2026-09-05T04:11:07+00:00,4782,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T04:10:12.038356+00:00,DC,150,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
+2026-09-05T04:11:07+00:00,4783,ENEL X,FUERA DE LINEA,DISPONIBLE,2026-09-05T04:10:12.038356+00:00,DC,150,CCS 2,Enel X Way - Bodega San Francisco,Enel,(50-150],Pudahuel,Metropolitana,Enel,Enel
