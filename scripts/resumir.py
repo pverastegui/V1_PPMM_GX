@@ -34,6 +34,7 @@ America/Santiago antes de sacar la fecha.
 from __future__ import annotations
 
 import csv
+import os
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -46,7 +47,7 @@ except Exception:  # pragma: no cover - si falta la base de datos de zonas
     TZ_CHILE = None
 
 RAIZ = Path(__file__).resolve().parent.parent
-DIR_DATA = RAIZ / "data"
+DIR_DATA = Path(os.environ.get("SONDEAR_DIR_DATA", str(RAIZ / "data")))
 DIR_EVENTOS = DIR_DATA / "eventos"
 ARCHIVO_CATALOGO = DIR_DATA / "catalogo.csv"
 SALIDA_DIARIO = DIR_DATA / "resumen_diario.csv"

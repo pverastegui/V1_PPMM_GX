@@ -15,14 +15,47 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: write
+    env:
+      HAY_REPO_PRIVADO: ${{ secrets.PRIVATE_REPO_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Checkout del repo privado de datos (si esta configurado)
+        if: ${{ env.HAY_REPO_PRIVADO == 'true' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.PRIVATE_REPO }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: datos-privados
+
+      - name: Apuntar al catalogo y los eventos del repo privado (si esta configurado)
+        if: ${{ env.HAY_REPO_PRIVADO == 'true' }}
+        run: echo "SONDEAR_DIR_DATA=$GITHUB_WORKSPACE/datos-privados/data" >> "$GITHUB_ENV"
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Generar los resumenes
         run: python scripts/resumir.py
-      - name: Guardar los cambios
+
+      - name: Guardar los cambios en este repo publico (solo si el repo privado NO esta configurado)
+        if: ${{ env.HAY_REPO_PRIVADO != 'true' }}
+        run: |
+          git config user.name "cargadores-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/resumen_diario.csv data/resumen_parque.csv
+          if git diff --cached --quiet; then
+            echo "Sin cambios en los resumenes."
+          else
+            git commit -m "resumen $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash origin main || true
+            git push
+          fi
+
+      - name: Guardar los resumenes en el repo privado (si esta configurado)
+        if: ${{ env.HAY_REPO_PRIVADO == 'true' }}
+        working-directory: datos-privados
         run: |
           git config user.name "cargadores-bot"
           git config user.email "actions@users.noreply.github.com"
