@@ -1,0 +1,116 @@
+name: Respaldo mensual y compactacion del repo privado
+
+# Este workflow hace DOS cosas, una vez al mes, SOLO sobre el repo PRIVADO
+# de datos (nunca sobre el publico):
+#
+# 1. RESPALDO: empaqueta todo lo que hay guardado ese mes -- snapshots/
+#    (crudo, ya acotado a 30 dias por limpiar.yml) Y data/ (catalogo,
+#    eventos, corridas, que nunca se borran) -- en un solo archivo, y lo
+#    publica como un "Release" de GitHub en el repo privado. Un Release es
+#    independiente del historial normal de git -- sobrevive a la
+#    compactacion del paso 2 y sirve como respaldo de largo plazo, aparte
+#    de la ventana de 30 dias del crudo. Como creas el Release con tu
+#    propia cuenta (el token es tuyo), GitHub deberia notificarte por
+#    correo -- pero esto depende de tu configuracion de notificaciones (ver
+#    LEEME.md): GitHub a veces no avisa por acciones que hiciste "tu
+#    mismo". El archivo queda guardado en el Release de todas formas,
+#    llegue o no el correo.
+#
+# 2. COMPACTACION: limpiar_crudos.py borra las carpetas viejas del ARBOL de
+#    trabajo, pero un "git rm" + commit no libera espacio del HISTORIAL de
+#    git -- los archivos borrados quedan enterrados para siempre en commits
+#    viejos, y el repositorio (su carpeta .git) sigue creciendo sin limite
+#    aunque el arbol actual este acotado a 30 dias. Este paso reinicia el
+#    historial: crea un commit nuevo que contiene UNICAMENTE lo que existe
+#    hoy en el arbol (snapshots/ Y data/) y reemplaza toda la rama
+#    principal por ese commit unico. Es seguro hacerlo aca porque el repo
+#    privado no tiene otro contenido ni otra historia que valga la pena
+#    conservar por si misma -- es solo un deposito de datos (y, ahora, de
+#    Releases mensuales aparte, que no se tocan). data/ no pierde ningun
+#    dato con esto: catalogo/eventos/corridas nunca se borran del arbol, asi
+#    que su contenido ACTUAL queda intacto en el commit nuevo -- lo unico
+#    que se descarta es el historial de commits viejo (el detalle de como
+#    fue cambiando con el tiempo), no el contenido de hoy.
+#
+# Requiere que el repo privado NO tenga reglas de proteccion de rama que
+# bloqueen el push forzado (por defecto, un repo nuevo no las tiene).
+
+on:
+  schedule:
+    - cron: "30 6 1 * *"   # el dia 1 de cada mes, 06:30 UTC
+  workflow_dispatch: {}
+
+jobs:
+  respaldar_y_compactar:
+    if: ${{ vars.PRIVATE_REPO != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout del repo publico (para tener el script de limpieza)
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Checkout del repo privado, CON todo su historial
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.PRIVATE_REPO }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: datos-privados
+          fetch-depth: 0
+
+      - name: Aplicar la retencion del crudo antes de respaldar y compactar (por las dudas)
+        env:
+          SONDEAR_DIR_SNAPSHOTS: ${{ github.workspace }}/datos-privados/snapshots
+          LIMPIAR_DIAS_RETENCION: "30"
+        run: python scripts/limpiar_crudos.py
+
+      - name: Publicar el respaldo del mes como Release (antes de compactar)
+        working-directory: datos-privados
+        env:
+          GH_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+        run: |
+          if [ ! -d snapshots ] && [ ! -d data ]; then
+            echo "No hay nada guardado todavia, no se publica respaldo este mes."
+          else
+            ETIQUETA="respaldo-$(date -u +%Y-%m)"
+            ARCHIVO="respaldo-$(date -u +%Y-%m).tar.gz"
+            if gh release view "$ETIQUETA" --repo "${{ vars.PRIVATE_REPO }}" >/dev/null 2>&1; then
+              echo "Ya existe el respaldo de $ETIQUETA, no se crea de nuevo."
+            else
+              CARPETAS=""
+              [ -d snapshots ] && CARPETAS="$CARPETAS snapshots"
+              [ -d data ] && CARPETAS="$CARPETAS data"
+              tar -czf "../$ARCHIVO" $CARPETAS
+              echo "Respaldo armado: ../$ARCHIVO ($(du -h "../$ARCHIVO" | cut -f1))"
+              gh release create "$ETIQUETA" "../$ARCHIVO" \
+                --repo "${{ vars.PRIVATE_REPO }}" \
+                --title "Respaldo de $(date -u +%Y-%m)" \
+                --notes "Respaldo mensual automatico: crudo (retencion de 30 dias) y catalogo/eventos/corridas completos, antes de compactar el historial de git."
+              echo "Release publicado: $ETIQUETA"
+            fi
+          fi
+
+      - name: Reiniciar el historial dejando solo el arbol actual
+        working-directory: datos-privados
+        run: |
+          git config user.name "cargadores-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          RAMA_PRINCIPAL=$(git rev-parse --abbrev-ref HEAD)
+          echo "Rama principal detectada: $RAMA_PRINCIPAL"
+
+          git checkout --orphan compactado_temporal
+          git add -A
+
+          if git commit -m "compactacion mensual: se descarta el historial viejo, se conserva solo el arbol actual"; then
+            git branch -D "$RAMA_PRINCIPAL"
+            git branch -m "$RAMA_PRINCIPAL"
+            git push --force origin "$RAMA_PRINCIPAL"
+            echo "Historial compactado en la rama $RAMA_PRINCIPAL."
+          else
+            echo "Repo privado vacio (o nada que compactar), no se toca el historial."
+            git checkout "$RAMA_PRINCIPAL"
+          fi

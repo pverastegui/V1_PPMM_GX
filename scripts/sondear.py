@@ -1,0 +1,683 @@
+#!/usr/bin/env python3
+"""
+SONDEO DE LA RED DE CARGADORES PUBLICOS DE CHILE
+Fuente: https://cargadorespublicos.cl/api/data
+(Plataforma de interoperabilidad SEC, Decreto Supremo N12 - Ministerio de Energia)
+
+Este script corre UNA VEZ por ejecucion (lo dispara GitHub Actions cada 1
+minuto -- ver "SOBRE EL INTERVALO DE SONDEO" mas abajo). Hace, en este
+orden:
+
+  1. Baja la API.
+  2. Compara contra el estado anterior (data/catalogo.csv) y anota los cambios de
+     estado en data/eventos/AAAA-MM.csv.
+  3. GUARDA EL CRUDO tal cual vino, comprimido, en snapshots/<fecha>/<hora>.json.gz
+     -- pero no en cada corrida: solo si hubo un cambio de estado real, o cada
+     5 minutos como respaldo minimo (ver "SOBRE EL INTERVALO DE SONDEO"). Si el
+     procesamiento fallara antes de llegar aca, el crudo se guarda igual, sin
+     excepcion, para poder reprocesar despues.
+  4. Registra la corrida (exitosa o fallida) en data/corridas.csv.
+
+Todo en CSV a proposito: se abren directo en Google Sheets o Excel, sin
+herramientas extra.
+
+--- ARCHIVOS QUE MANEJA ---
+
+snapshots/AAAA-MM-DD/HHMM.json.gz
+    El crudo, sin tocar. Un archivo por sondeo.
+
+data/catalogo.csv
+    Una fila por conector visto alguna vez. Se REESCRIBE completo cada corrida.
+    Guarda el estado actual de cada conector, que es lo que permite detectar
+    cambios en la corrida siguiente.
+
+data/eventos/AAAA-MM.csv
+    Log de cambios de estado, UN ARCHIVO POR MES. Solo se AGREGAN filas, nunca se
+    borra nada. Se parte por mes para que cada archivo siga siendo chico y se
+    pueda importar a Google Sheets sin problemas (un CSV de un año entero no
+    entraria).
+    Las columnas A-L son EXACTAMENTE las que espera la planilla de Paula, en el
+    mismo orden, para que sus formulas sigan funcionando sin cambios:
+      A timestamp_deteccion   G power_type
+      B connector_id          H max_electric_power
+      C operator_name         I standard
+      D estado_anterior       J location_name
+      E estado_nuevo          K operador_agrupado   <- antes era ARRAYFORMULA/BUSCARV
+      F api_last_updated      L tramo_potencia      <- antes era ARRAYFORMULA anidada
+    K y L ahora vienen calculadas desde aca, asi que en la planilla ya no hace
+    falta mantener esas dos formulas (eran las mas fragiles).
+
+data/corridas.csv
+    Una fila por ejecucion, con ok=1/0 y el error si hubo. Sirve para saber si el
+    pipeline se cayo en algun momento sin tener que revisar logs de GitHub.
+
+mapeo_operadores.csv
+    Tabla editable A MANO para agrupar razones sociales distintas del mismo
+    operador (el equivalente a la hoja MapeoOperadores). Si un operador no esta
+    en la tabla, se usa su nombre tal cual (no rompe nada).
+
+--- LAS TRES FORMAS DE ATRIBUIR UN CONECTOR ---
+La API identifica tres actores distintos por cada location, y dan numeros
+distintos. Se guardan los tres para poder mirar el mercado de las tres formas:
+
+  owner  -> de quien es la instalacion. Es el campo MAS COMPLETO: casi no tiene
+            vacios (0,8% sin informar contra 12% del OPC).
+  OPC    -> quien opera el punto de carga (la "red"). Es la definicion habitual
+            de participacion de mercado, pero deja ~12% en "Sin Operador Informado".
+  PSE    -> quien le vende la carga al usuario final. Es una LISTA (hoy ninguna
+            location trae mas de uno; si llegaran varios se juntan con " + ").
+
+--- NOTA SOBRE institucion_privada ---
+El script viejo descartaba las locations con institucion_privada = true. Ese campo
+indica si el SITIO pertenece a una institucion privada (un mall, una gasolinera),
+no si el operador es publico o privado. Filtrar por el descartaba ~22% de las
+locations, incluido 11% de las de Copec Voltex. Aca NO se filtra: la columna se
+guarda en el catalogo por si algun dia la quieren usar, pero no descarta filas.
+
+--- NOTA SOBRE EL RESCATE POR PALABRA CLAVE (palabras_clave_marca.csv) ---
+El operador agrupado usa OPC si esta informado, si no cae al owner (ver arriba).
+Pero hay casos reales donde ni OPC ni owner reflejan la marca real (un cargador
+Copec en un sitio cuyo owner es una municipalidad o un mall). Para esos casos,
+ANTES de caer al owner, se busca una palabra clave conocida (COPEC, ENEL, etc.)
+en el NOMBRE de la ubicacion -- ver palabras_clave_marca.csv. Esto NUNCA se
+aplica si el OPC SI esta informado: el OPC es el dato oficial (registro SEC) y
+no se pisa con un texto. Si el archivo no existe, el rescate queda apagado
+(cae al owner como antes) y se avisa fuerte en los logs.
+
+--- SOBRE EL INTERVALO DE SONDEO ---
+Antes se sondeaba cada 5 minutos. Eso dejaba un "hueco ciego" de hasta 5
+minutos entre una foto y la siguiente: si un auto entraba y otro salia del
+mismo conector dentro de ese hueco, la sesion quedaba invisible -- se
+verifico comparando contra las transacciones reales que varias cargas
+cortas se pierden asi.
+
+La solucion de fondo es: sondear mas seguido (achica el hueco), pero
+guardar el snapshot crudo completo de CADA sondeo solo en un almacenamiento
+PRIVADO aparte -- porque guardarlo siempre en este repo, que es publico,
+multiplicaria varias veces lo que pesa snapshots/ para siempre en el
+historial de git (limpiar_crudos.py borra del arbol pero NO reescribe el
+historial). Ver "SOBRE DONDE VIVE EL CRUDO" mas abajo para el mecanismo.
+
+El disparador de Apps Script solo ofrece intervalos fijos (1, 5, 10, 15 o
+30 minutos -- no hay "cada 2" ni "cada 3"), asi que el sondeo pasa derecho
+a CADA 1 MINUTO. Guardar el crudo COMPLETO en cada una de esas corridas,
+sin filtrar, pesaria demasiado incluso en un repositorio privado dedicado
+solo a esto (a ese ritmo, unos 280 MB por dia) -- asi que el crudo NO se
+guarda en cada corrida, viva donde viva (ver "SOBRE DONDE VIVE EL CRUDO"
+mas abajo): solo cuando esta corrida detecto al menos un cambio de estado
+real (eventos no vacio) -- asi el contexto completo de ESE instante queda
+archivado -- o si no, igual cada 5 minutos, como respaldo periodico
+minimo, aunque no haya pasado nada.
+
+Los archivos importantes (catalogo.csv, eventos/*.csv) se escriben en
+TODAS las corridas sin excepcion -- lo que se ahorra es solo el respaldo
+crudo de las corridas "sin novedad" que caen fuera de esos dos casos. Si
+el procesamiento de una corrida FALLA (excepcion), el crudo se guarda
+igual pase lo que pase: ahi es cuando mas se necesita, porque es la unica
+forma de reprocesar ese instante despues.
+
+--- SOBRE DONDE VIVE EL CRUDO Y LOS DATOS (repo privado en GitHub) ---
+Este repositorio (donde vive este script) es PUBLICO -- lo puede ver
+cualquiera, incluida la competencia. Por eso NINGUN dato real (ni el
+crudo, ni catalogo.csv, ni los eventos, ni corridas.csv) deberia quedar
+guardado aca: este repo es solo el codigo (los scripts, los workflows, las
+pruebas). Todos los datos de verdad viven en un repositorio PRIVADO
+aparte, que solo pueden ver quienes tu invites.
+
+Esto se logra con dos variables de entorno, que el workflow configura
+solo (ver .github/workflows/sondear.yml y LEEME.md para la guia paso a
+paso de como crear y conectar ese repo privado):
+
+  SONDEAR_DIR_SNAPSHOTS   donde vive el crudo (por defecto: snapshots/ de
+                          este mismo repo).
+  SONDEAR_DIR_DATA        donde viven catalogo.csv, eventos/ y
+                          corridas.csv (por defecto: data/ de este mismo
+                          repo).
+
+Cuando el workflow tiene configurado el repo privado, apunta AMBAS
+variables al checkout de ese repositorio (una carpeta que no es parte de
+ESTE repo) antes de correr este script -- asi que TODO lo que este script
+escribe (racionado o no) termina fisicamente afuera, y el "git add" de
+este repo publico nunca encuentra nada que comitear por accidente. Si el
+repo privado todavia no esta configurado, ambas variables quedan sin
+setear y todo se guarda donde siempre (snapshots/ y data/ de este mismo
+repo publico) -- asi este script sigue funcionando igual mientras terminas
+de configurar el repo privado.
+
+Ojo: esto NO cambia el racionamiento del crudo (evento real o cada 5
+minutos, ver arriba) -- guardar TODO sin filtrar pesaria demasiado incluso
+en un repo privado dedicado solo a esto. Lo que cambia es solo el destino.
+catalogo.csv, eventos/*.csv y corridas.csv en cambio SIEMPRE se escriben
+en cada corrida (nunca se racionan), esten donde esten.
+
+El repo privado tambien se limpia (solo el crudo, nunca catalogo/eventos/
+corridas, que son permanentes) y se compacta una vez al mes -- ver
+limpiar_crudos.py, limpiar.yml y compactar_privado.yml.
+
+--- NOTA SOBRE LOS CAMPOS NUEVOS DE POTENCIA Y CARGA SIMULTANEA ---
+Ademas de la potencia MAXIMA que ya se guardaba, el catalogo ahora tambien
+guarda, por conector: el formato (CABLE/SOCKET), el voltaje/amperaje maximos
+que soporta, y los valores EN VIVO de este sondeo (voltaje, amperaje, potencia
+actual y % de bateria -- la senal mas directa de que hay un auto cargando
+ahi mismo). Y por cargador (evse): si permite_carga_simultanea (sus conectores
+se pueden usar al mismo tiempo o no).
+"""
+
+from __future__ import annotations
+
+import csv
+import gzip
+import json
+import os
+import sys
+import time
+import traceback
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+try:
+    import requests
+except ImportError:
+    requests = None
+
+# ---------------------------------------------------------------- configuracion
+
+API_URL = "https://cargadorespublicos.cl/api/data"
+TIMEOUT_S = 30
+REINTENTOS = 3
+ESPERA_ENTRE_REINTENTOS_S = 5  # se duplica: 5s, 10s
+
+# Horas que un conector puede estar ausente de la API antes de marcarlo retirado.
+HORAS_GRACIA_RETIRO = 24
+
+RAIZ = Path(__file__).resolve().parent.parent
+
+# Por defecto el crudo vive en snapshots/ de este mismo repo (comportamiento
+# de siempre). SONDEAR_DIR_SNAPSHOTS permite apuntarlo a otro lado -- ver
+# docstring, "SOBRE DONDE VIVE EL CRUDO", para el caso de uso real: el
+# workflow la apunta al checkout de un repositorio privado antes de correr
+# este script.
+_dir_snapshots_env = os.environ.get("SONDEAR_DIR_SNAPSHOTS")
+DIR_SNAPSHOTS = Path(_dir_snapshots_env) if _dir_snapshots_env else (RAIZ / "snapshots")
+
+# Igual que DIR_SNAPSHOTS, pero para data/ (catalogo, eventos, corridas).
+# Por defecto vive en data/ de este mismo repo; SONDEAR_DIR_DATA permite
+# apuntarlo al mismo repositorio privado que el crudo, para que NINGUN dato
+# real -- ni el crudo ni lo ya procesado -- quede en un repo publico.
+_dir_data_env = os.environ.get("SONDEAR_DIR_DATA")
+DIR_DATA = Path(_dir_data_env) if _dir_data_env else (RAIZ / "data")
+
+ARCHIVO_CATALOGO = DIR_DATA / "catalogo.csv"
+DIR_EVENTOS = DIR_DATA / "eventos"          # un CSV por mes: eventos/2026-09.csv
+ARCHIVO_CORRIDAS = DIR_DATA / "corridas.csv"
+ARCHIVO_MAPEO = RAIZ / "mapeo_operadores.csv"
+ARCHIVO_PALABRAS_CLAVE = RAIZ / "palabras_clave_marca.csv"
+
+# Las 12 primeras columnas son las que usa la planilla (A-L). Lo que se agregue
+# despues de la L no rompe nada; lo que se agregue ANTES si.
+COLUMNAS_EVENTOS = [
+    "timestamp_deteccion",   # A
+    "connector_id",          # B
+    "operator_name",         # C
+    "estado_anterior",       # D
+    "estado_nuevo",          # E
+    "api_last_updated",      # F
+    "power_type",            # G
+    "max_electric_power",    # H
+    "standard",              # I
+    "location_name",         # J
+    "operador_agrupado",     # K  (= la vista OPC, la de siempre)
+    "tramo_potencia",        # L
+    "commune",               # M
+    "region",                # N
+    # De la O en adelante: las otras dos formas de atribuir el conector.
+    # Van DESPUES de la N para no correr de lugar nada de la planilla.
+    "owner_agrupado",        # O
+    "pse_agrupado",          # P
+]
+
+COLUMNAS_CATALOGO = [
+    "connector_id", "evse_uid", "location_id", "location_name", "commune", "region",
+    "operator_rut", "operator_name", "operador_agrupado", "standard", "power_type",
+    "max_electric_power", "tramo_potencia", "parking_type", "institucion_privada",
+    "uso_exclusivo", "estado_actual", "estado_desde", "api_last_updated",
+    "primera_vez_visto", "ultima_vez_visto_api", "activo",
+    # Las tres formas de atribuir un conector a una empresa (ver docstring):
+    "owner_name", "owner_rut", "owner_agrupado",
+    "pse_name", "pse_rut", "pse_agrupado",
+    # Nuevo: carga simultanea (del cargador) y datos de potencia del conector,
+    # tanto los MAXIMOS que soporta como los valores EN VIVO de este sondeo.
+    "permite_carga_simultanea", "formato", "voltaje_maximo", "amperaje_maximo",
+    "voltaje_actual", "amperaje_actual", "potencia_actual_kw", "porcentaje_bateria",
+    "integrado",
+]
+
+COLUMNAS_CORRIDAS = [
+    "timestamp", "ok", "http_status", "n_locations", "n_conectores",
+    "n_eventos_nuevos", "archivo_crudo", "error_tipo", "error_mensaje",
+]
+
+
+# ------------------------------------------------------------------- utilidades
+
+def ahora_iso() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def tramo_potencia(kw) -> str:
+    """Misma clasificacion que la planilla. OJO: el tramo mas alto se escribe
+    '150' a secas, NUNCA '>150' — Sheets interpreta el '>' como una condicion
+    matematica y los conteos de ese tramo dan cero."""
+    try:
+        kw = float(kw)
+    except (TypeError, ValueError):
+        return "desconocido"
+    if kw <= 8:
+        return "7"
+    if kw <= 22:
+        return "(7-22]"
+    if kw <= 50:
+        return "(22-50]"
+    if kw <= 150:
+        return "(50-150]"
+    return "150"
+
+
+def cargar_mapeo_operadores() -> dict:
+    """Lee mapeo_operadores.csv -> {nombre_original: nombre_agrupado}.
+    Si el archivo no existe, devuelve vacio (y cada operador queda con su
+    nombre) -- pero avisa fuerte, con la ruta absoluta: que este archivo
+    falle en silencio ya nos paso una vez y costo caro detectarlo."""
+    ruta_absoluta = ARCHIVO_MAPEO.resolve()
+    if not ARCHIVO_MAPEO.exists():
+        print(f"*** ALERTA: no encontre {ruta_absoluta} -- sigo SIN agrupar "
+              f"nombres de operador. ***", file=sys.stderr)
+        return {}
+    mapeo = {}
+    with ARCHIVO_MAPEO.open(encoding="utf-8-sig", newline="") as f:
+        for fila in csv.DictReader(f):
+            original = (fila.get("nombre_original") or "").strip()
+            agrupado = (fila.get("nombre_agrupado") or "").strip()
+            if original and agrupado:
+                mapeo[original.upper()] = agrupado
+    print(f"mapeo_operadores: {len(mapeo)} empresas cargadas desde {ruta_absoluta}")
+    return mapeo
+
+
+def cargar_palabras_clave_marca() -> dict:
+    """Lee palabras_clave_marca.csv -> {PALABRA_CLAVE: nombre_agrupado}.
+
+    Se usa SOLO cuando el OPC no esta informado (ver aplanar()), para
+    rescatar la marca real a partir del nombre de la ubicacion antes de
+    caer al owner. Ojo: a proposito se deja afuera de ese CSV cualquier
+    palabra que tambien sea nombre de una comuna real de Chile (por
+    ejemplo "Casablanca") -- una palabra clave asi podria marcar como "de
+    esa empresa" un cargador que solo esta UBICADO ahi.
+
+    Si el archivo no existe, devuelve vacio (el rescate queda apagado y
+    todo cae al owner, como antes de este cambio) -- avisa fuerte."""
+    ruta_absoluta = ARCHIVO_PALABRAS_CLAVE.resolve()
+    if not ARCHIVO_PALABRAS_CLAVE.exists():
+        print(f"*** ALERTA: no encontre {ruta_absoluta} -- sigo SIN rescatar "
+              f"por nombre de ubicacion. ***", file=sys.stderr)
+        return {}
+    palabras = {}
+    with ARCHIVO_PALABRAS_CLAVE.open(encoding="utf-8-sig", newline="") as f:
+        for fila in csv.DictReader(f):
+            palabra = (fila.get("palabra_clave") or "").strip().upper()
+            agrupado = (fila.get("nombre_agrupado") or "").strip()
+            if palabra and agrupado:
+                palabras[palabra] = agrupado
+    print(f"palabras_clave_marca: {len(palabras)} palabras cargadas desde {ruta_absoluta}")
+    return palabras
+
+
+def archivo_eventos_del_mes(momento: datetime) -> Path:
+    """data/eventos/2026-09.csv — un archivo por mes."""
+    return DIR_EVENTOS / f"{momento.strftime('%Y-%m')}.csv"
+
+
+def leer_csv(ruta: Path) -> list[dict]:
+    if not ruta.exists():
+        return []
+    with ruta.open(encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def escribir_csv(ruta: Path, columnas: list[str], filas: list[dict]) -> None:
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    with ruta.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=columnas, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(filas)
+
+
+def agregar_csv(ruta: Path, columnas: list[str], filas: list[dict]) -> None:
+    """Agrega filas al final. Escribe el encabezado solo si el archivo es nuevo."""
+    if not filas:
+        return
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    nuevo = not ruta.exists()
+    with ruta.open("a", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=columnas, extrasaction="ignore")
+        if nuevo:
+            w.writeheader()
+        w.writerows(filas)
+
+
+# ------------------------------------------------------------------ paso 1: API
+
+def bajar_api() -> tuple[list | None, int | None, str | None, str | None]:
+    """Devuelve (datos, http_status, error_tipo, error_mensaje).
+    Nunca lanza excepcion: los errores vuelven como valores."""
+    if requests is None:
+        return None, None, "ImportError", "Falta 'requests'. Corre: pip install -r requirements.txt"
+
+    ultimo_error = None
+    ultimo_status = None
+
+    for intento in range(1, REINTENTOS + 1):
+        try:
+            r = requests.get(API_URL, timeout=TIMEOUT_S)
+            ultimo_status = r.status_code
+            if r.status_code != 200:
+                ultimo_error = RuntimeError(f"HTTP {r.status_code}")
+            else:
+                datos = r.json()
+                if not isinstance(datos, list):
+                    raise ValueError(f"Se esperaba una lista, llego {type(datos).__name__}")
+                return datos, r.status_code, None, None
+        except Exception as exc:  # red, timeout, JSON invalido, etc.
+            ultimo_error = exc
+
+        if intento < REINTENTOS:
+            time.sleep(ESPERA_ENTRE_REINTENTOS_S * (2 ** (intento - 1)))
+
+    return None, ultimo_status, type(ultimo_error).__name__, str(ultimo_error)[:400]
+
+
+# --------------------------------------------------------- paso 2: guardar crudo
+
+def guardar_crudo(datos: list, momento: datetime) -> Path:
+    """Guarda el JSON tal cual, comprimido, en DIR_SNAPSHOTS. Un archivo por
+    sondeo. Se llama siempre que el repo privado esta configurado, o si no,
+    solo cuando vale la pena (ver main()) -- o, si el procesamiento fallo,
+    siempre -- ahi es la unica forma de poder reprocesar ese instante
+    despues."""
+    carpeta = DIR_SNAPSHOTS / momento.strftime("%Y-%m-%d")
+    carpeta.mkdir(parents=True, exist_ok=True)
+    ruta = carpeta / f"{momento.strftime('%H%M')}.json.gz"
+    with gzip.open(ruta, "wt", encoding="utf-8", compresslevel=9) as f:
+        json.dump(datos, f, ensure_ascii=False)
+    return ruta
+
+
+def _ruta_crudo_para_registrar(ruta: Path) -> str:
+    """Como registrar la ruta del crudo en corridas.csv. Se guarda relativa
+    a DIR_SNAPSHOTS (no a RAIZ): si el crudo vive en el repo privado, RAIZ
+    (este repo) ni siquiera es un ancestro de esa ruta."""
+    return str(ruta.relative_to(DIR_SNAPSHOTS)).replace("\\", "/")
+
+
+# ------------------------------------------------- paso 3: detectar los cambios
+
+def aplanar(datos: list, mapeo: dict, palabras_clave: dict | None = None) -> dict:
+    """De la respuesta de la API saca un dict {connector_id: atributos planos}."""
+    palabras_clave = palabras_clave or {}
+    salida = {}
+    for loc in datos:
+        try:
+            owner = loc.get("owner") or {}
+            opc = loc.get("OPC") or {}
+            pses = loc.get("PSEs") or []
+
+            # --- VISTA 1: OPC, el operador del punto de carga (la de siempre) ---
+            # Es el nombre oficial normalizado de la plataforma SEC. Si no viene
+            # informado, se cae al nombre del dueño. "operador" (= operator_name,
+            # el dato CRUDO) queda igual que siempre; lo unico que cambia es como
+            # se calcula "agrupado" cuando el OPC no esta informado (ver abajo).
+            opc_normalizado = opc.get("normalized_name")
+            opc_informado = bool(opc_normalizado) and opc_normalizado != "Sin Operador Informado"
+            operador = opc_normalizado if opc_informado else (owner.get("name") or "Sin Operador Informado")
+
+            if opc_informado:
+                # El OPC es el dato oficial (registro SEC): nunca se pisa.
+                agrupado = mapeo.get(operador.upper(), operador)
+            else:
+                # Antes de caer al owner, probamos si el NOMBRE de la ubicacion
+                # revela una marca conocida -- rescata los casos donde el owner
+                # es un tercero sin nada que ver (una municipalidad, un mall)
+                # pero el cargador es claramente de una red conocida.
+                agrupado = None
+                nombre_ubicacion = (loc.get("name") or "").upper()
+                for palabra, grupo in palabras_clave.items():
+                    if palabra in nombre_ubicacion:
+                        agrupado = grupo
+                        break
+                if agrupado is None:
+                    agrupado = mapeo.get(operador.upper(), operador)
+
+            # --- VISTA 2: owner, de quien es la instalacion ---
+            # Es el campo mas completo de los tres: casi no tiene vacios.
+            owner_name = (owner.get("name") or "").strip() or "Sin dueño informado"
+            owner_agrupado = mapeo.get(owner_name.upper(), owner_name)
+
+            # --- VISTA 3: PSE, quien le vende la carga al usuario final ---
+            # Es una LISTA. Hoy ninguna location trae mas de uno, pero si algun
+            # dia llegan varios se juntan con " + " para no perder informacion
+            # ni contar el mismo conector dos veces.
+            nombres_pse = [(p.get("name") or "").strip() for p in pses if (p.get("name") or "").strip()]
+            if nombres_pse:
+                pse_name = " + ".join(sorted(set(nombres_pse)))
+                pse_agrupado = (mapeo.get(nombres_pse[0].upper(), nombres_pse[0])
+                                if len(set(nombres_pse)) == 1 else pse_name)
+            else:
+                pse_name = pse_agrupado = "Sin PSE informado"
+            pse_rut = pses[0].get("RUT") if len(pses) == 1 else ""
+
+            for evse in (loc.get("evses") or []):
+                for con in (evse.get("connectors") or []):
+                    cid = con.get("connector_id")
+                    if cid is None:
+                        continue
+                    kw = con.get("max_electric_power")
+                    salida[str(cid)] = {
+                        "connector_id": cid,
+                        "evse_uid": evse.get("evse_uid"),
+                        "location_id": loc.get("location_id"),
+                        "location_name": loc.get("name"),
+                        "commune": loc.get("commune"),
+                        "region": loc.get("region"),
+                        "operator_rut": owner.get("RUT") or opc.get("RUT"),
+                        "operator_name": operador,
+                        "operador_agrupado": agrupado,
+                        "standard": con.get("standard"),
+                        "power_type": con.get("power_type"),
+                        "max_electric_power": kw,
+                        "tramo_potencia": tramo_potencia(kw),
+                        "parking_type": loc.get("parking_type"),
+                        "institucion_privada": 1 if loc.get("institucion_privada") else 0,
+                        "uso_exclusivo": 1 if evse.get("uso_exclusivo") else 0,
+                        "estado": (con.get("status") or "DESCONOCIDO").upper(),
+                        "api_last_updated": evse.get("last_updated") or "",
+                        "owner_name": owner_name,
+                        "owner_rut": owner.get("RUT") or "",
+                        "owner_agrupado": owner_agrupado,
+                        "pse_name": pse_name,
+                        "pse_rut": pse_rut,
+                        "pse_agrupado": pse_agrupado,
+                        # --- nuevo: carga simultanea y potencia (maxima y en vivo) ---
+                        "permite_carga_simultanea": 1 if evse.get("permite_carga_simultanea") else 0,
+                        "formato": con.get("format"),
+                        "voltaje_maximo": con.get("max_voltage"),
+                        "amperaje_maximo": con.get("max_amperage"),
+                        "voltaje_actual": con.get("voltage"),
+                        "amperaje_actual": con.get("amperage"),
+                        "potencia_actual_kw": con.get("electric_power"),
+                        "porcentaje_bateria": con.get("soc"),
+                        "integrado": 1 if con.get("integrated") else 0,
+                    }
+        except (AttributeError, TypeError):
+            continue
+    return salida
+
+
+def procesar(datos: list, momento_iso: str) -> tuple[list[dict], list[dict]]:
+    """Compara la lectura nueva contra el catalogo guardado.
+    Devuelve (catalogo_nuevo, eventos_nuevos)."""
+    mapeo = cargar_mapeo_operadores()
+    palabras_clave = cargar_palabras_clave_marca()
+    nuevo = aplanar(datos, mapeo, palabras_clave)
+    anterior = {f["connector_id"]: f for f in leer_csv(ARCHIVO_CATALOGO)}
+
+    catalogo = []
+    eventos = []
+    momento = datetime.fromisoformat(momento_iso)
+
+    for cid in set(nuevo) | set(anterior):
+        actual = nuevo.get(cid)
+        previo = anterior.get(cid)
+
+        # --- caso 1: el conector vino en esta lectura ---
+        if actual is not None:
+            estado_anterior = previo["estado_actual"] if previo else ""
+            estado_nuevo = actual["estado"]
+            cambio = estado_anterior != estado_nuevo
+
+            if cambio:
+                eventos.append({
+                    "timestamp_deteccion": momento_iso,
+                    "connector_id": actual["connector_id"],
+                    "operator_name": actual["operator_name"],
+                    "estado_anterior": estado_anterior or "PRIMERA_LECTURA",
+                    "estado_nuevo": estado_nuevo,
+                    "api_last_updated": actual["api_last_updated"],
+                    "power_type": actual["power_type"],
+                    "max_electric_power": actual["max_electric_power"],
+                    "standard": actual["standard"],
+                    "location_name": actual["location_name"],
+                    "operador_agrupado": actual["operador_agrupado"],
+                    "tramo_potencia": actual["tramo_potencia"],
+                    "commune": actual["commune"],
+                    "region": actual["region"],
+                    "owner_agrupado": actual["owner_agrupado"],
+                    "pse_agrupado": actual["pse_agrupado"],
+                })
+
+            fila = {k: actual.get(k) for k in COLUMNAS_CATALOGO if k in actual}
+            fila["estado_actual"] = estado_nuevo
+            fila["estado_desde"] = momento_iso if cambio else (previo.get("estado_desde") if previo else momento_iso)
+            fila["primera_vez_visto"] = previo.get("primera_vez_visto") if previo else momento_iso
+            fila["ultima_vez_visto_api"] = momento_iso
+            fila["activo"] = 1
+            catalogo.append(fila)
+
+        # --- caso 2: lo conociamos pero no vino ahora ---
+        elif previo is not None:
+            fila = dict(previo)
+            if str(previo.get("activo")) == "1":
+                try:
+                    visto = datetime.fromisoformat(previo["ultima_vez_visto_api"])
+                    ausente_h = (momento - visto).total_seconds() / 3600
+                except (ValueError, KeyError, TypeError):
+                    ausente_h = 0
+
+                if ausente_h > HORAS_GRACIA_RETIRO:
+                    eventos.append({
+                        "timestamp_deteccion": momento_iso,
+                        "connector_id": previo.get("connector_id"),
+                        "operator_name": previo.get("operator_name"),
+                        "estado_anterior": previo.get("estado_actual"),
+                        "estado_nuevo": "RETIRADO_DE_API",
+                        "api_last_updated": "",
+                        "power_type": previo.get("power_type"),
+                        "max_electric_power": previo.get("max_electric_power"),
+                        "standard": previo.get("standard"),
+                        "location_name": previo.get("location_name"),
+                        "operador_agrupado": previo.get("operador_agrupado"),
+                        "tramo_potencia": previo.get("tramo_potencia"),
+                        "commune": previo.get("commune"),
+                        "region": previo.get("region"),
+                        "owner_agrupado": previo.get("owner_agrupado"),
+                        "pse_agrupado": previo.get("pse_agrupado"),
+                    })
+                    fila["estado_actual"] = "RETIRADO_DE_API"
+                    fila["estado_desde"] = momento_iso
+                    fila["activo"] = 0
+            catalogo.append(fila)
+
+    catalogo.sort(key=lambda f: int(f.get("connector_id") or 0))
+    return catalogo, eventos
+
+
+# ------------------------------------------------------------------------ main
+
+def main() -> int:
+    momento = datetime.now(timezone.utc)
+    momento_iso = momento.isoformat(timespec="seconds")
+
+    datos, status, err_tipo, err_msg = bajar_api()
+
+    if datos is None:
+        agregar_csv(ARCHIVO_CORRIDAS, COLUMNAS_CORRIDAS, [{
+            "timestamp": momento_iso, "ok": 0, "http_status": status,
+            "error_tipo": err_tipo, "error_mensaje": err_msg,
+        }])
+        print(f"[{momento_iso}] FALLO: {err_tipo}: {err_msg}", file=sys.stderr)
+        return 1
+
+    try:
+        catalogo, eventos = procesar(datos, momento_iso)
+        escribir_csv(ARCHIVO_CATALOGO, COLUMNAS_CATALOGO, catalogo)
+        agregar_csv(archivo_eventos_del_mes(momento), COLUMNAS_EVENTOS, eventos)
+
+        # El crudo NO se guarda en cada corrida, tenga o no tenga configurado
+        # el repo privado (ver docstring, "SOBRE DONDE VIVE EL CRUDO" y
+        # "SOBRE EL INTERVALO DE SONDEO"): solo cuando de verdad hubo un
+        # cambio de estado, o cada 5 minutos como respaldo minimo aunque no
+        # haya pasado nada. Guardar TODO, cada 1 minuto sin filtrar, pesa
+        # demasiado incluso para un repo privado (a ese ritmo, ~280 MB por
+        # dia) -- lo que cambia con el repo privado configurado es SOLO el
+        # destino (donde vive DIR_SNAPSHOTS), no cuanto se guarda.
+        vale_la_pena_guardar_crudo = bool(eventos) or momento.minute % 5 == 0
+        crudo_a_repo_privado = DIR_SNAPSHOTS != (RAIZ / "snapshots")
+
+        ruta_crudo = None
+        registro_crudo = ""
+        if vale_la_pena_guardar_crudo:
+            ruta_crudo = guardar_crudo(datos, momento)
+            registro_crudo = _ruta_crudo_para_registrar(ruta_crudo)
+            destino = "repo privado" if crudo_a_repo_privado else "repo publico"
+            print(f"Crudo guardado ({destino}): {ruta_crudo} ({ruta_crudo.stat().st_size/1024:.0f} KB)")
+        else:
+            print("Sin cambios de estado y no toca respaldo periodico: no se guarda crudo esta corrida.")
+
+        agregar_csv(ARCHIVO_CORRIDAS, COLUMNAS_CORRIDAS, [{
+            "timestamp": momento_iso, "ok": 1, "http_status": status,
+            "n_locations": len(datos), "n_conectores": len(catalogo),
+            "n_eventos_nuevos": len(eventos),
+            "archivo_crudo": registro_crudo,
+        }])
+        print(f"OK: {len(datos)} locations, {len(catalogo)} conectores, {len(eventos)} eventos nuevos")
+        return 0
+
+    except Exception as exc:
+        # Aca SI se guarda el crudo pase lo que pase, sin importar si hubo
+        # eventos o en que minuto estamos: si el procesamiento fallo, el
+        # crudo es la UNICA forma de reprocesar este instante despues.
+        # Se guarda donde apunte DIR_SNAPSHOTS en ese momento (repo privado
+        # si esta configurado, si no el publico).
+        ruta_crudo = guardar_crudo(datos, momento)
+        agregar_csv(ARCHIVO_CORRIDAS, COLUMNAS_CORRIDAS, [{
+            "timestamp": momento_iso, "ok": 0, "http_status": status,
+            "archivo_crudo": _ruta_crudo_para_registrar(ruta_crudo),
+            "error_tipo": type(exc).__name__,
+            "error_mensaje": f"{exc} | {traceback.format_exc()[-300:]}",
+        }])
+        print(f"[{momento_iso}] ERROR procesando (el crudo si quedo guardado): {exc}", file=sys.stderr)
+        traceback.print_exc()
+        return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,100 @@
+name: Sondear cargadores
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: sondeo
+  cancel-in-progress: false
+
+jobs:
+  sondear:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      HAY_REPO_PRIVADO: ${{ secrets.PRIVATE_REPO_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Este repo (donde vive este workflow) es PUBLICO -- por eso corre
+      # gratis sin limite en GitHub Actions, sin importar la frecuencia.
+      # Estos pasos, que solo hacen algo si configuraste el secreto
+      # PRIVATE_REPO_TOKEN y la variable PRIVATE_REPO (ver LEEME.md),
+      # apuntan TODOS los datos (el crudo Y catalogo/eventos/corridas) a un
+      # repositorio privado aparte -- asi este repo publico nunca guarda
+      # ningun dato real, solo el codigo. Si no configuraste el repo
+      # privado todavia, se saltan solos y todo sigue igual que antes
+      # (datos en este mismo repo).
+      - name: Checkout del repo privado de datos (si esta configurado)
+        if: ${{ env.HAY_REPO_PRIVADO == 'true' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.PRIVATE_REPO }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: datos-privados
+
+      - name: Apuntar el crudo y los datos al repo privado (si se hizo el checkout de arriba)
+        if: ${{ env.HAY_REPO_PRIVADO == 'true' }}
+        run: |
+          echo "SONDEAR_DIR_SNAPSHOTS=$GITHUB_WORKSPACE/datos-privados/snapshots" >> "$GITHUB_ENV"
+          echo "SONDEAR_DIR_DATA=$GITHUB_WORKSPACE/datos-privados/data" >> "$GITHUB_ENV"
+
+      - name: Copiar mapeo_operadores.csv y palabras_clave_marca.csv desde el repo privado (si esta configurado)
+        if: ${{ env.HAY_REPO_PRIVADO == 'true' }}
+        run: |
+          if [ -f datos-privados/config/mapeo_operadores.csv ]; then
+            cp datos-privados/config/mapeo_operadores.csv mapeo_operadores.csv
+          fi
+          if [ -f datos-privados/config/palabras_clave_marca.csv ]; then
+            cp datos-privados/config/palabras_clave_marca.csv palabras_clave_marca.csv
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Sondear una vez
+        run: python scripts/sondear.py || true
+
+      - name: Guardar en este repo publico lo que haya quedado aca (solo si el repo privado NO esta configurado)
+        run: |
+          git config user.name "cargadores-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          # Si el repo privado esta configurado, sondear.py escribio todo
+          # alla (fuera de este checkout) y estas carpetas ni existen aca
+          # -- "git add" sobre una carpeta que no existe falla duro, asi
+          # que se agrega solo lo que de verdad este presente.
+          for carpeta in snapshots data; do
+            [ -d "$carpeta" ] && git add "$carpeta"
+          done
+          if git diff --cached --quiet; then
+            echo "Sin cambios que guardar en el repo publico."
+          else
+            git commit -m "sondeo $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash origin main || true
+            git push || true
+          fi
+
+      - name: Guardar el crudo y los datos en el repo privado (si esta configurado)
+        if: ${{ env.HAY_REPO_PRIVADO == 'true' }}
+        working-directory: datos-privados
+        run: |
+          git config user.name "cargadores-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          for carpeta in snapshots data; do
+            [ -d "$carpeta" ] && git add "$carpeta"
+          done
+          if git diff --cached --quiet; then
+            echo "Sin datos nuevos que guardar en el repo privado."
+          else
+            git commit -m "sondeo $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash origin main || true
+            git push || true
+          fi

@@ -1,0 +1,177 @@
+#!/usr/bin/env python3
+"""
+Produce dos CSVs chicos y ya agregados, pensados para que el visor los descargue
+rapido desde el navegador (en vez de bajar los eventos completos, que crecen a
+decenas de MB):
+
+  data/resumen_diario.csv   vista, fecha, empresa, tramo_potencia, power_type, transacciones
+  data/resumen_parque.csv   vista, empresa, power_type, sitios, conectores, kw
+
+La columna "vista" dice COMO se atribuyo el conector, y hay una fila por cada
+una de las tres formas (ver el docstring de sondear.py):
+  opc    -> quien opera el punto de carga (la definicion habitual de "red")
+  owner  -> de quien es la instalacion (el campo mas completo de los tres)
+  pse    -> quien le vende la carga al usuario final
+
+La columna "power_type" dice si el conector es AC o DC. Por cada combinacion
+de las demas columnas hay TRES filas: una con power_type="" (el total, AC+DC
+juntos) y una para cada tipo por separado. La fila en blanco no es la suma de
+las otras dos calculada por el visor -- se calcula aca porque "sitios" es un
+CONTEO DE UBICACIONES DISTINTAS, y una ubicacion con cargadores de ambos tipos
+se contaria dos veces si el total fuera simplemente AC + DC.
+
+Una transaccion = un evento con estado_nuevo = OCUPADO (el mismo criterio de la
+planilla).
+
+--- POR QUE LA FECHA ES EN HORA DE CHILE Y NO UTC ---
+Los eventos se guardan en UTC. Pero cuando compares las sesiones diarias contra
+los datos internos de Voltex, esos van a estar en hora de Chile. Un dia UTC no es
+un dia chileno: entre las 20:00 y las 24:00 de Chile ya es el dia siguiente en
+UTC, asi que agrupar por dia UTC te movia ~4 horas de sesiones al dia equivocado
+y los totales no iban a calzar nunca. Por eso aca se convierte a
+America/Santiago antes de sacar la fecha.
+"""
+from __future__ import annotations
+
+import csv
+import sys
+from collections import defaultdict
+from datetime import datetime, timezone
+from pathlib import Path
+
+try:
+    from zoneinfo import ZoneInfo
+    TZ_CHILE = ZoneInfo("America/Santiago")
+except Exception:  # pragma: no cover - si falta la base de datos de zonas
+    TZ_CHILE = None
+
+RAIZ = Path(__file__).resolve().parent.parent
+DIR_DATA = RAIZ / "data"
+DIR_EVENTOS = DIR_DATA / "eventos"
+ARCHIVO_CATALOGO = DIR_DATA / "catalogo.csv"
+SALIDA_DIARIO = DIR_DATA / "resumen_diario.csv"
+SALIDA_PARQUE = DIR_DATA / "resumen_parque.csv"
+
+
+def num(v, default=0.0) -> float:
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return default
+
+
+def leer_csv(ruta: Path) -> list[dict]:
+    if not ruta.exists():
+        return []
+    with ruta.open(encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def fecha_chile(ts: str) -> str | None:
+    """'2026-09-01T23:30:00+00:00' -> '2026-09-01' en hora de Chile."""
+    try:
+        dt = datetime.fromisoformat(ts)
+    except (ValueError, TypeError):
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    if TZ_CHILE is not None:
+        dt = dt.astimezone(TZ_CHILE)
+    return dt.date().isoformat()
+
+
+# columna del CSV donde vive cada vista, y como se llama en el resumen
+VISTAS = {"opc": "operador_agrupado", "owner": "owner_agrupado", "pse": "pse_agrupado"}
+
+
+def resumen_diario() -> list[dict]:
+    conteo = defaultdict(int)
+    if DIR_EVENTOS.exists():
+        for ruta in sorted(DIR_EVENTOS.glob("*.csv")):
+            for e in leer_csv(ruta):
+                if e.get("estado_nuevo") != "OCUPADO":
+                    continue
+                # Las primeras lecturas NO son transacciones: es la primera vez
+                # que el script ve ese conector, no significa que alguien enchufo.
+                if e.get("estado_anterior") == "PRIMERA_LECTURA":
+                    continue
+                fecha = fecha_chile(e.get("timestamp_deteccion"))
+                if not fecha:
+                    continue
+                tramo = e.get("tramo_potencia") or "desconocido"
+                tipo = e.get("power_type") or "desconocido"
+                for vista, columna in VISTAS.items():
+                    # Los eventos viejos (anteriores a las tres vistas) no traen
+                    # owner ni pse: en ese caso se cae a la vista OPC.
+                    empresa = (e.get(columna) or e.get("operador_agrupado")
+                               or e.get("operator_name") or "Sin informar")
+                    # fila en blanco ("") = total AC+DC, ademas de la fila del tipo
+                    for power_type in ("", tipo):
+                        conteo[(vista, fecha, empresa, tramo, power_type)] += 1
+
+    filas = [{"vista": v, "fecha": f, "empresa": o, "tramo_potencia": t,
+              "power_type": tp, "transacciones": n}
+             for (v, f, o, t, tp), n in conteo.items()]
+    filas.sort(key=lambda r: (r["vista"], r["fecha"], -r["transacciones"]))
+    return filas
+
+
+def resumen_parque() -> list[dict]:
+    por_grupo = defaultdict(lambda: {"sitios": set(), "conectores": 0, "kw": 0.0})
+    for fila in leer_csv(ARCHIVO_CATALOGO):
+        if str(fila.get("activo")) != "1":
+            continue
+        tipo = fila.get("power_type") or "desconocido"
+        for vista, columna in VISTAS.items():
+            empresa = (fila.get(columna) or fila.get("operador_agrupado")
+                       or fila.get("operator_name") or "Sin informar")
+            # fila en blanco ("") = total AC+DC, ademas de la fila del tipo
+            for power_type in ("", tipo):
+                d = por_grupo[(vista, empresa, power_type)]
+                d["sitios"].add(fila.get("location_id"))
+                d["conectores"] += 1
+                d["kw"] += num(fila.get("max_electric_power"))
+
+    filas = [{"vista": v, "empresa": e, "power_type": tp, "sitios": len(d["sitios"]),
+              "conectores": d["conectores"], "kw": round(d["kw"])}
+             for (v, e, tp), d in por_grupo.items()]
+    filas.sort(key=lambda r: (r["vista"], r["power_type"], -r["conectores"]))
+    return filas
+
+
+def escribir(ruta: Path, columnas: list[str], filas: list[dict]) -> None:
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    with ruta.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=columnas)
+        w.writeheader()
+        w.writerows(filas)
+
+
+def main() -> int:
+    if TZ_CHILE is None:
+        print("AVISO: no se encontro la base de datos de zonas horarias, se usa UTC. "
+              "Instala 'tzdata' (pip install tzdata) para que las fechas queden en "
+              "hora de Chile.", file=sys.stderr)
+
+    diario = resumen_diario()
+    parque = resumen_parque()
+
+    escribir(SALIDA_DIARIO,
+             ["vista", "fecha", "empresa", "tramo_potencia", "power_type", "transacciones"], diario)
+    escribir(SALIDA_PARQUE,
+             ["vista", "empresa", "power_type", "sitios", "conectores", "kw"], parque)
+
+    # Los totales de abajo usan solo la fila power_type="" (el total AC+DC) para
+    # no contar cada transaccion/conector tres veces (total + AC + DC).
+    dias = len({r["fecha"] for r in diario})
+    total_opc = sum(r["transacciones"] for r in diario if r["vista"] == "opc" and r["power_type"] == "")
+    print(f"resumen_diario.csv: {len(diario)} filas ({dias} dias, {total_opc} transacciones por vista)")
+    for v in VISTAS:
+        n = sum(r["conectores"] for r in parque if r["vista"] == v and r["power_type"] == "")
+        emp = len([r for r in parque if r["vista"] == v and r["power_type"] == ""])
+        print(f"  vista {v:6}: {emp:3} empresas, {n} conectores activos")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
