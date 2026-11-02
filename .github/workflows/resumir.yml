@@ -53,17 +53,50 @@ jobs:
             git push
           fi
 
-      - name: Guardar los resumenes en el repo privado (si esta configurado)
+      # Los resumenes se guardan en una RAMA APARTE ("resumen") del repo privado, NO en main.
+      #
+      # Por que: main tambien recibe el push del sondeo cada 5 minutos. Si dos pushes a main coinciden,
+      # uno es rechazado -- y el del sondeo se ignora (`git push || true` en sondear.yml): esa corrida
+      # se pierde y sus cambios quedan registrados en la siguiente, hasta 5 minutos tarde. Con una rama
+      # propia, ningun push de este job puede competir con el del sondeo (ni con limpiar.yml).
+      #
+      # Como: la rama es HUERFANA (un solo commit, solo con los 2 archivos de resumen) y se reemplaza en
+      # cada corrida con --force. Es un dato derivado y descartable: no crece el historial y no hay
+      # conflictos que resolver. El commit se arma con un indice temporal, asi no se toca el arbol de
+      # trabajo (que incluye los snapshots) ni main. El visor la lee con ?ref=resumen. La compactacion
+      # mensual (compactar_privado.yml) solo reescribe main y no la afecta.
+      - name: Guardar los resumenes en la rama "resumen" del repo privado (si esta configurado)
         if: ${{ env.HAY_REPO_PRIVADO == 'true' }}
         working-directory: datos-privados
         run: |
           git config user.name "cargadores-bot"
           git config user.email "actions@users.noreply.github.com"
+
+          # Indice temporal vacio: solo contendra los 2 archivos de resumen.
+          export GIT_INDEX_FILE="${RUNNER_TEMP:-/tmp}/indice_resumen"
+          rm -f "$GIT_INDEX_FILE"
           git add data/resumen_diario.csv data/resumen_parque.csv
-          if git diff --cached --quiet; then
+          ARBOL=$(git write-tree)
+
+          # Si la rama ya tiene exactamente estos archivos, no hay nada que guardar.
+          if git fetch -q --depth=1 origin refs/heads/resumen 2>/dev/null \
+             && [ "$(git rev-parse 'FETCH_HEAD^{tree}')" = "$ARBOL" ]; then
             echo "Sin cambios en los resumenes."
-          else
-            git commit -m "resumen $(date -u +%Y-%m-%dT%H:%MZ)"
-            git pull --rebase --autostash origin main || true
-            git push
+            exit 0
           fi
+
+          # Commit sin padre (rama huerfana) y push forzado SOLO a la rama "resumen".
+          COMMIT=$(git commit-tree "$ARBOL" -m "resumen $(date -u +%Y-%m-%dT%H:%MZ)")
+          for intento in 1 2 3; do
+            if git push --force origin "$COMMIT:refs/heads/resumen"; then
+              guardado=1
+              break
+            fi
+            echo "El intento $intento de guardar el resumen fallo; reintento."
+            sleep $(( intento * ${ESPERA_REINTENTO:-5} ))
+          done
+          if [ "${guardado:-0}" != "1" ]; then
+            echo "No se pudo guardar el resumen en la rama resumen." >&2
+            exit 1
+          fi
+          echo "Resumen guardado en la rama resumen."
