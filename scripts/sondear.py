@@ -51,6 +51,16 @@ data/corridas.csv
     Una fila por ejecucion, con ok=1/0 y el error si hubo. Sirve para saber si el
     pipeline se cayo en algun momento sin tener que revisar logs de GitHub.
 
+data/tarifas_cambios.csv
+    Historial de PRECIOS (las tarifas que informa la SEC en cada conector).
+    Solo se AGREGAN filas: una por cada (conector, componente) la primera vez que
+    se ve su precio, y otra cada vez que ese precio cambia. Componentes: ENERGIA,
+    CARGO FIJO y TIEMPO. El precio actual de un conector es el precio_nuevo de su
+    ultima fila; el anterior es su precio_anterior. Sirve para mostrar "precio
+    actual y precio anterior" sin depender del crudo (que se borra a los ~30 dias).
+    Este paso esta AISLADO del resto: si falla, solo avisa y el sondeo sigue igual
+    (ver registrar_tarifas() y su llamada en main()).
+
 mapeo_operadores.csv
     Tabla editable A MANO para agrupar razones sociales distintas del mismo
     operador (el equivalente a la hoja MapeoOperadores). Si un operador no esta
@@ -257,6 +267,15 @@ COLUMNAS_CORRIDAS = [
     "n_eventos_nuevos", "archivo_crudo", "error_tipo", "error_mensaje",
 ]
 
+COLUMNAS_TARIFAS = [
+    "timestamp_deteccion",   # UTC, cuando el sondeo vio este precio por primera vez
+    "connector_id",
+    "componente",            # ENERGIA | CARGO FIJO | TIEMPO (tal cual los informa la SEC)
+    "precio_anterior",       # vacio en la primera lectura
+    "precio_nuevo",          # vacio si el conector dejo de informar este componente
+    "tarifa_actualizada",    # el last_updated de la tarifa segun la propia API (auditoria)
+]
+
 
 # ------------------------------------------------------------------- utilidades
 
@@ -363,6 +382,105 @@ def agregar_csv(ruta: Path, columnas: list[str], filas: list[dict]) -> None:
         if nuevo:
             w.writeheader()
         w.writerows(filas)
+
+
+# --------------------------------------------------------------- tarifas (precios)
+# Historial de precios, AISLADO del resto del sondeo: no lee ni escribe el catalogo,
+# los eventos ni el crudo. La llamada desde main() va dentro de su propio try/except.
+
+def archivo_tarifas() -> Path:
+    """data/tarifas_cambios.csv (sigue a DIR_DATA, igual que los eventos)."""
+    return DIR_DATA / "tarifas_cambios.csv"
+
+
+def _normalizar_precio(valor) -> str:
+    """Precio como texto comparable: 439, 439.0 y "439" dan todos "439". Devuelve ""
+    si no hay un numero valido (ese precio se ignora)."""
+    if valor is None or valor == "":
+        return ""
+    try:
+        numero = float(valor)
+    except (TypeError, ValueError):
+        return ""
+    if numero != numero or numero in (float("inf"), float("-inf")):
+        return ""
+    return str(int(numero)) if numero == int(numero) else repr(round(numero, 6))
+
+
+def extraer_tarifas(datos: list) -> tuple[dict, set]:
+    """De la respuesta cruda de la API saca:
+      - {(connector_id, componente): (precio, tarifa_actualizada)} con los precios que vienen, y
+      - el conjunto de connector_id que vinieron en la respuesta (traigan tarifa o no).
+    Hoy ningun conector trae mas de una tarifa; si llegara a haber varias se usa la primera."""
+    precios = {}
+    presentes = set()
+    for loc in datos:
+        try:
+            for evse in (loc.get("evses") or []):
+                for con in (evse.get("connectors") or []):
+                    cid = con.get("connector_id")
+                    if cid is None:
+                        continue
+                    presentes.add(str(cid))
+                    tarifas = con.get("tariffs") or []
+                    if not tarifas:
+                        continue
+                    tarifa = tarifas[0]
+                    for comp in ((tarifa.get("elements") or {}).get("price_components") or []):
+                        nombre = str(comp.get("tariff_dimension") or "").strip().upper()
+                        precio = _normalizar_precio(comp.get("price"))
+                        if nombre and precio != "":
+                            precios[(str(cid), nombre)] = (precio, tarifa.get("last_updated") or "")
+        except (AttributeError, TypeError):
+            continue   # una location malformada no tumba a las demas
+    return precios, presentes
+
+
+def ultimo_precio_conocido(ruta: Path) -> dict:
+    """{(connector_id, componente): precio_nuevo de su ultima fila} leido del historial."""
+    ultimo = {}
+    for f in leer_csv(ruta):
+        ultimo[(f.get("connector_id", ""), f.get("componente", ""))] = f.get("precio_nuevo", "") or ""
+    return ultimo
+
+
+def cambios_de_tarifas(ultimo: dict, datos: list, momento_iso: str) -> list[dict]:
+    """Compara la lectura nueva con el ultimo precio conocido y devuelve las filas a agregar
+    (una por precio nuevo, distinto o que dejo de informarse). Actualiza `ultimo` en el lugar,
+    para poder encadenar varias lecturas seguidas (lo usa tambien reconstruir_tarifas.py)."""
+    precios, presentes = extraer_tarifas(datos)
+    filas = []
+
+    def fila(cid, componente, anterior, nuevo, actualizada):
+        return {"timestamp_deteccion": momento_iso, "connector_id": cid, "componente": componente,
+                "precio_anterior": anterior, "precio_nuevo": nuevo, "tarifa_actualizada": actualizada}
+
+    for (cid, componente), (precio, actualizada) in sorted(precios.items()):
+        previo = ultimo.get((cid, componente))   # None = nunca visto
+        if previo is None:
+            filas.append(fila(cid, componente, "", precio, actualizada))
+        elif previo != precio:
+            filas.append(fila(cid, componente, previo, precio, actualizada))
+        else:
+            continue
+        ultimo[(cid, componente)] = precio
+
+    # Un conector que SI vino en la respuesta pero ya no informa un componente que tenia: se anota.
+    # Los que no vinieron en la respuesta no cuentan (una lectura incompleta no es un cambio de precio).
+    for (cid, componente), previo in sorted(ultimo.items()):
+        if previo != "" and cid in presentes and (cid, componente) not in precios:
+            filas.append(fila(cid, componente, previo, "", ""))
+            ultimo[(cid, componente)] = ""
+    return filas
+
+
+def registrar_tarifas(datos: list, momento_iso: str) -> int:
+    """Agrega a data/tarifas_cambios.csv los precios nuevos o cambiados de esta lectura.
+    Devuelve cuantas filas agrego."""
+    ruta = archivo_tarifas()
+    filas = cambios_de_tarifas(ultimo_precio_conocido(ruta), datos, momento_iso)
+    agregar_csv(ruta, COLUMNAS_TARIFAS, filas)
+    return len(filas)
 
 
 # ------------------------------------------------------------------ paso 1: API
@@ -630,6 +748,17 @@ def main() -> int:
         catalogo, eventos = procesar(datos, momento_iso)
         escribir_csv(ARCHIVO_CATALOGO, COLUMNAS_CATALOGO, catalogo)
         agregar_csv(archivo_eventos_del_mes(momento), COLUMNAS_EVENTOS, eventos)
+
+        # Historial de precios. Va en su propio try/except A PROPOSITO: si algo falla aca (un precio
+        # raro, el archivo bloqueado...) solo se avisa. NUNCA debe cambiar el resultado del sondeo:
+        # ni el catalogo, ni los eventos, ni el crudo, ni corridas.csv, ni el codigo de salida.
+        try:
+            n_tarifas = registrar_tarifas(datos, momento_iso)
+            if n_tarifas:
+                print(f"Tarifas: {n_tarifas} precio(s) nuevo(s) o cambiado(s) registrado(s).")
+        except Exception as exc:
+            print(f"AVISO: no se pudieron registrar las tarifas ({type(exc).__name__}: {exc}); "
+                  f"el sondeo sigue igual.", file=sys.stderr)
 
         # El crudo NO se guarda en cada corrida, tenga o no tenga configurado
         # el repo privado (ver docstring, "SOBRE DONDE VIVE EL CRUDO" y
