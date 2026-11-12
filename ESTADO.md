@@ -1,9 +1,9 @@
 # Estado del sondeo
 
-Ultima revision: 2026-11-12T14:28:27+00:00
+Ultima revision: 2026-11-12T21:32:30+00:00
 
 Estado: OK
 
-Ultima corrida: 2026-11-12T14:27:20+00:00 (ok=1).
+Ultima corrida: 2026-11-12T21:30:54+00:00 (ok=1).
 
 (Este archivo lo actualiza automaticamente .github/workflows/chequeo_salud.yml cada 30 minutos. No contiene ningun dato de mercado -- solo sirve para detectar rapido si el sondeo dejo de correr, y para que este repo nunca quede 60 dias sin actividad, algo que haria que GitHub apague el sondeo solo.)
