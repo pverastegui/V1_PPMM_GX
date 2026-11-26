@@ -61,6 +61,12 @@ data/tarifas_cambios.csv
     Este paso esta AISLADO del resto: si falla, solo avisa y el sondeo sigue igual
     (ver registrar_tarifas() y su llamada en main()).
 
+data/cobertura_diaria.csv
+    Dias (hora de Chile) en que el SONDEO tuvo huecos entre corridas exitosas, para que
+    el visor pueda excluir los dias con caidas sin bajar corridas.csv completo. Se pone al
+    dia en cada corrida (logica en scripts/cobertura.py), asi que esta al dia al minuto.
+    Tambien AISLADO: si falla, solo avisa y el sondeo sigue igual.
+
 mapeo_operadores.csv
     Tabla editable A MANO para agrupar razones sociales distintas del mismo
     operador (el equivalente a la hoja MapeoOperadores). Si un operador no esta
@@ -787,6 +793,21 @@ def main() -> int:
             "n_eventos_nuevos": len(eventos),
             "archivo_crudo": registro_crudo,
         }])
+
+        # Cobertura del sondeo (data/cobertura_diaria.csv): que dias hubo huecos entre corridas, para que el visor
+        # pueda excluir los dias con caidas. Va DESPUES de registrar la corrida (la lee de corridas.csv) y en su propio
+        # try/except A PROPOSITO, igual que las tarifas: si falla solo se avisa, NUNCA cambia el resultado del sondeo
+        # (ni el catalogo, ni los eventos, ni el crudo, ni corridas.csv, ni el codigo de salida) y no registra una
+        # corrida fallida. Solo escribe su propio archivo; la proxima corrida lo reconstruye si quedo atrasado.
+        try:
+            import cobertura
+            modo = cobertura.actualizar_cobertura(DIR_DATA / "cobertura_diaria.csv", ARCHIVO_CORRIDAS)
+            if modo == "reconstruida":
+                print("Cobertura: cobertura_diaria.csv reconstruida desde corridas.csv.")
+        except Exception as exc:
+            print(f"AVISO: no se pudo actualizar la cobertura del sondeo ({type(exc).__name__}: {exc}); "
+                  f"el sondeo sigue igual.", file=sys.stderr)
+
         print(f"OK: {len(datos)} locations, {len(catalogo)} conectores, {len(eventos)} eventos nuevos")
         return 0
 

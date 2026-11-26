@@ -1,5 +1,5 @@
 """
-Pruebas de resumen_cobertura() (cobertura_diaria.csv), sin red ni archivos reales.
+Pruebas de cobertura.resumen_cobertura() (la reconstruccion completa de cobertura_diaria.csv), sin red ni archivos reales.
 Corre con: python tests/test_cobertura.py
 """
 import sys
@@ -8,7 +8,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "scripts"))
-import resumir  # noqa: E402
+import cobertura as resumir  # noqa: E402  (se conserva el alias: las pruebas llaman resumir.resumen_cobertura)
 
 # En noviembre de 2026 Chile esta en UTC-3: las 23:00 del dia 10 en Chile son las 02:00 UTC del dia 11.
 def utc(dia, hora, minuto=0, mes=11):
