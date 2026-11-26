@@ -6,6 +6,8 @@ decenas de MB):
 
   data/resumen_diario.csv   vista, fecha, empresa, tramo_potencia, power_type, transacciones
   data/resumen_parque.csv   vista, empresa, power_type, sitios, conectores, kw
+  data/cobertura_diaria.csv fecha, hueco_max_min, min_sin_cobertura, ultima_corrida
+                            (dias en que el SONDEO estuvo caido: ver resumen_cobertura)
 
 La columna "vista" dice COMO se atribuyo el conector, y hay una fila por cada
 una de las tres formas (ver el docstring de sondear.py):
@@ -52,6 +54,8 @@ DIR_EVENTOS = DIR_DATA / "eventos"
 ARCHIVO_CATALOGO = DIR_DATA / "catalogo.csv"
 SALIDA_DIARIO = DIR_DATA / "resumen_diario.csv"
 SALIDA_PARQUE = DIR_DATA / "resumen_parque.csv"
+ARCHIVO_CORRIDAS = DIR_DATA / "corridas.csv"
+SALIDA_COBERTURA = DIR_DATA / "cobertura_diaria.csv"
 
 
 def num(v, default=0.0) -> float:
@@ -140,6 +144,83 @@ def resumen_parque() -> list[dict]:
     return filas
 
 
+# Un hueco entre dos corridas exitosas menor a esto es normal (el sondeo corre cada 1-5 min) y no se registra.
+HUECO_MIN_REGISTRO_MIN = 15
+_cache_fecha_hora: dict[int, str] = {}
+
+
+def _fecha_de_hora_utc(k: int) -> str:
+    """Hora UTC absoluta k (segundos / 3600) -> fecha en hora de Chile. Chile siempre tiene horas enteras de
+    diferencia con UTC, asi que la fecha de cualquier instante depende solo de su hora UTC."""
+    f = _cache_fecha_hora.get(k)
+    if f is None:
+        dt = datetime.fromtimestamp(k * 3600, timezone.utc)
+        f = _cache_fecha_hora[k] = (dt.astimezone(TZ_CHILE) if TZ_CHILE is not None else dt).date().isoformat()
+    return f
+
+
+def resumen_cobertura(filas_corridas: list[dict], ahora: datetime | None = None) -> list[dict]:
+    """Dias (fecha en hora de Chile) en que el SONDEO tuvo huecos entre corridas, para que el visor pueda excluir los
+    dias con caidas sin bajar corridas.csv completo (crece una fila por corrida: ~1.400 al dia).
+
+    Una "caida" es un hueco entre dos corridas EXITOSAS (ok = 1) seguidas. Se mide el tiempo seguido sin mirar y no la
+    cantidad de corridas por dia, porque el ritmo del sondeo cambio (cada 5 min hasta el 6-nov-2026, cada minuto desde el 7).
+
+    Por cada dia que toca un hueco de HUECO_MIN_REGISTRO_MIN minutos o mas se guarda:
+      hueco_max_min      el hueco COMPLETO mas largo que toca ese dia (un hueco de 70 min que cruza la medianoche, 50 + 20,
+                         es de 70 min para los dos dias), incluido el dia en que el sondeo se reanuda aunque el hueco apenas
+                         lo roce: ahi llega de golpe la rafaga de cambios acumulados.
+      min_sin_cobertura  minutos de ese dia que caen dentro de huecos (solo informativo)
+      ultima_corrida     la ultima corrida exitosa (igual en todas las filas), solo informativo.
+    Una caida que sigue en curso al generar el archivo tambien cuenta: se mide de la ultima corrida a `ahora` (por defecto, la
+    hora actual). El visor NO extrapola mas alla: el archivo se regenera cada 30 min y puede llegar atrasado, y asumir que el
+    sondeo sigue caido desde entonces marcaria dias sanos como caidos.
+    Siempre incluye el dia de la ultima corrida (con 0 si no tuvo huecos), para que ultima_corrida nunca se pierda.
+    """
+    marcas = []
+    for f in filas_corridas:
+        if f.get("ok") != "1":
+            continue
+        try:
+            dt = datetime.fromisoformat(f.get("timestamp") or "")
+        except ValueError:
+            continue
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        marcas.append(dt.timestamp())
+    if not marcas:
+        return []
+    marcas.sort()
+    ultima = marcas[-1]
+    hasta_ahora = (ahora or datetime.now(timezone.utc)).timestamp()
+    puntos = marcas + [hasta_ahora] if hasta_ahora > ultima else marcas     # el ultimo "hueco" es ultima corrida -> ahora
+    dias: dict[str, dict] = {}
+
+    def dia(fecha: str) -> dict:
+        return dias.setdefault(fecha, {"hueco_max_min": 0.0, "min_sin_cobertura": 0.0})
+
+    for a, b in zip(puntos, puntos[1:]):
+        hueco = (b - a) / 60
+        if hueco < HUECO_MIN_REGISTRO_MIN:
+            continue
+        por_dia: dict[str, float] = defaultdict(float)
+        k = int(a // 3600)
+        while k * 3600 < b:
+            por_dia[_fecha_de_hora_utc(k)] += (min(b, (k + 1) * 3600) - max(a, k * 3600)) / 60
+            k += 1
+        por_dia[_fecha_de_hora_utc(int(b // 3600))] += 0.0       # el dia en que se reanuda tambien cuenta
+        for fecha, minutos in por_dia.items():
+            d = dia(fecha)
+            d["hueco_max_min"] = max(d["hueco_max_min"], hueco)
+            d["min_sin_cobertura"] += minutos
+
+    dia(_fecha_de_hora_utc(int(ultima // 3600)))
+    iso = datetime.fromtimestamp(ultima, timezone.utc).isoformat(timespec="seconds")
+    return [{"fecha": f, "hueco_max_min": round(d["hueco_max_min"], 2),
+             "min_sin_cobertura": round(d["min_sin_cobertura"], 2), "ultima_corrida": iso}
+            for f, d in sorted(dias.items())]
+
+
 def escribir(ruta: Path, columnas: list[str], filas: list[dict]) -> None:
     ruta.parent.mkdir(parents=True, exist_ok=True)
     with ruta.open("w", encoding="utf-8", newline="") as f:
@@ -161,6 +242,8 @@ def main() -> int:
              ["vista", "fecha", "empresa", "tramo_potencia", "power_type", "transacciones"], diario)
     escribir(SALIDA_PARQUE,
              ["vista", "empresa", "power_type", "sitios", "conectores", "kw"], parque)
+    cobertura = resumen_cobertura(leer_csv(ARCHIVO_CORRIDAS))
+    escribir(SALIDA_COBERTURA, ["fecha", "hueco_max_min", "min_sin_cobertura", "ultima_corrida"], cobertura)
 
     # Los totales de abajo usan solo la fila power_type="" (el total AC+DC) para
     # no contar cada transaccion/conector tres veces (total + AC + DC).
@@ -171,6 +254,9 @@ def main() -> int:
         n = sum(r["conectores"] for r in parque if r["vista"] == v and r["power_type"] == "")
         emp = len([r for r in parque if r["vista"] == v and r["power_type"] == ""])
         print(f"  vista {v:6}: {emp:3} empresas, {n} conectores activos")
+    con_caida = [r["fecha"] for r in cobertura if r["hueco_max_min"] >= 60]
+    print(f"cobertura_diaria.csv: {len(cobertura)} dias con huecos o ultima corrida; "
+          f"dias con caidas de 60 min o mas: {', '.join(con_caida) or 'ninguno'}")
     return 0
 
 
