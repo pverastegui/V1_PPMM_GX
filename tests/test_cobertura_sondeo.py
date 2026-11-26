@@ -94,6 +94,36 @@ def test_actualizar_de_a_una_corrida_da_lo_mismo_que_reconstruir_todo():
           f"({len(leer(ruta_cob))} dias en el archivo)")
 
 
+def test_el_paso_tiene_un_tope_de_tiempo_y_el_sondeo_no_se_entera():
+    """Si por una situacion extrana el paso se pasa de su presupuesto, se corta con un aviso: nunca retiene al sondeo."""
+    original, presupuesto = cobertura.actualizar_cobertura, cobertura.PRESUPUESTO_SEG
+    try:
+        d = Path("/tmp/pruebas_cobertura_8"); d.mkdir(exist_ok=True)
+        ruta_cob, ruta_corr = d / "cobertura_diaria.csv", d / "corridas.csv"
+        ruta_cob.unlink(missing_ok=True)
+        correr([T0 + timedelta(minutes=i * 20) for i in range(3000)], ruta_cob, ruta_corr, cada=10 ** 9)   # 3000 huecos de 20 min, sin actualizar
+        ruta_cob.unlink(missing_ok=True)
+        cobertura.PRESUPUESTO_SEG = 0.0                         # presupuesto agotado desde el primer instante
+        try:
+            cobertura.actualizar_cobertura(ruta_cob, ruta_corr)
+            raise AssertionError("debia cortarse por tiempo")
+        except TimeoutError as exc:
+            assert "se corta para no retener al sondeo" in str(exc)
+        assert not ruta_cob.exists() and cobertura._limite is None, "no deja nada a medias y el tope se desactiva"
+        # dentro del sondeo: solo avisa, el resultado no cambia
+        base = Path("/tmp/pruebas_cobertura_8b"); entorno_limpio(base)
+        (base / "data" / "corridas.csv").write_text(ruta_corr.read_text(encoding="utf-8"), encoding="utf-8")   # historial largo: la 1.a corrida debe reconstruir
+        codigos, err = correr_main(MINUTOS, datos_del_minuto, parche_cobertura=original)
+        assert codigos == [0] * len(MINUTOS) and "AVISO: no se pudo actualizar la cobertura" in err and "TimeoutError" in err
+        assert [c["ok"] for c in leer(base / "data" / "corridas.csv")][-len(MINUTOS):] == ["1"] * len(MINUTOS), "ninguna corrida fallida de mas"
+        cobertura.PRESUPUESTO_SEG = presupuesto
+        assert cobertura.actualizar_cobertura(ruta_cob, ruta_corr) == "reconstruida", "con el presupuesto normal funciona"
+        print("OK: el paso tiene un tope de tiempo: si se pasa se corta con un aviso y el sondeo sigue igual")
+    finally:
+        cobertura.PRESUPUESTO_SEG = presupuesto; cobertura._limite = None; cobertura.actualizar_cobertura = original
+        importlib.reload(sondear)
+
+
 def test_el_archivo_no_crece_con_dias_sanos():
     """Solo quedan los dias con huecos y el dia de la ultima corrida: un sondeo sano durante 5 dias no agrega 5 filas."""
     d = Path("/tmp/pruebas_cobertura_2b"); d.mkdir(exist_ok=True)

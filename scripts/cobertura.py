@@ -25,6 +25,7 @@ from __future__ import annotations
 import csv
 import os
 import re
+import time
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -39,6 +40,17 @@ except Exception:  # pragma: no cover - si falta la base de datos de zonas
 HUECO_MIN_REGISTRO_MIN = 15
 COLUMNAS = ["fecha", "hueco_max_min", "min_sin_cobertura", "ultima_corrida"]
 _cache_fecha_hora: dict[int, str] = {}
+
+# Tope de tiempo del paso que corre dentro del sondeo (actualizar_cobertura): normalmente tarda ~1 ms (0,2 s si hay que reconstruir
+# todo). Si por una situacion extrana se pasa de esto, se corta con TimeoutError, que sondear.py atrapa y solo avisa: el paso nunca
+# puede retener al sondeo (las corridas siguientes esperan a que termine la anterior).
+PRESUPUESTO_SEG = 10.0
+_limite: float | None = None
+
+
+def _vigilar() -> None:
+    if _limite is not None and time.monotonic() > _limite:
+        raise TimeoutError(f"la cobertura tardo mas de {PRESUPUESTO_SEG:g} s; se corta para no retener al sondeo")
 
 
 def fecha_de_hora_utc(k: int) -> str:
@@ -66,6 +78,8 @@ def anotar_hueco(dias: dict, a: float, b: float) -> None:
     while k * 3600 < b:
         por_dia[fecha_de_hora_utc(k)] += (min(b, (k + 1) * 3600) - max(a, k * 3600)) / 60
         k += 1
+        if k % 512 == 0:
+            _vigilar()
     por_dia[fecha_de_hora_utc(int(b // 3600))] += 0.0       # el dia en que se reanuda tambien cuenta
     for fecha, minutos in por_dia.items():
         d = dias.setdefault(fecha, {"hueco_max_min": 0.0, "min_sin_cobertura": 0.0})
@@ -110,8 +124,10 @@ def resumen_cobertura(filas_corridas: list[dict], ahora: datetime | None = None)
     hasta_ahora = (ahora or datetime.now(timezone.utc)).timestamp()
     puntos = marcas + [hasta_ahora] if hasta_ahora > ultima else marcas     # el ultimo "hueco" es ultima corrida -> ahora
     dias: dict[str, dict] = {}
-    for a, b in zip(puntos, puntos[1:]):
+    for i, (a, b) in enumerate(zip(puntos, puntos[1:])):
         anotar_hueco(dias, a, b)
+        if i % 512 == 0:
+            _vigilar()
     _asegurar_dia(dias, ultima)
     return _filas(dias, ultima)
 
@@ -185,8 +201,17 @@ def actualizar_cobertura(ruta_cobertura: Path, ruta_corridas: Path, exigir_zona:
     corridas.csv). Si el archivo no existe, no se puede leer, o no esta al dia con corridas.csv (por ejemplo porque este paso
     fallo en alguna corrida anterior), lo reconstruye entero: se corrige solo, sin dejar huecos falsos.
     Devuelve 'sin corridas', 'sin cambios', 'incremental' o 'reconstruida'."""
+    global _limite
     if exigir_zona and TZ_CHILE is None:
         raise RuntimeError("no hay base de datos de zonas horarias (instalar tzdata): las fechas saldrian en UTC")
+    _limite = time.monotonic() + PRESUPUESTO_SEG
+    try:
+        return _actualizar(ruta_cobertura, ruta_corridas)
+    finally:
+        _limite = None
+
+
+def _actualizar(ruta_cobertura: Path, ruta_corridas: Path) -> str:
     if not ruta_corridas.exists():
         return "sin corridas"
     marcas = ultimas_corridas_ok(ruta_corridas, 2)
