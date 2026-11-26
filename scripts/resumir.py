@@ -159,7 +159,7 @@ def _fecha_de_hora_utc(k: int) -> str:
     return f
 
 
-def resumen_cobertura(filas_corridas: list[dict]) -> list[dict]:
+def resumen_cobertura(filas_corridas: list[dict], ahora: datetime | None = None) -> list[dict]:
     """Dias (fecha en hora de Chile) en que el SONDEO tuvo huecos entre corridas, para que el visor pueda excluir los
     dias con caidas sin bajar corridas.csv completo (crece una fila por corrida: ~1.400 al dia).
 
@@ -171,8 +171,10 @@ def resumen_cobertura(filas_corridas: list[dict]) -> list[dict]:
                          es de 70 min para los dos dias), incluido el dia en que el sondeo se reanuda aunque el hueco apenas
                          lo roce: ahi llega de golpe la rafaga de cambios acumulados.
       min_sin_cobertura  minutos de ese dia que caen dentro de huecos (solo informativo)
-      ultima_corrida     la ultima corrida exitosa (igual en todas las filas): con ella el visor suma la caida que sigue
-                         ocurriendo ahora (de la ultima corrida a la hora actual) sin bajar nada mas.
+      ultima_corrida     la ultima corrida exitosa (igual en todas las filas), solo informativo.
+    Una caida que sigue en curso al generar el archivo tambien cuenta: se mide de la ultima corrida a `ahora` (por defecto, la
+    hora actual). El visor NO extrapola mas alla: el archivo se regenera cada 30 min y puede llegar atrasado, y asumir que el
+    sondeo sigue caido desde entonces marcaria dias sanos como caidos.
     Siempre incluye el dia de la ultima corrida (con 0 si no tuvo huecos), para que ultima_corrida nunca se pierda.
     """
     marcas = []
@@ -189,12 +191,15 @@ def resumen_cobertura(filas_corridas: list[dict]) -> list[dict]:
     if not marcas:
         return []
     marcas.sort()
+    ultima = marcas[-1]
+    hasta_ahora = (ahora or datetime.now(timezone.utc)).timestamp()
+    puntos = marcas + [hasta_ahora] if hasta_ahora > ultima else marcas     # el ultimo "hueco" es ultima corrida -> ahora
     dias: dict[str, dict] = {}
 
     def dia(fecha: str) -> dict:
         return dias.setdefault(fecha, {"hueco_max_min": 0.0, "min_sin_cobertura": 0.0})
 
-    for a, b in zip(marcas, marcas[1:]):
+    for a, b in zip(puntos, puntos[1:]):
         hueco = (b - a) / 60
         if hueco < HUECO_MIN_REGISTRO_MIN:
             continue
@@ -209,7 +214,6 @@ def resumen_cobertura(filas_corridas: list[dict]) -> list[dict]:
             d["hueco_max_min"] = max(d["hueco_max_min"], hueco)
             d["min_sin_cobertura"] += minutos
 
-    ultima = marcas[-1]
     dia(_fecha_de_hora_utc(int(ultima // 3600)))
     iso = datetime.fromtimestamp(ultima, timezone.utc).isoformat(timespec="seconds")
     return [{"fecha": f, "hueco_max_min": round(d["hueco_max_min"], 2),
