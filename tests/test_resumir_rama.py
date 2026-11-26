@@ -1,7 +1,7 @@
 """
 Prueba del paso "Guardar los resumenes en la rama resumen" de resumir.yml, sin red: se ejecuta el MISMO
 script que corre el workflow contra un repo "remoto" local, y se comprueba que:
-  - la rama `resumen` queda huerfana (1 commit) con SOLO los 2 archivos de resumen,
+  - la rama `resumen` queda huerfana (1 commit) con SOLO los 3 archivos de resumen (diario, parque y cobertura),
   - `main` del remoto no se toca (ni se pierde un commit del sondeo hecho en paralelo),
   - si no hay cambios no se vuelve a publicar nada,
   - si cambian, la rama se reemplaza sin crecer el historial,
@@ -70,19 +70,20 @@ def main():
         (priv / "data").mkdir(exist_ok=True)
         (priv / "data" / "resumen_diario.csv").write_text("vista,fecha,empresa\nopc,2026-11-02,X\n")
         (priv / "data" / "resumen_parque.csv").write_text("vista,empresa\nopc,X\n")
+        (priv / "data" / "cobertura_diaria.csv").write_text("fecha,hueco_max_min\n2026-11-02,0\n")
         main_antes = git(remoto, "rev-parse", "main")
 
         # 1) primera publicacion
         r = correr_paso(priv, tmp)
         assert r.returncode == 0, r.stderr
         archivos = git(remoto, "ls-tree", "-r", "--name-only", "resumen").splitlines()
-        assert archivos == ["data/resumen_diario.csv", "data/resumen_parque.csv"], archivos
+        assert archivos == ["data/cobertura_diaria.csv", "data/resumen_diario.csv", "data/resumen_parque.csv"], archivos
         assert git(remoto, "rev-list", "--count", "resumen") == "1"
         assert git(remoto, "rev-list", "--parents", "-n", "1", "resumen").split() == [git(remoto, "rev-parse", "resumen")], \
             "la rama debe ser huerfana (commit sin padre)"
         assert git(remoto, "rev-parse", "main") == main_antes, "main no debe tocarse"
         assert git(priv, "diff", "--cached", "--name-only") == "", "el indice real del checkout no debe tocarse"
-        print("OK: 1.a publicacion -> rama resumen huerfana, solo los 2 archivos, main intacto")
+        print("OK: 1.a publicacion -> rama resumen huerfana, solo los 3 archivos, main intacto")
 
         # 2) sin cambios: no publica de nuevo
         h1 = git(remoto, "rev-parse", "resumen")

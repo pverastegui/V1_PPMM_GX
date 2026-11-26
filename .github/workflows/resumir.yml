@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name "cargadores-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/resumen_diario.csv data/resumen_parque.csv
+          git add data/resumen_diario.csv data/resumen_parque.csv data/cobertura_diaria.csv
           if git diff --cached --quiet; then
             echo "Sin cambios en los resumenes."
           else
@@ -60,8 +60,8 @@ jobs:
       # se pierde y sus cambios quedan registrados en la siguiente, hasta 5 minutos tarde. Con una rama
       # propia, ningun push de este job puede competir con el del sondeo (ni con limpiar.yml).
       #
-      # Como: la rama es HUERFANA (un solo commit, solo con los 2 archivos de resumen) y se reemplaza en
-      # cada corrida con --force. Es un dato derivado y descartable: no crece el historial y no hay
+      # Como: la rama es HUERFANA (un solo commit, solo con los archivos de resumen) y se reemplaza en
+      # cada corrida con --force (ahora con 3 archivos: los 2 resumenes y cobertura_diaria.csv). Es un dato derivado y descartable: no crece el historial y no hay
       # conflictos que resolver. El commit se arma con un indice temporal, asi no se toca el arbol de
       # trabajo (que incluye los snapshots) ni main. El visor la lee con ?ref=resumen. La compactacion
       # mensual (compactar_privado.yml) solo reescribe main y no la afecta.
@@ -72,10 +72,10 @@ jobs:
           git config user.name "cargadores-bot"
           git config user.email "actions@users.noreply.github.com"
 
-          # Indice temporal vacio: solo contendra los 2 archivos de resumen.
+          # Indice temporal vacio: solo contendra los archivos de resumen.
           export GIT_INDEX_FILE="${RUNNER_TEMP:-/tmp}/indice_resumen"
           rm -f "$GIT_INDEX_FILE"
-          git add data/resumen_diario.csv data/resumen_parque.csv
+          git add data/resumen_diario.csv data/resumen_parque.csv data/cobertura_diaria.csv
           ARBOL=$(git write-tree)
 
           # Si la rama ya tiene exactamente estos archivos, no hay nada que guardar.
